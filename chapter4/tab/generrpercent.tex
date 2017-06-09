@@ -1,0 +1,97 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[tbp]
+\Caption{Measured genotype penetrance in sequencing and genotyping data}
+{Genotypes in each true genotype class ($g_0$, $g_1$, and $g_2$) were distinguished by observed genotype class ($\tilde{g}_0$, $\tilde{g}_1$, and $\tilde{g}_2$), to obtain empirical expectations for genotype penetrances $\varepsilon_{ij}$.
+Per dataset, proportions sum to 100\% by column.
+The total number of genotypes counted per true class are given in the table.}
+{tab:generrpercent}
+\centering
+\begin{threeparttable}
+\renewcommand{\arraystretch}{1.1}%
+\begin{tabular}{lcrrr}
+\toprule
+ Dataset & Observed genotype & \multicolumn{3}{c}{True genotype} \\ \cmidrule(lr){3-5}
+ & & \multicolumn{1}{c}{$g_0$} & \multicolumn{1}{c}{$g_1$} & \multicolumn{1}{c}{$g_2$} \\ \midrule
+\textbf{1000G.A}
+& $\tilde{g}_0$ & 99.942\% &  0.550\% &  0.033\% \\
+& $\tilde{g}_1$ &  0.041\% & 99.281\% &  0.228\% \\
+& $\tilde{g}_2$ &  0.017\% &  0.169\% & 99.739\% \\ \cmidrule(lr){2-5}
+& \emph{Total} & \num{73435064} & \num{2076115} & \num{1347647} \\ \midrule
+\textbf{1000G.B}
+& $\tilde{g}_0$ & 99.982\% &  0.193\% &  0.003\% \\
+& $\tilde{g}_1$ &  0.013\% & 99.749\% &  0.077\% \\
+& $\tilde{g}_2$ &  0.005\% &  0.057\% & 99.920\% \\ \cmidrule(lr){2-5}
+& \emph{Total} & \num{56739327} & \num{1515508} & \num{978728} \\ \midrule
+\textbf{Omni2.5}
+& $\tilde{g}_0$ & 98.349\% &  0.110\% &  0.011\% \\
+& $\tilde{g}_1$ &  0.869\% & 99.838\% &  0.021\% \\
+& $\tilde{g}_2$ &  0.782\% &  0.052\% & 99.968\% \\ \cmidrule(lr){2-5}
+& \emph{Total} & \num{3087037} & \num{854327} & \num{522876} \\ \midrule
+\textbf{Affy6.0}
+& $\tilde{g}_0$ & 99.786\% &  0.081\% &  0.004\% \\
+& $\tilde{g}_1$ &  0.116\% & 99.849\% &  0.040\% \\
+& $\tilde{g}_2$ &  0.098\% &  0.071\% & 99.956\% \\ \cmidrule(lr){2-5}
+& \emph{Total} &  \num{931857} & \num{463649} & \num{337649} \\ \bottomrule
+\end{tabular}
+
+
+% \begin{tabular}{@{}crrrrrrrr@{}}
+% \toprule
+% \multicolumn{2}{c}{} & \multicolumn{3}{c}{Confident} & \multicolumn{1}{c}{} & \multicolumn{3}{c}{Strictly confident} \\
+% \cmidrule(lr){3-5} \cmidrule(l){7-9}
+% \multicolumn{2}{c}{} & \multicolumn{1}{c}{$g_0$} & \multicolumn{1}{c}{$g_1$} & \multicolumn{1}{c}{$g_2$} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{$g_0$} & \multicolumn{1}{c}{$g_1$} & \multicolumn{1}{c}{$g_2$} \\
+% \midrule
+% \multicolumn{9}{@{}l}{\textbf{1000G}} \\
+% $\tilde{g}_0$ &
+% & 99.942\% &  0.550\% &  0.033\% &
+% & 99.982\% &  0.193\% &  0.003\% \\
+% $\tilde{g}_1$ &
+% &  0.041\% & 99.281\% &  0.228\% &
+% &  0.013\% & 99.749\% &  0.077\% \\
+% $\tilde{g}_2$ &
+% &  0.017\% &  0.169\% & 99.739\% &
+% &  0.005\% &  0.057\% & 99.920\% \\
+% \cmidrule(lr){3-5} \cmidrule(l){7-9}
+% Total &
+% & \num{73435064} & \num{2076115} & \num{1347647} &
+% & \num{56739327} & \num{1515508} & \num{978728} \\
+% \midrule
+% \multicolumn{9}{@{}l}{\textbf{Omni2.5}} \\
+% $\tilde{g}_0$ &
+% & 98.349\% &  0.110\% &  0.011\% &
+% & 99.102\% &  0.053\% &  0.006\% \\
+% $\tilde{g}_1$ &
+% &  0.869\% & 99.838\% &  0.021\% &
+% &  0.486\% & 99.917\% &  0.016\% \\
+% $\tilde{g}_2$ &
+% &  0.782\% &  0.052\% & 99.968\% &
+% &  0.412\% &  0.030\% & 99.977\% \\
+% \cmidrule(lr){3-5} \cmidrule(l){7-9}
+% Total &
+% & \num{3087037} & \num{854327} & \num{522876} &
+% & \num{2829681} & \num{797011} & \num{484441} \\
+% \midrule
+% \multicolumn{9}{@{}l}{\textbf{Affy6.0}} \\
+% $\tilde{g}_0$ &
+% & 99.786\% &  0.081\% &  0.004\% &
+% & 99.859\% &  0.076\% &  0.002\% \\
+% $\tilde{g}_1$ &
+% &  0.116\% & 99.849\% &  0.040\% &
+% &  0.079\% & 99.858\% &  0.037\% \\
+% $\tilde{g}_2$ &
+% &  0.098\% &  0.071\% & 99.956\% &
+% &  0.062\% &  0.065\% & 99.961\% \\
+% \cmidrule(lr){3-5} \cmidrule(l){7-9}
+% Total &
+% & \num{931857} & \num{463649} & \num{337649} &
+% & \num{892628} & \num{441291} & \num{317926} \\
+% \bottomrule
+% \end{tabular}
+
+\begin{tablenotes}[para]\footnotesize
+Note that true genotypes homozygous for the reference allele, $g_0$, were not present in \gls{ipg} and assumed from high-confidence regions if present in a given test dataset.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

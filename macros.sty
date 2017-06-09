@@ -1,0 +1,220 @@
+
+
+% page references
+\renewcommand\reftextcurrent   {this~page}
+\renewcommand\reftextfaceafter {next~page} %{page~\thevpagerefnum}
+\renewcommand\reftextfacebefore{previous~page} %{page~\thevpagerefnum}
+\renewcommand\reftextafter     {next~page} %{page~\thevpagerefnum}
+\renewcommand\reftextbefore    {previous~page} %{page~\thevpagerefnum}
+\def\reftextfaraway#1{page~\pageref{#1}}
+
+\newcommand{\creflastconjunction}{, and\nobreakspace}
+
+\newcommand{\pref}[1]{\vpageref{#1}}
+\newcommand{\Pref}[1]{\Vpageref{#1}}
+
+\newcommand{\cpref}[1]{\cref{#1} (\vpageref{#1})}
+\newcommand{\Cpref}[1]{\Cref{#1} (\vpageref{#1})}
+\newcommand{\ctref}[1]{\cref{#1} on \vpageref{#1}}
+\newcommand{\Ctref}[1]{\Cref{#1} on \vpageref{#1}}
+\newcommand{\ccref}[1]{\cref{#1}, \vpageref{#1}}
+\newcommand{\Ccref}[1]{\Cref{#1}, \vpageref{#1}}
+
+
+% units
+\DeclareSIUnit\morgan{M}
+\DeclareSIUnit\basepair{b}
+
+
+% table format
+\def\TableUnits{%
+\sisetup{
+		tight-spacing           = true,
+		group-digits            = true,
+		detect-inline-weight    = math,
+		input-signs             = ,
+		input-symbols           = ,
+		input-open-uncertainty  = ,
+		input-close-uncertainty = ,
+		table-align-text-pre    = false,
+		round-mode              = places,
+		round-precision         = 3,
+		table-space-text-pre    = (,
+		table-space-text-post   = ),
+	}%
+}
+
+% non-table format
+\def\DefaultUnits{
+\sisetup{%
+		round-mode              = places,
+		round-precision         = 3,
+		detect-weight           = true,
+		detect-inline-weight    = math,
+		input-signs             ={+-\pm\mp},
+		input-symbols           ={\pi\dots},
+		input-open-uncertainty  ={(},
+		input-close-uncertainty ={)},
+		tight-spacing           = false,
+		table-align-text-pre    = true,
+		table-space-text-pre    ={},
+		table-space-text-post   ={},
+		list-final-separator    = {, and }
+		}%
+}
+
+
+% to report values:
+
+\newcommand{\val}[1]{%
+\num[round-mode=off]{#1}%
+}
+
+\newcommand{\Percent}[1]{%
+\SI[round-mode=figures,round-precision=3]{#1}{\percent}%
+}
+
+\newcommand{\Value}[1]{%
+\num[round-mode=figures,round-precision=3]{#1}%
+}
+
+\newcommand{\MeanPercent}[2]{%
+\ensuremath{%
+\SI[round-mode=figures,round-precision=3]{#1}{\percent}\ %
+{(\pm\SI[round-mode=figures,round-precision=3,tight-spacing=true]{#2}{\percent}\,
+\text{SE})}%
+}}
+
+\newcommand{\MeanValue}[2]{%
+\ensuremath{%
+\num[round-mode=figures,round-precision=3,group-digits=false]{#1}\ %
+{(\pm\num[round-mode=figures,round-precision=3,group-digits=false,tight-spacing=true]{#2}\,\text{SE})}%
+}}
+
+
+% definitions (constant! do not change style)
+\def\pvalue{\mbox{$p$-value}\xspace}
+\def\pvalues{\mbox{$p$-values}\xspace}
+\def\cpp{\texthv{\smaller C\texttt{\larger++}}\xspace}
+\def\tmrca{{T\textsubscript{\smaller{MRCA}}}\xspace}
+
+
+
+% indicate gap/missing value
+\newcommand{\gap}{\ensuremath{\textbf{??}}\xspace}
+\newcommand{\Gap}{\ensuremath{\textbf{[???]}}\xspace}
+
+
+% scientific format
+\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+% round decimal
+\newcommand{\dec}[1]{\num[round-mode=places,round-precision=3]{#1}}
+
+
+% Roman numeral
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+% Helvetica text
+\newcommand*{\helvetica}{\fontfamily{phv}\selectfont}
+\newenvironment{helvet}{\helvetica}{\par}
+\DeclareTextFontCommand{\texthv}{\helvetica}
+
+
+% raised fraction
+% \newcommand{\rfrac}[2]%
+% {%
+% \raisebox{0.2em}{\smaller\ensuremath{#1}}%
+% /\mkern-2mu%
+% \raisebox{-0.2em}{\smaller\ensuremath{#2}}%
+% }
+\newcommand{\rfrac}[2]%
+{\large%
+\sfrac{#1}{#2}%
+}
+
+% fk notation
+\newcommand{\fk}[1]{%
+\ifthenelse{\equal{#1}{}}{%
+\ensuremath{\mathrm{f}_{k}}%
+}{%
+\ensuremath{\mathrm{f}_{#1}}%
+}%
+}
+
+% Effective population size, Ne
+\newcommand{\Ne}{\ensuremath{N_{\!e}}\xspace}
+
+
+% Euler's number
+\newcommand{\euler}[1]{\ensuremath{\,\mathrm{e}^{#1}}}
+
+
+% clocks
+\newcommand{\ClockM}{\ensuremath{\mathcal{T_{\!\!M}}}\xspace}
+\newcommand{\ClockR}{\ensuremath{\mathcal{T_{\!R}}}\xspace}
+\newcommand{\ClockC}{\ensuremath{\mathcal{T_{\!\!M\!R}}}\xspace}
+
+
+
+% date of last access
+% \newcommand{\accessed}[3]{\mbox{\texttt{[}{\relscale{0.9} \textsl{Date~accessed:~#1-#2-#3}}\texttt{]}}}
+\newcommand{\accessed}[3]{\mbox{\texttt{[\relscale{0.9}{Date~accessed:\,#1-#2-#3}}]}}
+
+
+% Convert number to word, as needed
+\newcommand{\n}[1]{\ifthenelse{#1<10}{\numberstringnum{#1}}{\num{#1}}}
+\newcommand{\N}[1]{\ifthenelse{#1<10}{\Numberstringnum{#1}}{\num{#1}}}
+
+
+% Labelled caption
+\newcommand{\Caption}[3]{%
+	\small%
+	\caption[#1]{\textbf{#1.} #2}% title, description
+	\label{#3}% label
+}
+
+
+
+% Chapter quote
+\newcommand{\topquote}[3][10cm]
+{
+	\begin{savequote}[#1]\singlespacing
+	#2
+	\qauthor{--- #3}
+	\end{savequote}
+}
+
+
+% Highlight for corrections
+\usepackage[normalem]{ulem} % use normalem to protect \emph
+\newcommand\correct{\bgroup\markoverwith
+	{\textcolor{blue!20}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
+
+
+% 'approach' enumeration
+\newlist{approach}{enumerate}{1}
+\setlist[approach]{label=(\alph*)}
+\crefname{approachi}{Approach}{Approaches}
+\Crefname{approachi}{Approach}{Approaches}
+
+% 'approach' enumeration, one line
+\newlist{approach_}{enumerate*}{1}
+\setlist[approach_]{label=(\alph*)}
+\crefname{approach_i}{Approach}{Approaches}
+\Crefname{approach_i}{Approach}{Approaches}
+
+% 'case' enumeration
+\newlist{case}{enumerate}{1}
+\setlist[case]{label=(\alph*)}
+\crefname{casei}{Case}{Cases}
+\Crefname{casei}{Case}{Cases}
+
+
+% array columns
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash$}p{#1}<{$}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash$}p{#1}<{$}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash$}p{#1}<{$}}

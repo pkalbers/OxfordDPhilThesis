@@ -1,0 +1,32 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Conflicted estimates in analyses before and after error}
+{}
+{tab:stats_conflicts}
+\centering
+\begin{threeparttable}
+\begin{tabular}{l*6{S[table-format=2.3]}}
+\toprule
+ Method &
+ \multicolumn{3}{c}{Conflicts before error (\%)} &
+ \multicolumn{3}{c}{Conflicts after error (\%)} \\
+\cmidrule(lr){2-4}
+\cmidrule(lr){5-7}
+  &  {\ClockM} & {\ClockR} & {\ClockC}  &  {\ClockM} & {\ClockR} & {\ClockC} \\
+\otoprule
+FGT*       &   6.396224 & 0.000000 & 3.695150  &   5.131037 & 0.140576 & 2.188974 \\
+FGT**      &   6.587006 & 0.421729 & 4.387990  &   4.940255 & 0.341399 & 3.122803 \\
+DGT        &  10.944874 & 0.160658 & 8.384375  &   5.211366 & 1.767245 & 3.956220 \\
+HMM        &   5.884124 & 0.391605 & 4.418114  &  13.334672 & 0.823375 & 9.267998 \\
+\cmidrule(lr){1-7}
+True IBD   &   0.000000 & 0.000000 & 0.000000  &   9.583101 & 0.000000 & 1.030332 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+	\item[{${\ast}$}] ~ FGT applied to true haplotypes
+	\item[{${\ast\ast}$}] ~ FGT applied to phased haplotypes
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

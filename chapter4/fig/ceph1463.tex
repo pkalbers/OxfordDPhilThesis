@@ -1,0 +1,80 @@
+%!TEX root = ../../main.tex
+
+
+\begin{figure}[!htb]
+\centering
+\vspace{5pt}
+\begin{tikzpicture}[-,auto,thick,font=\sffamily\footnotesize,
+F/.style={circle,draw,fill=white,ultra thick,minimum size=4mm,outer sep=3pt},
+M/.style={rectangle,draw,fill=white,ultra thick,minimum size=4mm,outer sep=3pt},
+mate/.style={cross out,draw=black,minimum size=2mm,inner sep=0pt,outer sep=0pt}]
+
+\newcommand{\springoff}[2]{
+\draw[-,rounded corners=5pt] (#1.south) |- (#2);
+}
+\newcommand{\offspring}[2]{
+\path (#1) -- (#2.north) coordinate[pos=0.5] (mid);
+\draw[-,rounded corners=3pt] (#1) |- (mid) -| (#2.north);
+}
+
+\node[M,fill=Ivory2] (a) at (3.25,4) {};
+\node[mate]  at (4.00,4) {};
+\node[F,fill=Ivory2] (b) at (4.75,4) {};
+\node[M,fill=Ivory2] (c) at (6.25,4) {};
+\node[mate]  at (7.00,4) {};
+\node[F,fill=Ivory2] (d) at (7.75,4) {};
+
+\coordinate (A) at (4,3.5);
+\coordinate (B) at (7,3.5);
+
+\node[M,fill=Chocolate3,label={left:NA12877}] (77) at (4,2.5) {};
+\node[mate] at (5.5,2.5) {};
+\node[F,fill=Chocolate3,label={right:NA12878}] (78) at (7,2.5) {};
+
+\coordinate (P) at (5.5,2);
+
+\node[F,fill=Ivory2] (1) at (1,1) {};
+\node[F,fill=Ivory2] (2) at (2,1) {};
+\node[F,fill=Ivory2] (3) at (3,1) {};
+\node[M,fill=Ivory2] (4) at (4,1) {};
+\node[M,fill=Ivory2] (5) at (5,1) {};
+\node[M,fill=Ivory2] (6) at (6,1) {};
+\node[F,fill=Ivory2] (7) at (7,1) {};
+\node[M,fill=Ivory2] (8) at (8,1) {};
+\node[F,fill=Ivory2] (9) at (9,1) {};
+\node[M,fill=Ivory2] (10) at (10,1) {};
+\node[M,fill=Ivory2] (11) at (11,1) {};
+
+
+\springoff{a}{A}
+\springoff{b}{A}
+\draw [-] (A) to (77.north);
+
+\springoff{c}{B}
+\springoff{d}{B}
+\draw [-] (B) to (78.north);
+
+\springoff{77}{P}
+\springoff{78}{P}
+
+\offspring{P}{1}
+\offspring{P}{2}
+\offspring{P}{3}
+\offspring{P}{4}
+\offspring{P}{5}
+\offspring{P}{6}
+%\draw [-] (P) to (6.north);
+\offspring{P}{7}
+\offspring{P}{8}
+\offspring{P}{9}
+\offspring{P}{10}
+\offspring{P}{11}
+
+\end{tikzpicture}
+\vspace{5pt}
+\Caption{CEPH pedigree 1463}%
+{The pedigree of the family sequenced in the \glsentrylong{ipg}.
+Genotype data of individuals \textsf{NA12877} and \textsf{NA12878} (indicated) were used as reference against which data obtained on other genotyping or sequencing platforms were compared.
+Figure modified from \citet{Eberle:2016ki}, Figure~1.}%
+{fig:ceph1463}
+\end{figure}

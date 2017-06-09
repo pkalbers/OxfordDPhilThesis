@@ -1,0 +1,425 @@
+% !TEX root = ../main.tex
+
+\glsresetall
+
+
+\topquote[8cm]{
+Write a wise saying and your name will live forever.
+}{Anonymous}
+
+% “We will now discuss in a little more detail the Struggle for Existence.”
+%― Charles Darwin, The Origin of Species
+
+{
+\singlespacing
+\chapter{Discussion}
+\label{ch:discussion}
+\minitoc
+}
+
+
+In this thesis, I have demonstrated the value of analysing rare variants to further our understanding of recent human demographic history, in an attempt to contribute to complex disease research.
+The unique features of low-frequency and rare variants necessitate the refinement of existing methodologies, yet can yield important results.
+While the major findings of this approach have been presented and discussed in detail in the preceding chapters, I use the sections below to briefly summarise the intuition behind the methods developed and their applications.
+I further highlight some specific problems identified, together with potential solutions.
+
+
+
+%
+\section{Implications for genome-wide association studies}
+%
+
+Genotyping methods used in GWA studies are typically designed to probe genetic markers expected to maximise the genetic variation observed between individuals, thereby limiting their capacity to capture and interrogate low-frequency and rare variants.
+Consequently, imputation from a reference panel is used to predict variants at lower frequencies; however, despite constant growth in available reference datasets, each panel alone represents only a snapshot of the existing genetic variation in the human genome, and in particular, alleles observed at lower frequencies are more likely to be specific to the cohort or population investigated.
+
+I addressed this ``fragmentation'' of data in Chapter~2, where I presented \emph{meta-imputation} as a viable solution through combining information across multiple reference datasets.
+Notably, the solution I proposed differs from the one achieved by the \gls{hrc}.
+While the \gls{hrc} combined raw sequencing data from multiple independent studies to form a single, canonical reference for imputation \citep{McCarthy:2016gs}, the idea behind meta-imputation is to leverage the information contained within different studies indirectly by combining genotype data after performing separate imputations from different reference panels into a given study sample.
+The meta-imputation approach thereby provides greater flexibility, as it allows the inclusion of novel datasets.
+
+I have shown that meta-imputation of multiple reference datasets can improve the accuracy of the resulting data, and the power to detect associations in GWAS simulations.
+These improvements were limited to intermediate or high penetrance variants, and to simulated low-frequency risk alleles; negligible effects were seen for common risk variants or at very low frequencies.
+As expected, the largest improvements were achieved when data from different ethnic backgrounds were combined.
+
+Despite the demonstrated success of meta-imputation in the contexts described here, there have been other parallel advances in the field.
+In particular, the recent introduction of the \gls{hrc} imputation service has been and will continue to be a game changer, although currently only samples of European ancestry are included in the panel.
+However, meta-imputation may be more appropriate in certain applications, such as by the inclusion of a reference dataset obtained on specific populations, for which no other sources of information may exist.
+
+A caveat to the meta-imputation strategy is its reliance on imputation; it does not perform imputation by itself, and is only as reliable as the imputation methods used.
+Looking ahead, future \gls{gwa} studies may not in fact require imputation; due to ongoing advances in high-throughput sequencing technologies, it is likely that we soon reach the point when the generation of whole-genome sequencing data becomes affordable even on a large scale.
+
+
+
+% \Gls{gwa} studies by design are limited in their ability to interrogate low-frequency or rare variants.
+% Genotyping methods are typically designed to probe genetic markers that are expected to maximise the genetic variation observed between individuals, but the capacity to capture variants at lower frequencies is thereby reduced.
+% Consequently, \gls{gwa} studies rely on imputation from a reference panel to fill the gaps with variants at lower frequencies.
+% Although available reference datasets are constantly growing in number, sample size, and coverage, each panel by itself represents only a snapshot of the existing genetic variation in the human genome.
+% Alleles observed at lower frequencies are more likely to be specific to the cohort or population investigated, making it likely that they are underrepresented in other datasets such as a given reference panel.
+%
+% I addressed this ``fragmentation'' of data in Chapter~2, where I presented \emph{meta-imputation} as a viable solution to combine information across multiple reference datasets.
+% Notably, the solution I proposed is different to the one achieved by the \gls{hrc}.
+% While the \gls{hrc} combined raw sequencing data from multiple, independently conducted studies to form a single, canonical reference for imputation \citep{McCarthy:2016gs}, the idea behind meta-imputation is to leverage this information indirectly by combining genotype data after performing separate imputations from different reference panels into a given study sample.
+% The meta-imputation approach thereby provides greater flexibility with regards to the inclusion of novel datasets or reference data obtained on specific cohorts or populations, for which no other sources of information may exists.
+
+% The goal was to improve the statistical power of detecting significant association signals emanating from rare and low-frequency variants.
+% By combining data from multiple sources, it is possible to increase the coverage of variants, such that a larger number of loci can be interrogated in association analysis
+% I demonstrated that meta-imputation may improve genotype accuracy in comparison to genotype data imputed from a single reference panel.
+%
+% intermediate or high penetrance
+% However, improvements were negligible when risk variants were very low in frequency, \ie at \gls{maf}~${\leq 1}$, as it can be expected that such rare variants are generally too low in frequency to expect statistical significance in association tests.
+% On the other hand, at risk variants of high frequency (MAF~${> 5\%}$), improvements were also negligible, because
+
+% -- I have shown that meta-imputation of multiple reference datasets can improve accuracy and power \\
+% -- such improvements were limited to intermediate or high penetrance as well as simulated risk alleles occurring at low frequencies \\
+% -- negligible effects for common risk variants or when very low in frequency \\
+% -- largest improvements were seen when data from different ethnic backgrounds are combined \\
+% -- however, introduction of the imputation service of the \gls{hrc} has been a game changer \\
+% -- currently, they have European samples only \\
+% -- yet, niche applications of meta-imputation may be possible, for example [...] \\
+% -- a caveat to the meta-imputation strategy  is its reliance on imputation \\
+% -- does not perform imputation by itself \\
+% -- future GWAS may not require imputation; due to ongoing advances in high-throughput sequencing technologies, it is likely that we soon reach the point when the generation of whole-genome sequencing data becomes affordable even on a large scale \\
+
+
+
+%
+\section{The importance of haplotype sharing by descent}
+%
+
+Rare variants are particularly useful in identifying recent relatedness in samples of reportedly unrelated individuals.
+Given the site of a particular allele, it is straightforward to identify individuals sharing that allele in sample data. For rare alleles, it is likely that the chromosomes carrying that allele are the nearest genealogical neighbours in the sample at that position in the sequence.
+The low frequency suggests that the allele was inherited from a common ancestor only a few generations ago, such that recombination has had less time to break down the length of the co-inherited haplotype region.
+
+Based in this insight, in Chapter~3, I developed a method for the discovery of shared \gls{ibd} haplotypes, referred to as the \texttt{tidy} algorithm, which utilises rare variants as ``bookmarks'' to highlight the positions at which the individuals sharing a focal allele are also likely to share a relatively long haplotype that is identical by descent.
+Notably, the method presented is non-probabilistic and relies on the observation of certain allelic or genotypic configurations to infer recombination in pairs of diploid individuals.
+IBD segments can be detected using either haplotype or genotype data.
+
+In addition, I explored the viability of using IBD information obtained from genotype data to distinguish haplotypes, \ie to locally phase genotypes based on the inferred allelic sequence of the underlying shared haplotype.
+I showed that such an IBD-based phasing approach became error-prone towards the terminal ends of detected segments, due to overestimation of haplotype length.
+Nonetheless, this approach worked perfectly when the IBD information was correct.
+Future implementations of such an approach may therefore consider rare variants as anchor points around which the shared haplotype could be inferred to locally correct for flip or switch errors occurring in the phasing process.
+Nonetheless, genotype error may have negative effects on such an implementation; for example, because a focal rare allele may have been falsely typed or called (false positive), which I found was more likely towards the lower end of the allele frequency spectrum.
+
+On that note, the accuracy of data produced by current genotyping or sequencing technologies is sufficiently high at common variants, which may not pose a problem, for example, for analytical methods used in \gls{gwa} studies.
+Regardless, genotype error rates are typically seen to increase towards the lower end of the frequency spectrum.
+In practice, many studies therefore treat rare variants with caution or even exclude sites below a certain frequency threshold.
+The presence of genotype error substantially affected the IBD detection method described in Chapter~3 in two ways.
+First, it is likely that a number of rare variants were irretrievably missed while other alleles were falsely observed, thereby leading to incorrect identification of haplotype sharing at a focal position.
+This problem was compounded by genotype errors at sites surrounding the target allele, which may have led to the discovery of false breakpoints or the disregard of actual breakpoints in the IBD detection process.
+It was therefore not surprising to see spurious results in the application of this method to real data.
+
+Hence, the main goal of Chapter 4 was to establish an empirical model of frequency-dependent error rates based on observed genotype misclassification in real data, which I established from several datasets obtained on different genotyping and sequencing platforms.
+I presented a \gls{hmm} which incorporated an empirically constructed error model.
+I implemented as this approach an extension of the \texttt{tidy} algorithm for targeted IBD detection and showed that the HMM-based approach is able to achieve similar levels of accuracy compared to the non-probabilistic approach in the absence of genotype error, and that accuracy is maintained if genotype error is present.
+Notably, the HMM-based approach is genotype-based, such that phasing of genotype data is not required.
+
+One limitation to this approach was that the error model did not consider the accumulation of mutations.
+This is perhaps reflected in the observed higher accuracy for ``younger'' segments; \ie those co-inherited recently.
+An extension of the method would be to use a fully probabilistic model to compute emission probabilities in the \gls{hmm}, as for the transition probabilities, which were calculated conditionally on the expected age of the focal allele.
+More work has to be invested into the exploration of this possibility.
+
+%
+% Rare variants seem particularly useful to identify recent relatedness in samples of reportedly unrelated individuals.
+% Given the site of a particular allele, it is straightforward to identify the individuals sharing that allele in sample data.
+% If the allele is rare, it is likely that the chromosomes carrying that allele are the nearest genealogical neighbours in the sample at that position in the sequence.
+% The low frequency suggests that the allele was inherited from a common ancestor only a few generations ago, such that recombination had less time to break down the length of the co-inherited haplotype region.
+%
+% Based in this insight, in Chapter~3, I presented a novel method for the discovery of IBD tracts, referred to as the \texttt{tidy} algorithm, which utilises rare variants as ``bookmarks'' to highlight the positions at which the individuals sharing a focal allele are also likely to share a relatively long haplotype that is identical by descent.
+% Notably, the method presented is non-probabilistic and relies on the observation of certain allelic or genotypic configurations to infer recombination in pairs of diploid individuals.
+% IBD segments can be detected using either haplotype or genotype data.
+%
+% In addition, I explored the viability of the idea to use IBD information obtained from genotype data to distinguish haplotypes, \ie to locally \emph{phase} genotypes based on the inferred allelic sequence of the underlying shared haplotype.
+% However, I have shown that the genealogy may not be consistent over the full length of the segment due to overestimation of the IBD segment.
+% It is therefore expected that such an IBD-based phasing approach becomes erroneous towards the terminal ends of a detected segment.
+% It is nonetheless worth to mention that this concept proved to work perfectly if IBD information is correct; that is, if the length of the underlying IBD segment is not overestimated.
+% Future implementations of such an approach may therefore consider to ...
+%
+% -- in close proximity to a given target site
+% -- it has been shown that existing phasing algorithms are very high in accuracy
+% -- but I have shown that phasing error (using \texttt{SHAPEIT}) may nonetheless lead to [...]
+% -- IBD-based phasing has been established; \eg \gls{lrp}
+%
+%
+% The accuracy of data produced by current genotyping or sequencing technologies is sufficiently high at common variants.
+% However, the presence of genotype error affected the IBD detection method described in Chapter~3 in \n{2} ways.
+% First, it is possible that a fraction of rare variants is irretrievably missed while some alleles are falsely observed, thereby wrongly identifying haplotype sharing at a focal position.
+% This is particularly problematic because error rates are typically seen to increase towards the lower end of the frequency spectrum.
+% In practice, many studies therefore treat rare variants with caution or even exclude sites if seen below a certain frequency threshold.
+% Second, because recombination breakpoints are detected by scanning the regions distal to a given target site, genotype errors at sites along the sequence may lead to the discovery of false breakpoints or the disregard of actual breakpoints.
+% It was therefore not surprising to see spurious results in the application of this method to real data.
+%
+% Hence, the main goal of Chapter~4 was to establish an empirical model of frequency-dependent error rates based on observed genotype misclassification in real data, which I established for several datasets obtained on different genotyping and sequencing platforms.
+% I presented a \gls{hmm} which incorporated the empirically constructed error model, which I implemented as an extension of the \texttt{tidy} algorithm for targeted IBD detection.
+% I showed that the \gls{hmm}-based approach is able to achieve similar levels of accuracy compared to the non-probabilistic approach if genotype error is absent, and that similarly high levels of accuracy are maintained if genotype error is present.
+% Notably, the HMM-based approach is genotype-based, such that an additional phasing of genotype data is not required.
+%
+% -- HMM, empirical model did not consider the accumulation of mutations \\
+% -- the accuracy was higher when the segment was younger \\
+% -- it would be ideal to use a probabilistic model to compute emission probabilities \\
+% -- similarly to the transition probabilities, which were calculated based on the expected age of the focal allele, similar adjustments could be thought of for the calculation of the emission probabilities \\
+% -- but this would require further evaluation \\
+%
+% -- HMM is computationally more demanding compared to the non-probabilistic IBD detection method \\
+% -- scans the whole chromosome \\
+% -- it is possible to reduce this burden; the non-ergodic architecture of the transition matrix, [...] \\
+% -- because at this point it would be likely that the ibd state had been left \\
+% -- I tested a stop threshold; initial tests have shown that despite very low thresholds, the accuracy of detected breakpoints was noticeably reduced, also \\
+% -- all results from the HMM reported in this thesis were achieved without using a threshold, so as to conduct age estimation with the highest possible accuracy, not further complicating the matter \\
+%
+%
+
+
+%
+\section{The potential of estimating the age of alleles}
+%
+
+While the frequency of an allele is itself an estimator for the age of that allele \citep{Kimura:1973ug,Griffiths:2013ec}, detailed knowledge about the genealogy of the sample and the demographic history of the population would be required to unravel the complex relations between the demographic processes which resulted in the observed genetic variation.
+Notably, the age estimation method presented in Chapter~5 does not require such prior knowledge, but instead derives information from the underlying IBD structure inferred through the targeted IBD detection method presented in Chapters~3 and 4.
+Subsequently, by knowing the age of an allele, much can be learned about the changes that occurred over time in a population.
+
+I presented three approaches (clock models) to estimate the time of a coalescent event that separates a pair of individuals; these are based on pairwise differences that accumulated through mutation events on each lineage, the genetic distance between recombination breakpoints, or both. These measures are used to estimate the \gls{tmrca} of specific haplotype pairs, so as to determine the sequence of coalescent events.
+The age of a given target allele is estimated based on patterns of haplotype sharing and the inferred coalescent times, using a composite likelihood approach.
+I demonstrated the feasibility of this method by comparing the estimated age of an allele to its true age (known from simulation records), both before and after the inclusion of genotype error.
+
+Whilst the methods described achieved reasonable accuracy under ideal conditions, they are dependent on the accuracy of inferred IBD segments, in both concordant and discordant pairs.
+For example, considerable differences were seen between the different clocks in the presence of genotype error, such that only the HMM-based approach for IBD inference was robust enough to produce reliable results.
+Notably, IBD for discordant pairs is less straightforward to detect (using the methodology developed in Chapters~3 and 4), as the the \n{2} individuals considered do not share a recently co-inherited allele at a given target position.
+Therefore, more work is necessary to optimise IBD detection in this context, while still operating in a targeted manner.
+For example, some improvements to the HMM-based approach could be thought of, in particular with regard to the aforementioned idea to replace the empirical emission model with a fully probabilistic one.
+
+%
+%
+%
+% While the frequency of an allele is itself an estimator for the age of that allele \citep{Kimura:1973ug,Griffiths:2013ec}, the frequency measure alone does not distinguish between differences in mutational timing of alleles that are observed at the same frequency.
+% Detailed knowledge about the genealogy of the sample and the demographic history of the population would be required to unravel the complex relations between the demographic processes which resulted in the observed genetic variation.
+% The age estimation method presented in Chapter~5 does not require such prior knowledge, but derives information from the underlying IBD structure, which is inferred through the targeted IBD detection method presented in Chapters~3 and 4.
+% Conversely, by knowing the age of an allele, much can be learned about the changes that occurred over time in a population.
+%
+% In particular, I presented \n{3} approaches (clock models) to estimate the time of a coalescent event that separates a pair of individuals; these are based on pairwise differences that were accumulated through mutation events on each lineage, the genetic distance between recombination breakpoints, and the combination of both, respectively.
+% These information are used to estimate the \gls{tmrca} of specific haplotype pairs, so as to
+% determine the sequence of coalescent events.
+% The age of a given target allele is estimated based on patterns of haplotype sharing and the inferred coalescent times, by using a composite likelihood approach.
+% I demonstrated the feasibility of this method by comparing the estimated age of an allele to its true age (known from simulation records), both before and after the inclusion of genotype error.
+%
+%
+% -- the accuracy of estimated allele age has certain limitations \\
+% -- even if ``perfect'' IBD information is available, \ie when the exact breakpoints of recombination events are known, it is unlikely that
+% -- this may be referred to as the ``event horizon''
+%
+% -- considerable differences among clocks were seen in presence of genotype error \\
+% -- [...] \\
+%
+
+%
+% %
+% \section{Conclusion}
+% %
+%
+% Lastly, the conclusion of this work is as follows.
+%
+% \begin{quote}
+% \onehalfspacing
+% \begin{enumerate}\itshape
+% \item I have told you more than I know \textup{[...]}.
+% \item What I have told you is subject to change without notice.
+% \item I hope I raised more questions than I have given answers.
+% \item In any case, as usual, a lot more work is necessary.
+% \end{enumerate}
+% \begin{flushright}
+% -- Fuller Albright
+% \end{flushright}
+% \end{quote}
+
+
+\endinput
+
+
+%
+\section{Investigation of pathogenic rare variants in the UK\,Biobank}
+%
+
+
+However, to date, there has been little attempt to investigate the effects of low-frequency variants on fitness.
+
+We aim to use clinical records available through UK Biobank (routine hospital data, self-reported disease, and national registries of cancer and death) to estimate the prevalence and phenotypic consequence of rare pathogenic variants. By integrating these direct measures of fitness with estimates of rare allele age, using UK Biobank’s extensive genetic data, we are able to indirectly estimate relative selection coefficients for variants that are observed at the same frequency. In studying the effects of rare variants on fitness, we attempt to gain deeper insights into the genetic architecture that governs an individual’s predisposition to complex disease.
+
+%
+% By assessing the penetrance of known disease-related rare variants
+%
+% an unbiased assessment of the health consequences of particular types of genetic alteration in individuals not previously ascertained for a particular disease.
+%
+% Moreover, by assessing the correlation between genetic and geographic proximity (population stratification)
+% we will gain more powerful and better controlled tests for estimating the disease risks associated with rare variants.
+% Finally, by understanding the evolutionary history of variants,
+% estimate the mutation and selection pressures associated with different types of genetic change.
+%
+% The penetrance of mutations
+% estimated by analysing medical data available on cohort participants (e.g. cancer registries, hospital admissions, prescription records).
+%
+%
+% Identification of rare variants with reported pathogenic effects across multiple diseases by comparison to external data bases (HGMD, Clinvar, LSDBs) and inferred gene consequences (using VEP from Ensembl).
+%
+% Estimation of the historical effect of purifying selection acting on individual and groups of genetic variants by analyzing the relationship between variant age, frequency and geographic distribution.
+%
+% Functional consequences will be evaluated using the Ensembl VEP (Variant Effect Predictor) [1]
+% and by comparison to external databases on pathogenic variation (primarily Human Gene Mutation Database – HGMD – [2] and locus specific databases).
+% Information is also available from the inclusion criteria provided for the Axiom chip variant list.
+%
+%
+% We will focus on a limited range of disease types, for which substantial content was included on the Axiom array, notably metabolic syndromes, cancer, cardio-vascular disease, diabetes and related traits (obesity, hyperglycaemia) and haemochromatosis.
+%
+% Information will be extracted from self-reported data, death registries, cancer registries and hospital episode statistics.
+%
+%
+% inferring the combined burden of such variants on human health.
+
+
+
+large-scale
+which consist of hundreds of thousands of individuals
+
+\gls{ukb}
+\citep{Sudlow:2015gl}
+
+interim data release
+
+released genotype data on \n{152328} individuals
+
+\footnote{UK\,Biobank: \url{http://www.ukbiobank.ac.uk/} \accessed{2016}{12}{17}}
+
+phased using \texttt{SHAPEIT} version~3 \citep{OConnell:2016dv}
+
+
+
+The age estimation method was applied to imputed data, due to the low number of called genotypes available in the \gls{ukb} dataset.
+For instance, \n{61969} variants were called on chromosome~1, but which was too low to expect informative results from the implemented IBD detection methods.
+Typically, genotyping methods target only a subset of known variant sites in the genome, but which makes it unlikely to find sites which can satisfy the breakpoint conditions in either the \gls{fgt} or \gls{dgt}.
+Likewise, sites for which genotype information is available may sit too far apart for the \gls{hmm}-based method, such that transitions from the \emph{ibd} state to the \emph{non} state may occur right away.
+This was confirmed in preliminary tests on called genotype data in \gls{ukb}, by randomly selecting \n{100} variants below 1\% allele frequency on chromosome~1, where none of the implemented IBD detection methods was able to infer distinguishable IBD segments.
+
+
+imputed from reference data by the \gls{hrc}\footnote{Documentation of genotype imputation in the UK\,Biobank (interim data release): \url{http://www.ukbiobank.ac.uk/wp-content/uploads/2014/04/imputation_documentation_May2015.pdf} \accessed{2016}{12}{27}}\footnote{Haplotype Reference Consortium: \url{http://www.haplotype-reference-consortium.org} \accessed{2016}{12}{28}}
+
+
+
+
+%
+\input{chapter5/tab/ukb_size}
+%
+
+
+Here, it was attempted to also phase the imputed dataset using a novel and fast phasing algorithm, \texttt{EAGLE} version~2.6 \citep{loh2016fast,Loh:2016bl}, which was reported to have been tested on genotype call data from \gls{ukb}\footnote{See description in the \texttt{EAGLE2} manual: \url{https://data.broadinstitute.org/alkesgroup/Eagle/} \accessed{2017}{01}{02}}.
+The software was reported to achieve higher speeds than other phasing methods while maintaining high accuracy.
+This increase in processing speed derives from efficient haplotype matching
+using the \gls{pbwt} algorithm \citep{Durbin:2014de}.
+Although \texttt{EAGLE2} scales linearly with the number of samples and \glspl{snp}, the attempt to phase the imputed dataset was abandoned, since a test run on chromosome~7 (${\approx 4}$~million \glspl{snp}) did not finish after \n{3} weeks of parallel processing on a high-performance computer with 48 cores and 1TB of memory (using default programme parameters).
+
+
+
+
+Because data contained missing genotypes
+\gls{hmm} was modified to skip sites at which the genotype pair was undefined, such that transition probabilities were recalculated
+
+Average rate of pairwise missing genotypes was  \dec{0.007086994}\%~(±\num{5.630e-06}\%~SE)
+
+
+
+
+
+
+
+\endinput
+
+
+
+
+
+
+
+
+%
+\section{Implications of the main results}
+%
+
+
+
+%
+\section{Possible improvements to the proposed methodology}
+%
+
+
+
+%
+\section{Notes on computational solutions}
+%
+
+A major part of this work has been the development of computational applications.
+-- to find solutions to problems arising from the analysis of very large datasets
+
+
+
+-- most of my work was computational, writing code
+-- therefore justified to provide further information about the features that I implemented to efficiently analyse large-scale datasets
+-- some of which may prove useful for other applications as well
+
+
+-- this compression improved speed on some machines, as it is faster to read compressed strings and to decompress them, compared to only reading larger, uncompressed strings
+
+
+
+%
+\section{Conclusion}
+%
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+
+
+antiquated measures
+developed at a time when genetic data consisted of ...
+that are limited in regard to what can be derived from current data
+but still widely used in genetic analyses
+example: LD
+
+
+Richard Feynman
+cargo cult science
+% IDEA look up rats running in maze: https://en.wikiquote.org/wiki/Richard_Feynman
+
+
+%
+\section{Marginal problems and solutions in ``Big~Data'' analysis}
+%
+
+
+-- rvage: own data format; fail-safe binary format by transposition of data to rapidly read whole chromosomes
+-- enables run-length compression of (phased) genotype data
+-- data conversion into binary only once, thereafter very quick to load the whole dataset through memory-mapping
+-- memory impact can be minimal (or maximal)
+-- enables last-recently-used cache
+-- PBWT not implemented due to option to not use haplotypes; regardless, run-length compression sufficient [provide stats for conversion time and compression factor]
+-- multi-core parallel computing
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+No model is perfect and no statistical method is developed without assumptions.
+One major assumption typically violated in the analysis of genetic data is that the data is assumed to be correct.
+A good example of this can be seen in Chapter~3, where the IBD detection method performs as expected in simulations, but fails to achieve accurate results due to errors introduced in the data as well as due to biological processes typically unaccounted for in simulations; for example the effects of recurrent mutations, gene conversion...
+To address these issues and to regain higher levels of accuracy, an HMM was proposed in Chapter~4, which was based on empirically determined observation probabilities.

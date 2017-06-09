@@ -1,0 +1,34 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Dimensions of generated reference data used for imputations}
+{Panels included in Scenarios~A~and~B were generated from the \gls{1kg} Phase~\rom{1} dataset.
+These ``split'' panels are named after their respective population codes in \gls{1kg}.
+Only data from chromosome~20 were considered.
+Note that split panels in Scenario~B were reduced to match the size of the smallest panel in that scenario.
+Both the \emph{intersection} and the \emph{union} panels were created from the combined set of individuals across panels in each scenario.}
+{tab:refsize}
+\centering
+\begin{tabular}{%
+	lS[table-format=3.0]S[table-format=6.0]%
+	c
+	lS[table-format=3.0]S[table-format=6.0]%
+	}
+\toprule
+\multicolumn{3}{c}{Scenario A} & & \multicolumn{3}{c}{Scenario B} \\
+\cmidrule(lr){1-3}
+\cmidrule(lr){5-7}
+{Panel} & {Samples} & {Variants}  & &  {Panel} & {Samples} & {Variants} \\
+\otoprule
+\textsl{CEU} &  85 & 197252 & &  \textsl{AFR} & 181 & 429088  \\
+\textsl{FIN} &  93 & 205093 & &  \textsl{AMR} & 181 & 307454  \\
+\textsl{GBR} &  89 & 202707 & &  \textsl{ASN} & 181 & 209209  \\
+\textsl{TSI} &  98 & 207583 & &  \textsl{EUR} & 181 & 233527  \\
+\cmidrule(lr){1-3}
+\cmidrule(lr){5-7}
+Intersection & 365 & 168744  & &  Intersection & 724 & 144259  \\
+Union        & 365 & 253852  & &  Union        & 724 & 559172  \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,70 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htbp]
+\Caption{Inferred IBD length per chromosome in 1000 Genomes}
+{Shared haplotype segments in \gls{1kg} Phase~\rom{3} were inferred using the \gls{fgt} and \gls{dgt}, on data from \n{2504} individuals across all autosomes.
+Pairwise shared segments were identified from rare variants at allele frequency $\leq 0.5\%$ (\fk{[2,25]}).
+Median genetic and physical lengths over all inferred segments were calculated per chromosome, after removing boundary cases and retaining unique segments only.}
+{tab:stat_ibd_1kg}
+\centering
+\begin{threeparttable}
+\begin{tabular}{%
+c%
+*2{S[table-format=7.0]}%
+*1{S[table-format=8.0]}%
+*2{S[table-format=2.1,round-precision=1]}%
+*2{S[table-format=1.3]}%
+*2{S[table-format=1.3]}%
+}
+\toprule
+\multicolumn{1}{c}{Chr.} &
+\multicolumn{1}{c}{SNPs} &
+\multicolumn{1}{c}{Targets} &
+\multicolumn{1}{c}{Segments} &
+\multicolumn{2}{c}{Unique (\%)} &
+\multicolumn{2}{c}{Length (Mb)} &
+\multicolumn{2}{c}{Length (cM)} \\
+\cmidrule(lr){5-6}
+\cmidrule(lr){7-8}
+\cmidrule(lr){9-10}
+ & & & &
+\multicolumn{1}{c}{\textsc{fgt}$^{\ast}$} &
+\multicolumn{1}{c}{\textsc{dgt}$^{\ast\ast}$} &
+\multicolumn{1}{c}{\textsc{fgt}$^{\ast}$} &
+\multicolumn{1}{c}{\textsc{dgt}$^{\ast\ast}$} &
+\multicolumn{1}{c}{\textsc{fgt}$^{\ast}$} &
+\multicolumn{1}{c}{\textsc{dgt}$^{\ast\ast}$} \\
+\midrule
+ 1 & 6196151 & 2126720 & 64449399 & 40.280460 & 35.860396 & 0.12450800 & 0.23689200 & 0.15004290 & 0.29955537 \\
+ 2 & 6786300 & 2323889 & 70274554 & 38.120313 & 33.836819 & 0.13578100 & 0.24753300 & 0.14312010 & 0.28022980 \\
+ 3 & 5584397 & 1893872 & 57220884 & 37.133805 & 33.195049 & 0.13777500 & 0.24292100 & 0.15395287 & 0.29019708 \\
+ 4 & 5480936 & 1847521 & 57598118 & 36.609335 & 32.750889 & 0.13782300 & 0.24727500 & 0.15028176 & 0.28315996 \\
+ 5 & 5037955 & 1716580 & 53055802 & 36.393527 & 32.775529 & 0.13948900 & 0.24452500 & 0.15777599 & 0.29307371 \\
+ 6 & 4800101 & 1625828 & 50544859 & 36.970701 & 33.044818 & 0.13335800 & 0.23819400 & 0.14774591 & 0.28000201 \\
+ 7 & 4517734 & 1546940 & 47303666 & 39.241142 & 34.839215 & 0.11918100 & 0.21805300 & 0.13909785 & 0.27049667 \\
+ 8 & 4417368 & 1519028 & 46250487 & 37.349786 & 33.370625 & 0.11850500 & 0.21210800 & 0.14007601 & 0.26769481 \\
+ 9 & 3414848 & 1171960 & 35718922 & 40.601426 & 36.557111 & 0.10987700 & 0.20335800 & 0.15618876 & 0.29611516 \\
+10 & 3823786 & 1313699 & 40488078 & 39.626916 & 35.335441 & 0.11405700 & 0.20950100 & 0.15384057 & 0.29866929 \\
+11 & 3877543 & 1318559 & 39668383 & 38.307908 & 34.245040 & 0.12765600 & 0.22826000 & 0.14801794 & 0.28282966 \\
+12 & 3698098 & 1255880 & 38116079 & 39.362280 & 35.266460 & 0.12385000 & 0.22104500 & 0.16386201 & 0.31096261 \\
+13 & 2727881 &  919222 & 28252993 & 38.931071 & 35.238917 & 0.12587300 & 0.22188800 & 0.16559183 & 0.30465329 \\
+14 & 2539149 &  861549 & 25955712 & 39.534912 & 35.569357 & 0.11904100 & 0.21441500 & 0.15651814 & 0.29923315 \\
+15 & 2320474 &  795882 & 23977630 & 42.585334 & 38.233140 & 0.09984500 & 0.18282100 & 0.15294952 & 0.30397601 \\
+16 & 2596072 &  901185 & 26907909 & 43.510303 & 38.313356 & 0.08146700 & 0.15333900 & 0.14025289 & 0.28649611 \\
+17 & 2227080 &  775133 & 22914233 & 44.489204 & 39.795514 & 0.09576400 & 0.17534900 & 0.15035908 & 0.29978960 \\
+18 & 2171378 &  739822 & 22405301 & 41.463928 & 37.660190 & 0.10934300 & 0.19290400 & 0.16888031 & 0.31121027 \\
+19 & 1751878 &  607451 & 18033860 & 46.144485 & 41.304074 & 0.07915400 & 0.14637100 & 0.14746447 & 0.29331189 \\
+20 & 1739315 &  599065 & 18040053 & 43.189640 & 39.359330 & 0.10234700 & 0.17992000 & 0.18200223 & 0.33935401 \\
+21 & 1054447 &  365330 & 11051666 & 44.676214 & 40.388272 & 0.08980900 & 0.17217700 & 0.16161194 & 0.31209501 \\
+22 & 1055454 &  363748 & 10748355 & 47.187518 & 42.494037 & 0.07033300 & 0.13333700 & 0.14548319 & 0.29055889 \\
+\midrule
+\textit{Total} & 77818345 & 26588863 & 808976943 & & & & & & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+	\item[$\ast$] ~ \gls{1kg} data are available as phased haplotypes; hence, results are analogous to \cref{app:fgt_p}.
+	\item[$\ast\ast$] ~ Conducted on genotype data; hence, results are analogous to \cref{app:dgt}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

@@ -1,0 +1,44 @@
+% !TEX root = ./main.tex
+
+\begin{romanpages}
+
+	% Cover page
+\maketitle
+
+	% Dedication
+%	\begin{dedication}
+%	This thesis is dedicated to\\
+%	someone\\
+%	for some special reason\\
+%	\end{dedication}
+
+% \topquote[7cm]{
+% If I have seen further,\\
+% it is by standing on the shoulders of giants.
+% }{Sir Isaac Newton, 1676}
+
+% Acknowledgements
+\begin{acknowledgements}
+\input{acknowledgements}
+\end{acknowledgements}
+
+% Abstract
+\begin{abstractseparate}
+\input{abstract}
+\end{abstractseparate}
+
+\flushbottom
+
+% TOC
+\dominitoc% include a mini table of contents
+%	\dominilof% include a mini list of figures
+%	\dominilot% include a mini list of tables
+\tableofcontents
+\listoffigures
+\mtcaddchapter% to avoid confusing minitoc
+\listoftables
+\mtcaddchapter% to avoid confusing minitoc
+
+\end{romanpages}
+
+\flushbottom

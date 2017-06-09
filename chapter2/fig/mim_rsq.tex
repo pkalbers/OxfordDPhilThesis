@@ -1,0 +1,13 @@
+% !TEX root = ../../main.tex
+
+
+\begin{figure}[!htb]
+\includegraphics[width=\textwidth]{./img/ch2/accuracy_mim_maf_rsq}
+\Caption{Accuracy comparison of score metrics and merge operations in meta-imputation}
+{Each combination of merge operation (\texttt{MSS} and \texttt{WLC}) and score metric (\texttt{MP}, \texttt{IS}, \texttt{SC}, and \texttt{RS}) was examined in Scenarios~A and B.
+Accuracy was measured as mean~${r^2}$ calculated between meta-imputed variants and variants masked in the \gls{got2d} dataset.
+Results are shown both before and after \gls{qc}.
+Bin sizes were defined on log-scale where \emph{grey-white} bars indicate boundaries.
+The panels at the bottom indicate the number of variants per bin before \gls{qc} (\emph{dotted}) and the average number of variants per bin after \gls{qc} (\emph{solid}).}
+{fig:mim_rsq}
+\end{figure}

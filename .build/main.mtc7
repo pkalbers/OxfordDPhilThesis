@@ -1,0 +1,24 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Introduction}{\reset@font\mtcSfont 177}{section.5.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Approach}{\reset@font\mtcSfont 179}{section.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.1}Coalescent time estimators}{\reset@font\mtcSSfont 180}{subsection.5.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Mutation clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}\tmspace -\thinmuskip {.1667em}M}}}\xspace )}{\reset@font\mtcSSSfont 181}{subsubsection*.130}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Recombination clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}R}}}\xspace )}{\reset@font\mtcSSSfont 182}{subsubsection*.131}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Combined clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}\tmspace -\thinmuskip {.1667em}M\tmspace -\thinmuskip {.1667em}R}}}\xspace )}{\reset@font\mtcSSSfont 184}{subsubsection*.132}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.2}Cumulative coalescent function}{\reset@font\mtcSSfont 184}{subsection.5.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.3}Composite likelihood estimation of mutation time}{\reset@font\mtcSSfont 185}{subsection.5.2.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Reduction of the computational burden}{\reset@font\mtcSSSfont 187}{subsubsection*.135}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.4}Inference of IBD around shared and unshared alleles}{\reset@font\mtcSSfont 188}{subsection.5.2.4}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Anticipated limitations}{\reset@font\mtcSSSfont 192}{subsubsection*.138}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Evaluation}{\reset@font\mtcSfont 192}{section.5.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Data generation}{\reset@font\mtcSSfont 192}{subsection.5.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Accuracy analysis}{\reset@font\mtcSSfont 195}{subsection.5.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Results}{\reset@font\mtcSfont 196}{section.5.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Validation of the method under different thresholds}{\reset@font\mtcSSfont 197}{subsection.5.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Comparison of IBD detection methods}{\reset@font\mtcSSfont 203}{subsection.5.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.3}Impact of genotype error on allele age estimation}{\reset@font\mtcSSfont 209}{subsection.5.4.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Generation of error correction models}{\reset@font\mtcSSSfont 216}{subsubsection*.154}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.5}Age of alleles with predicted effects in 1000 Genomes data}{\reset@font\mtcSfont 221}{section.5.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.5.1}Quality control}{\reset@font\mtcSSfont 221}{subsection.5.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.5.2}Error correction based on allele frequency}{\reset@font\mtcSSfont 222}{subsection.5.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.5.3}Results}{\reset@font\mtcSSfont 223}{subsection.5.5.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.6}Discussion}{\reset@font\mtcSfont 226}{section.5.6}}

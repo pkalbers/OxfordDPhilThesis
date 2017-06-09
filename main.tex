@@ -1,0 +1,134 @@
+%
+% OXFORD THESIS TEMPLATE
+%
+
+% Page layout
+ %\documentclass[a4paper]{dphilthesis}
+ %\documentclass[a4paper,twoside]{dphilthesis}
+\documentclass[a4paper,nobind]{dphilthesis}
+
+
+
+% \includeonly{frontmatter}
+% \includeonly{chapter1/one}
+% \includeonly{chapter2/two}
+% \includeonly{chapter3/three}
+% \includeonly{chapter4/four}
+% \includeonly{chapter5/five}
+% \includeonly{chapter6/six}
+
+
+% Thesis information
+\title{Rare and low-frequency variants and \\ predisposition to complex disease}
+\unicrest{./img/oxford-crest}
+\author{Patrick K. Albers}
+\institute{Wellcome Trust Centre for Human Genetics}
+\college{Green Templeton College}
+\university{University of Oxford}
+\supervisor{Supervised by \\[0.75ex] Professor Gil McVean \\[0.5ex] Professor Mark McCarthy}
+\degree{Doctor of Philosophy (DPhil)}
+\degreedate{Hilary 2017}
+\submitted{Submitted in Partial Fulfilment of the Requirements for the Degree of}
+
+\hypersetup{pdfinfo={%
+Title={Rare and low-frequency variants and predisposition to complex disease (University of Oxford, DPhil thesis)},%
+Author={Patrick K. Albers}%
+}}
+
+% Draft note
+%\draftnote{Patrick K. Albers, thesis draft, \today}
+
+
+% Abbreviations
+\input{abbreviations}
+
+
+
+% Document begin
+\begin{document}
+
+
+%
+\include{frontmatter}
+%
+
+
+% Line spacing
+\doublespacing
+
+%\setlength{\textbaselineskip}{32pt plus2pt}
+\setlength{\textbaselineskip}{24pt plus2pt minus1pt}
+%\setlength{\textbaselineskip}{20pt plus2pt}
+%\setlength{\textbaselineskip}{19pt plus2pt minus1pt}
+%\setlength{\textbaselineskip}{18pt plus2pt minus1pt}
+%\setlength{\textbaselineskip}{14pt plus2pt minus1pt}
+\setlength{\frontmatterbaselineskip}{17pt plus1pt minus1pt}
+\setlength{\baselineskip}{\textbaselineskip}
+
+\setlength{\floatsep}{\textfloatsep}
+\setlength{\intextsep}{\textfloatsep}
+
+
+% Counters
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+
+% Separate abstract
+%\begin{abstractseparate}
+%\input{sections/abstract}
+%\end{abstractseparate}
+
+
+
+%\setcounter{chapter}{1}
+
+\include{chapter1/one}
+\include{chapter2/two}
+\include{chapter3/three}
+\include{chapter4/four}
+\include{chapter5/five}
+\include{chapter6/six}
+
+
+
+% Abbreviations
+\topquote[7cm]{%
+The key test for an acronym is to ask whether it helps or hurts communication.%
+}{Elon Musk}
+
+{\onehalfspacing\small\printglossary[type=\acronymtype,title=Abbreviations]}
+
+
+
+% References
+\topquote[6cm]{%
+My definition of a scientist is that you \\
+can complete the following sentence:\\
+`he or she has shown that \dots'%
+}{E. O. Wilson}
+
+\bibliographystyle{biblio}
+{\onehalfspacing\footnotesize\bibliography{library,manual}}
+\label{biblio}
+
+
+% \clearpage
+% \thispagestyle{empty}
+% \vspace*{\fill}
+% \begin{quote}
+% \onehalfspacing
+% \begin{enumerate}\itshape
+% \item I have told you more than I know \textup{[...]}.
+% \item What I have told you is subject to change without notice.
+% \item I hope I raised more questions than I have given answers.
+% \item In any case, as usual, a lot more work is necessary.
+% \end{enumerate}
+% \begin{flushright}
+% -- Fuller Albright
+% \end{flushright}
+% \end{quote}
+% \vspace*{\fill}
+
+
+\end{document}

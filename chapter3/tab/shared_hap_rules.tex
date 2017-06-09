@@ -1,0 +1,28 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Shared haplotype inference from genotype pairs}
+{Given the \n{2} genotypes observed at a pair of individuals (A and B), there are \n{9} possible ordered combinations of alleles.
+The corresponding haplotypes are shown for both individuals (unordered).
+Note that genotype phase cannot be resolved for individuals that are both heterozygous; \ie the corresponding certainty score is equal to $\rfrac{1}{2}$.
+If a pair is homozygous for different alleles, they do not share a haplotype.}
+{tab:shared_hap_rules}
+\centering
+\begin{tabular}{ccccc}
+\toprule
+Genotype & Genotype &  Haplotypes & Haplotypes & Shared  \\
+Individual $A$ & Individual $B$ &  Individual $A$ & Individual $B$ & haplotype  \\
+\midrule
+0  &  0  &  $(0,0)$  &  $(0,0)$  &  0  \\
+0  &  1  &  $(0,0)$  &  $(0,1)$  &  0  \\
+0  &  2  &  $(0,0)$  &  $(1,1)$  &  -- \\
+1  &  0  &  $(0,1)$  &  $(0,0)$  &  0  \\
+1  &  1  &  $(0,1)$  &  $(0,1)$  &  -- \\
+1  &  2  &  $(0,1)$  &  $(1,1)$  &  1  \\
+2  &  0  &  $(1,1)$  &  $(0,0)$  &  -- \\
+2  &  1  &  $(1,1)$  &  $(0,1)$  &  1  \\
+2  &  2  &  $(1,1)$  &  $(1,1)$  &  1  \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,32 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Estimation accuracy per IBD detection method}
+{The accuracy was measured in analyses based on IBD detected by different methods; namely the \gls{fgt}, \gls{dgt}, and the \gls{hmm}-based approach.
+See \cpref{tab:stats_discords} for comparison to results obtained using true IBD segments (for ${n_d = \num{1000}}$).}
+{tab:stats_vanilla}
+\centering
+\begin{tabular}{cl*6{S[table-format=1.3]}}
+\toprule
+Clock & Method &
+\multicolumn{3}{c}{Rank correlation ($r_S$)} &
+\multicolumn{3}{c}{RMSLE} \\
+\cmidrule(lr){3-5}
+\cmidrule(lr){6-8}
+& & {$t_c$} & {$t_m$} & {$t_d$} & {$t_c$} & {$t_m$} & {$t_d$} \\
+\otoprule
+\ClockM &  FGT  & \bfseries 0.840676 & \bfseries 0.839366 & \bfseries 0.686220  &  \bfseries 1.011494 & \bfseries 0.652508 & \bfseries 0.554208  \\
+        &  DGT  &  0.829831 & 0.812906 & 0.650413  &  1.460099 & 1.085978 & 0.832110  \\
+        &  HMM  &  0.805637 & 0.806060 & 0.661580  &  1.077573 & 0.725273 & 0.606789  \\
+\cmidrule(lr){1-8}
+\ClockR &  FGT  &  \bfseries 0.898918 & \bfseries 0.886870 & \bfseries 0.717613  &  \bfseries 0.338500 & \bfseries 0.329674 & \bfseries 0.774566  \\
+        &  DGT  &  0.819520 & 0.749442 & 0.553535  &  0.576894 & 0.940863 & 1.396338  \\
+        &  HMM  &  0.820884 & 0.751320 & 0.555899  &  0.532765 & 0.891761 & 1.348435  \\
+\cmidrule(lr){1-8}
+\ClockC &  FGT  &  \bfseries 0.863498 & \bfseries 0.873015 & \bfseries 0.723484  &  \bfseries 0.754705 & \bfseries 0.422342 & \bfseries 0.523968  \\
+        &  DGT  &  0.839769 & 0.828786 & 0.669072  &  1.083494 & 0.726881 & 0.600412  \\
+        &  HMM  &  0.825717 & 0.834311 & 0.692021  &  0.806485 & 0.485257 & 0.553758  \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,91 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htbp]
+\Caption{Accuracy and precision of estimated age in simulated data}
+{}
+{tab:vanilla_stats}
+\centering
+% \begin{threeparttable}
+\begin{tabular}{ccrcrrrcrrr}
+\toprule
+ Method & Clock & $n_{d}$ & & \multicolumn{3}{c}{Spearman's $\rho$} & & \multicolumn{3}{c}{RMSLE} \\
+\cmidrule(lr){5-7} \cmidrule(lr){9-11}
+ &  &  &  &  FGT & DGT & HMM  & &  FGT & DGT & HMM \\
+\midrule
+
+\emph{Hard\,breaks}
+ & $\mathcal{T_{\!\!M}}$
+   &   \num{10}  & & \dec{0.787147} & \dec{0.790048} & \dec{0.760917} &
+                   & \dec{2.825351} & \dec{3.020639} & \dec{2.915880} \\
+
+ & &  \num{100}  & & \dec{0.810715} & \dec{0.784005} & \dec{0.768820} &
+                   & \dec{2.348500} & \dec{2.716297} & \dec{2.485764} \\
+
+ & & \num{1000}  & & \dec{0.810512} & \dec{0.792726} & \dec{0.767269} &
+                   & \dec{1.686285} & \dec{2.288243} & \dec{1.840635} \\
+
+\cmidrule(lr){2-11}
+ & $\mathcal{T_{\!R}}$
+   &   \num{10}  & & \dec{0.795850} & \dec{0.822256} & \dec{0.800404} &
+                   & \dec{1.608725} & \dec{0.737265} & \dec{1.507744} \\
+
+ & &  \num{100}  & & \dec{0.841032} & \dec{0.806646} & \dec{0.816180} &
+                   & \dec{1.040753} & \dec{0.870616} & \dec{0.742207} \\
+
+ & & \num{1000}  & & \dec{0.849890} & \dec{0.753360} & \dec{0.767215} &
+                   & \dec{0.657862} & \dec{1.715277} & \dec{1.317435} \\
+
+\cmidrule(lr){2-11}
+ & $\mathcal{T_{\!M\!R}}$
+   &   \num{10}  & & \dec{0.787473} & \dec{0.782459} & \dec{0.774262} &
+                   & \dec{2.300344} & \dec{2.373107} & \dec{2.337792} \\
+
+ & &  \num{100}  & & \dec{0.814339} & \dec{0.791988} & \dec{0.782597} &
+                   & \dec{1.875943} & \dec{2.102141} & \dec{1.969082} \\
+
+ & & \num{1000}  & & \dec{0.802178} & \dec{0.796534} & \dec{0.791659} &
+                   & \dec{1.366423} & \dec{1.737331} & \dec{1.429286} \\
+
+\cmidrule(lr){1-11}
+
+\emph{Soft\,breaks}
+ & $\mathcal{T_{\!\!M}}$
+   &   \num{10} & & \dec{0.798520} & \dec{0.774312} & \dec{0.750556} &
+                  & \dec{2.856647} & \dec{3.018159} & \dec{3.060361} \\
+
+ & &  \num{100} & & \dec{0.807727} & \dec{0.797431} & \dec{0.758863} &
+                  & \dec{2.322177} & \dec{2.693730} & \dec{2.576914} \\
+
+ & & \num{1000} & & \dec{0.805141} & \dec{0.794726} & \dec{0.762301} &
+                  & \dec{1.565453} & \dec{2.223105} & \dec{1.756192} \\
+
+\cmidrule(lr){2-11}
+ & $\mathcal{T_{\!R}}$
+   &   \num{10} & & \dec{0.824080} & \dec{0.816257} & \dec{0.787093} &
+                  & \dec{2.121914} & \dec{1.104272} & \dec{2.395975} \\
+
+ & &  \num{100} & & \dec{0.850339} & \dec{0.804837} & \dec{0.804301} &
+                  & \dec{1.458122} & \dec{0.700933} & \dec{1.364327} \\
+
+ & & \num{1000} & & \dec{0.850859} & \dec{0.751510} & \dec{0.772424} &
+                  & \dec{0.917643} & \dec{1.350016} & \dec{0.961350} \\
+
+\cmidrule(lr){2-11}
+ & $\mathcal{T_{\!M\!R}}$
+   &   \num{10} & & \dec{0.793494} & \dec{0.790043} & \dec{0.757666} &
+                  & \dec{2.671797} & \dec{2.690335} & \dec{2.871394} \\
+
+ & &  \num{100} & & \dec{0.811808} & \dec{0.790696} & \dec{0.766561} &
+                  & \dec{2.188554} & \dec{2.380258} & \dec{2.374994} \\
+
+ & & \num{1000} & & \dec{0.812044} & \dec{0.795536} & \dec{0.780459} &
+                  & \dec{1.607596} & \dec{1.960001} & \dec{1.758971} \\
+
+\bottomrule
+\end{tabular}
+% \begin{tablenotes}\footnotesize
+% \item[$\ast$] DP: Number of discordant pairs
+% \end{tablenotes}
+% \end{threeparttable}
+\end{table}

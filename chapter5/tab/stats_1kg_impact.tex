@@ -1,0 +1,32 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Allele age per population in the 1000 Genomes sample}
+{Inferred allele age was corrected in reference to population allele frequencies in the \n{5} population groups in \gls{1kg} data, shown per \gls{vep} impact category.
+In total, \n{141070} variants were analysed \textbf{(a)}, of which \n{77439} were population-specific \textbf{(b)}.}
+{tab:stats_1kg_impact}
+\centering
+\begin{tabular}{l*5{S[round-precision=1,table-format=3.1]}*5{S[table-format=1.3]}}
+	\toprule
+	 Impact & \multicolumn{5}{c}{Median estimated age (generations)} & \multicolumn{5}{c}{Correlation with frequency ($r_S$)} \\
+	\cmidrule(lr){2-6}
+	\cmidrule(lr){7-11}
+	 & {AFR} & {AMR} & {EAS} & {EUR} & {SAS} & {AFR} & {AMR} & {EAS} & {EUR} & {SAS} \\
+	\otoprule
+	\multicolumn{11}{@{\,}l}{(a) All alleles analysed} \\
+	\midrule
+	\textit{High    } &  276.7156 & 238.2880 & 113.8948 & 145.7969 & 219.0302  &  0.697134 & 0.164036 & 0.444797 & 0.581463 & 0.441301 \\
+	\textit{Moderate} &  305.1702 & 311.4755 &  99.0084 & 169.0662 & 247.7381  &  0.707347 & 0.143252 & 0.432302 & 0.469482 & 0.385978 \\
+	\textit{Low     } &  341.4061 & 413.9554 & 105.0124 & 191.9495 & 266.3468  &  0.737771 & 0.116200 & 0.388013 & 0.445391 & 0.410477 \\
+	\textit{Modifier} &  528.8116 & 645.6322 & 135.3479 & 287.2691 & 435.3400  &  0.728619 & 0.058309 & 0.435299 & 0.349477 & 0.339951 \\
+	\otoprule
+	\multicolumn{11}{@{\,}l}{(b) Population-specific alleles} \\
+	\midrule
+	\textit{High    } &  227.2396 & 67.6673 & 86.8637 & 87.8490 & 116.6994  &  0.885856 & 0.672827 & 0.860747 & 0.738088 & 0.864570 \\
+	\textit{Moderate} &  239.8254 & 77.3700 & 76.8140 & 84.6032 & 154.8731  &  0.891540 & 0.647132 & 0.877686 & 0.745509 & 0.906612 \\
+	\textit{Low     } &  256.4403 & 78.0054 & 77.9945 & 87.1812 & 154.9337  &  0.904668 & 0.616386 & 0.880905 & 0.751465 & 0.907093 \\
+	\textit{Modifier} &  369.7328 & 82.7324 & 91.8433 & 91.8594 & 221.5612  &  0.919745 & 0.706728 & 0.896563 & 0.807821 & 0.934936 \\
+	\bottomrule
+\end{tabular}
+\end{table}

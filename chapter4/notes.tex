@@ -1,0 +1,37 @@
+%
+% %
+% \subsubsection{Posterior probabilities}
+% %
+%
+% The so called \emph{forward-backward algorithm} computes the posterior probability of being in a given state at any site in the sequence.
+%
+%
+% Similar to the procedure of the Viterbi algorithm described above
+% first goring forward along the sequence and then backward.
+%
+% The forward algorithm is used to compute the probability of the observation sequence given the model.
+% \begin{equation}
+% 	P(o_0, \ldots, o_m \mid \lambda) ~=~
+% 	\sum_{X_0, \ldots, X_m} \big[ P(o_0, \ldots, o_m \mid X_0, \ldots, X_m ,~ \lambda) \big] ~ P(X_0, \ldots, X_m \mid \lambda)
+% \end{equation}
+%
+%
+% After initialisation at the first site in the sequence,
+% \begin{align}
+% \begin{aligned}
+% 	\alpha_0(\textit{ibd}) & ~=~ \pi_\textit{ibd}(k) ~ \delta_0(o_0) \\
+% 	\alpha_0(\textit{non}) & ~=~ \pi_\textit{non}(k) ~ \eta_0(o_0)\ ,
+% \end{aligned}
+% \end{align}
+% the following recursion is performed;
+% \begin{align}
+% \begin{aligned}
+% 	\alpha_j(\textit{ibd})  & ~=~ \delta_j(o_j) ~ \sum_{y \in S} \big[ \alpha'_{j-1}(\textit{ibd}) ~ ~ \psi_{j,k}(y \mid \textit{ibd}) \big]\ , & j = 1, 2, \ldots, m \\
+% 	\alpha_j(\textit{non})  & ~=~ \eta_j(o_j) ~ \sum_{y \in S} \big[ \alpha'_{j-1}(\textit{non}) ~ \psi_{j,k}(y \mid \textit{non}) \big]\ , & j = 1, 2, \ldots, m
+% \end{aligned}
+% \end{align}
+% where again a scaling factor is is obtained to normalise probability values at each site in the sequence.
+% \begin{equation}
+% 	w_j^\alpha ~=~ \max_{x \in S} \big[ \alpha_j(x) \big] \quad\textbf{s.t.}\quad
+% 	\alpha'_j(x) ~=~ \frac{\alpha_j(x)}{w_j^\alpha} \quad \forall \quad x \in S; ~ j = 0, 1, \ldots, m
+% \end{equation}

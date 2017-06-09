@@ -1,0 +1,39 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htbp]
+\Caption{Median shared haplotype lengths and inferred recombination rates by chromosome in 1000 Genomes data}
+{Shared haplotype segments in \gls{1kg} (phase~3) were inferred using the \gls{fgt} and \gls{dgt}, on data from \n{2504} individuals across all autosomes.
+Pairwise shared segments were identified from rare variants at allele frequency $\leq 0.5\%$ (\fk{[2,25]}).
+Median genetic and physical lengths over all inferred segments were calculated per chromosome, after removing boundary cases and retaining unique segments only.
+Recombination rate is reported as the average ratio of inferred genetic and physical lengths per segment.}
+{tab:lengthrate}
+\centering
+\begin{tabularx}{\textwidth}{c *{4}{Y} cc} \toprule
+Chromosome & \multicolumn{2}{c}{Physical length (Mb)} & \multicolumn{2}{c}{Genetic length (cM)} & \multicolumn{2}{c}{Mean cM/Mb (±SE)} \\ \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+ & FGT & DGT & FGT & DGT & FGT & DGT \\ \midrule
+1  & 0.170 & 0.316 & 0.186 & 0.360 & 1.559 (0.003) & 1.506 (0.002) \\
+2  & 0.188 & 0.337 & 0.181 & 0.342 & 1.419 (0.003) & 1.368 (0.002) \\
+3  & 0.193 & 0.332 & 0.191 & 0.347 & 1.466 (0.003) & 1.423 (0.002) \\
+4  & 0.192 & 0.334 & 0.187 & 0.342 & 1.441 (0.003) & 1.397 (0.002) \\
+5  & 0.195 & 0.334 & 0.194 & 0.350 & 1.478 (0.003) & 1.421 (0.002) \\
+6  & 0.187 & 0.325 & 0.184 & 0.336 & 1.442 (0.003) & 1.395 (0.002) \\
+7  & 0.165 & 0.292 & 0.175 & 0.327 & 1.521 (0.003) & 1.478 (0.002) \\
+8  & 0.167 & 0.288 & 0.176 & 0.324 & 1.552 (0.003) & 1.508 (0.003) \\
+9  & 0.150 & 0.264 & 0.197 & 0.357 & 1.857 (0.004) & 1.797 (0.003) \\
+10 & 0.156 & 0.277 & 0.191 & 0.354 & 1.704 (0.004) & 1.659 (0.003) \\
+11 & 0.175 & 0.306 & 0.180 & 0.334 & 1.525 (0.003) & 1.476 (0.003) \\
+12 & 0.172 & 0.301 & 0.200 & 0.372 & 1.710 (0.004) & 1.648 (0.003) \\
+13 & 0.172 & 0.295 & 0.202 & 0.362 & 1.675 (0.004) & 1.613 (0.003) \\
+14 & 0.164 & 0.287 & 0.190 & 0.353 & 1.719 (0.004) & 1.664 (0.003) \\
+15 & 0.136 & 0.243 & 0.185 & 0.358 & 2.080 (0.005) & 2.036 (0.004) \\
+16 & 0.110 & 0.205 & 0.175 & 0.344 & 2.288 (0.005) & 2.244 (0.004) \\
+17 & 0.128 & 0.237 & 0.179 & 0.350 & 2.118 (0.005) & 2.060 (0.004) \\
+18 & 0.149 & 0.254 & 0.203 & 0.368 & 2.011 (0.005) & 1.934 (0.004) \\
+19 & 0.105 & 0.192 & 0.176 & 0.344 & 2.365 (0.005) & 2.325 (0.004) \\
+20 & 0.135 & 0.231 & 0.217 & 0.395 & 2.277 (0.005) & 2.203 (0.004) \\
+21 & 0.116 & 0.214 & 0.195 & 0.361 & 2.185 (0.005) & 2.100 (0.004) \\
+22 & 0.094 & 0.175 & 0.172 & 0.339 & 2.693 (0.006) & 2.624 (0.005) \\
+\bottomrule
+\end{tabularx}
+\end{table}

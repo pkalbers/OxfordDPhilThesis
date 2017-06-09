@@ -1,0 +1,87 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!b]
+\Caption{Punnett squares of genotype pair partitions under non-IBD and IBD}
+{Allele frequency contributions are itemised for each possible pair of genotypes.
+Rows and columns correspond to alleles in ordered haplotype combinations, ${(h_{c_{1}}, h_{c_{2}})}$, with ${f_h(c=0)=p}$ and ${f_h(c=1)=q}$, where ${c \in \lbrace 0,1 \rbrace}$.
+Expressions in cells are the product of these combinations.
+Genotype pairs are formed by summing over the cells corresponding to the \n{2} genotypes in a given pair (labelled on the right in each row and at the bottom of each column).
+Panel~\textbf{(a)} shows the partitions of expected frequencies for genotype pairs that do not share a haplotype (\ie \emph{non} state).
+In Panel~\textbf{(b)}, if a haplotype is identical by descent (\ie \emph{ibd} state), one of the haplotypes is marked as shared; denoted by an asterisk, $h^*_{k}$.
+Note that a haplotype can only be shared, if contained in both row-by-column combinations, or frequencies are zero otherwise.}
+{tab:genpairprop}
+
+\begin{minipage}{0.5\textwidth}
+\quad\textbf{(a)} \emph{non} \\[0.5em]
+\begin{tabular}[t]{c|c|c|c|c|c}
+\multicolumn{1}{c}{\rule[-1.5ex]{0pt}{0pt}} &
+\multicolumn{1}{c}{$h_{0}, h_{0}$} &
+\multicolumn{1}{c}{$h_{0}, h_{1}$} &
+\multicolumn{1}{c}{$h_{1}, h_{0}$} &
+\multicolumn{1}{c}{$h_{1}, h_{1}$} &
+\multicolumn{1}{c}{} \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{0}, h_{0}$   & $p^{4}$       & $p^{3}q$      & $p^{3}q$      & $p^{2}q^{2}$ & $g_{0}$ \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{0}, h_{1}$   & $p^{3}q$      & $p^{2}q^{2}$  & $p^{2}q^{2}$  & $pq^{3}$     & $g_{1}$ \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{1}, h_{0}$   & $p^{3}q$      & $p^{2}q^{2}$  & $p^{2}q^{2}$  & $pq^{3}$     & $g_{1}$ \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{1}, h_{1}$   & $p^{2}q^{2}$  & $pq^{3}$      & $pq^{3}$      & $q^{4}$      & $g_{2}$ \\ \cline{2-5}
+\multicolumn{1}{c}{} &
+\multicolumn{1}{c}{$g_{0}$} &
+\multicolumn{1}{c}{$g_{1}$} &
+\multicolumn{1}{c}{$g_{1}$} &
+\multicolumn{1}{c}{$g_{2}$} &
+\multicolumn{1}{c}{}
+\end{tabular}
+%\[
+%\begin{split}
+%P_{non}(0,0) &= p^{4}         \\
+%P_{non}(0,1) &= 4p^{3}q       \\
+%P_{non}(0,2) &= 2p^{2}q^{2}   \\
+%P_{non}(1,1) &= 4p^{2}q^{2}   \\
+%P_{non}(1,2) &= 4pq^{3}       \\
+%P_{non}(2,2) &= q^{4}
+%\end{split}
+%\]
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+\quad\textbf{(b)} \emph{ibd} \\[0.5em]
+\begin{tabular}[t]{c|c|c|c|c|c}
+\multicolumn{1}{c}{\rule[-1.5ex]{0pt}{0pt}} &
+\multicolumn{1}{c}{$h_{0}, h^*_{0}$} &
+\multicolumn{1}{c}{$h_{0}, h^*_{1}$} &
+\multicolumn{1}{c}{$h_{1}, h^*_{0}$} &
+\multicolumn{1}{c}{$h_{1}, h^*_{1}$} &
+\multicolumn{1}{c}{} \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{0}, h^*_{0}$   & $p^{3}$   & $0$       & $p^{2}q$  & $0$       & $g_{0}$ \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{0}, h^*_{1}$   & $0$       & $p^{2}q$  & $0$       & $pq^{2}$  & $g_{1}$ \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{1}, h^*_{0}$   & $p^{2}q$  & $0$       & $pq^{2}$  & $0$       & $g_{1}$ \\ \cline{2-5}
+\rule{0pt}{3ex}\rule[-2ex]{0pt}{0pt}
+  $h_{1}, h^*_{1}$   & $0$       & $pq^{2}$  & $0$       & $q^{3}$   & $g_{2}$ \\ \cline{2-5}
+  \multicolumn{1}{c}{} &
+\multicolumn{1}{c}{$g_{0}$} &
+\multicolumn{1}{c}{$g_{1}$} &
+\multicolumn{1}{c}{$g_{1}$} &
+\multicolumn{1}{c}{$g_{2}$} &
+\multicolumn{1}{c}{}
+\end{tabular}
+%\[
+%\begin{split}
+%P_{ibd}(0,0) &= p^{3}            \\
+%P_{ibd}(0,1) &= 2p^{2}q          \\
+%P_{ibd}(0,2) &= 0                \\
+%P_{ibd}(1,1) &= p^{2}q + pq^{2}  \\
+%P_{ibd}(1,2) &= 2pq^{2}          \\
+%P_{ibd}(2,2) &= q^{3}
+%\end{split}
+%\]
+\end{minipage}
+
+\end{table}

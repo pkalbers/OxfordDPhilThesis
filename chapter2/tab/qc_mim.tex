@@ -1,0 +1,50 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Effect of quality control on meta-imputed data}
+{The number (percent) of variants retained and removed in \gls{qc} for each combination of score metric and merge operation; grouped by merge operation, with score metrics given by row. Numbers refer to variants retained after removing unmatched sites and those contained in the imputation scaffold.}
+{tab:qc_mim}
+\centering
+\begin{tabular}{lrrrr}
+	\toprule
+	\phantom{.} Score & \multicolumn{2}{c}{Scenario~A} & \multicolumn{2}{c}{Scenario~B} \\
+	 \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+	 & \multicolumn{1}{c}{retained} & \multicolumn{1}{c}{removed}
+	 & \multicolumn{1}{c}{retained} & \multicolumn{1}{c}{removed} \\
+	\midrule
+	\multicolumn{5}{l}{Maximum score selection (\texttt{MSS})} \\
+	\midrule
+	\phantom{.} \texttt{MP} &
+	\num{168595} (92.9\%) & \num{12966} \phantom{0}(7.1\%)  &
+	\num{178034} (90.7\%) & \num{18266} \phantom{0}(9.3\%)  \\
+	\phantom{.} \texttt{IS} &
+	\num{169455} (93.3\%) & \num{12106} \phantom{0}(6.7\%)  &
+	\num{179677} (91.5\%) & \num{16623} \phantom{0}(8.5\%)  \\
+	\phantom{.} \texttt{SC} &
+	\num{168686} (92.9\%) & \num{12875} \phantom{0}(7.1\%)  &
+	\num{179449} (91.4\%) & \num{16851} \phantom{0}(8.6\%)  \\
+	\phantom{.} \texttt{RS} &
+	\num{165877} (91.4\%) & \num{15684} \phantom{0}(8.6\%)  &
+	\num{171517} (87.4\%) & \num{24783} (12.6\%) \\
+	\midrule
+	\multicolumn{5}{l}{Weighted linear combination (\texttt{WLC})} \\
+	\midrule
+	\phantom{.} \texttt{MP} &
+	\num{161079} (88.7\%) & \num{20482} (11.3\%)  &
+	\num{166458} (84.8\%) & \num{29842} (15.2\%) \\
+	\phantom{.} \texttt{IS} &
+	\num{162511} (89.5\%) & \num{19050} (10.5\%)  &
+	\num{169860} (86.5\%) & \num{26440} (13.5\%) \\
+	\phantom{.} \texttt{SC} &
+	\num{160464} (88.4\%) & \num{21097} (11.6\%)  &
+	\num{165907} (84.5\%) & \num{30393} (15.5\%) \\
+	\phantom{.} \texttt{RS} &
+	\num{160369} (88.3\%) & \num{21192} (11.7\%)  &
+	\num{165787} (84.5\%) & \num{30513} (15.5\%) \\
+	\phantom{.} \texttt{NS} &
+	\num{160368} (88.3\%) & \num{21193} (11.7\%)  &
+	\num{165783} (84.5\%) & \num{30517} (15.5\%) \\
+	\bottomrule
+\end{tabular}
+\end{table}

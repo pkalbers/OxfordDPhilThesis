@@ -1,0 +1,42 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\TableUnits
+\Caption{Variants retained after quality control per meta-imputation setting}
+{\DefaultUnits
+The number of variants retained after \gls{qc}, $n$, per meta-imputation setting (combination of score metric and merge operation) in Scenario~A and B.
+The percentage is given relative to the set of sites matched to masked variants in the \gls{got2d} dataset and after removing sites contained in the imputation scaffold;
+\num{181561} and \num{196300} in A and B, respectively.
+Variants were removed at \texttt{IMPUTE2} ${\text{info-score} < 0.4}$ and at deviations from \gls{hwe} at ${\text{p-value} < \num{1e-4}}$.}
+{tab:mim_qc}
+\centering
+\begin{tabular}{%
+	cc%
+	S[table-format=6.0]%
+	@{\quad}S[round-precision=1,table-format=1.1]%
+	S[table-format=6.0]%
+	@{\quad}S[round-precision=1,table-format=1.1]%
+	}
+\toprule
+{Merge} & {Score} &
+\multicolumn{2}{c}{Scenario A} &
+\multicolumn{2}{c}{Scenario B} \\
+\cmidrule(lr){3-4}
+\cmidrule(lr){5-6}
+ & & {$n$ retained} & {(\%)}  & {$n$ retained} & {(\%)} \\
+\otoprule
+\texttt{MSS}
+& \texttt{MP}  &  168595 & (92.85860)  &  178034 & (90.69485) \\
+& \texttt{IS}  &  169455 & (93.33227)  &  179677 & (91.53184) \\
+& \texttt{SC}  &  168686 & (92.90872)  &  179449 & (91.41569) \\
+& \texttt{RS}  &  165877 & (91.36158)  &  171517 & (87.37494) \\
+\cmidrule(lr){2-6}
+\texttt{WLC}
+& \texttt{MP}  &  161079 & (88.71894)  &  166458 & (84.79776) \\
+& \texttt{IS}  &  162511 & (89.50766)  &  169860 & (86.53082) \\
+& \texttt{SC}  &  160464 & (88.38021)  &  165907 & (84.51707) \\
+& \texttt{RS}  &  160369 & (88.32789)  &  165787 & (84.45593) \\
+ \bottomrule
+ \end{tabular}
+\end{table}

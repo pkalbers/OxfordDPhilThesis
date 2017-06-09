@@ -1,0 +1,37 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Extension of the allele-based error model}
+{...
+
+...}
+{tab:errormodel_extended}
+\centering
+\small
+\begin{threeparttable}
+\renewcommand{\arraystretch}{1.1}%
+\begin{tabular}{cccc}
+\toprule
+ Obs. & \multicolumn{3}{c}{True genotype} \\ \cmidrule(lr){2-4}
+  & $g_0$ & $g_1$ & $g_2$ \\ \midrule
+$\tilde{g}_0$
+	&  $(1-\beta)^2\times(1-\epsilon_0)^2 ~+~ 2\beta(1-\beta)\times2\epsilon_0(1-\epsilon_0) ~+~ \beta^2\times\epsilon_0^2$
+	&  $\epsilon_1 (1 - \epsilon_0)$
+	&  ${\epsilon_1}^2$  \\[1.2ex]
+$\tilde{g}_1$
+	&  $\beta^2\times(1-\epsilon_0)^2 ~+~ 2\beta(1-\beta)\times2\epsilon_0(1-\epsilon_0) ~+~ \beta^2\times\epsilon_0^2$
+	&  $\epsilon_0 \epsilon_1 + (1 - \epsilon_0)(1 - \epsilon_1)$
+	&  $2 \epsilon_1 (1 - \epsilon_1)$  \\[1.2ex]
+$\tilde{g}_2$
+	&  $\beta^2\times(1-\epsilon_0)^2 ~+~ 2\beta(1-\beta)\times2\epsilon_0(1-\epsilon_0) ~+~ (1-\beta)^2\times\epsilon_0^2$
+	&  $\epsilon_0 (1 - \epsilon_1)$
+	&  $(1 - \epsilon_1)^2$  \\ \bottomrule
+\end{tabular}
+\begin{tablenotes}[para,left]\footnotesize
+	\quad $\epsilon_0 = \mathbb{P}(h_0 \rightarrow h_1)$,
+	\quad $\epsilon_1 = \mathbb{P}(h_1 \rightarrow h_0)$,
+  \quad $\beta = \mathbb{P}(h_k \rightarrow h_k)$
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

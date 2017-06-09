@@ -1,0 +1,190 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Estimated power per imputation strategy}
+{Power was estimated as the proportion of significant association signals found among replicate simulation experiments, for which \n{1} variant per simulation was selected at random from \n{3} \gls{maf} intervals (as specified in the table).
+Each of the selected variants was simulated to act as a causal risk factor, where relative risk was simulated in \n{3} categories; low (${RR_{het}=1.2}$), modest (${RR_{het}=1.6}$), and high risk (${RR_{het}=2.0}$).
+Power at a nominal significance threshold (${\pvalue\leq1\times10^{-6}}$) is reported at each combination of \gls{maf} interval and risk category.
+The average difference ($\Delta_P$) in relation to the non-imputed simulation benchmark is given per \gls{maf} interval for each imputation strategy; the lowest average difference is highlighted (\textbf{bold}).
+This table shows the results obtained for imputed and meta-imputed data in Scenario~A; results for Scenario~B (\pref{tab:stats_power_B}) and Scenario~C (\pref{tab:stats_power_C}) are shown separately.}
+{tab:stats_power_A}
+\centering
+\TableUnits
+\begin{threeparttable}
+\begin{tabular}{%
+ ll%
+ S[table-format=5.0]%
+ S[table-format=5.0]%
+ S[table-format=5.0]%
+ S[table-format=2.3]@{}S[table-format=1.3]%
+ }
+\multicolumn{7}{@{}l}{\bfseries (A) European sub-populations} \\
+\toprule
+ {Risk MAF (\%)} & {Panel} &
+ \multicolumn{3}{c}{Power (\%), $\text{\pvalue} \leq 1\times10^{-6}$} &
+ \multicolumn{2}{c}{$\Delta_P$ (\%)$^\ast$} \\
+ \cmidrule(lr){3-5}
+ \cmidrule(lr){6-7}
+ & & {Low} & {Modest} & {High} & {Mean} & {($\pm$~SE)} \\
+\otoprule
+$[0.5, 1]$
+ &  Split panel (1) CEU         &   0 &   0 &   2 &  2.53658  &  (0.48656) \\
+ &  Split panel (2) FIN         &   0 &   0 &   0 &  3.04065  &  (0.51969) \\
+ &  Split panel (3) GBR         &   0 &   0 &   2 &  2.09756  &  (0.44389) \\
+ &  Split panel (4) TSI         &   0 &   1 &   2 &  2.30894  &  (0.50863) \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)          &   0 &   0 &   3 &  1.55284  &  (0.28912) \\
+ & \slshape  Intersection panel &   0 &   0 &   0 &  3.36585  &  (0.59253) \\
+ & \slshape  Union panel        &   0 &   0 &   3 & \bfseries 1.04878  &  (0.20614) \\
+\cmidrule(lr){2-7}
+$(1, 5]$
+ &  Split panel (1) CEU         &   0 &  24 &  62 &  8.56097  &  (0.72925) \\
+ &  Split panel (2) FIN         &   0 &  25 &  66 &  6.37398  &  (0.54277) \\
+ &  Split panel (3) GBR         &   0 &  25 &  66 &  7.43089  &  (0.67039) \\
+ &  Split panel (4) TSI         &   0 &  26 &  65 &  7.12195  &  (0.60514) \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)          &   0 &  27 &  69 &  4.95934  &  (0.43109) \\
+ & \slshape  Intersection panel &   0 &  23 &  60 &  9.56097  &  (0.84577) \\
+ & \slshape  Union panel        &   0 &  27 &  71 & \bfseries 4.84552  &  (0.41641) \\
+\cmidrule(lr){2-7}
+$(5, 50]$
+ &  Split panel (1) CEU         &  11 &  98 & 100 &  0.78048  &  (0.06784) \\
+ &  Split panel (2) FIN         &  12 &  98 &  99 &  0.89430  &  (0.07004) \\
+ &  Split panel (3) GBR         &  11 &  98 & 100 &  0.82113  &  (0.08327) \\
+ &  Split panel (4) TSI         &  11 &  97 & 100 &  0.74796  &  (0.08986) \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)          &  10 &  97 &  99 &  0.95934  &  (0.06868) \\
+ & \slshape  Intersection panel &  11 &  97 & 100 &  0.63414  &  (0.07325) \\
+ & \slshape  Union panel        &  11 &  97 & 100 & \bfseries 0.53658  &  (0.06760) \\
+ \bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize\DefaultUnits
+ \item[{${\ast}$}] Average difference in power between simulated and (meta-)imputed association results ($\Delta_P$);
+ averaged over risk category (low, modest, and high risk) and association signals detected at a moving significance threshold; between ${\pvalue\leq\num{1e-08}}$ and ${\pvalue\leq\num{1e-04}}$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+\begin{table}[!htb]
+\ContinuedFloat
+\small
+\caption[]{Continued.}
+\label{tab:stats_power_B}
+\centering
+\TableUnits
+\begin{threeparttable}
+\begin{tabular}{%
+	ll%
+	S[table-format=5.0]%
+	S[table-format=5.0]%
+	S[table-format=5.0]%
+	S[table-format=2.3]@{}S[table-format=1.3]%
+	}
+ \multicolumn{7}{@{}l}{\bfseries (B) Continental populations} \\
+\toprule
+ {Risk MAF (\%)} & {Panel} &
+ \multicolumn{3}{c}{Power (\%), $\text{\pvalue} \leq 1\times10^{-6}$} &
+ \multicolumn{2}{c}{$\Delta_P$ (\%)$^\ast$} \\
+ \cmidrule(lr){3-5}
+ \cmidrule(lr){6-7}
+ & & {Low} & {Modest} & {High} & {Mean} & {($\pm$~SE)} \\
+\otoprule
+$[0.5, 1]$
+ &  Split panel (1) AFR        &   0 &   0 &   0 &  3.00000  &  (0.54124)  \\
+ &  Split panel (2) AMR        &   0 &   0 &   3 &  1.48780  &  (0.33724)  \\
+ &  Split panel (3) ASN        &   0 &   0 &   0 &  3.20325  &  (0.58263)  \\
+ &  Split panel (4) EUR        &   0 &   0 &   2 &  1.55284  &  (0.29640)  \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)         &   0 &   0 &   2 & \bfseries 1.22764  &  (0.24728)  \\
+ & \slshape Intersection panel &   0 &   0 &   0 &  3.04878  &  (0.57894)  \\
+ & \slshape Union panel        &   0 &   0 &   2 &  1.30081  &  (0.24731)  \\
+\cmidrule(lr){2-7}
+$(1, 5]$
+ &  Split panel (1) AFR        &   0 &  25 &  57 &  9.36585  &  (0.86594)  \\
+ &  Split panel (2) AMR        &   0 &  24 &  70 &  5.21951  &  (0.44225)  \\
+ &  Split panel (3) ASN        &   0 &  19 &  48 & 14.61788  &  (1.19717)  \\
+ &  Split panel (4) EUR        &   0 &  26 &  75 &  2.71544  &  (0.25931)  \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)         &   0 &  25 &  76 &  3.06504  &  (0.29517)  \\
+ & \slshape Intersection panel &   0 &  16 &  43 & 15.54471  &  (1.24817)  \\
+ & \slshape Union panel        &   0 &  26 &  77 & \bfseries 2.65040  &  (0.24760)  \\
+\cmidrule(lr){2-7}
+$(5, 50]$
+ &  Split panel (1) AFR        &  11 &  95 &  99 &  1.98373  &  (0.10389)  \\
+ &  Split panel (2) AMR        &  10 &  96 &  99 &  1.40650  &  (0.10942)  \\
+ &  Split panel (3) ASN        &  12 &  94 &  98 &  2.82926  &  (0.17686)  \\
+ &  Split panel (4) EUR        &  11 &  97 & 100 & \bfseries 0.65040  &  (0.07208)  \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)         &  10 &  97 & 100 &  0.95121  &  (0.08931)  \\
+ & \slshape Intersection panel &  12 &  94 &  99 &  2.56097  &  (0.17322)  \\
+ & \slshape Union panel        &  10 &  97 & 100 &  1.13821  &  (0.09259)  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize\DefaultUnits
+ \item[{${\ast}$}] See \cref{tab:stats_power_A}{A} (\pref{tab:stats_power_A}).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+\begin{table}[!htb]
+\ContinuedFloat
+\small
+\caption[]{Continued.}
+\label{tab:stats_power_C}
+\centering
+\TableUnits
+\begin{threeparttable}
+\begin{tabular}{%
+	ll%
+  S[table-format=5.0]%
+	S[table-format=5.0]%
+	S[table-format=5.0]%
+  S[table-format=2.3]@{}S[table-format=1.3]%
+	}
+\multicolumn{7}{@{}l}{\bfseries (C) Independent reference panels} \\
+\toprule
+ {Risk MAF (\%)} & {Panel} &
+ \multicolumn{3}{c}{Power (\%), $\text{\pvalue} \leq 1\times10^{-6}$} &
+ \multicolumn{2}{c}{$\Delta_P$ (\%)$^\ast$} \\
+ \cmidrule(lr){3-5}
+ \cmidrule(lr){6-7}
+ & & {Low} & {Modest} & {High} & {Mean} & {($\pm$~SE)} \\
+\otoprule
+$[0.5, 1]$
+ &  Panel (1) Finns             &   0 &   0 &   3 &  1.91869  &  (0.24910)  \\
+ &  Panel (2) GoNL              &   0 &   1 &   1 &  1.86178  &  (0.29007)  \\
+ &  Panel (3) ORCADES           &   0 &   0 &   1 &  2.80487  &  (0.41571)  \\
+ &  Panel (4) UK10K             &   0 &   0 &   3 &  1.68292  &  (0.30485)  \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)          &   0 &   0 &   2 & \bfseries 1.31707  &  (0.24796)  \\
+ & \slshape Intersection panel  &   0 &   0 &   2 &  1.85365  &  (0.25806)  \\
+\cmidrule(lr){2-7}
+$(1, 5]$
+ &  Panel (1) Finns             &   1 &  21 &  73 & \bfseries 3.11382  &  (0.34348)  \\
+ &  Panel (2) GoNL              &   1 &  20 &  71 &  4.94308  &  (0.43645)  \\
+ &  Panel (3) ORCADES           &   2 &  20 &  68 &  5.76422  &  (0.57214)  \\
+ &  Panel (4) UK10K             &   1 &  18 &  72 &  4.78861  &  (0.42766)  \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)          &   1 &  20 &  74 &  3.51219  &  (0.35720)  \\
+ & \slshape Intersection panel  &   1 &  20 &  73 &  4.19512  &  (0.38716)  \\
+\cmidrule(lr){2-7}
+$(5, 50]$
+ &  Panel (1) Finns             &  14 &  98 & 100 &  0.68292  &  (0.06663)  \\
+ &  Panel (2) GoNL              &  13 &  98 & 100 &  0.82113  &  (0.10263)  \\
+ &  Panel (3) ORCADES           &  14 &  98 & 100 &  0.91056  &  (0.09590)  \\
+ &  Panel (4) UK10K             &  13 &  98 & 100 &  0.78048  &  (0.07875)  \\
+\cmidrule(lr){3-7}
+ &  Meta-imputed (1-4)          &  13 &  98 & 100 &  0.74796  &  (0.07880)  \\
+ & \slshape Intersection panel  &  14 &  98 & 100 & \bfseries 0.54471  &  (0.09181)  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize\DefaultUnits
+ \item[{${\ast}$}] See \cref{tab:stats_power_A}{A} (\pref{tab:stats_power_A}).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

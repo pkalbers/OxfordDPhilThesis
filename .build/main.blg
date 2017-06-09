@@ -1,0 +1,78 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: frontmatter.aux
+A level-1 auxiliary file: chapter1/one.aux
+A level-1 auxiliary file: chapter2/two.aux
+A level-1 auxiliary file: chapter3/three.aux
+A level-1 auxiliary file: chapter4/four.aux
+A level-1 auxiliary file: chapter5/five.aux
+A level-1 auxiliary file: chapter6/six.aux
+The style file: biblio.bst
+Database file #1: library.bib
+Repeated entry---line 8756 of file library.bib
+ : @article{malecot1948mathematics
+ :                                ,
+I'm skipping whatever remains of this entry
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Database file #2: manual.bib
+Repeated entry---line 2 of file manual.bib
+ : @article{malecot1948mathematics
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 10 of file manual.bib
+ : @phdthesis{cotterman1940calculus
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 107 of file manual.bib
+ : @book{hein2004gene
+ :                   ,
+I'm skipping whatever remains of this entry
+Warning--empty journal in Browning:2011ic
+Warning--empty journal in Delaneau:2008dk
+Warning--empty journal in griffiths1997
+Warning--empty institution in Loh:2016bl
+Warning--empty journal in Marchini:2010cga
+Warning--can't use both volume and number fields in moskvina2005minor
+You've used 214 entries,
+            2378 wiz_defined-function locations,
+            1822 strings with 72303 characters,
+and the built_in function-call counts, 147315 in all, are:
+= -- 10414
+> -- 15140
+< -- 129
++ -- 4832
+- -- 4813
+* -- 16339
+:= -- 27819
+add.period$ -- 954
+call.type$ -- 214
+change.case$ -- 1313
+chr.to.int$ -- 207
+cite$ -- 220
+duplicate$ -- 4124
+empty$ -- 6986
+format.name$ -- 5103
+if$ -- 27197
+int.to.chr$ -- 8
+int.to.str$ -- 0
+missing$ -- 219
+newline$ -- 1072
+num.names$ -- 858
+pop$ -- 1217
+preamble$ -- 1
+purify$ -- 1322
+quote$ -- 0
+skip$ -- 2746
+stack$ -- 0
+substring$ -- 7564
+swap$ -- 798
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1902
+warning$ -- 6
+while$ -- 1018
+width$ -- 0
+write$ -- 2767
+(There were 4 error messages)

@@ -1,0 +1,32 @@
+%!TEX root = ../../main.tex
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}[<->,>=stealth,auto,node distance=3cm,thick,
+CHR/.style={circle,draw,thick,minimum size=0.8cm,font=\sffamily\bfseries},
+IDV/.style={rectangle,draw=gray,thick,inner sep=6mm}]
+\node[CHR,fill=Ivory2] (1) {1};
+\node[CHR,fill=Azure2] (2) [right of=1] {2};
+\node[CHR,fill=Ivory2] (3) [right of=2] {1};
+\node[CHR,fill=Azure2] (4) [right of=3] {2};
+\node[IDV,label={[font=\sffamily]below:Individual A},fit=(1) (2)] {};
+\node[IDV,label={[font=\sffamily]below:Individual B},fit=(3) (4)] {};
+\draw [<->] (1) to [out=18,in=162] (2);
+\draw [<->] (1) to [out=36,in=144,looseness=0.666] (3);
+\draw [<->] (1) to [out=54,in=126,looseness=0.666] (4);
+\draw [<->] (2) to [out=18,in=198] (3);
+\draw [<->] (3) to [out=342,in=198] (4);
+\draw [<->] (2) to [out=324,in=216,looseness=0.666] (4);
+\end{tikzpicture}
+\end{center}
+\Caption{Illustration of the possible shared haplotypes in two individuals}
+{what the hell is going on here. i have no idea!}
+{fig:six_chrom_pairs}
+% \Caption{Illustration of the possible shared haplotypes in two individuals}
+% {Given \n{2} diploid individuals, each of the \n{4} chromosomes may share a haplotype identical by descent.}
+% {Given \n{2} diploid individuals, each of the \n{4} chromosomes may share a haplotype identical by descent.
+% As such, it is possible that the inferred IBD regions may overlap.}
+% {fig:six_chrom_pairs}
+% \vspace{-5pt}
+% \hrulefill%
+\end{figure}

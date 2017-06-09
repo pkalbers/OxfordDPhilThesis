@@ -1,0 +1,41 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Estimation accuracy under varying numbers of discordant pairs}
+{Different thresholds for the number of randomly formed discordant pairs, $n_d$, were analysed to evaluate the impact on the accuracy of allele age estimation.
+Note that all possible concordant pairs were included in each analysis; \ie $n_c$ was not reduced.
+True IBD segments were used to focus on the differences induced by varying $n_d$ thresholds.
+Each analysis was conducted on the same set of \n{10000} randomly selected rare variants at allele frequency ${\leq 1\%}$.
+Accuracy was measured using the rank correlation coefficient, $r_S$, and the magnitude of error, \gls{rmsle}, between the estimated age, $\hat{t}$ and the the times of coalescent events; \ie the time until all haplotypes in $X_c$ have coalesced, $t_c$, and the time of the immediately preceding coalescent event, $t_d$, which joined the lineages in $X_c$ and $X_d$ back in time, as well as the geometric mean of both, $t_m$.}
+{tab:stats_discords}
+\centering
+\begin{tabular}{cS[table-format=4.0]*6{S[table-format=1.3]}}
+\toprule
+Clock & {$n_d$} &
+\multicolumn{3}{c}{Rank correlation ($r_S$)} &
+\multicolumn{3}{c}{RMSLE} \\
+\cmidrule(lr){3-5}
+\cmidrule(lr){6-8}
+& & {$t_c$} & {$t_m$} & {$t_d$} & {$t_c$} & {$t_m$} & {$t_d$} \\
+\otoprule
+\ClockM &   10 &  \bfseries 0.906586 & 0.841847 & 0.631996  &  0.963342 & 0.624464 & \bfseries 0.574325  \\
+        &   50 &  \bfseries 0.917657 & 0.872463 & 0.673891  &  0.822642 & \bfseries 0.487039 & 0.528283  \\
+				&  100 &  \bfseries 0.920115 & 0.884083 & 0.691649  &  0.763483 & \bfseries 0.430784 & 0.520895  \\
+				&  500 &  \bfseries 0.920473 & 0.907259 & 0.731354  &  0.626427 & \bfseries 0.307910 & 0.532824  \\
+        & 1000 &  \bfseries 0.923028 & 0.903750 & 0.723312  &  0.606076 & \bfseries 0.298997 & 0.546518  \\
+\cmidrule(lr){1-8}
+\ClockR &   10 &  \bfseries 0.880780 & 0.816412 & 0.611626  &  0.713779 & \bfseries 0.443323 & 0.609265  \\
+        &   50 &  \bfseries 0.889130 & 0.844188 & 0.651051  &  0.577769 & \bfseries 0.348789 & 0.632959  \\
+				&  100 &  \bfseries 0.891502 & 0.857111 & 0.670861  &  0.519295 & \bfseries 0.319204 & 0.653344  \\
+				&  500 &  \bfseries 0.892486 & 0.886261 & 0.720450  &  0.389722 & \bfseries 0.304215 & 0.727680  \\
+        & 1000 &  0.888794 & \bfseries 0.895266 & 0.739364  &  0.345374 & \bfseries 0.329462 & 0.771701  \\
+\cmidrule(lr){1-8}
+\ClockC &   10 &  \bfseries 0.891099 & 0.829456 & 0.624189  &  0.744861 & \bfseries 0.454964 & 0.589177  \\
+        &   50 &  \bfseries 0.900952 & 0.864680 & 0.674755  &  0.623765 & \bfseries 0.348042 & 0.585587  \\
+				&  100 &  \bfseries 0.904779 & 0.880661 & 0.698733  &  0.574372 & \bfseries 0.308885 & 0.592973  \\
+				&  500 &  0.909421 & \bfseries 0.914094 & 0.752866  &  0.468624 & \bfseries 0.243173 & 0.625955  \\
+        & 1000 &  0.910884 & \bfseries 0.913763 & 0.751308  &  0.464245 & \bfseries 0.243365 & 0.629365  \\
+\bottomrule
+\end{tabular}
+\end{table}

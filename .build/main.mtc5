@@ -1,0 +1,21 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}Introduction}{\reset@font\mtcSfont 84}{section.3.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Rare variants as indicators of haplotype sharing by descent}{\reset@font\mtcSfont 87}{section.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}IBD detection around rare variants}{\reset@font\mtcSfont 89}{section.3.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.1}Inference of historical recombination events}{\reset@font\mtcSSfont 91}{subsection.3.3.1}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode \Gls {fgt}.}{\reset@font\mtcPfont 91}{paragraph*.63}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode \Gls {dgt}.}{\reset@font\mtcPfont 92}{paragraph*.65}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.2}Description of the algorithm}{\reset@font\mtcSSfont 93}{subsection.3.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.3}Anticipated limitations}{\reset@font\mtcSSfont 95}{subsection.3.3.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Genotype phasing by inference of the shared haplotype}{\reset@font\mtcSfont 98}{section.3.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4.1}Genealogical constraints arising from IBD}{\reset@font\mtcSSfont 99}{subsection.3.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.5}Evaluation}{\reset@font\mtcSfont 101}{section.3.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.1}Data generation}{\reset@font\mtcSSfont 101}{subsection.3.5.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Demographic model}{\reset@font\mtcSSSfont 102}{subsubsection*.71}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Simulated dataset}{\reset@font\mtcSSSfont 103}{subsubsection*.73}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.2}Accuracy analysis}{\reset@font\mtcSSfont 104}{subsection.3.5.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.6}Results}{\reset@font\mtcSfont 105}{section.3.6}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode IBD detection using the \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} algorithm}{\reset@font\mtcSSSfont 110}{subsubsection*.78}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode IBD detection in real data: 1000 Genomes, chromosome 20}{\reset@font\mtcSSSfont 115}{subsubsection*.81}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Inference of the shared haplotype sequence}{\reset@font\mtcSSSfont 117}{subsubsection*.85}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Phasing coverage of pairwise shared haplotypes per individual}{\reset@font\mtcSSSfont 121}{subsubsection*.88}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.7}Discussion}{\reset@font\mtcSfont 123}{section.3.7}}

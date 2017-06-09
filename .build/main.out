@@ -1,0 +1,91 @@
+\BOOKMARK [0][-]{chapter*.3}{List of Figures}{}% 1
+\BOOKMARK [0][-]{chapter*.4}{List of Tables}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Aims and structure of this thesis}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Basic concepts and terminology}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.2.1}{Mutation}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.2}{Recombination}{section.1.2}% 7
+\BOOKMARK [1][-]{section.1.3}{Models in population genetics}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.3.1}{Wright-Fisher model}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.2}{Coalescent theory}{section.1.3}% 10
+\BOOKMARK [1][-]{section.1.4}{Advances in high-throughput genomic technologies}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.4.1}{Next-generation sequencing}{section.1.4}% 12
+\BOOKMARK [2][-]{subsection.1.4.2}{Exploration of the human genome}{section.1.4}% 13
+\BOOKMARK [1][-]{section.1.5}{Genome-wide association studies}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.6}{Identity by descent}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.6.1}{Single-locus concept}{section.1.6}% 16
+\BOOKMARK [2][-]{subsection.1.6.2}{Genealogical concept}{section.1.6}% 17
+\BOOKMARK [1][-]{section.1.7}{Allele age estimation}{chapter.1}% 18
+\BOOKMARK [2][-]{subsection.1.7.1}{Theoretical results}{section.1.7}% 19
+\BOOKMARK [2][-]{subsection.1.7.2}{Application in human disease research}{section.1.7}% 20
+\BOOKMARK [0][-]{chapter.2}{Meta-imputation of reference data to increase accuracy and power in association analysis}{}% 21
+\BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}% 22
+\BOOKMARK [1][-]{section.2.2}{Approach}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.1}{Description of the method}{section.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.2}{Score metrics}{section.2.2}% 25
+\BOOKMARK [2][-]{subsection.2.2.3}{Merge operations}{section.2.2}% 26
+\BOOKMARK [1][-]{section.2.3}{Generation of reference datasets}{chapter.2}% 27
+\BOOKMARK [1][-]{section.2.4}{Accuracy of estimated genotypes}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.4.1}{Methods}{section.2.4}% 29
+\BOOKMARK [2][-]{subsection.2.4.2}{Results}{section.2.4}% 30
+\BOOKMARK [1][-]{section.2.5}{Power to detect significant risk signals}{chapter.2}% 31
+\BOOKMARK [2][-]{subsection.2.5.1}{Methods}{section.2.5}% 32
+\BOOKMARK [2][-]{subsection.2.5.2}{Results}{section.2.5}% 33
+\BOOKMARK [1][-]{section.2.6}{Discussion}{chapter.2}% 34
+\BOOKMARK [0][-]{chapter.3}{Using rare variants to detect haplotype sharing and identity by descent}{}% 35
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.2}{Rare variants as indicators of haplotype sharing by descent}{chapter.3}% 37
+\BOOKMARK [1][-]{section.3.3}{IBD detection around rare variants}{chapter.3}% 38
+\BOOKMARK [2][-]{subsection.3.3.1}{Inference of historical recombination events}{section.3.3}% 39
+\BOOKMARK [2][-]{subsection.3.3.2}{Description of the algorithm}{section.3.3}% 40
+\BOOKMARK [2][-]{subsection.3.3.3}{Anticipated limitations}{section.3.3}% 41
+\BOOKMARK [1][-]{section.3.4}{Genotype phasing by inference of the shared haplotype}{chapter.3}% 42
+\BOOKMARK [2][-]{subsection.3.4.1}{Genealogical constraints arising from IBD}{section.3.4}% 43
+\BOOKMARK [1][-]{section.3.5}{Evaluation}{chapter.3}% 44
+\BOOKMARK [2][-]{subsection.3.5.1}{Data generation}{section.3.5}% 45
+\BOOKMARK [2][-]{subsection.3.5.2}{Accuracy analysis}{section.3.5}% 46
+\BOOKMARK [1][-]{section.3.6}{Results}{chapter.3}% 47
+\BOOKMARK [1][-]{section.3.7}{Discussion}{chapter.3}% 48
+\BOOKMARK [0][-]{chapter.4}{Consideration of genotype error in the inference of haplotype sharing by descent}{}% 49
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 50
+\BOOKMARK [2][-]{subsection.4.1.1}{Probability of genotype error}{section.4.1}% 51
+\BOOKMARK [1][-]{section.4.2}{Generation of platform-specific genotype error profiles}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.2.1}{High-confidence genome data as benchmark for comparisons}{section.4.2}% 53
+\BOOKMARK [2][-]{subsection.4.2.2}{Selection and preparation of datasets from different platforms}{section.4.2}% 54
+\BOOKMARK [2][-]{subsection.4.2.3}{Penetrance of genotype error in sequencing and genotyping data}{section.4.2}% 55
+\BOOKMARK [1][-]{section.4.3}{Impact of genotype error on IBD detection}{chapter.4}% 56
+\BOOKMARK [2][-]{subsection.4.3.1}{Integration of empirical error distributions in simulated data}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.2}{Results}{section.4.3}% 58
+\BOOKMARK [2][-]{subsection.4.3.3}{Discussion}{section.4.3}% 59
+\BOOKMARK [1][-]{section.4.4}{A Hidden Markov Model for IBD inference}{chapter.4}% 60
+\BOOKMARK [2][-]{subsection.4.4.1}{The algorithm for probabilistic IBD inference}{section.4.4}% 61
+\BOOKMARK [2][-]{subsection.4.4.2}{Description of the model}{section.4.4}% 62
+\BOOKMARK [2][-]{subsection.4.4.3}{Integration of empirically determined genotype error rates}{section.4.4}% 63
+\BOOKMARK [2][-]{subsection.4.4.4}{Inference of IBD segments}{section.4.4}% 64
+\BOOKMARK [2][-]{subsection.4.4.5}{Results}{section.4.4}% 65
+\BOOKMARK [2][-]{subsection.4.4.6}{Discussion}{section.4.4}% 66
+\BOOKMARK [0][-]{chapter.5}{Estimation of rare allele age}{}% 67
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 68
+\BOOKMARK [1][-]{section.5.2}{Approach}{chapter.5}% 69
+\BOOKMARK [2][-]{subsection.5.2.1}{Coalescent time estimators}{section.5.2}% 70
+\BOOKMARK [2][-]{subsection.5.2.2}{Cumulative coalescent function}{section.5.2}% 71
+\BOOKMARK [2][-]{subsection.5.2.3}{Composite likelihood estimation of mutation time}{section.5.2}% 72
+\BOOKMARK [2][-]{subsection.5.2.4}{Inference of IBD around shared and unshared alleles}{section.5.2}% 73
+\BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 74
+\BOOKMARK [2][-]{subsection.5.3.1}{Data generation}{section.5.3}% 75
+\BOOKMARK [2][-]{subsection.5.3.2}{Accuracy analysis}{section.5.3}% 76
+\BOOKMARK [1][-]{section.5.4}{Results}{chapter.5}% 77
+\BOOKMARK [2][-]{subsection.5.4.1}{Validation of the method under different thresholds}{section.5.4}% 78
+\BOOKMARK [2][-]{subsection.5.4.2}{Comparison of IBD detection methods}{section.5.4}% 79
+\BOOKMARK [2][-]{subsection.5.4.3}{Impact of genotype error on allele age estimation}{section.5.4}% 80
+\BOOKMARK [1][-]{section.5.5}{Age of alleles with predicted effects in 1000 Genomes data}{chapter.5}% 81
+\BOOKMARK [2][-]{subsection.5.5.1}{Quality control}{section.5.5}% 82
+\BOOKMARK [2][-]{subsection.5.5.2}{Error correction based on allele frequency}{section.5.5}% 83
+\BOOKMARK [2][-]{subsection.5.5.3}{Results}{section.5.5}% 84
+\BOOKMARK [1][-]{section.5.6}{Discussion}{chapter.5}% 85
+\BOOKMARK [0][-]{chapter.6}{Discussion}{}% 86
+\BOOKMARK [1][-]{section.6.1}{Implications for genome-wide association studies}{chapter.6}% 87
+\BOOKMARK [1][-]{section.6.2}{The importance of haplotype sharing by descent}{chapter.6}% 88
+\BOOKMARK [1][-]{section.6.3}{The potential of estimating the age of alleles}{chapter.6}% 89
+\BOOKMARK [0][-]{section*.161}{Abbreviations}{}% 90
+\BOOKMARK [0][-]{chapter*.163}{Bibliography}{}% 91

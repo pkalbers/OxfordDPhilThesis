@@ -1,0 +1,32 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\TableUnits
+\Caption{Effect of quality control on imputed genotype data}
+{The number (percent) of variants retained after \gls{qc} for direct imputations (\ie \n{4} split panels, intersection panel, and union panel) and meta-imputation. Numbers refer to variants retained after removing unmatched sites and those contained in the imputation scaffold.}
+{tab:imp_qc}
+\centering
+\begin{tabular}{%
+	l%
+	lS[table-format=6.0]@{\quad}S[round-precision=1,table-format=1.1]%
+	lS[table-format=6.0]@{\quad}S[round-precision=1,table-format=1.1]%
+	}
+\toprule
+ Panel & \multicolumn{3}{c}{Scenario A} & \multicolumn{3}{c}{Scenario B} \\
+ \cmidrule(lr){2-4}
+ \cmidrule(lr){5-7}
+ & {Split} & {$n$ retained} & {(\%)} & {Split} & {$n$ retained} & {(\%)} \\
+\otoprule
+Split panel (1)              & CEU & 135218 & (95.42016) &  AFR & 123662 & (91.84095) \\
+Split panel (2)              & FIN & 141017 & (96.60485) &  AMR & 155266 & (93.62115) \\
+Split panel (3)              & GBR & 137277 & (94.98166) &  ASN &  99531 & (94.29660) \\
+Split panel (4)              & TSI & 138613 & (94.02081) &  EUR & 161364 & (95.34062) \\
+\cmidrule(lr){2-4}
+\cmidrule(lr){5-7}
+Meta-imputed (1--4)          &  -- & 161079 & (88.71894) &   -- & 166458 & (84.79776) \\
+\slshape Intersection panel  &  -- & 116980 & (99.80292) &   -- &  92312 & (99.83669) \\
+\slshape Union panel         &  -- & 174229 & (95.96169) &   -- & 184158 & (93.81457) \\
+\bottomrule
+\end{tabular}
+\end{table}

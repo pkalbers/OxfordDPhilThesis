@@ -1,0 +1,50 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htbp]
+\Caption{Power measured by relative risk under a nominal significance threshold}
+{A nominal p-value significance threshold of ${p \leq 5 \times 10^{-6}}$ was applied to each association replicate.
+Power is measured as the proportion of replicate association analyses ($n=500$, per \gls{rr} category) in which any signal reached significance, within 1~\gls{Mb} around the position of a simulated causal variant.
+Low, medium, and high risk were defined such that ${RR_{het}=1.2}$, ${RR_{het}=1.6}$, and ${RR_{het}=2.0}$, respectively.
+}
+{tab:power_nominal}
+\centering
+\begin{tabular}{l R{2.2cm} R{2.2cm} R{2.2cm}}
+	\toprule
+	\quad Panel  &  \text{Low risk}  &  \text{Medium risk}  &  \text{High risk} \\
+	\midrule % Scenario A
+	\multicolumn{4}{l}{Scenario A} \\
+	\midrule
+	\quad Split panel (1) CEU      &  12.0\%  &  65.4\%  &  74.6\%  \\
+	\quad Split panel (2) FIN      &  12.0\%  &  66.0\%  &  75.4\%  \\
+	\quad Split panel (3) GBR      &  11.6\%  &  65.4\%  &  75.4\%  \\
+	\quad Split panel (4) TSI      &  12.2\%  &  65.6\%  &  74.8\%  \\
+	\quad Meta-imputation          &  12.2\%  &  66.0\%  &  77.0\%  \\
+	\quad Intersection panel       &  12.4\%  &  65.4\%  &  72.8\%  \\
+	\quad Union panel              &  12.6\%  &  66.6\%  &  77.2\%  \\
+	\quad Simulation \emph{(not imputed)} &  12.4\%  &  68.4\%  &  80.6\%  \\
+	\midrule % Scenario B
+	\multicolumn{4}{l}{Scenario B} \\
+	\midrule
+	\quad Split panel (1) AFR      &  10.6\%  &  64.6\%  &  71.8\%  \\
+	\quad Split panel (2) AMR      &  10.4\%  &  65.4\%  &  75.4\%  \\
+	\quad Split panel (3) ASN      &   9.4\%  &  63.2\%  &  69.4\%  \\
+	\quad Split panel (4) EUR      &  11.8\%  &  66.4\%  &  76.2\%  \\
+	\quad Meta-imputation          &  10.4\%  &  65.6\%  &  77.0\%  \\
+	\quad Intersection panel       &  10.2\%  &  62.0\%  &  69.6\%  \\
+	\quad Union panel              &  11.0\%  &  65.8\%  &  76.6\%  \\
+	\quad Simulation \emph{(not imputed)} &  12.2\%  &  67.0\%  &  78.6\%  \\
+	\midrule % Scenario C
+	\multicolumn{4}{l}{Scenario C} \\
+	\midrule
+	\quad Panel (1) FINNS          &  12.4\%  &  66.0\%  &  77.6\%  \\
+	\quad Panel (2) GoNL           &  11.6\%  &  65.2\%  &  76.2\%  \\
+	\quad Panel (3) ORCADES        &  11.8\%  &  64.6\%  &  75.2\%  \\
+	\quad Panel (4) UK10K          &  11.6\%  &  66.0\%  &  76.4\%  \\
+	\quad Meta-imputation          &  12.0\%  &  66.2\%  &  77.4\%  \\
+	\quad Intersection panel       &  12.2\%  &  65.4\%  &  76.4\%  \\
+	\quad Union panel              & \text{--} & \text{--} & \text{--} \\
+	\quad Simulation \emph{(not imputed)} &  12.6\%  &  66.8\%  &  80.2\%  \\
+	\bottomrule
+\end{tabular}
+\end{table}

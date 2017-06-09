@@ -1,0 +1,46 @@
+% !TEX root = ../../main.tex
+
+
+\begin{figure}[!htb]
+{\,\small\texthv{\textbf{(a) True IBD}}} \\
+\includegraphics[width=\textwidth]{./img/ch5/generror_scat_tru}
+\Caption{Density distribution of allele age before and after the inclusion of genotype error in simulated data}
+{Allele age estimation was conducted on data in which empirical distributions of genotype error were simulated.
+The effects on the estimation process \emph{before} and \emph{after} error are compared.
+Each analysis was conducted on the same set of \n{5000} randomly selected rare variants at allele frequency ${\leq 0.5\%}$ in simulated data of ${N=\num{2500}}$ diploid individuals.
+This panel (\textbf{a}) compares the distributions of true and inferred ages, which were estimated on basis of the true IBD structure of the sample as determined from simulation records.
+The other panels show estimation results based on the different IBD detection methods;
+\gls{fgt} on both true and phased haplotypes (\textbf{b}, \textbf{c}; \pref{fig:generror_scat_fgt}),
+\gls{dgt} (\textbf{d}; \pref{fig:generror_scat_dgt}),
+and the \gls{hmm}-based approach (\textbf{e}; \pref{fig:generror_scat_hmm}).}
+{fig:generror_scat_tru}
+\end{figure}
+
+
+\begin{figure}[p]
+\ContinuedFloat
+{\,\small\texthv{\textbf{(b) FGT, true haplotypes}}} \\
+\includegraphics[width=\textwidth]{./img/ch5/generror_scat_fgtH}
+{\,\small\texthv{\textbf{(c) FGT, phased haplotypes}}} \\
+\includegraphics[width=\textwidth]{./img/ch5/generror_scat_fgtP}
+\caption[]{Continued.}
+\label{fig:generror_scat_fgt}
+\end{figure}
+
+
+\begin{figure}[!htb]
+\ContinuedFloat
+{\,\small\texthv{\textbf{(d) DGT}}} \\
+\includegraphics[width=\textwidth]{./img/ch5/generror_scat_dgt}
+\caption[]{Continued.}
+\label{fig:generror_scat_dgt}
+\end{figure}
+
+
+\begin{figure}[!htb]
+\ContinuedFloat
+{\,\small\texthv{\textbf{(e) HMM}}} \\
+\includegraphics[width=\textwidth]{./img/ch5/generror_scat_hmm}
+\caption[]{Continued.}
+\label{fig:generror_scat_hmm}
+\end{figure}

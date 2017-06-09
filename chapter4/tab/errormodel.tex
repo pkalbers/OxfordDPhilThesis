@@ -1,0 +1,48 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Penetrance functions in genotype and allele-based error models}
+{Error probability (or \emph{penetrance}) is denoted by $\varepsilon_{ij}$, which is the probability of observing genotype~$i$ given the true genotype~$j$.
+\N{2} models are presented which are genotype-based and allele-based, respectively.
+In each model, equations refer to the probability that a true genotype, $g_j$, was observed as any of the possible genotypes, $\tilde{g}_i$, such that $\varepsilon_{ij}$ is calculated from the corresponding row-by-column expression.
+}
+{tab:errormodel}
+\centering
+\begin{threeparttable}
+\renewcommand{\arraystretch}{1.1}%
+\begin{tabular}{lcccc}
+\toprule
+Model & Observed genotype & \multicolumn{3}{c}{True genotype} \\ \cmidrule(lr){3-5}
+  &  & $g_0$ & $g_1$ & $g_2$ \\ \midrule
+\textbf{Genotype-based$^1$}
+& $\tilde{g}_0$ &  $1 - \gamma$ &  $\tfrac{1}{2}\eta$ &  $0$          \\[1.2ex]
+& $\tilde{g}_1$ &  $\gamma$     &  $1 - \eta$         &  $\gamma$     \\[1.2ex]
+& $\tilde{g}_2$ &  $0$          &  $\tfrac{1}{2}\eta$ &  $1 - \gamma$ \\ \midrule
+\textbf{Allele-based$^2$}
+& $\tilde{g}_0$
+	&  ${(1 - \epsilon_0)^2}$
+	&  ${\epsilon_1 (1 - \epsilon_0)}$
+	&  ${\epsilon_1}^2$  \\[1.2ex]
+&  $\tilde{g}_1$
+	&  ${2 \epsilon_0 (1 - \epsilon_0)}$
+	&  ${\epsilon_0 \epsilon_1 + (1 - \epsilon_0)(1 - \epsilon_1)}$
+	&  ${2 \epsilon_1 (1 - \epsilon_1)}$  \\[1.2ex]
+&  $\tilde{g}_2$
+	&  ${\epsilon_0}^2$
+	&  ${\epsilon_0 (1 - \epsilon_1)}$
+	&  ${(1 - \epsilon_1)^2}$  \\ \bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+	\item[1] \citet{Douglas:2002hp};
+	\quad $\gamma = P(\text{hom.} \rightarrow \text{het.})$,
+	\quad $\eta = P(\text{het.} \rightarrow \text{hom.})$
+	\item[2] \citet{Gordon:2001im};
+	\quad $\epsilon_0 = P(h_0 \rightarrow h_1)$,
+	\quad $\epsilon_1 = P(h_1 \rightarrow h_0)$
+\end{tablenotes}
+\begin{tablenotes}[para]\footnotesize
+Table modified from \citet{Gordon:2002cz}, Table~2.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

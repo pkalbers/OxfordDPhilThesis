@@ -1,0 +1,1102 @@
+% !TEX root = ../main.tex
+
+\glsresetall
+
+
+\topquote[9cm]{
+The first principle is that you must not fool yourself --\\
+and you are the easiest person to fool.}
+{Richard Feynman}
+
+{
+\singlespacing
+\chapter{Consideration of genotype error in the inference of haplotype sharing by descent}
+\label{ch:generr}
+\minitoc
+}
+
+
+%
+\section{Introduction}
+%
+
+Recent advancements in genotyping and \gls{ngs} technologies have enabled us to study the human genome in unprecedented detail and scale.
+The availability of high-throughput methods to survey large samples has led to successful identification of thousands of disease causing risk factors, which in particular was driven by \gls{gwa} studies.
+This explosion of human genetic data has further enabled collaboration initiatives through the setup of genetic databases, which can be queried by research groups worldwide.
+However, because no technology is perfect, acquired data are likely to contain undetected amounts of error, which may affect statistical inference in many ways.
+
+Statistical tests often rely on the assumption that genotype data (retained after quality control) are correct, or that error quantities are negligible.
+Yet, the effects of misclassification in genotype data are well documented.
+For example, it has been shown that even minor amounts of genotype error can distort estimated distances in linkage mapping studies \citep{Buetow:1991wc,Shields:1991uw,Sobel:2002}, result in a substantial loss of linkage information in quantitative trait analyses \citep{Douglas:2000hb,Abecasis:2001jp}, decrease power in association studies \citep{Kang:2004hy}, and can substantially increase type I (false positive) error in haplotype-based case-control analyses \citep{moskvina2005minor}.
+
+Identification of incorrectly typed or called genotypes remains a difficult problem, which becomes more challenging as the magnitude of data increases.
+But, for example, as shown by \citet{Cox:2006kv} and independently by \citet{Moskvina:2006fz},
+genotype error does not always affect the distributions of genotypes to the extent that \gls{hwe} can be violated, which is disturbing given the circumstance that departures from \gls{hwe} are often used as a simple and quick method to test for and thereby exclude presumably incorrect genotypes.
+
+
+In this chapter, I explore the impact of genotype error on the detection of \gls{ibd} segments and, based on these results, I implement a new approach for targeted IBD inference using a \gls{hmm}.
+First, I introduce a generic model for genotype error; see section below.
+The remainder of this chapter is then divided into \n{2} main parts.
+In the first part (\cref{sec:generrprofiles}), I characterise the distribution of genotype error in data obtained on different genotyping and sequencing platforms, to construct empirical error profiles.
+I use this information to integrate realistic error rates in simulated data, such that the effects of error can be observed in practice.
+In particular, I evaluate the non-probabilistic IBD detection method presented in Chapter~3.
+The insights gained from this analysis enabled a probabilistic extension of the targeted IBD detection method, which I implemented using a \gls{hmm}; I present this new method in the second part of this chapter (\cref{sec:ibd_hmm_method}).
+This HMM-based method is incorporated in the previously presented \texttt{tidy} algorithm for the targeted detection of IBD segments (see Chapter~3).
+
+
+
+
+%
+\subsection{Probability of genotype error}
+\label{sub:probgenerr}
+%
+
+Consider a biallelic locus with alleles $a$~or~$b$, which respectively occur at frequency $p$ and ${q = 1 - p}$ in a population.
+Genotypes are formed by combination of \n{2} alleles in diploid organisms (therefore sometimes referred to as \emph{diplotypes}).
+There are \n{4} possible combinations of alleles, \ie $aa$, $ab$, $ba$, and $bb$, but of which genotypes $ab$ and $ba$ are indistinguishable.
+It is convenient to recode the \n{2} alleles as 0~and~1 to denote the reference and alternate allele, respectively.
+By introducing $k$ to count the number of alternate alleles, let $g_{k}$ denote a genotype, where ${k \in \lbrace 0, 1, 2 \rbrace}$.
+% Allele frequency can now be expressed as
+% \begin{equation}\label{eq:happropk}
+% 	f_h(c) = p^{1-c} q^c \text{.}
+% \end{equation}
+If all combinations of the \n{2} alleles are statistically independent, \eg in a randomly mating population, sample genotype frequencies, ${f_{g}(k)}$, are multinomially distributed with expectations given by \gls{hwe} proportions \citep{Hardy:1908wx, Weinberg:1908tr}; \ie such that ${(p+q)^2 = p^2 + 2pq + q^2 = 1}$.
+% which is commonly known as the Hardy-Weinberg principle \citep{Hardy:1908wx, Weinberg:1908tr}.
+The general form of the expected genotype frequency is given in \cref{eq:genpropk}, where $n$ refers to the number of chromosome copies (ploidy); \eg ${n = 2}$ for diploid organisms.
+\begin{equation}\label{eq:genpropk}
+	f_{g}(k) = {{n}\choose{k}}~p^{n-k}~q^{k}
+\end{equation}
+
+In presence of genotype error, the actual, \emph{true} genotype is distinguished from the \emph{observed} genotype, $\tilde{g}_k$, and the observed frequency, ${f_{\tilde{g}}(k)}$, is different from the true (but unknown) genotype frequency, dependent on the rate of error.
+More precisely, let the rate at which genotype $g_j$ is classified as $\tilde{g}_i$ be denoted by $\varepsilon_{ij}$, where ${i,j \in \lbrace 0, 1, 2 \rbrace}$.
+The value of $\varepsilon_{ij}$ is often referred to as the \emph{penetrance} of a genotype and represents the probability of observing genotype~$\tilde{g}_i$ given the true genotype~$g_j$ \citep{ott1999analysis,Gordon:2002cz}.
+For convenience, penetrance parameters can be represented in a ${3 \times 3}$ confusion matrix, $\mathcal{E}$, below.
+\begin{equation}\label{eq:errormatrix}\onehalfspacing
+\mathcal{E} =
+\begin{bmatrix}
+	\varepsilon_{00}  &  \varepsilon_{01}  &  \varepsilon_{02}  \\
+	\varepsilon_{10}  &  \varepsilon_{11}  &  \varepsilon_{12}  \\
+	\varepsilon_{20}  &  \varepsilon_{21}  &  \varepsilon_{22}
+\end{bmatrix}
+\end{equation}
+
+Considering the relation ${\sum_{i=0}^{2} \varepsilon_{ij} = 1 ~ \forall ~ j}$, where ${0 \leq \varepsilon_{ij} \leq 1}$, it follows that the expected observation frequency of a genotype is
+\begin{equation}\label{eq:errfrqprob}\onehalfspacing
+f_{\tilde{g}}(k) ~=~
+\begin{cases}
+~	f_g(0)~\varepsilon_{00} ~+~
+	f_g(1)~\varepsilon_{01} ~+~
+	f_g(2)~\varepsilon_{02}  &  \text{if} ~ k = 0 \\
+~	f_g(0)~\varepsilon_{10} ~+~
+	f_g(1)~\varepsilon_{11} ~+~
+	f_g(2)~\varepsilon_{12}  &  \text{if} ~ k = 1 \\
+~	f_g(0)~\varepsilon_{20} ~+~
+	f_g(1)~\varepsilon_{21} ~+~
+	f_g(2)~\varepsilon_{22}  &  \text{if} ~ k = 2 \\
+\end{cases}
+\end{equation}
+where $i=j$ indicates correct classification and $i \neq j$ misclassification of the true genotype; see \citet{Moskvina:2006fz}.
+
+
+%
+\subsubsection{Genotype penetrance models}
+%
+
+\Cref{eq:errormatrix,eq:errfrqprob} provide a generic framework for the penetrance of genotypes and the calculation of genotype frequencies after error.
+\N{2} penetrance models are presented below which provide formulations for the calculation of model parameters $\varepsilon_{ij}$.
+
+\citet{Douglas:2002hp} introduced a genotype-based model with parameters $\gamma$ and $\eta$, denoting the probability of a homozygous genotype to be misclassified as a heterozygous genotype and vice-versa, respectively.
+The intuition behind this model is based on technical error in the \gls{pcr} amplification process, which is used in both genotyping and sequencing methods for the replication of DNA fragments.
+However, note that observed genotypes $\tilde{g}_0$ and $\tilde{g}_2$ both have equal probability to arise from misclassification of $g_1$, and the probability that a homozygous genotype appears as the opposite homozygote, $g_0$ as $\tilde{g}_2$ or $g_2$ as $\tilde{g}_0$, is zero.
+
+As an alternative, misclassification of genotypes can be modelled as a consequence of errors that occur at random and independently in each of the \n{2} alleles.
+An explicit formulation of an allele-based model was proposed by \citet{Gordon:2001im}, where $\epsilon_0$ was defined as the probability that allele~0 ($h_0$) was observed as allele~1 ($h_1$), and $\epsilon_1$ the probability that $h_1$ was observed as $h_0$.
+Penetrance functions for both models are given in \cpref{tab:errormodel}; note that these are arranged as in error matrix $\mathcal{E}$ in \cref{eq:errormatrix}.
+
+%
+\input{chapter4/tab/errormodel}
+%
+
+
+In the following section, I estimated the genotype penetrance rates in different datasets.
+In each, error was computed from the proportions of correctly and incorrectly classified genotypes, such that error parameters were estimated for each model.
+
+% %
+% \input{chapter4/tab/errormodel_extended}
+% TODO work on extended error model
+% %
+
+%
+\section{Generation of platform-specific genotype error profiles}
+\label{sec:generrprofiles}
+%
+
+Assessment of genotype accuracy requires the existence of an error-free ``gold~standard'' dataset against which data generated on other platforms can be compared; provided that data were obtained on the same biological sample.
+In reality, however, the possibility of undetected genotype error cannot be excluded, but it can be reduced, for example, based on pedigree information and the laws of Mendelian inheritance.
+In the section below, I describe the dataset which I used as a reference for high-confidence genotype data.
+These were compared to several publicly available datasets generated using different genotyping and sequencing technologies, which included individuals also present in the reference dataset.
+
+%
+\subsection{High-confidence genome data as benchmark for comparisons}
+%
+
+The analysis was based on data from the \gls{ipg},\footnote{Illumina Platinum Genomes: \url{http://www.illumina.com/platinumgenomes/} \accessed{2016}{11}{16}} which comprises a \n{17}-member, \n{3}-generation family of European ancestry; CEPH~pedigree~1463.\footnote{Centre d'Etude du Polymorphisme Humain (CEPH), Utah family pedigree 1463: \url{https://catalog.coriell.org/0/Sections/Collections/NIGMS/CEPHFamiliesDetail.aspx?fam=1463} \accessed{2016}{11}{16}}
+This dataset has been generated using recent state-of-the-art sequencing technologies and methods for variant calling, where a total of 5.43~million variants were identified genome-wide \citep{Eberle:2016ki}; this included 4.73~million \glspl{snp}.
+Individuals had been sequenced to a depth of 50x on Illumina HiSeq~2000, and variants were called in concordance to several variant calling methods.
+Notably, due to the availability of pedigree information, artefacts such as genotype errors had been excluded based on deviations from Mendelian inheritance.
+The dataset comprises \n{11} children from \n{2} parents, who themselves are the children of the \n{4} founders of the pedigree; see \cref{fig:ceph1463}.
+Thus, inheritance constraints were most informative for the \n{2} parents, labelled \textsf{NA12877} and \textsf{NA12878} (Coriell~ID), which were additionally sequenced to 200x depth, and for which high-confidence variant calls were made available.
+
+%
+\input{chapter4/fig/ceph1463}
+%
+
+Genotype (\gls{snp}) data from \gls{ipg} for individuals \textsf{NA12877} and \textsf{NA12878} were used as reference or \emph{truth} for comparison to concordant data obtained on other platforms.
+Although the possibility of genotype error in \gls{ipg} data cannot be excluded, it is assumed that error rates in \textsf{NA12877} and \textsf{NA12878} are sufficiently low to allow proportional estimation of genotype misclassification rates based on observations over thousands of variant sites.
+%Likewise, the probability of double-error, if both ``true'' and ``observed'' genotypes are misclassified at single loci, was ignored as it was assumed to be negligibly small.
+
+Due to the imperfection of even high-standard sequencing technologies, not all chromosomal regions are equally accessible, which affects the power to determine variants in the calling process along the length of the sequence.
+The confidence of variant calls is derived from the depth of mapped sequence reads and quality scores.
+To maintain high levels of confidence in the data, accessibility masks provided by \gls{ipg} were applied such that only sites in high-confidence regions were retained in the analysed datasets.
+This retained a sum of \dec{3.407}~million and \dec{3.605}~million \glspl{snp} for \textsf{NA12877} and \textsf{NA12878}, respectively, across chromosomes~1--22.
+
+
+%
+\subsection{Selection and preparation of datasets from different platforms}
+%
+
+Because cell lines from CEPH~pedigree~1463 are a well-characterised model system, either \textsf{NA12877} or \textsf{NA12878}, or both, have been assessed in several studies.
+For example, CEPH~pedigree~1463 was genotyped in the \glsentrylong{hapmap}, which was one of the first large-scale catalogues of human genetic variation \citep{Thorisson:2005ff,Frazer:2007kha,InternationalHapMapConsortium:2010en}.
+Considering a more recent example, the \glsentrylong{1kg} provides data obtained on several platforms, including \gls{wgs} and high-density genotyping technologies \citep{Durbin:2010gj,GenomesProjectConsortium:2012co,Auton:2015gk}.
+
+It must be noted that the process of acquiring data is substantially different for genotyping and sequencing methods.
+The established approach for genotyping is to use chip or array-based methods, which are designed to target, or ``type'' specific molecular markers at predetermined regions and require prior knowledge about mapped locations in the genome.
+On the other hand, sequencing determines the contiguous nucleotide sequence, either genome-wide or for a region of the genome.
+Sequence data are aligned against a reference genome and further processed.
+Eventually, variants are ``called'' at nucleotides that differ from the reference at each position along the sequence.
+%Both types of data can be represented in \gls{vcf}.
+
+Genotype error profiles were generated for both sequencing and genotyping data, which were taken from available resource data of the \glsentrylong{1kg}.
+The following \emph{test} datasets were included:
+\begin{itemize}
+\item Low-coverage sequencing data from the final release of \glsentrylong{1kg} Phase~\rom{3} (\textbf{\emph{1000G}}), generated on Illumina HiSeq~2000 and HiSeq~2500 platforms (2-4x), and consisting of 78~million \glspl{snp} in total.
+\item Genotyping data generated on Illumina HumanOmni2.5 BeadChip (\textbf{\emph{Omni2.5}}) with 2.46~million \glspl{snp}.
+%Note that Omni2.5 does not capture variants below \gls{maf} of 2.5\%.
+\item Genotyping data generated on Affymetrix Genome-Wide Human SNP Array~6.0 (\textbf{\emph{Affy6.0}}) with 0.91~million \glspl{snp}.
+\end{itemize}
+To acknowledge differences arising from the variant calling and filtering process in sequencing data, \n{2} \emph{1000G} profiles were created; one that included all variant sites (\textbf{\emph{1000G.A}}), and one containing only sites within high-confidence regions (\textbf{\emph{1000G.B}}).
+For the latter, the ``strict'' accessibility mask provided by \glsentrylong{1kg} Phase~\rom{3} was used \citep[see][supplementary information 9.2]{Auton:2015gk}.\footnote{Accessible genome masks in 1000G: \url{http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/accessible_genome_masks/} \accessed{2016}{11}{27}}
+Note that the sample of the final release dataset of \emph{1000G} included \textsf{NA12878}, but not \textsf{NA12877}.
+The other \n{2} datasets, \emph{Omni2.5} and \emph{Affy6.0}, which were part of previous releases of the \glsentrylong{1kg}, included both \textsf{NA12877} and \textsf{NA12878}.\footnote{High-density genotyping data, Omni2.5 and Affy6.0 in \gls{1kg}: \url{ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/hd_genotype_chip/} \accessed{2016}{11}{17}}
+
+%
+\input{chapter4/fig/info_errormatch}
+%
+
+Misclassification of \gls{snp} genotypes was determined by comparison of each test dataset to the truth dataset, which was done for chromosomes~1--22.
+Genotype data were matched by chromosome and variant position (GRCh37/hg19).
+As a precaution, sites where reference or alternate nucleotides did not match between test and truth datasets were removed, although only genotypes were compared.
+Note that \gls{ipg} data did not contain variants called as being homozygous for the reference allele ($g_0$).
+Therefore, the following assumption was made.
+If the position of a variant site in a given test dataset was within high-confidence regions (using the \gls{ipg} accessibility mask), but not reported in the truth dataset, the true state was assumed to be the $g_0$~type.
+This relies on the expectation that the high-confidence intervals comprised data which would have otherwise been reported as a different type.
+This matching process is illustrated in \cpref{fig:info_errormatch}.
+
+At each matched site, the population frequency was assigned as recorded in the full sample of the final \glsentrylong{1kg} Phase~\rom{3} dataset, which contained \n{2504} individuals from several continental populations worldwide.
+Sites for which no frequency information was available were removed.
+%, which was the case for a fraction of sites in \emph{Omni2.5} and \emph{Affy6.0}.
+Then, the retained genotypes in the matched datasets were used to measure the rate at which a true genotype ($g_0$, $g_1$, or $g_2$) was observed as the same or another genotype ($\tilde{g}_0$, $\tilde{g}_1$, or $\tilde{g}_2$).
+This was done to obtain estimates for the genotype penetrance parameters $\varepsilon_{ij}$ in error matrix $\mathcal{E}$.
+
+
+
+%
+\subsection{Penetrance of genotype error in sequencing and genotyping data}
+%
+
+% IDEA Clarify the aims: to generate error profile which can be used in subsequent construction of a probabilistic IBD model; here, to evaluate measured error rates and compare to expectations, eg. higher error near centromere
+
+The total number of matched variant sites was \dec{76.859}~million in \emph{1000G.A}, but of which \dec{73.435}~million ($\approx$96\%) were assumed as homozygous reference genotypes from high-confidence regions in \gls{ipg}.
+A lower amount was available in \emph{1000G.B}, where \dec{59.234}~million genotypes were retained, but of which \dec{56.739}~million ($\approx$96\%) were assumed.
+This large proportion of sites at which a true $g_0$~genotype was assumed may not come as a surprise, because there is a high chance that a considerable fraction of the variants present in either test dataset may fall within the lengths covered by high-confidence regions.
+However, because $g_0$ genotypes were removed in \gls{ipg} data, it is a necessary assumption that those genotypes can be recovered from high-confidence regions.
+Otherwise, error rates could not be determined for $g_0$~genotypes.
+Overall, 0.079\% of genotypes were misclassified in \emph{1000G.A}, and 0.025\% in \emph{1000G.B}.
+If assumed $g_0$ genotypes are ignored, thus only considering true genotype classes ${j \in \lbrace 1,2 \rbrace}$, overall error was increased; reaching 0.538\% and 0.183\% in \emph{1000G.A} and \emph{1000G.B}, respectively.
+
+Due to the comparatively lower number of available sites in genotyping data (\emph{Omni2.5} and \emph{Affy6.0}), the matched \texttt{NA12877} and \texttt{NA12878} datasets were merged.
+Together, the total number of sites was \dec{4.464}~million in \emph{Omni2.5} and \dec{1.733}~million in \emph{Affy6.0}, and where \dec{3.087}~million ($\approx$69\%) and \dec{0.932}~million ($\approx$54\%) were assumed, respectively.
+The rate of misclassified genotypes in \emph{Omni2.5} was \SI{1.177}{\percent}, whereas in \emph{Affy6.0} overall error was \SI{1.164}{\percent}.
+In contrast to sequencing datasets, error rates decreased if $g_0$ was ignored, yielding \SI{0.113}{\percent} and \SI{0.106}{\percent} of misclassified genotypes in \emph{Omni2.5} and \emph{Affy6.0}, respectively.
+
+% The discrepancy between inclusion and exclusion of assumed $g_0$ genotypes indicates a bias towards oversaturation with correctly observed genotypes in both \emph{1000G} datasets, such that genotype accuracy may have been artificially inflated.
+
+In the following, the penetrance of genotypes was investigated in greater detail, for which matched sites from each true genotype class were considered; first, by exploring the distribution of error along the genome and, second, by true genotype class to obtain empirical penetrance estimates, which was then extended to generate frequency-dependent error profiles for each dataset.
+
+
+%
+\subsubsection{Genotype accuracy by chromosomal region}
+%
+
+Each chromosome was divided into 1~Mb long chunks to depict the rate of misclassified genotypes over the length of the genome; see \cpref{fig:poserrdens}.
+Error densities were calculated by dividing the number of incorrect genotypes by the number of all genomes within each chunk, where chunks with less than \n{100} matched sites were removed.
+
+%
+\input{chapter4/fig/poserrdens}
+%
+
+The distribution of error in the \emph{1000G.A} dataset was consistently low on average, but where error densities increased towards telomere regions and near centromeres, reaching error rates above 1\% and occasionally above 5\%.
+This is expected, because DNA in the telomeric and centromeric regions is highly repetitive and rich in GC content, which results in difficulties in the amplification process and makes sequence reads difficult to align to the genome.
+This pattern was less pronounced in \emph{1000G.B}, as sites outside high-confidence regions were excluded, which resulted in a clear reduction of error along the genome.
+However, most chromosomes showed locally increased error rates, but where rates above 1\% were rarely observed.
+Yet, the persistence of error hotspots indicates that not all low-confidence regions were identified from quality assessment of sequencing data.
+
+In genotyping data, error rates showed less variability along the genome, \eg in the \emph{Omni2.5} dataset, but where error rates averaged above 1\%, with a few regions of increased error above 5\%.
+Although error was low on average in \emph{Affy6.0}, the likewise lower number of sites resulted in sparse coverage, but which rarely increased above 1\%.
+However, a few regions showed error rates near 10\%.
+
+
+%
+\subsubsection{Empirical estimation of genotype penetrance}
+%
+
+Estimates for penetrance parameters in $\mathcal{E}$ were derived by considering the proportional relation among observed types per true genotype class.
+For each true genotype class $j$, the number of genotypes observed in class $i$ was divided by the total number in class $j$, which gives the empirical value of parameter $\varepsilon_{ij}$; denoted by $\tilde{\varepsilon}_{ij}$.
+For an exact formulation, let $n_{ij}$ be the number of observed $\tilde{g}_i$ genotypes whose actual type belongs to the true genotype class $j$.
+The empirical value is calculated as
+\begin{equation}\label{eq:empexperr}
+	\tilde{\varepsilon}_{ij} = \frac{n_{ij}}{N_j} \quad \forall j
+\end{equation}
+where ${N_j = \sum^{2}_{i=0} n_{ij}}$, \ie the number of all genotypes per true class $j$, such that ${\tilde{\varepsilon}_{0j} + \tilde{\varepsilon}_{1j} + \tilde{\varepsilon}_{2j} = 1 \ \forall \ j}$.
+Results for each dataset are presented in \cpref{tab:generrpercent}.
+
+%
+\input{chapter4/tab/generrpercent}
+%
+
+In all \n{4} datasets, values for $\tilde{\varepsilon}_{ij}$ were highest when genotypes were classified correctly; \ie ${i = j}$, the main diagonal in $\mathcal{E}$.
+Notably, $\tilde{\varepsilon}_{00}$ was highest in all sequencing datasets, whereas $\tilde{\varepsilon}_{22}$ was highest in genotyping datasets.
+%This again suggests that in the sequencing datasets more $g_0$ genotypes were correctly observed than expected.
+In each dataset, true homozygous genotypes were more likely to be misclassified as heterozygotes than as the opposite homozygote, but the probability to observe opposite homozygotes was non-zero throughout.
+Misclassification of true heterozygous genotypes showed a preference towards genotypes that are homozygous for the reference allele; except in \emph{Affy6.0} where misclassification rates were nearly equal for $\tilde{g}_0$ and $\tilde{g}_2$.
+As formulated in \ctref{eq:errfrqprob}, the observed genotype frequency is a function of the true allele frequency and the penetrance of genotypes.
+Hence, the frequency-dependent distribution of empirical genotype penetrance was assessed; see section below.
+
+
+%
+\subsubsection{Frequency-dependent penetrance distribution}
+%
+
+For each true genotype class, sites were pooled by their assigned population allele frequencies
+into \n{200} frequency bins of equal scope on linear scale; \ie bins were separated in steps of 0.5\%.
+Using \ctref{eq:empexperr}, the proportions of observed genotypes were calculated in each bin, to obtain penetrance expectations across the frequency spectrum.
+Additionally, because it can be expected that $N_j$ becomes small at lower genotype frequencies, bins where the number of genotypes dropped below a nominal threshold were marked to indicate less support for estimated penetrance values.
+\N{3} nominal levels of support were distinguished;
+\begin{align*}
+	\textit{Low support}     & \quad\text{if}\quad {N_j < 100}\ , \\
+	\textit{Reduced support} & \quad\text{if}\quad {100 \leq N_j < 1000}\ , \\
+	\textit{High support}    & \quad\text{if}\quad {N_j \geq 1000}\ .
+\end{align*}
+
+%
+\input{chapter4/fig/generrprop}
+%
+
+For each dataset, the resulting penetrance distributions are shown in \cpref{fig:generrprop}.
+The most striking observation is the substantial loss of accuracy for $g_0$ genotypes at higher allele frequencies.
+For example in \emph{1000G.A}, all $g_0$ in the highest frequency bin were misclassified as $\tilde{g}_2$, despite high support.
+The proportion of $g_0$ observed as $\tilde{g}_1$ was low throughout.
+This effect was seen in all \n{4} datasets, regardless of level of support, which was low for bins above 80\% frequency in all datasets, except \emph{1000G.A}.
+However, this pattern should be interpreted with caution, as the set of true homozygous reference genotypes had to be assumed from high-confidence regions in \gls{ipg} data.
+
+A possible explanation for this observation may be seen in somatic mutations in the sampled biological material.
+Data for both \textsf{NA12877} and \textsf{NA12878} were generated from lymphoblastoid cell lines created from sampled B-Lymphocyte cells.
+For example, it has been shown that induced pluripotent stem cells may accumulate genetic modifications \citep{Gore:2011id}.
+Although CEPH cell lines are often used as a renewable resource of DNA, the possibility that cell lines undergo further genetic modifications may not be excluded.
+However, here, because the \gls{ipg} protocol would have excluded sites that showed cell line artefacts, it is assumed that the genotypes had to be consistent with Mendelian laws.
+Regardless, note that salient patterns of genotype error were most apparent for the assumed subset of the data; \ie at sites not actually contained in the set of reported genotypes.
+It is therefore possible that not all unobserved homozygous reference genotypes can be assumed from high-confidence regions when sites are only observed in other data.
+
+
+In the opposite homozygote class, $g_2$, observed distributions were mirrored, such that the loss of accuracy occurred at lower frequencies; yet, the proportion of misclassified genotypes was markedly lower.
+Under the allele-based error model, this asymmetry suggests that the probability of the alternate allele to appear as the reference allele was higher than in reverse direction, such that ${\epsilon_0 < \epsilon_1}$; see \cpref{tab:errormodel}.
+
+
+The estimated error distributions were used to reproduce empirical error rates in simulated data.
+This was done to assess the effect of genotype misclassification on IBD detection, using the method proposed in Chapter~3; \ie targeted IBD detection done thoroughly, or \texttt{tidy}.
+For comparison, an alternate IBD detection method was applied to the same data (\texttt{Refined\,IBD} in \texttt{Beagle\,4.1}; \citealt{Browning:2013eh}).
+
+
+
+%
+\section{Impact of genotype error on IBD detection}
+\label{sec:impact_error_data}
+%
+
+One of the genotype error profiles constructed in the previous section was used to induce realistic error patterns in simulated data.
+Among the \n{4} test datasets, both sequencing datasets were recorded with higher levels of support.
+Although \emph{1000G.B} showed overall lower levels of genotype error, \emph{1000G.A} can be seen as being more representative for data obtained in recent large-scale studies; hence, the integration of error was conducted according to the frequency-dependent penetrance distribution in the \emph{1000G.A} profile.
+The process of error integration in simulated data is described below.
+
+
+
+%
+\subsection{Integration of empirical error distributions in simulated data}
+%
+
+The dataset simulated in Chapter~3 was re-used for integration of genotype error, so as to enable a direct comparison to previously obtained results after applying the same methodology for IBD detection; see \ctref{sec:msprime} for a description of the simulation process.
+Briefly, data were simulated using \texttt{msprime\,0.4.0} \citep{Kelleher:2016fn}, with a sample size of ${N=\num{2500}}$ individuals (\ie \n{5000} haplotypes), resulting in \dec{0.672847}~million variant sites over a length of \SI{62.949301}{\mega\basepair} (\SI{108.26675653}{\centi\morgan}).
+Diploid individuals wee formed by pairing haplotypes.
+From those, data were converted into genotypes, which were then phased, such that \n{3} datasets were generated (true haplotypes, phased haplotypes, and genotype data).
+The same process was followed here; however, genotype error was evoked on haplotype level before haplotype sequences were combined to form genotypes.
+By doing so, identically distributed proportions of error were present in both the haplotype and genotype datasets, after conversion of the former into the latter, as well as subsequent phasing.
+
+Haplotypes were randomly assigned into fixed pairs which would later form the genotypes of individuals.
+Error was included by randomly replacing haplotype pairs dependent on the empirically determined misclassification rates per true genotype class~$j$.
+This was done by selecting each variant site in turn and indexing each haplotype pair that would form genotype~$g_j$ before error.
+The index ensured that pairs would be drawn without replacement.
+Then, for each class~$j$, indexed pairs were randomly drawn and assigned to each of the \n{3} observed genotype classes, in proportions equal to empirical penetrance rates, as determined for the given allele frequency of the currently selected site.
+Haplotype pairs were ``mutated'' according to their assigned class, such that they would form $\tilde{g}_i$ after error.
+
+These haplotype data were then converted into a corresponding genotype dataset, which was then phased using \texttt{SHAPEIT\,2} \citep{Delaneau:2008dk,Delaneau:2013hi}; see description in \cpref{sec:ibd_analysis}.
+The \n{3} resulting datasets resembled the original datasets used in the evaluation of IBD inference presented in Chapter~3 (\ctref{sec:ibd_results}), which therefore allowed
+assessment in relation to the simulated genealogy and the underlying IBD structure of the sample, as well as a direct comparison to the results generated before error was included.
+
+% Note that, here, frequency-dependent error distributions per genotype class were generated from the \emph{1000G.A} profile by pooling and averaging matched variant sites into \n{200} allele frequency bins.
+% This was done to reduce the variance in estimated distributions.
+% At each site in the data, penetrance rates were calculated through linear interpolation from averaged values and then normalised such that their sum was equal to~1 per site-frequency.
+
+
+%
+\subsubsection{Accuracy analysis}
+%
+
+The following briefly describes the analyses performed.
+\N{2} IBD detection methods were applied to available data; the \texttt{tidy} method as proposed in Chapter~3 and the \texttt{Refined\,IBD} algorithm in \texttt{Beagle\,4.1} \citep{Browning:2013eh}.
+Recall that the \texttt{tidy} method is based on inference of recombination events in pairs of individuals to detect breakpoints distal to a given target site, which is enabled by the \gls{fgt}, which requires haplotype data, and the \gls{dgt}, which requires genotype data; see \cpref{sec:tidy}.
+Accuracy was measured in terms of the physical distance between breakpoints and focal target position at which IBD segments were identified; calculated using the squared Pearson correlation coefficient, $r^2$, and the \gls{rmsle} as defined in \cpref{eq:rmsle}.
+Data were analysed in \n{3} approaches:
+\begin{approach_}
+\item\label{A4:fgt_h} the \gls{fgt} on the simulated haplotypes and
+\item\label{A4:fgt_p} on phased haplotypes, and
+\item\label{A4:dgt} the \gls{dgt} on genotype data.
+\end{approach_}
+Note that the \texttt{Refined\,IBD} algorithm can only be used with haplotype data and was therefore evaluated in \ref{A4:fgt_h} and \ref{A4:fgt_p}.
+Again, \fk{} was used to denote the frequency of shared alleles, where $k$ is the allele count in the sample.
+
+
+
+%
+\subsection{Results}
+\label{sec:ibd_results_err}
+%
+
+In presence of genotype error, the misclassification of alleles observed to be shared among individuals may pose a problem to the identification of haplotype sharing by descent, in particular for variants that are low in frequency or rare, see \cpref{fig:fk_error}; recall that the \texttt{tidy} method utilises rare allele sharing to identify regions of recent relatedness.
+\cref{fig:fk_error}{a} indicates the rate at which genotype data appear at a frequency different to their true frequency due to genotype error; shown for variants below 5\% allele frequency.
+The figure shows the change between true and observed allele count, depicted as the difference of the observed minus the true count.
+For example, \SI{68.22558}{\percent} of \fk{2}~variants remained at the same frequency, but this fraction decreased for alleles found at higher frequencies, \eg \SI{51.13983}{\percent} for \fk{10} and \SI{28.77095}{\percent} for \fk{50}~variants.
+
+%
+\input{chapter4/fig/fk_error}
+%
+
+For IBD detection using rare variants as target sites, this may not pose a problem if identified individuals indeed share a given allele.
+This is further explored in \cref{fig:fk_error}{b}, where the \gls{fpr} indicates the proportion of alleles that were falsely identified due to $g_0$ or $g_2$ genotypes being observed as $\tilde{g}_1$.
+Conversely, the \gls{fnr} indicates the proportion of shared alleles that were missed due to $g_1$ being observed as $\tilde{g}_0$ or $\tilde{g}_2$.
+The risk for both types of error was greatest for \fk{2}~variants, here observed at ${\operatorname{FPR}=\dec{0.09356644}}$ and ${\operatorname{FNR}=\dec{0.126583}}$.
+On average, \gls{fnr}  (\dec{0.009469898}; ${\pm \dec{0.665030e-3}~\text{SE}}$) was higher than \gls{fpr} (\dec{0.007181344} ; ${\pm \dec{0.403969e-3}~\text{SE}}$), indicating that more shared alleles were missed than falsely observed.
+
+
+
+%
+\subsubsection{IBD detection using \emph{tidy}}
+%
+
+The set of target sites included all \fk{} variants found at ${k \in \lbrace 2, \ldots, 25 \rbrace}$ (\ie alleles shared at frequency ${\leq 0.5\%}$).
+In total, \dec{0.296748}~million \glspl{snp} were available in this frequency range, which represented \SI{0.93605}{\percent} of the targets previously identified before the inclusion of error.
+Note that sites were only considered if matched to the set of true IBD segments (as previously determined from simulation records).
+Hence, false positives were not considered in this analysis.
+The number of pairs sharing the focal alleles at available target sites was \dec{10.362361}~million; \ie the total number of IBD segments detected in each approach.
+
+Duplicate segments were removed to retain unique segments after sorting segments by \fk{}, such that segments were associated with the presumably youngest shared allele within the detected breakpoint interval.
+Recall that the same IBD interval may be inferred from multiple focal alleles, as these are assumed to sit on the same shared haplotype.
+The proportion of uniquely identified segments was \SI{48.03503}{\percent} in \cref{A4:fgt_h},
+\SI{48.55437}{\percent} in \cref{A4:fgt_p}, and \SI{41.09449}{\percent} in \cref{A4:dgt}, whereas
+\SI{27.40312}{\percent} were unique in the set of true IBD segments.
+These sets were then intersected to measure accuracy on the same set of unique IBD segments, which resulted in \dec{2.824385}~million (\SI{27.25619}{\percent}) per approach.
+
+%
+\input{chapter4/fig/naive_break_err}
+%
+
+The proportion of breakpoints that were overestimated (in terms of the true distance between target position and actual recombination breakpoint) was
+\SI{50.68358}{\percent}, \SI{49.69084}{\percent}, and \SI{63.86433}{\percent} in \ref{A4:fgt_h}, \ref{A4:fgt_p}, and \ref{A4:dgt}, respectively.
+Recall that before error was included, the vast majority of breakpoints (${>95\%}$) was overestimated in each approach.
+When the \gls{fgt} was used, \SI{49.22148}{\percent} of breakpoints were underestimated and \SI{0.094941}{\percent} coincided with true breakpoints in \cref{A4:fgt_h}, which was similar in \cref{A4:fgt_p} where \SI{50.21720}{\percent} and \SI{0.091966}{\percent} of breakpoints were underestimated and exact, respectively.
+When the \gls{dgt} was used, \SI{36.07447}{\percent} of breakpoints were underestimated, but also only \SI{0.061199}{\percent} were exact.
+
+Overall accuracy was low in all approaches; $r^2$ was \dec{0.069374}, \dec{0.072411}, and \dec{0.088683} in \ref{A4:fgt_h}, \ref{A4:fgt_p}, and \ref{A4:dgt}, respectively, which was also reflected in corresponding high error scores (\gls{rmsle}), which were \dec{0.713821}, \dec{0.721678}, \dec{0.693851}, respectively.
+For comparison, accuracy measured on the same set of segments, but without genotype error, was ${r^2 > 0.85}$ and \gls{rmsle}~${< 0.55}$ for each approach.
+When seen per \fk{}~category, all \n{3} approaches consistently showed low correlation with true segment breakpoints (${r^2 < 0.2}$) and a high magnitude of error (${\rmsle > 0.6}$); see \ctref{tab:stat_hmm_accuracy}, which is shown for comparison to results obtained using the \gls{hmm}-based approach developed in the second part of this chapter.
+
+To determine the lengths of IBD segments in each approach, boundary cases were removed to ensure that breakpoints were detected on both sides of each segment; \SI{0.6221885}{\percent}, \SI{0.6211972}{\percent}, and \SI{0.9235285}{\percent} were removed in \ref{A4:fgt_h}, \ref{A4:fgt_p}, and \ref{A4:dgt}, respectively, but which was noticeably lower compared to boundary cases removed in the set of true IBD segments (\SI{1.359482}{\percent}).
+Again, sets were intersected, retaining \dec{2.781729}~million (\SI{98.48972}{\percent}) common segments across approaches.
+
+%
+\input{chapter4/fig/naive_length_err}
+%
+
+Median physical length (and median genetic length) was relatively short when the \gls{fgt} was used in \cref{A4:fgt_h,,A4:fgt_p}, yielding \SI{0.199520}{\mega\basepair} (\SI{0.381497}{\centi\morgan}) and \SI{0.198376}{\mega\basepair} (\SI{0.378427}{\centi\morgan}), respectively.
+For the \gls{dgt}, \cref{A4:dgt}, median length was closer to the true length; \SI{0.331612}{\mega\basepair} (\SI{0.635486}{\centi\morgan}) and \SI{0.337100}{\mega\basepair} (\SI{0.584752}{\centi\morgan}), respectively.
+However, for \fk{25}~variants, a clear difference was seen, where the median length was
+\SI{0.3114444}{\mega\basepair} (\SI{0.5271301}{\centi\morgan}) in \ref{A4:fgt_h} and
+\SI{0.2703742}{\mega\basepair} (\SI{0.4303142}{\centi\morgan}) in \ref{A4:fgt_p}.
+But median length was likewise reduced in \ref{A4:dgt} compared to the true length; \SI{0.5431724}{\mega\basepair} (\SI{0.9262646}{\centi\morgan}) and
+\SI{2.1723358}{\mega\basepair} (\SI{3.6770937}{\centi\morgan}) respectively.
+This difference was not seen towards higher frequencies, \eg at \fk{2}~variants, reaching
+\SI{0.1712515}{\mega\basepair} (\SI{0.3543174}{\centi\morgan}),
+\SI{0.1725973}{\mega\basepair} (\SI{0.3538201}{\centi\morgan}), and
+\SI{0.2886190}{\mega\basepair} (\SI{0.5784379}{\centi\morgan}) in
+\ref{A4:fgt_h}, \ref{A4:fgt_p}, and \ref{A4:dgt}, respectively, compared to
+\SI{0.2275384}{\mega\basepair} (\SI{0.4081054}{\centi\morgan}) in true segments.
+
+%
+\input{chapter4/fig/full_ibd_error}
+%
+
+The length distribution of true and detected IBD segments is shown in \cpref{fig:naive_length_err}.
+Note the similarity to \ctref{fig:1kg20_lengths}, which was conducted using the \gls{fgt} and \gls{dgt} on data from \gls{1kg} (chromosome~20).
+This result suggests that the non-probabilistic IBD detection method implemented in \texttt{tidy} is likely to be biased in presence of genotype error.
+To illustrate the problem, consider the example given in \cpref{fig:full_ibd_error}, which highlights the effect of misclassified genotypes when seen in pairs of genotypes.
+The figure shows the underlying IBD structure for each pair of chromosomes in \n{2} individuals sharing a randomly picked rare allele.
+In \cref{fig:full_ibd_error}{a}, the positions of breakpoints detected using the \gls{fgt} and \gls{dgt} are indicated as found along the whole chromosome before the inclusion of error.
+In contrast, \cref{fig:full_ibd_error}{b} shows the same analysis but after genotype error was included.
+Since the innermost breakpoint interval delimits the inferred IBD segment, it can be expected that even small amounts of genotype error are likely to result in underestimation of IBD length.
+
+
+%
+\subsubsection{IBD detection using \emph{Refined\,IBD} in \emph{Beagle\,4.1}}
+%
+
+The probabilistic \texttt{Refined\,IBD} method for IBD detection was applied to the data after the inclusion of error.
+The analysis was conducted on true and phased haplotype data, \cref{A4:fgt_h,,A4:fgt_p}, which returned \dec{12.194909}~million and \dec{12397767}~million segment, respectively.
+Because IBD is not reported in reference to a particular target site, as is done in \texttt{tidy}, the set of true IBD segments available was matched to inferred IBD segments if target positions fell within detected intervals of reported segments; see \cpref{sec:ibd_beagle_tru}.
+As a result, only \dec{1.496065}~million segments were matched in \ref{A4:fgt_h} and \dec{0.373604}~million in \ref{A4:fgt_p}, of which \SI{76.74319}{\percent} and \SI{76.51203}{\percent} were unique, respectively.
+Data were not intersected due to the small number of segments retained in each approach.
+
+%
+\input{chapter4/fig/beagle_break_err}
+%
+
+In \cref{A4:fgt_h}, \SI{20.36206}{\percent} of the breakpoints detected were underestimated, \SI{79.52689}{\percent} overestimated, and \SI{0.111050}{\percent} coincided with true IBD breakpoints.
+This distribution was similar in \cref{A4:fgt_p}, yielding \SI{20.26241}{\percent}, \SI{79.64156}{\percent}, and \SI{0.096028}{\percent}, respectively.
+This is also seen in \cpref{fig:beagle_break_err}, where IBD breakpoints tend to be underestimated
+In comparison to IBD detected using \texttt{tidy}, overall accuracy was lower, with ${r^2=0.017126}$ in \ref{A4:fgt_h} and ${r^2=0.017756}$ in \ref{A4:fgt_p}, and the magnitude of error more elevated, at ${\rmsle=0.8496714}$ and ${\rmsle=0.8441583}$, respectively.
+
+%
+\input{chapter4/fig/beagle_length_err}
+%
+
+After removing boundary cases,
+\SI{0.2707015}{\percent} and \SI{0.2865119}{\percent} in \ref{A4:fgt_h} and \ref{A4:fgt_p} respectively, median length was further reduced in comparison to \texttt{tidy}, which was observed at \SI{0.1291382}{\mega\basepair} (\SI{0.2527802}{\centi\morgan}) in \ref{A4:fgt_h} and
+\SI{0.1313005}{\mega\basepair} (\SI{0.2561401}{\centi\morgan}) in \ref{A4:fgt_p};
+true length was noticeably longer with \SI{0.4959440}{\mega\basepair} (\SI{0.8832682}{\centi\morgan}); note that this was the median length found for the same set of segments as matched in \ref{A4:fgt_h}.
+The distribution of true and detected IBD length is given in \cpref{fig:beagle_length_err}.
+
+
+
+%
+\subsection{Discussion}
+%
+
+
+While it cannot be avoided that some rare variants are irretrievably missed, because of genotype error resulting in false negatives.
+%(Type~\rom{2} error)
+The underlying IBD segment may still be retrieved from other, nearby rare variants that identify the same shared haplotype in a given pair of individuals.
+However, due to false positive genotypes, the assumption that haplotype sharing by descent can be identified from rare variants may turn out to be problematic in practise.
+For exaple, strict quality control may exclude certain candidate target sites, but which requires further consideration in future work.
+
+The general insight gained from this analysis is that the impact of genotype error on the detection of IBD segments is not negligible.
+Given the example in shown \cpref{fig:full_ibd_error}, it is suggested that even small amounts of misclassified genotypes may disrupt the IBD detection process and is likely to result in a general underestimation of the underlying IBD length.
+Therefore, the analysis has provided sufficient evidence to justify the development of a more extensive method for IBD detection.
+In particular, I used the the estimated proportions of genotype penetrance to extend the targeted IBD detection approach such that the distribution of genotype pairs can be modelled for inference under IBD and non-IBD; this is presented in the following section.
+% From this, a novel, fully probabilistic approach was developed using a \gls{hmm}.
+
+
+
+
+%
+\section{A Hidden Markov Model for IBD inference}
+\label{sec:ibd_hmm_method}
+%
+
+Despite the high accuracy of the \gls{fgt} and \gls{dgt} to detect shared haplotype segments in simulated data, it has emerged from the previous analysis that a non-probabilistic approach may be less suitable for IBD detection if the presence of genotype error cannot be excluded.
+Because it cannot be assumed that real data is obtained without error, it would therefore be beneficial to devise a fully probabilistic implementation of the IBD detection algorithm, in which observed error rates can be included.
+Here, this was attempted by constructing a \glsentryfull{hmm}.
+
+An \gls{hmm} is a probabilistic sequence model which is widely used in applications of machine learning, likelihood computation, and sequence classification; see \citet{Rabiner:1989hs}.
+In general, a sequence of observations is assumed to be the product of an unobserved Markov process, in which a sequence of underlying, but ``hidden'' states determines the probability of observing the data.
+Each state is characterised by a probability distribution over a finite set of possible observations.
+Although the sequence of hidden states is not known, it can be inferred from the sequence of observations.
+
+A wide range of statistical methods for genetic data analysis are driven by \gls{hmm}-based algorithms.
+Notable examples are methods used for genotype phasing and imputation; \eg \texttt{SHAPEIT} \citep{Delaneau:2011iu},
+\texttt{EAGLE} \citep{loh2016fast,Loh:2016bl}, and
+\texttt{IMPUTE} \citep{Howie:2009hq,Howie:2011ji}, to name a few.
+It is worth to mention that many of the commonly employed methods (above included) are based on the influential \citet{Li:2003uz} model, which for a set of observed genotypes reconstructs the unobserved haplotypes as ``imperfect mosaics'' of known haplotypes in reference data.
+While this model provides the ability to solve several kinds of problems in statistical genetics, such as phasing or imputation, it is less applicable for inference of IBD.
+
+A variety of different approaches exist for the inference of IBD segments, many of which have not fully adopted the view that observed genetic variation is the product of a genealogical process which, in principle, can be modelled as a Markov process.
+An example of a rule-based method is the widely implemented \texttt{GERMLINE} algorithm \citep{Gusev:2009hd}, which is part of the often employed \texttt{Refined\,IBD} method \citep{Browning:2013eh}.
+This algorithm was designed as an efficient search method through which IBD status is inferred from imperfectly matched haplotypes in large sample data.
+In contrast, model-based implementations for inference of IBD in samples of seemingly unrelated individuals all rely on \glspl{hmm}; see review by \citet{Thompson:2013cj}.
+The first to assume that IBD arises from a Markov process (without specifically stating it) was \citet{Stam:1980gs}, who extended the idea of recombination breakpoints (or ``junctions'') introduced by \citet{Fisher:1949vh,fisher1954} to describe the probability distribution of the fraction of the genome that is identical by descent in a finite and randomly mating population.
+% Later, \citet{Chapman:2003jt} proposed a different model to describe the length of IBD segments in terms of the distribution of recombination breakpoints along pairs of chromosomes as a Markov chain.
+Later, \citet{Leutenegger:2003is} developed an \gls{hmm} for inference of inbreeding coefficients from genotype data in individuals of unknown parental relationships.
+Equivalent models were implemented to detect IBD in phased haplotypes \citep[\eg][]{Purcell:2007dg,Browning:2008es}.
+
+Here, a different IBD-model is proposed which is used for inference of recombination breakpoints around a target position in pairs of individuals.
+The approach is conceptually similar to the previously presented method for deterministic IBD detection using the \gls{fgt} or \gls{dgt}, see \cpref{sec:tidy}, but where the detection of breakpoint intervals (\ie the physical start and end points of IBD segments) are determined through sequence classification in the \gls{hmm}.
+Notably, the presented method relies on genotype information and does not require haplotype data; it is therefore not affected by phasing error.
+
+The following section describes the algorithm through which target sites in sample data are analysed.
+This is followed by a detailed description of the model, which includes the theoretical expectations under the assumption of no error.
+Then, the model is extended to include the empirically determined distributions of genotype error for each of the possible genotype pairs.
+In the end, the presented \gls{hmm}-based method for IBD detection was evaluated in the same way as was done for the \gls{fgt} or \gls{dgt} in the previous chapter.
+%The \gls{hmm} was evaluated on simulated data and applied to a real dataset.
+
+
+%
+\subsection{The algorithm for probabilistic IBD inference}
+%
+
+
+Consider a sample of $N$ diploid individuals and $M$ variant markers; in particular, \gls{snp} data are assumed.
+To determine the IBD structure around a focal variant site, let this site be denoted by ${i \in \lbrace 1, \ldots, M \rbrace}$ and its physical position by $b_i$.
+All individuals sharing the derived (alternate) allele at this site are identified and analysed in a pairwise fashion.
+In each pair, the breakpoint interval, ${[b_L, b_R]}$, is inferred, where $b_L$ and $b_R$ are the chromosomal positions of the most likely recombination breakpoints to the left and right-hand side of the focal position, respectively.
+
+As before, it is convenient to refer to a target site by its frequency in the sample.
+Thus, \fk{} variants are distinguished where $k$ is the number of allele copies in the sample, and where ${k \geq 2}$ must be satisfied.
+Note that only those individuals are considered that are heterozygous for the focal allele, which is why the subset of identified individuals may be smaller than $k$, but not smaller than 2 in order to form at least \n{1} pair.
+Also, as described in Chapter~3 (\ccref{sec:rarevars}), rare variants are presumed to derive from relatively recent mutations and are therefore more likely to identify long IBD tracts, as recombination had less time to break down the length of the shared haplotype identity.
+Hence, this method is primarily intended for inference of IBD around rare variants, where ${k \ll 2N}$.
+However, note that in principle any \fk{\geq2} variant can be analysed using the presented method.
+
+The input data analysed in the \gls{hmm} is the paired sequence of genotypes in both individuals sharing the focal allele.
+The observation sequence is composed of the paired genotypes along the chromosomes of the \n{2} individuals sharing the focal allele; as such, haplotype data is not required.
+Since each individual contributes a genotype at a single locus, $g_k$ (where ${k \in \lbrace 0,1,2 \rbrace}$), to form a genotype pair, denoted by $g_{k_1 k_2}$, it follows that there are \n{6} possible observation states; $g_{00}$, $g_{01}$, $g_{02}$, $g_{11}$, $g_{12}$, and $g_{22}$, where the order of genotypes in a pair is ignored.
+Further, \n{2} states are distinguished in which genotype pairs can be observed; either the \n{2} individuals share a haplotype identical by descent, or they do not, which is denoted by \emph{ibd} and \emph{non}, respectively.
+These correspond to the hidden states that are assumed to generate the data.
+
+For a given focal site and a pair of individuals sharing the allele, the sequence of genotype pairs is analysed as \n{2} independent Markov chains; \ie \n{1} to the left and \n{1} to the right-hand side of the focal variant, with the focal site at the start of both chains.
+For convenience, the index~$j$ is defined relative to $i$ and follows the direction of moving from $b_i$ to the last site in the observed sequence, either $b_1$ to the left or $b_M$ to the right-hand site.
+Hence, ${j=0}$ at the focal site and ${j = m}$ at the last site, where $m$ is the number of markers to the left or right-handed sequence relative to the focal site (excluding the focal site).
+
+Since the focal allele is assumed to identify the shared haplotype in \emph{ibd}, the first site along the sequence that is classified in the \emph{non} state is taken as a breakpoint, on both sides, such that the inferred IBD segment is enclosed in ${[b_L, b_R]}$.
+By definition, the smallest detectable interval around a focal variant at site $i$ is therefore ${[b_{i-1}, b_{i+1}]}$.
+If the chain remains in \emph{ibd} until the end of the sequence, the last position is taken as a breakpoint (referred to as a \emph{boundary case}).
+
+The following section describes the underlying model through which each site in the observation sequence is classified into either \emph{ibd} or \emph{non}.
+
+
+%
+\subsection{Description of the model}
+%
+
+\Glsentrylong{ibd} is modelled as a first-order Markov process in a \n{2}-state \gls{hmm}, where the observed genotypes in a pair of diploid individuals are emitted from either the \emph{ibd} or the \emph{non} state.
+Given the Markov property, the following assumptions are made.
+First, the probability of the hidden state at site~$j$ only depends on the previous hidden state at site~${j-1}$.
+Second, the probability of observing a particular genotype pair at site~$j$ only depends on the hidden state at site~$j$ and not on any of the other states.
+
+Let the hidden state space be denoted by ${S = \lbrace \textit{ibd},\textit{non} \rbrace}$, and the set of observable states by ${G = \lbrace g_{00},~g_{01},~g_{02},~g_{11},~g_{12},~g_{22} \rbrace}$.
+The model itself is denoted by
+\begin{equation}\label{eq:hmm_model}
+	\lambda ~=~ \lbrace \Psi, \xi, \pi \rbrace
+\end{equation}
+where $\Psi$ is a matrix of state \emph{transition} probabilities and $\xi$ corresponds to a set of vectors which store the probability of observing each of the possible genotype pairs; \ie the \emph{emission} probabilities in each state.
+The model is illustrated in \cpref{fig:info_hmm}, where the probabilities of emission from \emph{ibd} are denoted by $\delta_{k_1 k_2}$ and from \emph{non} by $\eta_{k_1 k_2}$.
+The \emph{initial} probabilities of being in either state at the start of the sequence is given by $\pi$.
+
+%
+\input{chapter4/fig/info_hmm}
+%
+
+The parameters of the model are defined in \n{2} ways.
+First, theoretical expectations for transition, emission, and initial probabilities are derived; see \pref{sec:HmmTrans,,sec:HmmEmiss,,sec:HmmInit}, respectively.
+Then, in \cpref{sec:HMMError}, the model is extended to include genotype error from empirical data as obtained in \cpref{sec:generrprofiles}.
+
+
+
+%
+\subsubsection{Transition probabilities}
+\label{sec:HmmTrans}
+%
+
+Given the \n{2} hidden states, the transition matrix $\Psi$ is defined as a $2 \times 2$ matrix which stores the probabilities of moving from one state into another state, as well as the probabilities of remaining in the same state; see below.
+\begin{equation}\label{eq:transmatrix}\onehalfspacing
+\Psi_{j,k}  ~=~
+\begin{bmatrix}
+	\psi_{j,k}(\textit{ibd}\mid\textit{ibd})  &
+	\psi_{j,k}(\textit{non}\mid\textit{ibd})  \\[1ex]
+	\psi_{j,k}(\textit{ibd}\mid\textit{non})  &
+	\psi_{j,k}(\textit{non}\mid\textit{non})  \\
+\end{bmatrix}
+\end{equation}
+In particular, the probability of transition from \emph{ibd} to \emph{non}, denoted by ${\varphi = \psi_{j,k}(\textit{non}\mid\textit{ibd})}$, is modelled dependent on the rate of recombination between consecutive sites, in order to estimate the probability of the distance to the first recombination breakpoint along the sequence.
+\N{2} variables are considered; the genetic distance between the current and the previous position, and the expected \gls{tmrca} of the focal \fk{} variant.
+
+Let the genetic distance between positions $b_j$ and $b_{j-1}$ be denoted by $r_j$, measured in \emph{Morgan}, which is the product of the recombination rate per site per generation, $\rho$, and the physical distance of the sequence interval in basepairs.
+If the recombination rate varies over the length of the chromosome, that is if a genetic map is available, $r_j$ can be obtained from map distances.
+Note that the model considers ${2 r_j}$ to account for recombination occurring along either of the \n{2} lineages considered.
+In a population genetics setting, time is scaled in units of $2\Ne$ generations for a sample of diploid individuals, where \Ne is the diploid effective population size of the population under consideration.
+% \N{1} time unit therefore is ${\tau = \rfrac{t}{2\Ne}}$, where $t$ corresponds to time measured in discrete generations.
+Thus, the scaled rate of recombination within the interval between consecutive sites and per time unit is equal to ${4\Ne r_j}$.
+
+The expected age of a focal allele, measured in scaled time units and denoted by $\tau_k$, can be estimated directly from its frequency.
+For example, \citet{Kimura:1973ug} formulated the expected age of a selectively neutral allele in a stationary population, which was derived in a diffusion process;
+\begin{equation}\label{eq:kimura}
+	\frac{-2x}{1-x} \log(x)
+\end{equation}
+where $x$ corresponds to the allele frequency in the sample; here calculated as ${x = \rfrac{k}{2N}}$.
+In context of the coalescent, \citet{Griffiths:2013ec} derived the following formulation for the \gls{tmrca} under a constant population size and the assumption of the infinite sites model \citep{Kimura:1969tn,Watterson:1975ur};
+\begin{equation}\label{eq:griffiths}
+	2  ~ {{n-1}\choose{b}}^{-1} ~ \sum_{j=2}^{n} ~ {{n-j}\choose{b-1}} ~ \frac{n-j+1}{n(j-1)}
+\end{equation}
+where $b$ is the number of allele copies in the sample and $n$ the haploid sample size; here corresponding to $k$ and $2N$, respectively.
+Both formulations result in approximately equal distributions for allelic age.
+Here, \cref{eq:kimura} was used for computation of $\tau_k$ due to its simplicity.
+
+The distance to a recombination event follows the geometrical distribution if measured in discrete generations.
+However, it can be approximated on a continuous time scale using the exponential distribution in the limit as $\Ne$ tends to infinity; that is, generally, if population size is sufficiently large \citep[see][]{hein2004gene}.
+Thus, the probability of transition from \emph{ibd} to \emph{non} can be expressed as follows.
+\begin{equation}\label{eq:hmm_trans_prob}
+	\varphi ~=~ \psi_{j,k}(\textit{non}\mid\textit{ibd}) ~=~
+	1 - \Big( 1 - \frac{4\Ne r_j}{2\Ne} \Big)^{2\Ne\tau_k} ~\approx~
+	1 - \euler{-2\Ne r_j \tau_k}
+\end{equation}
+The probability of remaining in \emph{ibd} is therefore ${\psi_{j,k}(\textit{ibd}\mid\textit{ibd}) = 1-\varphi}$, because the probability distribution over possible states for a given state must sum to~1.
+For illustration, \cpref{fig:hmm_transmatrix} shows the probability of transition from \emph{ibd} dependent on the genetic distance between consecutive sites along the sequence and the allele frequency of the focal allele.
+
+Note that the model relies on the assumption that the probability of transition from \emph{non} to \emph{ibd} has \n{0} probability; \ie
+\begin{equation*}\onehalfspacing
+	\psi_{j,k}(\textit{ibd}\mid\textit{non}) = 0\ , \quad
+	\psi_{j,k}(\textit{non}\mid\textit{non}) = 1\ .
+\end{equation*}
+Therefore, the architecture of the model is not fully connected or \emph{ergodic}.
+This is typically referred to as a left-to-right or \emph{Bakis} \gls{hmm}, as transitions can only proceed in \n{1} direction.
+Once the \emph{ibd} state has been left, the chain remains in the \emph{non} state such that only the innermost IBD segment is inferred, relative to the focal site at the start of the sequence.
+
+%
+\input{chapter4/fig/hmm_transmatrix}
+%
+
+It is necessary to note that a pair of diploid individuals may share more than \n{1} recent haplotype identical by descent; \eg along the same \n{2} chromosomes or any pair of the \n{4} chromosomes.
+Here, this possibility was not considered due to the variant-centric approach of the method.
+As such, inference is dependent on the properties of a given \fk{}~variant.
+The focal allele serves as an indicator for haplotype sharing and transition probabilities are computed dependent on the expected time of the focal mutation event, given the allele frequency at the focal site.
+For example, by allowing transitions from the \emph{non} state back to \emph{ibd},
+the IBD inference would be biased as the length of distinctly inferred segments (\ie for other genealogies along the chromosome) would be conditioned on the expected age of the focal allele.
+
+
+%
+\subsubsection{Emission probabilities}
+\label{sec:HmmEmiss}
+%
+
+The model parameter $\xi$ stores the emission or \emph{output} probability vectors of the hidden states.
+Each vector is a probability distribution over the possible observation states with sum~1.
+The probability to observe a given genotype pair in \emph{ibd} is written as ${P_\textit{ibd}(k_1,k_2) = \delta_{k_1 k_2}}$ and in \emph{non} as ${P_\textit{non}(k_1,k_2) = \eta_{k_1 k_2}}$, where ${k_1,k_2 \in \{0,1,2\}}$.
+In the following, the emission probabilities for the possible genotype pairs are derived from their expected proportions in both hidden states.
+First, the \emph{non} state is considered.
+Then, the formulations are extended to derive expectations in the \emph{ibd} state.
+
+\paragraph{Emission probabilities in the \emph{non} state.}
+Consider $m=2$ genotypes observed in a pair of individuals at a single locus.
+Each genotype can be observed in one of \n{3} possible states, which are again indexed by ${k \in \lbrace 0,1,2 \rbrace}$, where $k$ counts the alternate alleles that compose a genotype.
+Similarly, let $\alpha_{k}$ count the genotypes, $g_{k}$, that compose a genotype pair, ${g_{k_{1} k_{2}}}$.
+For example, the pair ${g_{0 0}}$ carries \n{2} $g_0$ genotypes, such that ${\alpha_{0} = 2}$, ${\alpha_{1} = 0}$, and ${\alpha_{2} = 0}$, the pair ${g_{0 1}}$ carries \n{1} $g_0$ and \n{1} $g_1$ genotype, such that ${\alpha_{0} = 1}$, ${\alpha_{1} = 1}$, and ${\alpha_{2} = 0}$, and so on.
+Expected pairwise frequencies follow a multinomial distribution.
+Recall that ${f_{g}(k) = {{n}\choose{k}}~p^{n-k}~q^{k}}$ where ${n=2}$, as given in \ctref{eq:genpropk}.
+In the general case, that is in a randomly mating population, genotypes in both individuals are assumed to be independent.
+It follows that the expected frequency of a given genotype pair is the joint probability of the expected genotype frequencies involved; expressed below.
+\begin{equation}\label{eq:genpairalpha}
+	f_\textit{pair}(\alpha_{0}, \alpha_{1}, \alpha_{2}) = {{m}\choose{\alpha_{0}, \alpha_{1}, \alpha_{2}}}~\prod_{k=0}^{m} f_{g}(k)^{\alpha_{k}}
+\end{equation}
+The order of genotypes in a pair is ignored; \eg the pairs ${g_{01}}$ and ${g_{10}}$ are identical.
+In the following, the order ${k_1 \leq k_2}$ is preferred in notation.
+Note that the expected frequency for a pair of diploid genotypes cannot be represented by assuming a ploidy level of ${n=4}$ in \cref{eq:genpropk}.
+For example, the frequency of genotype pair ${g_{02}}$ is different to the frequency of ${g_{11}}$, despite the same number of allelic types that compose the genotypes in the pair, but which would be equal if \cref{eq:genpropk} is used.
+It is therefore necessary to distinguish genotypes by individual.
+
+The probability of observing a given genotype pair in \emph{non} can now be modelled using \cref{eq:genpairalpha}.
+However, for convenience, the following function is used, which dependents only on $k_1$~and~$k_2$;
+\begin{equation}\label{eq:genpairnon}\onehalfspacing
+	\eta_{k_1 k_2} ~=~
+  \begin{cases}
+		~ p^4       & ~ \text{if $k_1 = 0$, ~ $k_2 = 0$} \\
+    ~ 4 p^3 q   & ~ \text{if $k_1 = 0$, ~ $k_2 = 1$} \\
+    ~ 2 p^2 q^2 & ~ \text{if $k_1 = 0$, ~ $k_2 = 2$} \\
+    ~ 4 p^2 q^2 & ~ \text{if $k_1 = 1$, ~ $k_2 = 1$} \\
+    ~ 4 p q^3   & ~ \text{if $k_1 = 1$, ~ $k_2 = 2$} \\
+    ~ q^4       & ~ \text{if $k_1 = 2$, ~ $k_2 = 2$}
+  \end{cases}
+\end{equation}
+where $p$ and ${q=1-p}$ correspond to the frequency of the reference and alternate allele, respectively, in the sample at the current site in the sequence.
+
+%
+\input{chapter4/tab/genpairprop}
+%
+
+\paragraph{Emission probabilities in the \emph{ibd} state.}
+The formulations derived in the previous paragraph assume a pair of unrelated individuals; that is if alleles are independently distributed in the population and haplotype occurrence in individuals is random.
+This assumption does not hold if the \n{2} individuals share a haplotype identical by descent.
+Because it is not straightforward to arrive at a similarly simple expression as given in \cref{eq:genpairalpha}, it is more convenient to construct a function similar to \cref{eq:genpairnon}.
+For this purpose see \cpref{tab:genpairprop}, which provides a more intuitive representation of the composition of haplotypes in each genotype pair, where the allelic contribution in each pair is illustrated for both \emph{non} and \emph{ibd}.
+
+If a haplotype is shared by both individuals, some combinations of alleles cannot be observed under \emph{ibd}; see \cref{tab:genpairprop}{b}.
+For example, if individual~1 carries the genotype $g_0$ and individual~2 carries $g_2$ at a given site in the sequence, the observation of the genotype pair $g_{02}$ has zero probability in \emph{ibd}, as the possibility to share a haplotype is precluded.
+The probability of any given genotype pair in \emph{ibd} can be expressed using the function below.
+\begin{equation}\label{eq:genpairibd}\onehalfspacing
+	\delta_{k_1 k_2} ~=~
+  \begin{cases}
+		~ p^3           & ~ \text{if $k_1 = 0$, ~ $k_2 = 0$} \\
+    ~ 2 p^2 q       & ~ \text{if $k_1 = 0$, ~ $k_2 = 1$} \\
+    ~ 0             & ~ \text{if $k_1 = 0$, ~ $k_2 = 2$} \\
+    ~ p^2 q + p q^2 & ~ \text{if $k_1 = 1$, ~ $k_2 = 1$} \\
+    ~ 2 p q^2       & ~ \text{if $k_1 = 1$, ~ $k_2 = 2$} \\
+    ~ q^3           & ~ \text{if $k_1 = 2$, ~ $k_2 = 2$}
+  \end{cases}
+\end{equation}
+
+\null
+
+In summary, the resulting probability distribution of emission of each possible genotype pair is shown in \cpref{fig:exp_genpair_frq}, under both \emph{non} and \emph{ibd}.
+
+%
+\input{chapter4/fig/exp_genpair_frq}
+%
+
+
+
+
+
+%
+\subsubsection{Initial state probabilities}
+\label{sec:HmmInit}
+%
+
+The model parameter $\pi$ stores the probabilities of being in either state at the start of the sequence.
+Since the focal allele is used to identify the shared haplotype in a pair of individuals, the probability of being in \emph{ibd} is assumed to be ${\pi_\textit{ibd} = 1}$, such that ${\pi_\textit{non} = 0}$.
+
+
+%
+\subsection{Integration of empirically determined genotype error rates}
+\label{sec:HMMError}
+%
+
+In this section, the data generated in \cpref{sec:generrprofiles} were used to inform the model parameters in the \gls{hmm}.
+This was done, first, to validate the expectations formulated in the previous sections, second, to explore variation instigated by genotype error and, third, to obtain empirical parameter values for emission and initial state probabilities in \emph{non} and \emph{ibd}.
+
+Note that the effect of genotype error on state transition probabilities is not considered.
+The computation of transition probabilities include the expected age of a focal allele dependent on its frequency, which could be biased in presence of genotype error, but where deviations are expected to be negligibly small if sample size is large.
+In particular, the expected age represents an approximation to the \gls{tmrca} of the focal allele, which is more likely to be affected by unconsidered demographic parameters such as selection, migration, growth, and population structure, as well as sampling bias.
+
+\N{2} datasets were available from previous analyses; the original genotype matrix as produced from simulated haplotypes, denoted by $\mathcal{D}$, and a corresponding, but modified genotype matrix, $\mathcal{D}^\ast$, in which the empirical, frequency-dependent proportions of genotype error were included in \cpref{sec:impact_error_data}.
+These datasets allowed analysis \emph{before} and \emph{after} error, respectively.
+Data consisted of ${n = \num{2500}}$ individuals and ${m = \num{672847}}$ variant sites.
+
+
+%
+\subsubsection{Empirical emission probabilities}
+%
+
+Information about IBD status was available through coalescent records obtained in the simulation.
+By performing scans over all coalescent trees, true IBD intervals were determined for \fk{} variants at ${k \in \lbrace 2, \ldots, 25 \rbrace}$ (allele frequency between 0.04\% and 0.5\%).
+In total, a set of \dec{11.597968}~million true IBD segments was compiled.
+Each segment was recorded as a tuple of \n{2} breakpoint coordinates ($b_L$ and $b_R$ to the left and right-hand side of a focal variant, respectively) and \n{2} individuals, \ie indices for the pair of individuals who share a haplotype identical by descent within the breakpoint interval.
+
+The set of compiled IBD segments was used to determine the empirical probability to observe a given genotype pair in \emph{ibd}.
+This was done by randomly sampling \n{500000} segments with replacement, for which genotype data were extracted in ${[b_{L+1}, b_{R-1}]}$ for the \n{2} individuals.
+Note that breakpoint sites were excluded to ensure IBD over the entire region.
+For each segment, extracted genotype sequences were paired and collected by their coordinates along the length of the chromosome.
+In a similar fashion, the empirical probability of observing genotype pairs in \emph{non} was determined using the same sample of segments, but where the \n{2} individuals sharing the IBD segment were ignored.
+Instead, the \n{2} individuals were drawn at random from the subset of samples which did not share a haplotype IBD within ${[b_{L+1}, b_{R-1}]}$.
+After sampling was complete, genotype pairs were aggregated by allele frequency per site, such that the frequency-dependent proportion of each genotype pair could be calculated in \emph{ibd} and \emph{non}.
+In both cases, genotype data were taken separately from $\mathcal{D}$ and $\mathcal{D}^\ast$ to measure proportions before and after error.
+
+%
+\input{chapter4/fig/hmm_emission_delta}
+%
+
+The resulting probability distributions after error were used to define the empirical emission model in \emph{ibd} and \emph{non}, again denoted by $\delta_{k_1 k_2}$ and $\eta_{k_1 k_2}$, respectively.
+For illustration, deviations from expected genotype pair proportions are shown in \cpref{fig:hmm_emission_delta}, both before error (\ref{fig:hmm_emission_delta}{a}) and after error (\ref{fig:hmm_emission_delta}{b}).
+Expectations in \emph{ibd} and \emph{non} were calculated according to \ctref{eq:genpairnon,eq:genpairibd}, respectively.
+Differences were calculated by subtracting empirical from expected genotype pair proportions, which was done in discrete allele frequency units, but also averaged per frequency bin, in \n{100} bins of equal size across the allele frequency spectrum.
+
+Before error, empirical and expected proportions in \emph{non} were equal on average, in each of the \n{6} possible genotype pairs.
+The variability along the allele frequency spectrum was negligibly small, where deviations per frequency unit were seen as stochastic noise around the mean and ranged between $-1\%$~and~$+1\%$.
+In contrast, the variability across frequency units was overall amplified in \emph{ibd}.
+The mean proportion of $g_{11}$ was up to 2\% higher than expected towards the higher end of the frequency spectrum, whereas $g_{22}$ was up to 2\% lower than expected towards higher frequencies.
+Notably, $g_{02}$ is expected to have a constant zero probability of observation in \emph{ibd}, which was confirmed from the data.
+% However, a few sites were found where $g_{02}$ was observed at non-zero probabilities in \emph{ibd}.
+% Upon inspection, these were found to correspond to sites where multiple IBD segments shared by the same \n{2} individuals overlapped, such that the segments were underestimated.
+
+After error, overall variability increased in each comparison.
+In \emph{non}, the mean proportion of $g_{11}$ showed deviations of up to $+1\%$ towards 50\% allele frequency, which was also seen for $g_{12}$, but towards higher frequencies.
+In \emph{ibd}, mean proportions showed as similar distribution as in comparisons before error, but where the difference between empirical and expected values was further increased.
+For example, deviations of $g_{11}$ were increased up to $+2.5\%$ towards higher frequencies, which was mirrored by $g_{22}$ but reaching up to $-3\%$.
+Importantly, on average the empirical proportion of $g_{02}$ was non-zero along the frequency spectrum, but which increased up to $+0.5\%$ towards 50\% allele frequency.
+
+
+%
+\subsubsection{Empirical initial state probabilities}
+%
+
+Genotype error can affect the allele frequency distribution and thus bias the identification of individuals which share an allele at a given site.
+Some of the formed pairs may therefore be wrongly included, whereas some others may be missed.
+In particular, the following \n{4} cases can be distinguished:
+\begin{case}
+	\item\label{case:true_pos} \textbf{True~positives.} The focal allele correctly identifies haplotype sharing in \n{2} individuals which are heterozygous for the allele; \ie ${g_{1} \rightarrow g_{1}}$.
+	\item\label{case:false_pos} \textbf{False~positives.} The focal allele is observed in a misclassified genotype, ${g_{0} \rightarrow g_{1}}$, such that IBD is wrongly assumed for a pair which does not share a haplotype.
+	Note that the change ${g_{2} \rightarrow g_{1}}$ also leads to the inclusion of an individual which actually is homozygous for the focal allele, but which is not considered in the model.
+	\item\label{case:false_neg} \textbf{False~negatives.} The genotype of an individual was misclassified at the focal site, ${g_{1} \rightarrow g_{0}}$, such that the focal allele is missed and the individual wrongly excluded.
+	Note that this also considers the change ${g_{1} \rightarrow g_{2}}$, leading to the exclusion of the individual due to the assumptions of the model.
+	\item\label{case:true_neg} \textbf{True~negatives.} An individual is correctly excluded due to not being heterozygous for the focal allele, \ie ${g_{0} \rightarrow g_{0}}$ or ${g_{2} \rightarrow g_{2}}$, as well as ${g_{0} \rightarrow g_{2}}$ or ${g_{2} \rightarrow g_{0}}$
+\end{case}
+
+The inference of IBD segments in a pair where at least \n{1} individual is a false positive, \cref{case:false_pos}, is likely to result in a disproportionately reduced segment length.
+In principle, such falsely identified individuals, and thereby specific false genotypes, may be exposed if segment lengths are consistently shorter than expected in each pairwise analysis.
+On the other hand, genotype error leading to false negatives, \cref{case:false_neg}, is inadvertently missed, because it is not directly possible to assume that particular individuals carry the focal allele if not observed in the data.
+
+The proportion of genotype pairs identified as true positives, \cref{case:true_pos}, is relevant to determine the probability of the initial state at the start of the sequence.
+The true positive rate was determined by comparison of the data before and after error.
+All \fk{} variants at ${k > 1}$ were identified in $\mathcal{D}^\ast$, as well as all the individuals carrying the alternate allele at a particular variant site.
+This resulted in a set of matrix coordinates (marker by individual) which were pooled into site frequency bins, defined by $k$.
+Bins with less than \n{1000} markers were removed.
+Then, for each $k$, all possible pairs of individuals were formed at each marker and the dataset $\mathcal{D}$ was queried with the joint set of coordinates.
+This was done to extract the corresponding vector of true genotype pairs, from which the true positive rate was calculated as the proportion of pairs in which both genotypes were heterozygous.
+
+%
+\input{chapter4/fig/hmm_initial}
+%
+
+The empirical distribution of correctly identified genotype pairs was used to define the initial state probability of being in \emph{ibd}, given the frequency of the focal allele expressed in \fk{}.
+The resulting distribution is shown in \cpref{fig:hmm_initial}, for focal variants with $k$ in ${[2, 50]}$, corresponding to an allele frequency between 0.04\% and 1\%.
+The fraction of correctly observed genotype pairs was lowest for \fk{2} variants, found at \dec{0.812}, but rapidly increased to \dec{0.913} and \dec{0.95} for \fk{5} and \fk{10} variants, respectively.
+At higher frequencies, the true positive rate stabalised around \dec{0.975}~and~\dec{0.995}.
+At frequencies near 100\%, however, the number of markers observed per $k$ was too low to provide conclusive estimates.
+These values were stored in an array such that the initial state probability for a given $k$ can be accessed through the functions $\pi_\textit{ibd}(k)$ and ${\pi_\textit{non}(k) = 1 - \pi_\textit{ibd}(k)}$.
+
+
+
+%
+\subsection{Inference of IBD segments}
+%
+
+The aim of the presented IBD-model is to find the most likely position along the sequence at which the \emph{ibd} state changes into the \emph{non} state, which is done independently to the left and right-hand side of the focal \fk{}~variant; \ie the focal site sits at the start of both observation sequences.
+Recall that the IBD segment around the focal variant is defined by the interval ${[b_L, b_R]}$, where $b_L$ and $b_R$ denote the breakpoints which delimit the region in which at least \n{1} recombination event is likely to have occurred to the left and right-hand side of the focal variant site at position $b_i$.
+To infer this interval, the most likely hidden state which generated the observed genotype pair is inferred at each site along the sequence.
+In general, given ${H}$ hidden states and an observation sequence of length~$m$, there are $H^m$ possible state sequences.
+For example, given this \n{2}-state \gls{hmm} and a short region of only \n{100} genotype pairs, the number of possible state sequences already exceeds the number of seconds the universe has existed\footnote{Current age of the universe: \num{42e16} seconds \accessed{2017}{02}{18}}.
+To circumvent this problem, \citet{Rabiner:1989hs} formally advised the use of the \emph{Viterbi~algorithm} for sequence classification in \glspl{hmm}, which scales quadratically with the number of hidden states and has a time complexity of ${O(H^2 m)}$.
+
+%
+% \subsubsection{Viterbi algorithm}
+%
+
+The Viterbi algorithm is a dynamic programming technique which finds the most likely sequence of hidden states that maximises the probability of observing the data \citep{Viterbi:1967hq,Forney:1973dt}.
+Let $X_j$ denote the hidden state at site~$j$ which generated the observed genotype pair $o_j$.
+Following \citet{Rabiner:1989hs}, the probability of the most likely sequence of hidden states until site~$j$ and ending in state~$x$ is given by
+\begin{equation}\label{eq:viterbi_main}
+	v_j(x) ~=~ \max_{X_0, X_1, \ldots, X_{j-1}} P(X_0, X_1, \ldots, X_{j-1},~ X_j = x,~ o_1, o_2, \ldots, o_j \mid \lambda)
+\end{equation}
+where $\lambda$ denotes the model; see \ctref{eq:hmm_model}.
+% By induction, it follows that
+% \begin{equation*}
+% 	v_{j+1}(x)  & ~=~ \delta_j(o_j) ~ \max_{y \in S} \big[ v'_{j-1}(\textit{ibd}) ~ ~ \psi_{j,k}(y \mid \textit{ibd}) \big]
+% \end{equation*}
+The procedure to retrieve the actual state sequence is summarised as follows.
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+	\item \textbf{Initialisation.} %
+	% \begin{equation}
+	% 	u_0(x) ~=~ 0 \quad \forall \quad x \in S
+	% \end{equation}
+	The probability that a given state generated the genotype pair observed at the focal site is simply the product of its initialisation and emission probabilities.
+	If genotype error is included, the initialisation probability is defined conditionally on the frequency of the focal \fk{}~variant.
+	Note that emission probabilities were defined as ${\delta_{k_1 k_2}}$ and ${\eta_{k_1 k_2}}$ in \emph{ibd} and \emph{non}, respectively.
+	For simplicity, these are now written as ${\delta_j(o_j)}$ and ${\eta_j(o_j)}$, where the index~$j$ refers to the position in the sequence at which the allele frequency is taken to retrieve the frequency-dependent probability of the observed genotype pair at site~$j$.
+	\begin{align}
+	\begin{aligned}
+		v_0(\textit{ibd}) & ~=~ \pi_\textit{ibd}(k) ~ \delta_0(o_0) \\
+		v_0(\textit{non}) & ~=~ \pi_\textit{non}(k) ~ \eta_0(o_0)
+	\end{aligned}
+	\end{align}
+
+	The Viterbi algorithm involves the successive multiplication of probabilities during the recursion step (see below), which may result in values too small to be distinguishable from \n{0} using conventional computers.
+	To avoid this problem, a commonly implemented solution is a log-transformation of probabilities.
+	Here, it is more convenient (and computationally less demanding) to define a weighting function to obtain a scaling factor which is stored in an additional array,~$w$.
+	\begin{equation}
+		w_0 ~=~ \max_{x \in S} \big[ v_0(x) \big] \quad\textbf{s.t.}\quad
+		v'_0(x) ~=~ \frac{v_0(x)}{w_0} \quad \forall \quad x \in S
+	\end{equation}
+
+	\item \textbf{Recursion.} The array $u$ is defined to keep track of the states traversed along the path; that is, ${u_j(x)}$ stores a back-pointer to the state at site~$j-1$ which resulted in the highest probability ${v_j(x)}$ at site~$j$.
+	\begin{equation}
+		u_j(x) ~=~ \argmax_{y \in S} \big[ v'_{j-1}(x) ~ \psi_{j,k}(y \mid x) \big] \quad \forall \quad x \in S; ~ j = 1, 2, \ldots, m
+	\end{equation}
+	Recall that ${\psi_{j,k}}$ refers to the transition probability from a given state to another or the same state, and is dependent on the frequency of the focal allele ($k$), as defined in \ccref{eq:hmm_trans_prob}.
+	The chain proceeds through the most likely path at each site along the sequence by following the transitions that maximise the probability of observing a given state.
+	Given \cref{eq:viterbi_main}, by induction on $j$ it follows that
+	\begin{align}
+	\begin{aligned}
+		v_j(\textit{ibd})  & ~=~ \delta_j(o_j) ~ \max_{y \in S} \big[ v'_{j-1}(\textit{ibd}) ~ ~ \psi_{j,k}(y \mid \textit{ibd}) \big]\ , & j = 1, 2, \ldots, m\phantom{.} \\
+		v_j(\textit{non})  & ~=~ \eta_j(o_j) ~ \max_{y \in S} \big[ v'_{j-1}(\textit{non}) ~ \psi_{j,k}(y \mid \textit{non}) \big]\ , & j = 1, 2, \ldots, m.
+	\end{aligned}
+	\end{align}
+
+	Note that the current state probability is computed conditionally on the weighted probability value at the immediate previous site, but which does not affect the outcome of the maximisation.
+	\begin{equation}
+		w_j ~=~ \max_{x \in S} \big[ v_j(x) \big] \quad\textbf{s.t.}\quad
+		v'_j(x) ~=~ \frac{v_j(x)}{w_j} \quad \forall \quad x \in S; ~ j = 1, 2, \ldots, m
+	\end{equation}
+
+	\item \textbf{Termination.} At the last site in the sequence, $m$, the state with the highest probability is picked to mark the final state of the most likely sequence of hidden states (\ie the ``Viterbi path''), denoted by ${X^\ast}$.
+	\begin{equation}
+		X^\ast_m ~=~ \argmax_{x \in S} \big[ v'_{m}(x) \big]
+	\end{equation}
+
+	\item \textbf{Path backtracking.} Given the array of back-pointers, $u$, the most likely path is found by tracing back from the final state until the initial site in the sequence.
+	\begin{equation}
+		X^\ast_j ~=~ u_{j+1}\left(X^\ast_{j+1}\right)\ , \quad j = m-1, m-2, \ldots, 0
+	\end{equation}
+\end{enumerate}
+
+The IBD segment is determined from the \n{2} resulting state sequences, which were obtained independently from the observation sequence to the left and right-hand side of the focal position.
+The Viterbi paths on the left and right-hand side are denoted by $L^\ast$ and $R^\ast$, respectively.
+The breakpoint interval defining the segment, ${[b_L, b_R]}$, is found by scanning each path from its start (\ie from a given target site) to the first position at which the \emph{non} state was inferred.
+Note that this includes the site of the first \emph{non} state, which is defined as a breakpoint.
+In boundary cases, when each site until the end of the chromosome was inferred as being in the \emph{ibd} state, the last site in the sequence is taken as a breakpoint.
+
+
+
+
+
+%
+\subsection{Results}
+%
+
+%
+\input{chapter4/tab/stat_hmm_accuracy}
+%
+
+The \gls{hmm}-based method for IBD inference was evaluated on the same error-treated dataset as used in \cpref{sec:ibd_results_err}.
+Because the HMM does not require haplotype information, the analysis was conducted on genotype data only, both before and after the inclusion of error.
+Recall the there are multiple focal alleles that may sit on the same underlying shared haplotype, such that the resulting set of segments inferred from all selected target sites may result in duplicate segments.
+As these do not add to the analysis below, duplicate segments were removed to retain a set of unique segments.
+The number of unique segments inferred was
+\dec{3.179340}~million and \dec{3.236198}~million before and after error, which corresponds to \SI{32.25035}{\percent} and \SI{32.82710}{\percent} of the reported set of IBD segments, respectively.
+In comparison, the number of unique segments in the set of \emph{true} IBD segments, those determined from simulation records on the same targets, was \dec{2.720789}~million (\SI{27.59894}{\percent}).
+The proportion of breakpoints overestimated was similar in for both datasets; \SI{55.71575}{\percent} before error and \SI{54.09442}{\percent} after error.
+Likewise, \SI{55.71575}{\percent} and \SI{54.09442}{\percent} were underestimated, respectively, and \SI{4.328293}{\percent} and \SI{4.280887}{\percent} coincided with true breakpoints, respectively.
+Overall accuracy was ${r^2=\dec{0.6340087}}$ before error and ${r^2=\dec{0.6381827}}$ after error, and \gls{rmsle} was \dec{0.7812424} and \dec{0.7911286}, respectively.
+While it appears from these results that accuracy was comparatively low, consider the results by allele frequency; see \cpref{tab:stat_hmm_accuracy}, which also includes the same results obtained using the \gls{fgt} on true haplotypes as well as phased haplotypes, and the \gls{dgt} on genotype data.
+As can be seen from the table, the HMM-based approach reached highest accuracy at lower allele frequencies, but which then rapidly decreased towards higher frequencies.
+
+%
+\input{chapter4/fig/break_hmm}
+%
+
+Median length was assessed after removal of boundary cases, discarding \SI{1.24133}{\percent} the data before inclusion of error and \SI{1.21611}{\percent} after error.
+This proportion was similar in true IBD segments (\SI{1.37743}{\percent}).
+Before error, overall median length was \SI{0.525714}{\mega\basepair} (\SI{0.8837688}{\centi\morgan}), and \SI{0.503856}{\mega\basepair} (\SI{0.8837688}{\centi\morgan}) after error; this is compared to the shorter median length found for the true dataset; \SI{0.343451}{\mega\basepair} (\SI{0.5903069}{\centi\morgan}).
+The distribution of IBD length is shown in \cpref{fig:length_hmm}, which for comparison also includes the results obtained for the \gls{fgt} and \gls{dgt} after error.
+
+%
+\input{chapter4/fig/length_hmm}
+%
+
+
+Lastly, I applied the HMM-based method on data from the \glsentryfull{1kg} Phase~\rom{3} (chromosome 20).
+These results are shown in \cpref{fig:1KG_chr20_length_hmm}, which also includes previous results obtained for the \gls{fgt} and \gls{dgt}, on the same set of retained target sites (duplicate segments were again removed).
+The figure shows that only the HMM is able to infer longer IBD segments that are more consistent with expectations.
+In direct comparison to the length distribution seen in simulated data, shown in \cpref{fig:length_hmm}, median length was consistently shorter in \gls{1kg}.
+Such a direct comparison, however, may not be applicable, as there are considerable differences between this and the simulated dataset.
+For example, the simulated dataset was generated as a sample of ``European'' haplotypes only (as defined in the demographic model; see Chapter~3, \ccref{sec:sim_demo_model}).
+
+
+%
+\input{chapter4/fig/1KG_chr20_length_hmm}
+%
+
+
+%
+\subsection{Discussion}
+%
+
+
+%
+\input{chapter4/fig/emission_tmrca}
+%
+
+
+The analysis on simulated data has shown that the HMM-based approach to infer IBD around target sites is able to operate equally well in both absence and presence of genotype error.
+In particular, I showed that IBD detected using the HMM maintained high levels of accuracy when genotype error is present.
+However, a notable caveat is seen in the decreasing accuracy towards higher frequencies of the focal allele; for example, IBD segments identified by \fk{2} variants were overall higher in accuracy compared to \fk{15} or higher.
+The emission model was generated under the assumption of recent IBD, and empirical distributions closely followed the expected genotype pair frequencies.
+Besides genotype error, the accumulation of mutations over time are expected to lead to further deviations from expectations under IBD.
+
+The difference between recent and older relationships of IBD is exemplified in \cpref{fig:emission_tmrca}, where I used the same methodology I applied as in \cpref{sec:HMMError}, using the error-free dataset ($D$), but where I distinguished IBD segments by \gls{tmrca}.
+The difference is shown between IBD haplotypes that were very recently co-inherited (\gls{tmrca}$<10$ generations) and those denoting older relationships (\gls{tmrca}$\geq \num{10000}$ generations).
+The resulting proportions of genotype pairs, \ie their observation probability dependent on age,
+show an interesting pattern, but one that may be difficult to model.
+For example, $g_{0 0}$ and $g_{2 2}$ genotype pairs appear to be consistent and less variable most of the time, but then show a distribution as expected under non-IBD at very old age ($\geq \num{10000}$ generations).
+In contrast, the $g_{0 2}$ genotype pair gradually increases from zero probability expected under IBD to a distribution expected under non-IBD.
+Interestingly, the $g_{1 1}$ genotype pair varies inconsistently with regard to either expectation at intermediate time frames (\eg between \n{1000} and \n{10000} generations).
+This result suggests that a static emission model may not provide sufficient leverage to distinguish IBD from non-IBD at older (\ie higher-frequency) alleles, or in general when IBD is not recent.
+It would therefore be advantageous to device a fully probabilistic model to compute emission probabilities; \eg conditional on mutation rate and expected allele age, similar to the transition model.
+
+
+
+
+% Conversely, their length distribution is likely to affect the inference of the breakpoint interval around the focal \fk{}~variant.
+
+% The directionality of the process limits the inference of separate IBD segments.
+% For example, if the allele frequency of shared alleles at other positions in the sequence would be considered, the Markov assumption of retrospective state dependence would not hold any longer.
+
+% Second, \glspl{hmm} typically exhibit an exponential complexity dependent on the number of states.
+% Although the state space, $S$, of the presented model is small, the whole sequence needs to be traversed in order to infer only the focal segment.
+% This makes computation of thousands of focal sites impractical.
+% In a left-to-right model, the process length of the Markov chain can be reduced by including a stop condition, \eg
+
+
+%
+%\subsection{Comparison to 1000 Genomes data}
+%
+
+
+% One possible explanation for
+% lies within the centromere.
+% Although simulations were performed using a variable recombination rate according to a genetic map from the \gls{hapmap},
+
+
+% 1KG, linear regression: FGT DGT HMM
+% FGT, phased haplotypes.A. Physical length 0.234074 0.0007438657
+% DGT, genotypes.A. Physical length 0.4071223 -0.001372566
+% HMM, genotypes.A. Physical length 1.29611 -0.03788508
+% FGT, phased haplotypes.B. Genetic length 0.5961899 -0.01083166
+% DGT, genotypes.B. Genetic length 1.151849 -0.02689706
+% HMM, genotypes.B. Genetic length 2.980023 -0.1062093
+
+
+%
+%\section{Discussion}
+%
+
+
+% reasons why there still is a discrepancy between expectations and inferred segment lengths in 1000G
+% may be due to falsely called alleles, with increasing error rates towards to lower frequencies.
+% other than removing suspiciously short segments
+% there is no direct way of detecting such false positives.
+% biological processes not considered in the simulation
