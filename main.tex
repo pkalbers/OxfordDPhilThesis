@@ -4,14 +4,14 @@
 
 % Page layout
  %\documentclass[a4paper]{dphilthesis}
- %\documentclass[a4paper,twoside]{dphilthesis}
-\documentclass[a4paper,nobind]{dphilthesis}
+\documentclass[a4paper,twoside]{dphilthesis}
+% \documentclass[a4paper,nobind]{dphilthesis}
 
 
 
 % \includeonly{frontmatter}
 % \includeonly{chapter1/one}
-% \includeonly{chapter2/two}
+\includeonly{chapter2/two}
 % \includeonly{chapter3/three}
 % \includeonly{chapter4/four}
 % \includeonly{chapter5/five}
@@ -35,13 +35,28 @@ Title={Rare and low-frequency variants and predisposition to complex disease (Un
 Author={Patrick K. Albers}%
 }}
 
+
+% ToC spacing
+\makeatletter
+\renewcommand{\@pnumwidth}{2.15em}
+\renewcommand{\@tocrmarg}{5.15em}
+\renewcommand{\@dotsep}{1}
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.5em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{4em}{3.4em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{7.4em}{4.3em}}
+\renewcommand*\l@paragraph{\@dottedtocline{4}{10.2em}{5.2em}}
+\renewcommand*\l@subparagraph{\@dottedtocline{5}{12.2em}{6.2em}}
+\renewcommand*\l@figure{\@dottedtocline{1}{1.7em}{2.5em}}
+\let\l@table\l@figure
+\makeatother
+
+
 % Draft note
 %\draftnote{Patrick K. Albers, thesis draft, \today}
 
 
 % Abbreviations
 \input{abbreviations}
-
 
 
 % Document begin
@@ -102,33 +117,40 @@ The key test for an acronym is to ask whether it helps or hurts communication.%
 
 
 % References
+
+\cleardoublepage
+
 \topquote[6cm]{%
+\vspace*{-8mm}
 My definition of a scientist is that you \\
 can complete the following sentence:\\
 `he or she has shown that \dots'%
 }{E. O. Wilson}
 
 \bibliographystyle{biblio}
-{\onehalfspacing\footnotesize\bibliography{library,manual}}
-\label{biblio}
+{%
+	\singlespacing%
+	\footnotesize%
+	\bibliography{library,manual}%
+}\label{biblio}
 
 
-% \clearpage
-% \thispagestyle{empty}
-% \vspace*{\fill}
-% \begin{quote}
-% \onehalfspacing
-% \begin{enumerate}\itshape
-% \item I have told you more than I know \textup{[...]}.
-% \item What I have told you is subject to change without notice.
-% \item I hope I raised more questions than I have given answers.
-% \item In any case, as usual, a lot more work is necessary.
-% \end{enumerate}
-% \begin{flushright}
-% -- Fuller Albright
-% \end{flushright}
-% \end{quote}
-% \vspace*{\fill}
+\cleardoublepage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{quote}
+\onehalfspacing
+\begin{enumerate}\itshape
+\item I have told you more than I know \textup{[...]}.
+\item What I have told you is subject to change without notice.
+\item I hope I raised more questions than I have given answers.
+\item In any case, as usual, a lot more work is necessary.
+\end{enumerate}
+\begin{flushright}
+-- Fuller Albright
+\end{flushright}
+\end{quote}
+\vspace*{\fill}
 
 
 \end{document}

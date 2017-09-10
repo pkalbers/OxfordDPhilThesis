@@ -7,6 +7,7 @@
 \ProvidesClass{dphilthesis}[2016/02/02 Oxford thesis class]
 
 \LoadClass[openright, 11pt]{report}
+%\LoadClass[twoside, 11pt]{report}
 
 \newif\ifmc@nobind
 \mc@nobindfalse
@@ -70,12 +71,13 @@
 			{geometry}
 \else
 \usepackage[includehead,
-			hmargin={3.5cm, 2.5cm},
-			vmargin={2cm,2cm},
-			headsep=0.5cm,
+			hmargin={3.4cm, 2.6cm},
+			vmargin={2.25cm,2.5cm},
+			headsep=0.75cm,
 			footskip=1cm]
 			{geometry}
 \fi
+
 
 
 % line spacing
@@ -251,6 +253,18 @@ list-final-separator={, and }%
 \cleanlookdateon
 
 
+
+% corrections
+\usepackage{soulutf8}
+\setulcolor{yellow}
+\setstcolor{red}
+\setul{0.5ex}{0.3ex}
+\newcommand{\edit}[1]{\hl{#1}}
+\def\medit{\quad\mbox{\footnotesize\hl{\texttt{CORRECTED}}}\xspace}
+\newcommand{\cancel}[1]{{\st{#1}}}
+
+
+
 % Headers/Footers
 \usepackage{fancyhdr}
 \addtolength\headheight{6.7pt}
@@ -262,16 +276,16 @@ list-final-separator={, and }%
 % \fancyhead[LO]{\footnotesize{\leftmark}}
 % \fancyhead[RE]{\footnotesize{\rightmark}}
 % \fancyhead[RO,LE]{\footnotesize\bfseries\thepage}
-\fancyhead[LO]{\small\textsl{\leftmark}}
-\fancyhead[RE]{\small\textsl{\rightmark}}
-\fancyhead[RO,LE]{\small\bfseries\thepage}
+\fancyhead[LO]{\footnotesize\textsl{\leftmark}}
+\fancyhead[RE]{\footnotesize\textsl{\rightmark}}
+\fancyhead[RO,LE]{\footnotesize\bfseries\thepage}
 %\fancyfoot[C]{\footnotesize\texttt{\@draftnote}}
 
 \fancypagestyle{plain}
 {
 	\fancyhf{}
-	\fancyhead[L]{\small\textsl{\let\\=\relax \@title}}
-	\fancyhead[R]{\small\bfseries\thepage}
+	\fancyhead[L]{\footnotesize\textsl{\let\\=\relax \@title}}
+	\fancyhead[R]{\footnotesize\bfseries\thepage}
 	%\fancyfoot[C]{\footnotesize\texttt{\@draftnote}}
 }
 
@@ -290,8 +304,8 @@ list-final-separator={, and }%
 	\newpage
 	\if@twocolumn\hbox{}\newpage
 	\fi
-	\fancyhead[LO]{\textsl{\leftmark}}
-	\fancyhead[RE]{\textsl{\rightmark}}
+	\fancyhead[LO]{\footnotesize\textsl{\leftmark}}
+	\fancyhead[RE]{\footnotesize\textsl{\rightmark}}
 	\fi\fi
 }
 
@@ -331,21 +345,21 @@ list-final-separator={, and }%
 	\thispagestyle{empty}
 	\begin{center}
 		{\LARGE {\bfseries {\@title}} \par}
-		{\large \vspace*{2mm} {\includegraphics{\@unicrest} \par} \vspace*{2mm}}
+		{\large \vspace*{1mm} {\includegraphics{\@unicrest} \par} \vspace*{1mm}}
 		{{\Large \bfseries {\@author}} \par}
 		{
-			\large \vspace*{2ex}
+			\large \vspace*{1ex}
 			{{\@institute} \par}
 			\vspace*{1ex}
 			{{\@college} \par}
 			\vspace*{1ex}
 			{\Large {\@university} \par}
-			\vspace*{8ex}
+			\vspace*{6ex}
 			{{\@supervisor} \par}
-			\vspace*{8ex}
+			\vspace*{6ex}
 			{\normalsize {\@submitted} \par}
 			{\Large \textit{\@degree} \par}
-			\vspace*{8ex}
+			\vspace*{6ex}
 			{\@degreedate}
 		}
 	\end{center}
@@ -375,8 +389,9 @@ list-final-separator={, and }%
 {
 	\begin{alwayssingle}
 	\chapter*{Acknowledgements}
-	\thispagestyle{front}
-	\pagestyle{front}
+	% \thispagestyle{front}
+	% \pagestyle{front}
+	% \thispagestyle{empty}
 	\setlength{\baselineskip}{\frontmatterbaselineskip}
 }
 {
@@ -389,8 +404,9 @@ list-final-separator={, and }%
 {
 	\begin{alwayssingle}
 	\chapter*{Abstract}
-	\thispagestyle{front}
-	\pagestyle{front}
+	% \thispagestyle{front}
+	% \pagestyle{front}
+	%\thispagestyle{empty}
 	\setlength{\baselineskip}{\frontmatterbaselineskip}
 }
 {
@@ -401,7 +417,7 @@ list-final-separator={, and }%
 % Separate abstract
 \newenvironment{abstractseparate}
 {
-	\newgeometry{margin=3cm,top=2.5cm,bottom=2cm}
+	% \newgeometry{margin=3cm,top=2.5cm,bottom=2cm}
 	\thispagestyle{empty}
 	\begin{alwayssingle}
 	{\centering %\begin{center}
@@ -427,7 +443,7 @@ list-final-separator={, and }%
 	\vspace{1ex}
 	\setlength{\baselineskip}{\z@}}
 {
-	\vfill\end{alwayssingle}\restoregeometry
+	\vfill\end{alwayssingle}%\restoregeometry
 }
 
 
@@ -437,6 +453,9 @@ list-final-separator={, and }%
 	\cleardoublepage
 	\setlength{\baselineskip}{\frontmatterbaselineskip}
 	\setcounter{page}{1}\renewcommand{\thepage}{\roman{page}}
+	\small
+	%\fontsize{9pt}{12pt}
+	\onehalfspacing
 }
 {
 	\cleardoublepage\setcounter{page}{1}
@@ -471,6 +490,7 @@ list-final-separator={, and }%
 \tolerance=1000
 \widowpenalty=50000
 \clubpenalty=50000
+
 
 
 % Fix paragraph spacing within quotes for multi-par quotes

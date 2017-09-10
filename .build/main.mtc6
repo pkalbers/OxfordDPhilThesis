@@ -1,31 +1,31 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Introduction}{\reset@font\mtcSfont 125}{section.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Probability of genotype error}{\reset@font\mtcSSfont 127}{subsection.4.1.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Genotype penetrance models}{\reset@font\mtcSSSfont 128}{subsubsection*.90}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Generation of platform-specific genotype error profiles}{\reset@font\mtcSfont 129}{section.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}High-confidence genome data as benchmark for comparisons}{\reset@font\mtcSSfont 130}{subsection.4.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Selection and preparation of datasets from different platforms}{\reset@font\mtcSSfont 131}{subsection.4.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.3}Penetrance of genotype error in sequencing and genotyping data}{\reset@font\mtcSSfont 134}{subsection.4.2.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Genotype accuracy by chromosomal region}{\reset@font\mtcSSSfont 135}{subsubsection*.95}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Empirical estimation of genotype penetrance}{\reset@font\mtcSSSfont 136}{subsubsection*.97}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Frequency-dependent penetrance distribution}{\reset@font\mtcSSSfont 138}{subsubsection*.100}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Impact of genotype error on IBD detection}{\reset@font\mtcSfont 140}{section.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Integration of empirical error distributions in simulated data}{\reset@font\mtcSSfont 141}{subsection.4.3.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Accuracy analysis}{\reset@font\mtcSSSfont 142}{subsubsection*.102}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Results}{\reset@font\mtcSSfont 142}{subsection.4.3.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode IBD detection using \emph {tidy}}{\reset@font\mtcSSSfont 144}{subsubsection*.104}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode IBD detection using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} in \emph {Beagle\tmspace +\thinmuskip {.1667em}4.1}}{\reset@font\mtcSSSfont 147}{subsubsection*.108}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.3}Discussion}{\reset@font\mtcSSfont 150}{subsection.4.3.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}A Hidden Markov Model for IBD inference}{\reset@font\mtcSfont 151}{section.4.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}The algorithm for probabilistic IBD inference}{\reset@font\mtcSSfont 153}{subsection.4.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Description of the model}{\reset@font\mtcSSfont 154}{subsection.4.4.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Transition probabilities}{\reset@font\mtcSSSfont 156}{subsubsection*.112}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Emission probabilities}{\reset@font\mtcSSSfont 158}{subsubsection*.114}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Emission probabilities in the \emph {non} state.}{\reset@font\mtcPfont 159}{paragraph*.115}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Emission probabilities in the \emph {ibd} state.}{\reset@font\mtcPfont 160}{paragraph*.117}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Initial state probabilities}{\reset@font\mtcSSSfont 162}{subsubsection*.119}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.3}Integration of empirically determined genotype error rates}{\reset@font\mtcSSfont 162}{subsection.4.4.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Empirical emission probabilities}{\reset@font\mtcSSSfont 162}{subsubsection*.120}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Empirical initial state probabilities}{\reset@font\mtcSSSfont 165}{subsubsection*.122}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.4}Inference of IBD segments}{\reset@font\mtcSSfont 167}{subsection.4.4.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.5}Results}{\reset@font\mtcSSfont 170}{subsection.4.4.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.6}Discussion}{\reset@font\mtcSSfont 174}{subsection.4.4.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Introduction}{\reset@font\mtcSfont 127}{section.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Probability of genotype error}{\reset@font\mtcSSfont 129}{subsection.4.1.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Genotype penetrance models}{\reset@font\mtcSSSfont 130}{subsubsection*.91}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Generation of platform-specific genotype error profiles}{\reset@font\mtcSfont 131}{section.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}High-confidence genome data as benchmark for comparisons}{\reset@font\mtcSSfont 132}{subsection.4.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Selection and preparation of datasets from different platforms}{\reset@font\mtcSSfont 133}{subsection.4.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.3}Penetrance of genotype error in sequencing and genotyping data}{\reset@font\mtcSSfont 136}{subsection.4.2.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Genotype accuracy by chromosomal region}{\reset@font\mtcSSSfont 137}{subsubsection*.96}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Empirical estimation of genotype penetrance}{\reset@font\mtcSSSfont 138}{subsubsection*.98}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Frequency-dependent penetrance distribution}{\reset@font\mtcSSSfont 140}{subsubsection*.101}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Impact of genotype error on IBD detection}{\reset@font\mtcSfont 142}{section.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Integration of empirical error distributions in simulated data}{\reset@font\mtcSSfont 143}{subsection.4.3.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Accuracy analysis}{\reset@font\mtcSSSfont 144}{subsubsection*.103}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Results}{\reset@font\mtcSSfont 144}{subsection.4.3.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode IBD detection using \emph {tidy}}{\reset@font\mtcSSSfont 146}{subsubsection*.105}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode IBD detection using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} in \emph {Beagle\tmspace +\thinmuskip {.1667em}4.1}}{\reset@font\mtcSSSfont 149}{subsubsection*.109}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.3}Discussion}{\reset@font\mtcSSfont 152}{subsection.4.3.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}A Hidden Markov Model for IBD inference}{\reset@font\mtcSfont 153}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}The algorithm for probabilistic IBD inference}{\reset@font\mtcSSfont 155}{subsection.4.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Description of the model}{\reset@font\mtcSSfont 156}{subsection.4.4.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Transition probabilities}{\reset@font\mtcSSSfont 158}{subsubsection*.113}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Emission probabilities}{\reset@font\mtcSSSfont 160}{subsubsection*.115}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Emission probabilities in the \emph {non} state.}{\reset@font\mtcPfont 161}{paragraph*.116}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Emission probabilities in the \emph {ibd} state.}{\reset@font\mtcPfont 162}{paragraph*.118}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Initial state probabilities}{\reset@font\mtcSSSfont 164}{subsubsection*.120}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.3}Integration of empirically determined genotype error rates}{\reset@font\mtcSSfont 164}{subsection.4.4.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Empirical emission probabilities}{\reset@font\mtcSSSfont 164}{subsubsection*.121}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Empirical initial state probabilities}{\reset@font\mtcSSSfont 167}{subsubsection*.123}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.4}Inference of IBD segments}{\reset@font\mtcSSfont 169}{subsection.4.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.5}Results}{\reset@font\mtcSSfont 172}{subsection.4.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.6}Discussion}{\reset@font\mtcSSfont 176}{subsection.4.4.6}}

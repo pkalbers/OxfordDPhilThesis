@@ -5,6 +5,7 @@
 	% Cover page
 \maketitle
 
+
 	% Dedication
 %	\begin{dedication}
 %	This thesis is dedicated to\\
@@ -17,27 +18,35 @@
 % it is by standing on the shoulders of giants.
 % }{Sir Isaac Newton, 1676}
 
+% Abstract
+\begin{abstract}%\begin{abstractseparate}
+\input{abstract}
+\end{abstract}%\end{abstractseparate}
+
 % Acknowledgements
 \begin{acknowledgements}
 \input{acknowledgements}
 \end{acknowledgements}
 
-% Abstract
-\begin{abstractseparate}
-\input{abstract}
-\end{abstractseparate}
-
-\flushbottom
+% \flushbottom
 
 % TOC
 \dominitoc% include a mini table of contents
 %	\dominilof% include a mini list of figures
 %	\dominilot% include a mini list of tables
+
+{
+\small
+\hyphenchar\font=-1 % disable hyphen
+
 \tableofcontents
 \listoffigures
 \mtcaddchapter% to avoid confusing minitoc
 \listoftables
 \mtcaddchapter% to avoid confusing minitoc
+
+\hyphenchar\font=`\- % reset hyphen
+}
 
 \end{romanpages}
 

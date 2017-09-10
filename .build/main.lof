@@ -1,89 +1,89 @@
-\contentsline {xchapter}{}{ix}{chapter*.3}
-\contentsline {xchapter}{}{x}{chapter*.4}
+\contentsline {xchapter}{}{xii}{chapter*.4}
+\contentsline {xchapter}{}{xiii}{chapter*.5}
 \select@language {UKenglish}
 \select@language {UKenglish}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Introduction}{1}{chapter.1}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces The chemical structure of DNA}}{7}{figure.caption.5}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Alleles, haplotypes, and genotypes}}{8}{figure.caption.6}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Illustration of recombination during meiosis}}{11}{figure.caption.7}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Example genealogy in a Wright-Fisher model}}{13}{figure.caption.9}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Allele frequency changes over time simulated under the Wright-Fisher model}}{15}{figure.caption.10}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Topology of a genealogical tree in the coalescent}}{17}{figure.caption.11}
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Mutation events on a genealogical tree in the coalescent}}{23}{figure.caption.14}
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Illustration of the ancestral recombination graph}}{26}{figure.caption.16}
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Timeline of sequencing technologies and milestone projects}}{30}{figure.caption.17}
-\contentsline {figure}{\numberline {1.10}{\ignorespaces Timeline of cost reduction in DNA sequencing}}{31}{figure.caption.18}
-\contentsline {figure}{\numberline {1.11}{\ignorespaces Allele frequency spectrum in the 1000 Genomes Project}}{33}{figure.caption.19}
-\contentsline {figure}{\numberline {1.12}{\ignorespaces Significant risk-associated variants listed in the NHGRI-EBI Catalogue}}{35}{figure.caption.20}
-\contentsline {figure}{\numberline {1.13}{\ignorespaces Risk-related variants by allele frequency and effect size}}{36}{figure.caption.21}
-\contentsline {figure}{\numberline {1.14}{\ignorespaces Illustration of haplotype sharing by descent}}{39}{figure.caption.22}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The chemical structure of DNA}}{7}{figure.caption.6}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Alleles, haplotypes, and genotypes}}{8}{figure.caption.7}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Illustration of recombination during meiosis}}{11}{figure.caption.8}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Example genealogy in a Wright-Fisher model}}{13}{figure.caption.10}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Allele frequency changes over time simulated under the Wright-Fisher model}}{15}{figure.caption.11}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Topology of a genealogical tree in the coalescent}}{17}{figure.caption.12}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Mutation events on a genealogical tree in the coalescent}}{23}{figure.caption.15}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Illustration of the ancestral recombination graph}}{26}{figure.caption.17}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Timeline of sequencing technologies and milestone projects}}{30}{figure.caption.18}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Timeline of cost reduction in DNA sequencing}}{31}{figure.caption.19}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Allele frequency spectrum in the 1000 Genomes Project}}{33}{figure.caption.20}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Significant risk-associated variants listed in the NHGRI-EBI Catalogue}}{35}{figure.caption.21}
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Risk-related variants by allele frequency and effect size}}{36}{figure.caption.22}
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Illustration of haplotype sharing by descent}}{39}{figure.caption.23}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Meta-imputation of reference data to increase accuracy and power in association analysis}{45}{chapter.2}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Illustration of the meta-imputation concept}}{50}{figure.caption.23}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Generation of reference panels in each scenario}}{55}{figure.caption.30}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Illustration of the accuracy assessment process}}{58}{figure.caption.34}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Accuracy comparison of score metrics and merge operations in meta-imputation}}{61}{figure.caption.38}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Accuracy comparison between meta-imputation and direct imputations}}{65}{figure.caption.43}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Difference between imputed and masked minor allele frequency}}{69}{figure.caption.46}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Illustration of the simulation process}}{73}{figure.caption.48}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Inflation observed in simulated case-control experiments}}{76}{figure.caption.51}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Power measured under a moving significance threshold}}{77}{figure.caption.52}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Illustration of the meta-imputation concept}}{50}{figure.caption.24}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Generation of reference panels in each scenario}}{55}{figure.caption.31}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Illustration of the accuracy assessment process}}{58}{figure.caption.35}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Accuracy comparison of score metrics and merge operations in meta-imputation}}{61}{figure.caption.39}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Accuracy comparison between meta-imputation and direct imputations}}{65}{figure.caption.44}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Difference between imputed and masked minor allele frequency}}{69}{figure.caption.47}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Illustration of the simulation process}}{73}{figure.caption.49}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Inflation observed in simulated case-control experiments}}{76}{figure.caption.52}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Power measured under a moving significance threshold}}{77}{figure.caption.53}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Using rare variants to detect haplotype sharing and identity by descent}{84}{chapter.3}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces IBD structure and pairwise variant sharing}}{88}{figure.caption.61}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Rare variant sharing in the 1000 Genomes dataset}}{90}{figure.caption.62}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Breakpoint detection using the four-gamete test (FGT)}}{92}{figure.caption.64}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Breakpoint detection using the discordant genotype test (DGT)}}{93}{figure.caption.66}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Illustration of shared haplotype detection in a pair of diploid individuals}}{94}{figure.caption.67}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Examples of the underlying IBD structure in each pair of four chromosomes}}{97}{figure.caption.68}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Genealogical constraints from haplotype sharing}}{100}{figure.caption.69}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Demographic model used in simulations}}{102}{figure.caption.72}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Accuracy of breakpoint detection in simulated data}}{108}{figure.caption.76}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces IBD segment lengths inferred in simulated data}}{109}{figure.caption.77}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Accuracy of breakpoint detection in simulated data using Refined IBD in Beagle~4.1}}{112}{figure.caption.79}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces IBD segment lengths inferred using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} in Beagle~4.1}}{114}{figure.caption.80}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Distribution of inferred IBD lengths in 1000 Genomes data, chromosome 20}}{117}{figure.caption.84}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Accuracy of alleles inferred through IBD-based phasing by focal allele frequency}}{119}{figure.caption.86}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Error distribution of alleles inferred through IBD-based phasing}}{120}{figure.caption.87}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Cumulative shared haplotype coverage by focal allele count in 1000 Genomes data}}{122}{figure.caption.89}
+\contentsline {xchapter}{Using rare variants to detect haplotype sharing and identity by descent}{85}{chapter.3}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces IBD structure and pairwise variant sharing}}{89}{figure.caption.62}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Rare variant sharing in the 1000 Genomes dataset}}{91}{figure.caption.63}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Breakpoint detection using the four-gamete test (FGT)}}{93}{figure.caption.65}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Breakpoint detection using the discordant genotype test (DGT)}}{94}{figure.caption.67}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Illustration of shared haplotype detection in a pair of diploid individuals}}{95}{figure.caption.68}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Examples of the underlying IBD structure in each pair of four chromosomes}}{98}{figure.caption.69}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Genealogical constraints from haplotype sharing}}{101}{figure.caption.70}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Demographic model used in simulations}}{103}{figure.caption.73}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Accuracy of breakpoint detection in simulated data}}{109}{figure.caption.77}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces IBD segment lengths inferred in simulated data}}{110}{figure.caption.78}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Accuracy of breakpoint detection in simulated data using Refined IBD in Beagle~4.1}}{113}{figure.caption.80}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces IBD segment lengths inferred using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} in Beagle~4.1}}{115}{figure.caption.81}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Distribution of inferred IBD lengths in 1000 Genomes data, chromosome 20}}{118}{figure.caption.85}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Accuracy of alleles inferred through IBD-based phasing by focal allele frequency}}{120}{figure.caption.87}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Error distribution of alleles inferred through IBD-based phasing}}{121}{figure.caption.88}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Cumulative shared haplotype coverage by focal allele count in 1000 Genomes data}}{123}{figure.caption.90}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Consideration of genotype error in the inference of haplotype sharing by descent}{125}{chapter.4}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces CEPH pedigree 1463}}{130}{figure.caption.93}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of the matching process in the generation of error profiles}}{133}{figure.caption.94}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Positional genotype error density in sequencing and genotyping datasets}}{135}{figure.caption.96}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Frequency-dependent distribution of genotype penetrance in sequencing and genotyping data}}{139}{figure.caption.101}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Misclassification of target sites in presence of genotype error}}{143}{figure.caption.103}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Accuracy of IBD detection using \emph {tidy} after inclusion of genotype error}}{145}{figure.caption.105}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Length distribution of IBD segments using \emph {tidy} after includion of genotype error}}{147}{figure.caption.106}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Example of the effect of genotype error on IBD detection}}{148}{figure.caption.107}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Accuracy of IBD detection using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} after inclusion of genotype error}}{149}{figure.caption.109}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces IBD length detected using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} after inclusion of genotype error}}{150}{figure.caption.110}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Illustration of the Hidden Markov Model for IBD inference}}{155}{figure.caption.111}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Probability distribution of transition dependent on IBD}}{158}{figure.caption.113}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Expected frequency distribution of genotype pairs under non-IBD and IBD}}{161}{figure.caption.118}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Difference between empirical and expected proportions of genotype pairs}}{164}{figure.caption.121}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces True positive rate of identified genotype pairs at focal sites}}{167}{figure.caption.123}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Accuracy of IBD breakpoint detection using the Hidden Markov Model on simulated data, before and after error}}{172}{figure.caption.126}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Length distribution of shared haplotype segments using the Hidden Markov Model on simulated data}}{173}{figure.caption.127}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces IBD inference using the Hidden Markov Model on 1000 Genomes data, chromosome 20}}{174}{figure.caption.128}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Empirical emission probabilities of genotype pairs dependent on time}}{175}{figure.caption.129}
+\contentsline {xchapter}{Consideration of genotype error in the inference of haplotype sharing by descent}{127}{chapter.4}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces CEPH pedigree 1463}}{132}{figure.caption.94}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of the matching process in the generation of error profiles}}{135}{figure.caption.95}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Positional genotype error density in sequencing and genotyping datasets}}{137}{figure.caption.97}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Frequency-dependent distribution of genotype penetrance in sequencing and genotyping data}}{141}{figure.caption.102}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Misclassification of target sites in presence of genotype error}}{145}{figure.caption.104}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Accuracy of IBD detection using \emph {tidy} after inclusion of genotype error}}{147}{figure.caption.106}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Length distribution of IBD segments using \emph {tidy} after includion of genotype error}}{149}{figure.caption.107}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Example of the effect of genotype error on IBD detection}}{150}{figure.caption.108}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Accuracy of IBD detection using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} after inclusion of genotype error}}{151}{figure.caption.110}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces IBD length detected using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} after inclusion of genotype error}}{152}{figure.caption.111}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Illustration of the Hidden Markov Model for IBD inference}}{157}{figure.caption.112}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Probability distribution of transition dependent on IBD}}{160}{figure.caption.114}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Expected frequency distribution of genotype pairs under non-IBD and IBD}}{163}{figure.caption.119}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Difference between empirical and expected proportions of genotype pairs}}{166}{figure.caption.122}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces True positive rate of identified genotype pairs at focal sites}}{169}{figure.caption.124}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Accuracy of IBD breakpoint detection using the Hidden Markov Model on simulated data, before and after error}}{174}{figure.caption.127}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Length distribution of shared haplotype segments using the Hidden Markov Model on simulated data}}{175}{figure.caption.128}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces IBD inference using the Hidden Markov Model on 1000 Genomes data, chromosome 20}}{176}{figure.caption.129}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Empirical emission probabilities of genotype pairs dependent on time}}{177}{figure.caption.130}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Estimation of rare allele age}{177}{chapter.5}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Allele age in relation to concordant and discordant pairs}}{186}{figure.caption.133}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of the age estimation result for a focal variant}}{187}{figure.caption.134}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Breakpoint detection in discordant pairs}}{189}{figure.caption.136}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Initial state probability of discordant pairs in the Hidden Markov Model (HMM)}}{191}{figure.caption.137}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Expected estimation bias due to deficient IBD inference}}{193}{figure.caption.139}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces True and inferred age under varying numbers of discordant pairs}}{198}{figure.caption.140}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Relative age under varying numbers of discordant pairs}}{201}{figure.caption.142}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Distribution of true and inferred age using different IBD detection methods}}{205}{figure.caption.143}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Relative age using different IBD detection methods}}{207}{figure.caption.145}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Length distribution of inferred IBD segments}}{208}{figure.caption.146}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Density distribution of allele age before and after the inclusion of genotype error in simulated data}}{211}{figure.caption.149}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Length distribution of inferred IBD segments before and after error}}{217}{figure.caption.153}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Estimated correction factors before and after error}}{219}{figure.caption.155}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Allele age estimated on functionally annotated data in 1000 Genomes}}{224}{figure.caption.158}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Allele age after correction on population-specific frequency in 1000 Genomes}}{225}{figure.caption.159}
+\contentsline {xchapter}{Estimation of rare allele age}{179}{chapter.5}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Allele age in relation to concordant and discordant pairs}}{188}{figure.caption.134}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of the age estimation result for a focal variant}}{189}{figure.caption.135}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Breakpoint detection in discordant pairs}}{191}{figure.caption.137}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Initial state probability of discordant pairs in the Hidden Markov Model (HMM)}}{193}{figure.caption.138}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Expected estimation bias due to deficient IBD inference}}{195}{figure.caption.140}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces True and inferred age under varying numbers of discordant pairs}}{200}{figure.caption.141}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Relative age under varying numbers of discordant pairs}}{203}{figure.caption.143}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Distribution of true and inferred age using different IBD detection methods}}{207}{figure.caption.144}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Relative age using different IBD detection methods}}{209}{figure.caption.146}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Length distribution of inferred IBD segments}}{210}{figure.caption.147}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Density distribution of allele age before and after the inclusion of genotype error in simulated data}}{213}{figure.caption.150}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Length distribution of inferred IBD segments before and after error}}{219}{figure.caption.154}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Estimated correction factors before and after error}}{221}{figure.caption.156}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Allele age estimated on functionally annotated data in 1000 Genomes}}{226}{figure.caption.159}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Allele age after correction on population-specific frequency in 1000 Genomes}}{227}{figure.caption.160}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion}{228}{chapter.6}
+\contentsline {xchapter}{Discussion}{231}{chapter.6}

@@ -2,26 +2,26 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Approach}{\reset@font\mtcSfont 48}{section.2.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Description of the method}{\reset@font\mtcSSfont 49}{subsection.2.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Score metrics}{\reset@font\mtcSSfont 51}{subsection.2.2.2}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Maximum probability (\texttt {MP}).}{\reset@font\mtcPfont 51}{paragraph*.24}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode \texttt {IMPUTE2} information score (\texttt {IS}).}{\reset@font\mtcPfont 51}{paragraph*.25}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Sample certainty (\texttt {SC}).}{\reset@font\mtcPfont 52}{paragraph*.26}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Random score (\texttt {RS}).}{\reset@font\mtcPfont 53}{paragraph*.27}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Maximum probability (\texttt {MP}).}{\reset@font\mtcPfont 51}{paragraph*.25}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode \texttt {IMPUTE2} information score (\texttt {IS}).}{\reset@font\mtcPfont 51}{paragraph*.26}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Sample certainty (\texttt {SC}).}{\reset@font\mtcPfont 52}{paragraph*.27}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Random score (\texttt {RS}).}{\reset@font\mtcPfont 53}{paragraph*.28}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Merge operations}{\reset@font\mtcSSfont 53}{subsection.2.2.3}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Maximum score selection (\texttt {MSS}).}{\reset@font\mtcPfont 53}{paragraph*.28}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Weighted linear combination (\texttt {WLS}).}{\reset@font\mtcPfont 53}{paragraph*.29}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Maximum score selection (\texttt {MSS}).}{\reset@font\mtcPfont 53}{paragraph*.29}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Weighted linear combination (\texttt {WLS}).}{\reset@font\mtcPfont 53}{paragraph*.30}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Generation of reference datasets}{\reset@font\mtcSfont 54}{section.2.3}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Accuracy of estimated genotypes}{\reset@font\mtcSfont 56}{section.2.4}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}Methods}{\reset@font\mtcSSfont 57}{subsection.2.4.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Generation of genotype scaffold data (study sample)}{\reset@font\mtcSSSfont 57}{subsubsection*.32}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Imputation and quality control}{\reset@font\mtcSSSfont 57}{subsubsection*.33}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Calculation of genotype accuracy}{\reset@font\mtcSSSfont 58}{subsubsection*.35}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Generation of genotype scaffold data (study sample)}{\reset@font\mtcSSSfont 57}{subsubsection*.33}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Imputation and quality control}{\reset@font\mtcSSSfont 57}{subsubsection*.34}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Calculation of genotype accuracy}{\reset@font\mtcSSSfont 58}{subsubsection*.36}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}Results}{\reset@font\mtcSSfont 59}{subsection.2.4.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Comparison of meta-imputation settings}{\reset@font\mtcSSSfont 59}{subsubsection*.36}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Improvements of accuracy in comparison to direct imputations}{\reset@font\mtcSSSfont 63}{subsubsection*.41}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Comparison of meta-imputation settings}{\reset@font\mtcSSSfont 59}{subsubsection*.37}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Improvements of accuracy in comparison to direct imputations}{\reset@font\mtcSSSfont 63}{subsubsection*.42}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Power to detect significant risk signals}{\reset@font\mtcSfont 70}{section.2.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.1}Methods}{\reset@font\mtcSSfont 70}{subsection.2.5.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Simulation of study sample data}{\reset@font\mtcSSSfont 71}{subsubsection*.47}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Association analysis in imputed genotype data}{\reset@font\mtcSSSfont 73}{subsubsection*.49}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Calculation of power in replicate simulation experiments}{\reset@font\mtcSSSfont 74}{subsubsection*.50}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Simulation of study sample data}{\reset@font\mtcSSSfont 71}{subsubsection*.48}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Association analysis in imputed genotype data}{\reset@font\mtcSSSfont 73}{subsubsection*.50}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Calculation of power in replicate simulation experiments}{\reset@font\mtcSSSfont 74}{subsubsection*.51}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.2}Results}{\reset@font\mtcSSfont 74}{subsection.2.5.2}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Discussion}{\reset@font\mtcSfont 79}{section.2.6}}

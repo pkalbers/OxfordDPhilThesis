@@ -1,34 +1,34 @@
-\contentsline {xchapter}{}{ix}{chapter*.3}
-\contentsline {xchapter}{}{x}{chapter*.4}
+\contentsline {xchapter}{}{xii}{chapter*.4}
+\contentsline {xchapter}{}{xiii}{chapter*.5}
 \select@language {UKenglish}
 \select@language {UKenglish}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Introduction}{1}{chapter.1}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Meta-imputation of reference data to increase accuracy and power in association analysis}{45}{chapter.2}
-\contentsline {table}{\numberline {2.1}{\ignorespaces Dimensions of generated reference data used for imputations}}{56}{table.caption.31}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Variants retained after quality control per meta-imputation setting}}{60}{table.caption.37}
-\contentsline {table}{\numberline {2.3}{\ignorespaces Accuracy measured for each meta-imputation setting}}{62}{table.caption.39}
-\contentsline {table}{\numberline {2.4}{\ignorespaces Effect of quality control on imputed genotype data}}{64}{table.caption.42}
-\contentsline {table}{\numberline {2.5}{\ignorespaces Accuracy of imputation strategies at rare, low-frequency, and common variants}}{67}{table.caption.44}
-\contentsline {table}{\numberline {2.6}{\ignorespaces Estimated power per imputation strategy}}{80}{table.caption.55}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Dimensions of generated reference data used for imputations}}{56}{table.caption.32}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Variants retained after quality control per meta-imputation setting}}{60}{table.caption.38}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Accuracy measured for each meta-imputation setting}}{62}{table.caption.40}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Effect of quality control on imputed genotype data}}{64}{table.caption.43}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Accuracy of imputation strategies at rare, low-frequency, and common variants}}{67}{table.caption.45}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Estimated power per imputation strategy}}{80}{table.caption.56}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Using rare variants to detect haplotype sharing and identity by descent}{84}{chapter.3}
-\contentsline {table}{\numberline {3.1}{\ignorespaces Shared haplotype inference from genotype pairs}}{101}{table.caption.70}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Accuracy of detected breakpoints per $\textbf {f}_{k}$~category}}{106}{table.caption.74}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Inferred IBD length per chromosome in 1000 Genomes}}{116}{table.caption.82}
+\contentsline {xchapter}{Using rare variants to detect haplotype sharing and identity by descent}{85}{chapter.3}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Shared haplotype inference from genotype pairs}}{102}{table.caption.71}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Accuracy of detected breakpoints per $\textbf {f}_{k}$~category}}{107}{table.caption.75}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Inferred IBD length per chromosome in 1000 Genomes}}{117}{table.caption.83}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Consideration of genotype error in the inference of haplotype sharing by descent}{125}{chapter.4}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Penetrance functions in genotype and allele-based error models}}{129}{table.caption.91}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Measured genotype penetrance in sequencing and genotyping data}}{137}{table.caption.98}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Punnett squares of genotype pair partitions under non-IBD and IBD}}{160}{table.caption.116}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Accuracy comparison per $\textbf {f}_{k}$~category after error}}{171}{table.caption.124}
+\contentsline {xchapter}{Consideration of genotype error in the inference of haplotype sharing by descent}{127}{chapter.4}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Penetrance functions in genotype and allele-based error models}}{131}{table.caption.92}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Measured genotype penetrance in sequencing and genotyping data}}{139}{table.caption.99}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Punnett squares of genotype pair partitions under non-IBD and IBD}}{162}{table.caption.117}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Accuracy comparison per $\textbf {f}_{k}$~category after error}}{173}{table.caption.125}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Estimation of rare allele age}{177}{chapter.5}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Estimation accuracy under varying numbers of discordant pairs}}{200}{table.caption.141}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Estimation accuracy per IBD detection method}}{206}{table.caption.144}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Conflicted estimates in analyses before and after error}}{209}{table.caption.147}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Effect of genotype error on age estimation accuracy}}{220}{table.caption.156}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Allele age per population in the 1000 Genomes sample}}{226}{table.caption.160}
+\contentsline {xchapter}{Estimation of rare allele age}{179}{chapter.5}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Estimation accuracy under varying numbers of discordant pairs}}{202}{table.caption.142}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Estimation accuracy per IBD detection method}}{208}{table.caption.145}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Conflicted estimates in analyses before and after error}}{211}{table.caption.148}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Effect of genotype error on age estimation accuracy}}{222}{table.caption.157}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Allele age per population in the 1000 Genomes sample}}{228}{table.caption.161}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion}{228}{chapter.6}
+\contentsline {xchapter}{Discussion}{231}{chapter.6}

@@ -26,7 +26,7 @@ The classical approach to locating (or \emph{mapping}) the genetic factors invol
 While linkage studies have been successful in the identification of genetic factors underlying Mendelian diseases \citep{Altshuler:2008kp}, they have been less powerful with regard to locating variants that influence complex disease risk, such as type~2 diabetes, because each variant individually may only contribute modestly to disease susceptibility \citep{Risch:2000jb,Botstein:2003kf}.
 \Gls{gwa} studies have become the preferred method to interrogate common variants in the context of complex traits; they have uncovered significant associations between thousands of genetic factors and major common diseases, and have been a driving force in the ongoing accumulation of more, larger, and denser genomic datasets.
 
-One major insight gained from the extensive study of the (human) genome is that the genetic variation between individuals is mostly determined by \emph{common} variants (\eg ${\geq 5\%}$ frequency), but most variant sites in the genome are \emph{rare}; that is, a particular allele is shared by only a few individuals in the population (\eg 1 in \n{1000}).
+One major insight gained from the extensive study of the (human) genome is that the genetic variation between individuals is mostly determined by \emph{common} variants (\eg ${\geq 5\%}$ frequency), but most variant sites in the genome are \emph{rare}; that is, a particular allele is shared by only few individuals in the population (\eg 1 in \n{1000}).
 In general, low-frequency variants tend to be population-specific, but may also be highly differentiated between demographic groups on a finer scale \citep{Gravel:2011bgb,Bustamante:2011df,Mathieson:2014ig}.
 This is because rare variants are likely to have a relatively recent origin through mutation; \ie they are ``young'' in age and therefore have less time to spread.
 In comparison, genetic factors that contribute to substantial disease risk (particularly with early onset) are likely to be under purifying selection, which implies that they should be observed at relatively low frequencies \citep{Kryukov:2007ec,Marth:2011bz}.
@@ -127,7 +127,7 @@ Typical examples are the effects of diet or stress on complex traits such as bod
 
 Note that the meaning of the word \emph{gene} has changed over time \citep[\eg see][]{slack2014genes}.
 Historically, before the molecular basis of DNA was discovered, a gene was informally defined as the smallest unit of heredity, referring to the determinant of a characteristic that is transmitted from parent to offspring.
-This definition is convenient to mathematically describe the process of genetic inheritance and shall therefore be used in the remainder of this thesis.
+% This definition is convenient to mathematically describe the process of genetic inheritance and shall therefore be used in the remainder of this thesis.
 A gene may be observed in different variant forms in the population, each distinguished as an \emph{allele}.
 Further, a \emph{locus} (plural~\emph{loci}) refers to the physical location of a gene on a chromosome, but may also be used in reference to the position of a single nucleotide (or \emph{site}) in the genome.
 When a set of sites on a single chromosome is considered, \ie the alleles observed at \n{1} or more loci, the term \emph{haplotype} is used.
@@ -236,7 +236,7 @@ The effects of mutation or selection are ignored, such that alleles are \emph{ne
 It follows that reproduction is considered as a random sampling process, in which the alleles that are transmitted into the next generation are drawn (with replacement) from the gene pool of the current population.
 An example is illustrated in \cpref{fig:info_wrightfisher}.
 
-Since each draw has only \n{2} possible outcomes, $A$~or~$B$, each generation is produced by a series of independent Bernoulli trials such that allele frequencies are binomially distributed.
+Since each draw has only \n{2} possible outcomes, $A$~or~\edit{$a$}, each generation is produced by a series of independent Bernoulli trials such that allele frequencies are binomially distributed.
 Let $X_t$ denote the number of $A$ alleles in generation $t$.
 Given ${X_t=i}$ allele copies (or individuals which carry the allele),
 the probability of drawing the $A$ allele is equal to its frequency in the current generation, denoted by ${\pi_i = \rfrac{i}{N}}$.
@@ -281,7 +281,7 @@ The transition probability given in \cref{eq:WFprob} still holds, but allele fre
 \begin{equation}
 	\pi_i ~=~ \frac{i}{N} ~ (1 - \mu_A) ~+~ \Big( 1 - \frac{i}{N} \Big) ~ \mu_a \ .
 \end{equation}
-If ${\mu_A, \mu_a > 0}$, then transitions from any state into any other state remain possible in each generation and permanent fixation is avoided.
+If ${\mu_A, \mu_a > 0}$, then transitions from any state into any other state remain possible in each generation and permanent \edit{extinction or} fixation is avoided.
 Note that in a population in which the effects of mutation and genetic drift are in statistical equilibrium allele frequencies are expected to follow the Hardy-Weinberg principle; \ie the population is in \gls{hwe}.
 
 
@@ -327,12 +327,12 @@ Hence, the probability that any of the possible ancestors is chosen by \n{2} ind
 To arrive at the probability that \n{2} lineages coalesce $t>0$ generations back in time, it is implied that they do not choose the same ancestor in previous generations.
 Because generations are independent, the probability that the \n{2} lineages are distinct over $t-1$~generations is
 \begin{equation}
-	P(T_2 > t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1}
-	\ \text{.}
+	P(T_2 \geq t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1}
+	\ \text{.} \medit
 \end{equation}
 Therefore, the probability that \n{2} lineages coalesce $t$ generations back in time is geometrically distributed with rate $N^{-1}$, such that
 \begin{equation}\label{eq:coalprob}
-	P(T_2 \geq t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1} ~ \frac{1}{N}
+	P(T_2 = t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1} ~ \frac{1}{N} \medit
 \end{equation}
 which arises from the number of independent Bernoulli trials needed until the same ancestor is chosen by \n{2} lineages.
 It follows from the geometric distribution that the expected number of generations up to and including the coalescent event is
@@ -362,7 +362,7 @@ where ${\lfloor N \tau \rfloor}$ is the largest integer that does not exceed ${N
 
 The above can now be extended to consider $n$~lineages, which in the previous generation may have $n$ distinct ancestral lineages if no coalescent event has occurred, or ${n-1}$ otherwise.
 The probability of no coalescence at a given time can be derived as follows.
-Let the first lineage choose among $N$~ancestors with probability ${\rfrac{N}{N} = 1}$, the second lineage then chooses among the remaining ${N-1}$ ancestors with probability ${\rfrac{N-1}{N}}$, the third chooses among ${N-2}$ ancestors with probability ${\rfrac{N-2}{N}}$, and so on; \ie
+Let the first lineage choose among $N$~ancestors with probability ${\rfrac{N}{N} = 1}$, the second lineage then chooses among the remaining ${N-1}$ ancestors with probability ${\rfrac{(N-1)}{N}}$, the third chooses among ${N-2}$ ancestors with probability ${\rfrac{(N-2)}{N}}$, and so on; \ie
 \begin{equation*}
 	\Big(\frac{N}{N}\Big) ~ \Big(\frac{N-1}{N}\Big) ~ \Big(\frac{N-2}{N}\Big) ~ \cdots ~ \Big(\frac{N-(n-1)}{N}\Big)
 \end{equation*}
@@ -385,7 +385,7 @@ Similarly, the probability that any \n{2} of the $n$~lineages coalesce at a give
 \end{equation}
 Note that the term ${\mathcal{O}(N^{-2})}$ describes the limiting behaviour of \cref{eq:coal_n_dont,eq:coal_n_do} and captures all terms that decrease more rapidly than $\rfrac{1}{N}$ as $N$ tends to infinity.
 Mathematically, ${\mathcal{O}(N^{-2})}$ corresponds to the \emph{diffusion} limit of the continuous process, which can be ignored if the population size is sufficiently large \citep[\eg, see][]{wakeley2008}.
-By doing so, it is assumed that not more than \n{2} lineages coalesce at a given time, such that the resulting tree has a binary topology.
+By doing so, it is assumed that not more than \n{2} lineages coalesce at a given time and that the resulting tree has a binary topology.
 In the limit, and if ${n \ll N}$, the probability of a coalescent event at a given time is
 \begin{equation}\label{eq:coal_approx}
 	P(T_n = \tau \mid N) ~\approx~ {n \choose 2} \frac{1}{N}
@@ -506,7 +506,7 @@ By rearrangement, the following equation can be obtained;
 \begin{equation}\label{eq:theta_w}
 	\hat{\theta}_W = \frac{S_n}{\sum_{i=1}^{n-1} \frac{1}{i}}
 \end{equation}
-which is an unbiased estimator of the genetic diversity in sample of sequence data; also known as Watterson's $\theta$ \citep{Watterson:1975ur}.
+which is an unbiased estimator of the genetic diversity in \edit{a} sample of sequence data; also known as Watterson's $\theta$ \citep{Watterson:1975ur}.
 With regard to the calculation of the effective population size as described in the previous section (\pref{ref:calceffpopsize}), it can be seen that an estimate for the value of \Ne can be obtained, for example, from \cref{eq:mutrate,eq:theta_w} given an estimate of the mutation rate.
 
 
@@ -516,7 +516,7 @@ With regard to the calculation of the effective population size as described in 
 
 Recombination is ubiquitous in nature and crucially involved in the spread of genetic variability in populations of sexually reproducing organisms.
 \Citet{Hudson:1983vs} showed that the genealogical process in the coalescent can be extended to model recombination along the sequence of a sample.
-In contrast to mutation events, which do not affect the topology of a tree under the standard coalescent, recombination events have a considerable effect on the structure of the genealogy.
+In contrast to \edit{neutral} mutation events, which do not affect the topology of a tree under the standard coalescent, recombination events have a considerable effect on the structure of the genealogy.
 
 Consider the sequence of \n{1} of the chromosomes present in a diploid individual.
 Due to recombination, different sections of the chromosome can be traced back to the ancestral material in \n{2} parents in the immediately previous generation, and further to \n{4} grandparents in the second previous generation, and so on.

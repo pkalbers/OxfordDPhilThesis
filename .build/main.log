@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  9 JUN 2017 15:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  10 SEP 2017 18:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1922,24 +1922,40 @@ Define commands for English date format
 \c@iso@@slash=\count233
 \c@iso@@minus=\count266
 \c@iso@@dot=\count267
-) (/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip76
-\f@ncyO@elh=\skip77
-\f@ncyO@erh=\skip78
-\f@ncyO@olh=\skip79
-\f@ncyO@orh=\skip80
-\f@ncyO@elf=\skip81
-\f@ncyO@erf=\skip82
-\f@ncyO@olf=\skip83
-\f@ncyO@orf=\skip84
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/soulutf8.sty
+Package: soulutf8 2007/09/09 v1.0 Permit use of UTF-8 characters in soul (HO)
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks48
+\SOUL@lasttoken=\toks49
+\SOUL@cmds=\toks50
+\SOUL@buffer=\toks51
+\SOUL@token=\toks52
+\SOUL@spaceskip=\skip76
+\SOUL@ttwidth=\dimen302
+\SOUL@uldp=\dimen303
+\SOUL@ulht=\dimen304
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+ (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
 )
-
-Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is useless on input line 266.
-
-
-Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is useless on input line 267.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/minitoc/minitoc.sty
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip77
+\f@ncyO@elh=\skip78
+\f@ncyO@erh=\skip79
+\f@ncyO@olh=\skip80
+\f@ncyO@orh=\skip81
+\f@ncyO@elf=\skip82
+\f@ncyO@erf=\skip83
+\f@ncyO@olf=\skip84
+\f@ncyO@orf=\skip85
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/minitoc/minitoc.sty
 Package: minitoc 2008/07/16 v60 Package minitoc (JPFD)
  (/usr/local/texlive/2015/texmf-dist/tex/latex/minitoc/mtcmess.sty
 Package: mtcmess 2006/03/14
@@ -1947,15 +1963,15 @@ Package: mtcmess 2006/03/14
 Package minitoc Info: I0001
 (minitoc)             *** minitoc package, version 60 ***.
 \tf@mtc=\write6
-\mtcindent=\skip85
-\mtcskipamount=\skip86
+\mtcindent=\skip86
+\mtcskipamount=\skip87
 Package minitoc Info: I0005
 (minitoc)             compatible with hyperref.
 Package minitoc Info: I0023
 (minitoc)             part level macros available.
 Package minitoc Info: I0003
 (minitoc)             chapter level macros available.
-\mtc@toks=\toks48
+\mtc@toks=\toks53
 \mtc@strutbox=\box129
 \mtc@hstrutbox=\box130
 Package minitoc Info: I0002
@@ -1978,7 +1994,7 @@ Package minitoc Info: I0031
 \c@minitocdepth=\count269
 \c@ptc=\count270
 \c@parttocdepth=\count271
-\ptcindent=\skip87
+\ptcindent=\skip88
 Package minitoc Info: I0010
 (minitoc)             The english language is selected.
 (minitoc)              on input line 4910.
@@ -1989,11 +2005,11 @@ File: english.mld 2006/01/13
 ))
 Package minitoc Info: I0052
 (minitoc)             \mtcsetoffset redefines 
-(minitoc)             "mtcoffset" as "-1ex" on input line 305.
+(minitoc)             "mtcoffset" as "-1ex" on input line 319.
 Package minitoc Info: I0014
 (minitoc)             \mtcsetfeature redefines the macro 
 (minitoc)             "openminitoc" as 
-(minitoc)             "\vspace {0.5ex}" on input line 308.
+(minitoc)             "\vspace {0.5ex}" on input line 322.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2014/10/28 v1.5a package for extended references (FMi)
 \c@vrcnt=\count272
@@ -2006,16 +2022,11 @@ Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
 Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
 Package hobsub Info: Skipping package `ifvtex' (already loaded).
 Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
 Package hobsub Info: Skipping package `ifpdf' (already loaded).
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
 Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO)
@@ -2038,10 +2049,11 @@ Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
-) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen302
+\@linkdim=\dimen305
 \Hy@linkcounter=\count273
 \Hy@pagecounter=\count274
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def
@@ -2062,10 +2074,10 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count276
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen303
+\XeTeXLinkMargin=\dimen306
 \Fld@menulength=\count277
-\Field@Width=\dimen304
-\Fld@charsize=\dimen305
+\Field@Width=\dimen307
+\Fld@charsize=\dimen308
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -2090,9 +2102,9 @@ File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
 )
-\Hy@SectionHShift=\skip88
+\Hy@SectionHShift=\skip89
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 523.
+Package hyperref Info: Option `colorlinks' set `true' on input line 543.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2230.
@@ -2119,8 +2131,8 @@ Package cleveref Info: always capitalise cross-reference names on input line 749
 Package: glossaries 2015/03/16 v4.15 (NLCT)
  (/usr/local/texlive/2015/texmf-dist/tex/latex/glossaries/base/mfirstuc.sty
 Package: mfirstuc 2015/02/03 v1.10 (NLCT)
-\@glsmfirst=\toks49
-\@glsmrest=\toks50
+\@glsmfirst=\toks54
+\@glsmrest=\toks55
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/textcase/textcase.sty
 Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/xfor/xfor.sty
@@ -2166,9 +2178,9 @@ Package: fp-upn 1996/10/21
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/fp/fp-eval.sty
 Package: fp-eval 1995/04/03
 )))
-\@dtl@toks=\toks51
+\@dtl@toks=\toks56
 \@dtl@tmpcount=\count294
-\dtl@tmplength=\skip89
+\dtl@tmplength=\skip90
 \dtl@sortresult=\count295
 \@dtl@numgrpsepcount=\count296
 \@dtl@datatype=\count297
@@ -2183,66 +2195,66 @@ Package: tracklang 2015/03/23 v1.2 (NLCT) Track Languages
 File: glossaries-english.ldf 2014/11/23 v1.0
 )
 \gls@level=\count301
-\@gls@tmpb=\toks52
-\gls@tmplen=\skip90
-\glskeylisttok=\toks53
-\glslabeltok=\toks54
-\glsshorttok=\toks55
-\glslongtok=\toks56
+\@gls@tmpb=\toks57
+\gls@tmplen=\skip91
+\glskeylisttok=\toks58
+\glslabeltok=\toks59
+\glsshorttok=\toks60
+\glslongtok=\toks61
  (/usr/local/texlive/2015/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.sty
 Package: glossary-hypernav 2013/11/14 v4.0 (NLCT)
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
 Package: glossary-list 2015/02/03 v4.13 (NLCT)
-\glslistdottedwidth=\skip91
+\glslistdottedwidth=\skip92
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
 Package: glossary-long 2013/11/14 v4.0 (NLCT)
-\glsdescwidth=\skip92
-\glspagelistwidth=\skip93
+\glsdescwidth=\skip93
+\glspagelistwidth=\skip94
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
 Package: glossary-super 2013/11/14 v4.0 (NLCT)
  (/usr/local/texlive/2015/texmf-dist/tex/latex/supertabular/supertabular.sty
 Package: supertabular 2004/02/20 v4.1e the supertabular environment
 \c@tracingst=\count302
-\ST@wd=\dimen306
-\ST@rightskip=\skip94
-\ST@leftskip=\skip95
-\ST@parfillskip=\skip96
-\ST@pageleft=\dimen307
-\ST@headht=\dimen308
-\ST@tailht=\dimen309
-\ST@pagesofar=\dimen310
-\ST@pboxht=\dimen311
-\ST@lineht=\dimen312
-\ST@stretchht=\dimen313
-\ST@prevht=\dimen314
-\ST@toadd=\dimen315
-\ST@dimen=\dimen316
+\ST@wd=\dimen309
+\ST@rightskip=\skip95
+\ST@leftskip=\skip96
+\ST@parfillskip=\skip97
+\ST@pageleft=\dimen310
+\ST@headht=\dimen311
+\ST@tailht=\dimen312
+\ST@pagesofar=\dimen313
+\ST@pboxht=\dimen314
+\ST@lineht=\dimen315
+\ST@stretchht=\dimen316
+\ST@prevht=\dimen317
+\ST@toadd=\dimen318
+\ST@dimen=\dimen319
 \ST@pbox=\box131
 )) (/usr/local/texlive/2015/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
 Package: glossary-tree 2015/02/03 v4.13 (NLCT)
-\glstreeindent=\skip97
+\glstreeindent=\skip98
 ))
 \glswrite=\write7
 \glo@main@file=\write8
 \openout8 = `main.glo'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 544.
+Package glossaries Info: Writing glossary file main.glo on input line 564.
 \glo@acronym@file=\write9
 \openout9 = `main.acn'.
 
-Package glossaries Info: Writing glossary file main.acn on input line 544.
+Package glossaries Info: Writing glossary file main.acn on input line 564.
  (./macros.sty (/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box132
 \UL@hyphenbox=\box133
-\UL@skip=\skip98
-\UL@hook=\toks57
-\UL@height=\dimen317
+\UL@skip=\skip99
+\UL@hook=\toks62
+\UL@height=\dimen320
 \UL@pe=\count303
-\UL@pixel=\dimen318
+\UL@pixel=\dimen321
 \ULC@box=\box134
 Package: ulem 2012/05/18
-\ULdepth=\dimen319
+\ULdepth=\dimen322
 )
 \c@approachi=\count304
 \enitdp@approach=\count305
@@ -2253,43 +2265,43 @@ Package: ulem 2012/05/18
 )) (./abbreviations.tex) (.build/main.aux (.build/frontmatter.aux) (.build/chapter1/one.aux) (.build/chapter2/two.aux) (.build/chapter3/three.aux) (.build/chapter4/four.aux) (.build/chapter5/five.aux) (.build/chapter6/six.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkpw/m/it on input line 48.
-LaTeX Font Info:    Try loading font information for OML+jkpw on input line 48.
+LaTeX Font Info:    Checking defaults for OML/jkpw/m/it on input line 63.
+LaTeX Font Info:    Try loading font information for OML+jkpw on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/omljkpw.fd
 File: omljkpw.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/jkpw/m/n on input line 48.
-LaTeX Font Info:    Try loading font information for OMS+jkpw on input line 48.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/jkpw/m/n on input line 63.
+LaTeX Font Info:    Try loading font information for OMS+jkpw on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/omsjkpw.fd
 File: omsjkpw.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 48.
-LaTeX Font Info:    Try loading font information for OMX+jkp on input line 48.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 63.
+LaTeX Font Info:    Try loading font information for OMX+jkp on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 48.
-LaTeX Font Info:    Try loading font information for U+jkpexa on input line 48.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 63.
+LaTeX Font Info:    Try loading font information for U+jkpexa on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 48.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Try loading font information for T1+jkp on input line 48.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Try loading font information for T1+jkp on input line 63.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/t1jkp.fd
 File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
@@ -2301,18 +2313,18 @@ File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: includehead 
-* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* modes: includehead twoside 
+* h-part:(L,W,R)=(96.73918pt, 426.79137pt, 73.97733pt)
+* v-part:(T,H,B)=(64.01869pt, 709.89627pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=426.79135pt
+* \textwidth=426.79137pt
 * \textheight=676.55672pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
-* \topmargin=-1.1381pt
+* \oddsidemargin=24.4692pt
+* \evensidemargin=1.70734pt
+* \topmargin=-8.2513pt
 * \headheight=15.0pt
-* \headsep=14.22636pt
+* \headsep=21.33955pt
 * \topskip=11.0pt
 * \footskip=28.45274pt
 * \marginparwidth=59.0pt
@@ -2323,24 +2335,24 @@ File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
+* \@twosidetrue
+* \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count310
-\scratchdimen=\dimen320
+\scratchdimen=\dimen323
 \scratchbox=\box135
 \nofMPsegments=\count311
 \nofMParguments=\count312
-\everyMPshowfont=\toks58
+\everyMPshowfont=\toks63
 \MPscratchCnt=\count313
-\MPscratchDim=\dimen321
+\MPscratchDim=\dimen324
 \MPnumerator=\count314
 \makeMPintoPDFobject=\count315
-\everyMPtoPDFconversion=\toks59
+\everyMPtoPDFconversion=\toks64
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
  (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -2356,7 +2368,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 48.
+LaTeX Info: Redefining \microtypecontext on input line 63.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -2410,7 +2422,7 @@ Package minitoc(hints) Warning: W0023
 (minitoc(hints))                of loading the ``hyperref'' package.
 
 \AtBeginShipoutBox=\box136
-Package hyperref Info: Link coloring ON on input line 48.
+Package hyperref Info: Link coloring ON on input line 63.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -2419,16 +2431,16 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 \c@section@level=\count316
 LaTeX Info: Redefining \Ref on input line 513.
 )
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
+LaTeX Info: Redefining \ref on input line 63.
+LaTeX Info: Redefining \pageref on input line 63.
+LaTeX Info: Redefining \nameref on input line 63.
  (.build/main.out) (.build/main.out)
 \@outlinefile=\write10
 \openout10 = `main.out'.
 
-LaTeX Info: Redefining \Ref on input line 48.
+LaTeX Info: Redefining \Ref on input line 63.
 \c__siunitx_mathsf_int=\count317
-LaTeX Font Info:    Try loading font information for OT1+jkp on input line 48.
+LaTeX Font Info:    Try loading font information for OT1+jkp on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
@@ -2436,27 +2448,27 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `jkp' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for U+jkpmiaw on input line 48.
+LaTeX Font Info:    Try loading font information for U+jkpmiaw on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ujkpmiaw.fd
 File: ujkpmiaw.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+LaTeX Font Info:    Try loading font information for U+msb on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 48.
+LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for OT1+jkpss on input line 48.
+LaTeX Font Info:    Try loading font information for OT1+jkpss on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ot1jkpss.fd
 File: ot1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for OT1/jkpss.
 )
@@ -2465,7 +2477,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 \c__siunitx_mathtt_int=\count318
-LaTeX Font Info:    Try loading font information for OT1+jkptt on input line 48.
+LaTeX Font Info:    Try loading font information for OT1+jkptt on input line 63.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ot1jkptt.fd
 File: ot1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for OT1/jkptt.
 )
@@ -2473,23 +2485,11 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `jkptt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\openout2 = `frontmatter.aux'.
+\openout2 = `chapter2/two.aux'.
 
- (./frontmatter.tex <./img/oxford-crest.pdf, id=372, 250.9375pt x 250.9375pt>
-File: ./img/oxford-crest.pdf Graphic file (type pdf)
- <use ./img/oxford-crest.pdf>
-Package pdftex.def Info: ./img/oxford-crest.pdf used on input line 7.
-(pdftex.def)             Requested size: 250.93687pt x 250.93687pt.
- [1
-
-\openout7 = `main.ist'.
-
-
-
-
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./img/oxford-crest.pdf>]
-LaTeX Font Info:    Try loading font information for T1+put on input line 21.
-
+ (./chapter2/two.tex
+Chapter 2.
+LaTeX Font Info:    Try loading font information for T1+put on input line 16.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1put.fd
 File: t1put.fd 2001/06/04 font definitions for T1/put.
 )
@@ -2497,613 +2497,33 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `put' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./acknowledgements.tex) [2
-
-
-]
-*geometry* verbose mode - [ newgeometry ] result:
-* driver: pdftex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
-* v-part:(T,H,B)=(71.13188pt, 717.00946pt, 56.9055pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=426.79135pt
-* \textheight=717.00946pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
-* \topmargin=-30.36447pt
-* \headheight=15.0pt
-* \headsep=14.22636pt
-* \topskip=11.0pt
-* \footskip=28.45274pt
-* \marginparwidth=59.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=12.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
- (./abstract.tex) [3
-
-
-]
-Package minitoc Info: I0024
-(minitoc)             PREPARING MINITOCS FROM main.toc on input line 36.
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc1.
-\openout6 = `main.mtc1'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc2.
-\openout6 = `main.mtc2'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc3.
-\openout6 = `main.mtc3'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc4.
-\openout6 = `main.mtc4'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc5.
-\openout6 = `main.mtc5'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc6.
-\openout6 = `main.mtc6'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc7.
-\openout6 = `main.mtc7'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc8.
-\openout6 = `main.mtc8'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc9.
-\openout6 = `main.mtc9'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc10.
-\openout6 = `main.mtc10'.
-
- (.build/main.toc [4
-
-
-]
-Overfull \hbox (0.93071pt too wide) detected at line 68
- [][][]\T1/jkp/m/n/10.95 101[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 69
- [][][]\T1/jkp/m/n/10.95 101[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 72
- [][][]\T1/jkp/m/n/10.95 104[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 73
- [][][]\T1/jkp/m/n/10.95 105[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 78
- [][][]\T1/jkp/m/n/10.95 123[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 80
- [][][]\T1/jkp/m/n/10.95 125[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 81
- [][][]\T1/jkp/m/n/10.95 127[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 83
- [][][]\T1/jkp/m/n/10.95 129[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 84
- [][][]\T1/jkp/m/n/10.95 130[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 85
- [][][]\T1/jkp/m/n/10.95 131[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 86
- [][][]\T1/jkp/m/n/10.95 134[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 90
- [][][]\T1/jkp/m/n/10.95 140[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 91
- [][][]\T1/jkp/m/n/10.95 141[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 93
- [][][]\T1/jkp/m/n/10.95 142[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 96
- [][][]\T1/jkp/m/n/10.95 150[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 97
- [][][]\T1/jkp/m/n/10.95 151[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 98
- [][][]\T1/jkp/m/n/10.95 153[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 99
- [][][]\T1/jkp/m/n/10.95 154[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 105
- [][][]\T1/jkp/m/n/10.95 162[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 108
- [][][]\T1/jkp/m/n/10.95 167[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 109
- [][][]\T1/jkp/m/n/10.95 170[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 110
- [][][]\T1/jkp/m/n/10.95 174[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 112
- [][][]\T1/jkp/m/n/10.95 177[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 113
- [][][]\T1/jkp/m/n/10.95 179[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 114
- [][][]\T1/jkp/m/n/10.95 180[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 118
- [][][]\T1/jkp/m/n/10.95 184[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 119
- [][][]\T1/jkp/m/n/10.95 185[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 121
- [][][]\T1/jkp/m/n/10.95 188[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 123
- [][][]\T1/jkp/m/n/10.95 192[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 124
- [][][]\T1/jkp/m/n/10.95 192[][]
- []
-
-[5]
-Overfull \hbox (0.93071pt too wide) detected at line 125
- [][][]\T1/jkp/m/n/10.95 195[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 126
- [][][]\T1/jkp/m/n/10.95 196[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 127
- [][][]\T1/jkp/m/n/10.95 197[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 128
- [][][]\T1/jkp/m/n/10.95 203[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 129
- [][][]\T1/jkp/m/n/10.95 209[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 131
- [][][]\T1/jkp/m/n/10.95 221[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 132
- [][][]\T1/jkp/m/n/10.95 221[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 133
- [][][]\T1/jkp/m/n/10.95 222[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 134
- [][][]\T1/jkp/m/n/10.95 223[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 135
- [][][]\T1/jkp/m/n/10.95 226[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 137
- [][][]\T1/jkp/m/n/10.95 228[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 138
- [][][]\T1/jkp/m/n/10.95 230[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 139
- [][][]\T1/jkp/m/n/10.95 232[][]
- []
-
-)
-\tf@toc=\write11
-\openout11 = `main.toc'.
-
- [6] (.build/main.lof
-Overfull \hbox (0.93071pt too wide) detected at line 40
- [][][]\T1/jkp/m/n/10.95 100[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 41
- [][][]\T1/jkp/m/n/10.95 102[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 42
- [][][]\T1/jkp/m/n/10.95 108[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 43
- [][][]\T1/jkp/m/n/10.95 109[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 44
- [][][]\T1/jkp/m/n/10.95 112[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 45
- [][][]\T1/jkp/m/n/10.95 114[][]
- []
-
-[7
-
-]
-Overfull \hbox (0.93071pt too wide) detected at line 46
- [][][]\T1/jkp/m/n/10.95 117[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 47
- [][][]\T1/jkp/m/n/10.95 119[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 48
- [][][]\T1/jkp/m/n/10.95 120[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 49
- [][][]\T1/jkp/m/n/10.95 122[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 52
- [][][]\T1/jkp/m/n/10.95 130[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 53
- [][][]\T1/jkp/m/n/10.95 133[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 54
- [][][]\T1/jkp/m/n/10.95 135[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 55
- [][][]\T1/jkp/m/n/10.95 139[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 56
- [][][]\T1/jkp/m/n/10.95 143[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 57
- [][][]\T1/jkp/m/n/10.95 145[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 58
- [][][]\T1/jkp/m/n/10.95 147[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 59
- [][][]\T1/jkp/m/n/10.95 148[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 60
- [][][]\T1/jkp/m/n/10.95 149[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 61
- [][][]\T1/jkp/m/n/10.95 150[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 62
- [][][]\T1/jkp/m/n/10.95 155[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 63
- [][][]\T1/jkp/m/n/10.95 158[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 64
- [][][]\T1/jkp/m/n/10.95 161[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 65
- [][][]\T1/jkp/m/n/10.95 164[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 66
- [][][]\T1/jkp/m/n/10.95 167[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 67
- [][][]\T1/jkp/m/n/10.95 172[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 68
- [][][]\T1/jkp/m/n/10.95 173[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 69
- [][][]\T1/jkp/m/n/10.95 174[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 70
- [][][]\T1/jkp/m/n/10.95 175[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 73
- [][][]\T1/jkp/m/n/10.95 186[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 74
- [][][]\T1/jkp/m/n/10.95 187[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 75
- [][][]\T1/jkp/m/n/10.95 189[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 76
- [][][]\T1/jkp/m/n/10.95 191[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 77
- [][][]\T1/jkp/m/n/10.95 193[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 78
- [][][]\T1/jkp/m/n/10.95 198[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 79
- [][][]\T1/jkp/m/n/10.95 201[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 80
- [][][]\T1/jkp/m/n/10.95 205[][]
- []
-
-[8]
-Overfull \hbox (0.93071pt too wide) detected at line 81
- [][][]\T1/jkp/m/n/10.95 207[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 82
- [][][]\T1/jkp/m/n/10.95 208[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 83
- [][][]\T1/jkp/m/n/10.95 211[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 84
- [][][]\T1/jkp/m/n/10.95 217[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 85
- [][][]\T1/jkp/m/n/10.95 219[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 86
- [][][]\T1/jkp/m/n/10.95 224[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 87
- [][][]\T1/jkp/m/n/10.95 225[][]
- []
-
-)
-\tf@lof=\write12
-\openout12 = `main.lof'.
-
- [9] (.build/main.lot
-Overfull \hbox (0.93071pt too wide) detected at line 17
- [][][]\T1/jkp/m/n/10.95 101[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 18
- [][][]\T1/jkp/m/n/10.95 106[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 19
- [][][]\T1/jkp/m/n/10.95 116[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 22
- [][][]\T1/jkp/m/n/10.95 129[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 23
- [][][]\T1/jkp/m/n/10.95 137[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 24
- [][][]\T1/jkp/m/n/10.95 160[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 25
- [][][]\T1/jkp/m/n/10.95 171[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 28
- [][][]\T1/jkp/m/n/10.95 200[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 29
- [][][]\T1/jkp/m/n/10.95 206[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 30
- [][][]\T1/jkp/m/n/10.95 209[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 31
- [][][]\T1/jkp/m/n/10.95 220[][]
- []
-
-
-Overfull \hbox (0.93071pt too wide) detected at line 32
- [][][]\T1/jkp/m/n/10.95 226[][]
- []
-
-)
-\tf@lot=\write13
-\openout13 = `main.lot'.
-
- [10
-
-])
-\openout2 = `chapter1/one.aux'.
-
- (./chapter1/one.tex
-Chapter 1.
 \openout6 = `main.mtc'.
 
 \openout6 = `main.mtc'.
 
-(.build/main.mtc3)
-LaTeX Font Info:    Try loading font information for TS1+jkp on input line 20.
+ (.build/main.mtc4)
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 32.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.76003pt on input line 32.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `fvm' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [45{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+\openout7 = `main.ist'.
+
+
+
+
+
+] (/usr/local/texlive/2015/texmf-dist/tex/latex/fmtcount/fc-UKenglish.def
+File: fc-UKenglish.def 2013/08/17
+) [46]
+LaTeX Font Info:    Try loading font information for TS1+jkp on input line 55.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
 File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
 )
@@ -3111,177 +2531,11 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `jkp' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [1
-
-
-
-
-] [2] (/usr/local/texlive/2015/texmf-dist/tex/latex/fmtcount/fc-UKenglish.def
-File: fc-UKenglish.def 2013/08/17
-) [3] [4] [5]
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 104.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.76003pt on input line 104.
-Package microtype Info: Loading generic settings for font family
-(microtype)             `fvm' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- (./chapter1/fig/info_dna.tex
-LaTeX Font Info:    Try loading font information for T1+fvs on input line 287.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/bera/t1fvs.fd
-File: t1fvs.fd 2004/09/07 scalable font definitions for T1/fvs.
-)
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 4.80002pt on input line 287.
-Package microtype Info: Loading generic settings for font family
-(microtype)             `fvs' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `T1/fvs/m/sl' in size <6> not available
-(Font)              Font shape `T1/fvs/m/it' tried instead on input line 287.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 4.80002pt on input line 287.
-LaTeX Font Info:    Font shape `T1/fvs/b/sl' in size <6> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 287.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 4.80002pt on input line 287.
-LaTeX Font Info:    Font shape `T1/fvs/b/sl' in size <8> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 287.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 6.40002pt on input line 287.
-
-Overfull \hbox (9.75136pt too wide) in paragraph at lines 287--288
- [][] 
- []
-
-) [6] (./chapter1/fig/info_types.tex <./img/ch1/info_types.pdf, id=1066, 316.25513pt x 142.80171pt>
-File: ./img/ch1/info_types.pdf Graphic file (type pdf)
- <use ./img/ch1/info_types.pdf>
-Package pdftex.def Info: ./img/ch1/info_types.pdf used on input line 8.
-(pdftex.def)             Requested size: 341.43437pt x 154.17123pt.
- [7]) [8 <./img/ch1/info_types.pdf>] [9] (./chapter1/fig/info_meiosis.tex <./img/ch1/info_meiosis.pdf, id=1131, 486.06654pt x 282.02946pt>
-File: ./img/ch1/info_meiosis.pdf Graphic file (type pdf)
- <use ./img/ch1/info_meiosis.pdf>
-Package pdftex.def Info: ./img/ch1/info_meiosis.pdf used on input line 8.
-(pdftex.def)             Requested size: 384.1096pt x 222.86967pt.
-
-Underfull \hbox (badness 1142) in paragraph at lines 16--16
-[]\T1/jkp/b/n/10 Figure 1.3: |Il-lus-tra-tion of re-com-bin-a-tion dur-ing mei-osis. \T1/jkp/m/n/10 (+20) One pair of ho-mo-log-ous
- []
-
-) [10] [11 <./img/ch1/info_meiosis.pdf>] (./chapter1/fig/info_wrightfisher.tex <./img/ch1/info_wrightfisher.pdf, id=1253, 693.43674pt x 354.92108pt>
-File: ./img/ch1/info_wrightfisher.pdf Graphic file (type pdf)
- <use ./img/ch1/info_wrightfisher.pdf>
-Package pdftex.def Info: ./img/ch1/info_wrightfisher.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 218.45117pt.
-) [12]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 242.
-
-LaTeX Font Info:    Calculating math sizes for size <8.34955> on input line 242.
-[13 <./img/ch1/info_wrightfisher.pdf>]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 245.
-
-(./chapter1/fig/wfsim.tex <./img/ch1/wfsim.pdf, id=1301, 601.25029pt x 336.52226pt>
-File: ./img/ch1/wfsim.pdf Graphic file (type pdf)
- <use ./img/ch1/wfsim.pdf>
-Package pdftex.def Info: ./img/ch1/wfsim.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 238.88626pt.
-) [14] [15 <./img/ch1/wfsim.pdf>] [16] (./chapter1/fig/info_coalescent.tex <./img/ch1/info_coalescent.pdf, id=1391, 360.95723pt x 265.09721pt>
-File: ./img/ch1/info_coalescent.pdf Graphic file (type pdf)
- <use ./img/ch1/info_coalescent.pdf>
-Package pdftex.def Info: ./img/ch1/info_coalescent.pdf used on input line 8.
-(pdftex.def)             Requested size: 298.75264pt x 219.41982pt.
-) [17 <./img/ch1/info_coalescent.pdf>] [18]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 365.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 365.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 365.
-
-[19]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 386.
-
-[20] [21] (./chapter1/fig/info_mutation.tex <./img/ch1/info_mutation.pdf, id=1480, 446.05327pt x 181.78444pt>
-File: ./img/ch1/info_mutation.pdf Graphic file (type pdf)
- <use ./img/ch1/info_mutation.pdf>
-Package pdftex.def Info: ./img/ch1/info_mutation.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 173.94243pt.
-) [22]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 475.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 476.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 481.
-
-[23 <./img/ch1/info_mutation.pdf>] [24] [25] (./chapter1/fig/info_arg.tex <./img/ch1/info_arg.pdf, id=1755, 571.60762pt x 247.27551pt>
-File: ./img/ch1/info_arg.pdf Graphic file (type pdf)
- <use ./img/ch1/info_arg.pdf>
-Package pdftex.def Info: ./img/ch1/info_arg.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 184.62985pt.
-) [26 <./img/ch1/info_arg.pdf>]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 556.
-
-[27]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 588.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 589.
-
-[28]
+(Font)              scaled to size 7.20003pt on input line 55.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.20003pt on input line 619.
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 6.40002pt on input line 619.
- (./chapter1/fig/info_seqtech.tex <./img/ch1/info_seqtech.pdf, id=1923, 536.88617pt x 241.69778pt>
-File: ./img/ch1/info_seqtech.pdf Graphic file (type pdf)
- <use ./img/ch1/info_seqtech.pdf>
-Package pdftex.def Info: ./img/ch1/info_seqtech.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 192.13776pt.
-) (./chapter1/fig/cost_per_genome.tex <./img/ch1/cost_per_genome.pdf, id=1938, 505.89pt x 289.08pt>
-File: ./img/ch1/cost_per_genome.pdf Graphic file (type pdf)
- <use ./img/ch1/cost_per_genome.pdf>
-Package pdftex.def Info: ./img/ch1/cost_per_genome.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 243.88417pt.
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.00003pt on input line 12.
- [29]) [30 <./img/ch1/info_seqtech.pdf>] [31 <./img/ch1/cost_per_genome.pdf>] [32] (./chapter1/fig/allelefreq_1kg.tex <./img/ch1/allelefreq_1kg.pdf, id=2138, 650.43pt x 361.35pt>
-File: ./img/ch1/allelefreq_1kg.pdf Graphic file (type pdf)
- <use ./img/ch1/allelefreq_1kg.pdf>
-Package pdftex.def Info: ./img/ch1/allelefreq_1kg.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 237.1133pt.
-) [33 <./img/ch1/allelefreq_1kg.pdf>] (./chapter1/fig/gwascat.tex <./img/ch1/gwascat.pdf, id=2173, 578.16pt x 325.215pt>
-File: ./img/ch1/gwascat.pdf Graphic file (type pdf)
- <use ./img/ch1/gwascat.pdf>
-Package pdftex.def Info: ./img/ch1/gwascat.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 240.06976pt.
-
-Underfull \hbox (badness 1152) in paragraph at lines 11--11
-[]\T1/jkp/b/n/10 Figure 1.12: |Sig-ni-fic-ant risk-associated vari-ants lis-ted in the NHGRI-EBI Cata-logue.
- []
-
-) (./chapter1/fig/gwa_spectrum.tex <./img/ch1/gwa_spectrum.pdf, id=2194, 592.95778pt x 305.85957pt>
-File: ./img/ch1/gwa_spectrum.pdf Graphic file (type pdf)
- <use ./img/ch1/gwa_spectrum.pdf>
-Package pdftex.def Info: ./img/ch1/gwa_spectrum.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 220.15338pt.
-) [34] [35 <./img/ch1/gwascat.pdf>] [36 <./img/ch1/gwa_spectrum.pdf>] (./chapter1/fig/info_ibd.tex
-LaTeX Font Info:    Try loading font information for T1+phv on input line 5.
+(Font)              scaled to size 6.40002pt on input line 55.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 64.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
@@ -3289,48 +2543,29 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- <./img/ch1/info_ibd.pdf, id=2363, 586.0505pt x 291.99991pt>
-File: ./img/ch1/info_ibd.pdf Graphic file (type pdf)
- <use ./img/ch1/info_ibd.pdf>
-Package pdftex.def Info: ./img/ch1/info_ibd.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 212.65468pt.
- <./img/ch1/info_ibd_segment.pdf, id=2364, 530.66995pt x 233.21228pt>
-File: ./img/ch1/info_ibd_segment.pdf Graphic file (type pdf)
- <use ./img/ch1/info_ibd_segment.pdf>
-Package pdftex.def Info: ./img/ch1/info_ibd_segment.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 187.56288pt.
- [37]) [38] [39 <./img/ch1/info_ibd.pdf> <./img/ch1/info_ibd_segment.pdf>] [40] [41] [42]) [43] [44]
-\openout2 = `chapter2/two.aux'.
-
- (./chapter2/two.tex
-Chapter 2.
-\openout6 = `main.mtc'.
-
-\openout6 = `main.mtc'.
-
-(.build/main.mtc4) [45
-
-
-
-] [46] [47] [48] (./chapter2/fig/info_algorithm.tex <./img/ch2/info_algorithm.pdf, id=2726, 471.7923pt x 393.76453pt>
+ [47] [48] (./chapter2/fig/info_algorithm.tex <./img/ch2/info_algorithm.pdf, id=201, 471.7923pt x 393.76453pt>
 File: ./img/ch2/info_algorithm.pdf Graphic file (type pdf)
  <use ./img/ch2/info_algorithm.pdf>
 Package pdftex.def Info: ./img/ch2/info_algorithm.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 356.21132pt.
+(pdftex.def)             Requested size: 426.79137pt x 356.21132pt.
 ) [49] [50 <./img/ch2/info_algorithm.pdf>]
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 (Font)              scaled to size 8.76003pt on input line 131.
- [51] [52] [53] [54] (./chapter2/fig/info_design_panels.tex <./img/ch2/info_design_panels.pdf, id=2822, 372.0596pt x 110.18405pt>
+ [51] [52] [53] [54] (./chapter2/fig/info_design_panels.tex <./img/ch2/info_design_panels.pdf, id=302, 372.0596pt x 110.18405pt>
 File: ./img/ch2/info_design_panels.pdf Graphic file (type pdf)
  <use ./img/ch2/info_design_panels.pdf>
 Package pdftex.def Info: ./img/ch2/info_design_panels.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 126.40129pt.
-) [55 <./img/ch2/info_design_panels.pdf>] (./chapter2/tab/refsize.tex) [56] (./chapter2/fig/info_design_accuracy.tex <./img/ch2/info_design_accuracy.pdf, id=2886, 293.73227pt x 134.49617pt>
+(pdftex.def)             Requested size: 426.79137pt x 126.40129pt.
+) [55 <./img/ch2/info_design_panels.pdf>] (./chapter2/tab/refsize.tex) [56] (./chapter2/fig/info_design_accuracy.tex <./img/ch2/info_design_accuracy.pdf, id=367, 293.73227pt x 134.49617pt>
 File: ./img/ch2/info_design_accuracy.pdf Graphic file (type pdf)
- <use ./img/ch2/info_design_accuracy.pdf>
+
+<use ./img/ch2/info_design_accuracy.pdf>
 Package pdftex.def Info: ./img/ch2/info_design_accuracy.pdf used on input line 6.
-(pdftex.def)             Requested size: 341.43437pt x 156.34401pt.
+(pdftex.def)             Requested size: 341.43439pt x 156.34401pt.
  [57]) [58 <./img/ch2/info_design_accuracy.pdf>] (./chapter2/tab/mim_qc.tex
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.00003pt on input line 12.
+
 Overfull \hbox (5.45pt too wide) detected at line 30
  
  []
@@ -3410,11 +2645,11 @@ Overfull \hbox (5.45pt too wide) detected at line 39
  
  []
 
-) [59] (./chapter2/fig/mim_rsq.tex <./img/ch2/accuracy_mim_maf_rsq.pdf, id=2955, 558.08058pt x 570.61919pt>
+) [59] (./chapter2/fig/mim_rsq.tex <./img/ch2/accuracy_mim_maf_rsq.pdf, id=442, 558.08058pt x 570.61919pt>
 File: ./img/ch2/accuracy_mim_maf_rsq.pdf Graphic file (type pdf)
  <use ./img/ch2/accuracy_mim_maf_rsq.pdf>
 Package pdftex.def Info: ./img/ch2/accuracy_mim_maf_rsq.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 436.39166pt.
+(pdftex.def)             Requested size: 426.79137pt x 436.39166pt.
 ) [60] [61 <./img/ch2/accuracy_mim_maf_rsq.pdf>] (./chapter2/tab/mim_rsq.tex) [62] [63] (./chapter2/tab/imp_qc.tex
 Overfull \hbox (5.45pt too wide) detected at line 21
  
@@ -3485,11 +2720,11 @@ Overfull \hbox (5.45pt too wide) detected at line 29
  
  []
 
-) (./chapter2/fig/imp_rsq.tex <./img/ch2/accuracy_imp_maf_rsq.pdf, id=3122, 454.85353pt x 593.86093pt>
+) (./chapter2/fig/imp_rsq.tex <./img/ch2/accuracy_imp_maf_rsq.pdf, id=611, 454.85353pt x 593.86093pt>
 File: ./img/ch2/accuracy_imp_maf_rsq.pdf Graphic file (type pdf)
  <use ./img/ch2/accuracy_imp_maf_rsq.pdf>
 Package pdftex.def Info: ./img/ch2/accuracy_imp_maf_rsq.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 557.23257pt.
+(pdftex.def)             Requested size: 426.79137pt x 557.23257pt.
 
 Underfull \hbox (badness 2050) in paragraph at lines 12--12
 []\T1/jkp/b/n/10 Figure 2.5: |Ac-cur-acy com-par-ison between meta-imputation and dir-ect im-puta-tions.
@@ -3521,718 +2756,67 @@ Overfull \hbox (4.25pt too wide) detected at line 72
 
 LaTeX Warning: Float too large for page by 24.27309pt on input line 93.
 
-) [66] [67] (./chapter2/fig/imp_delta.tex <./img/ch2/accuracy_imputed_delta.pdf, id=3233, 593.0735pt x 507.35097pt>
+) [66] [67] (./chapter2/fig/imp_delta.tex <./img/ch2/accuracy_imputed_delta.pdf, id=726, 593.0735pt x 507.35097pt>
 File: ./img/ch2/accuracy_imputed_delta.pdf Graphic file (type pdf)
  <use ./img/ch2/accuracy_imputed_delta.pdf>
 Package pdftex.def Info: ./img/ch2/accuracy_imputed_delta.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 365.10663pt.
-) [68] [69 <./img/ch2/accuracy_imputed_delta.pdf>] [70] [71] (./chapter2/fig/info_design_power.tex <./img/ch2/info_design_power.pdf, id=3382, 343.84279pt x 221.8694pt>
+(pdftex.def)             Requested size: 426.79137pt x 365.10663pt.
+) [68] [69 <./img/ch2/accuracy_imputed_delta.pdf>] [70] [71] (./chapter2/fig/info_design_power.tex <./img/ch2/info_design_power.pdf, id=877, 343.84279pt x 221.8694pt>
 File: ./img/ch2/info_design_power.pdf Graphic file (type pdf)
  <use ./img/ch2/info_design_power.pdf>
 Package pdftex.def Info: ./img/ch2/info_design_power.pdf used on input line 6.
-(pdftex.def)             Requested size: 384.1096pt x 247.87247pt.
-) [72] [73 <./img/ch2/info_design_power.pdf>] [74] (./chapter2/fig/power_lgc.tex <./img/ch2/association_lambda.pdf, id=3489, 513.08188pt x 498.08119pt>
+(pdftex.def)             Requested size: 384.10962pt x 247.87247pt.
+) [72] [73 <./img/ch2/info_design_power.pdf>] [74] (./chapter2/fig/power_lgc.tex <./img/ch2/association_lambda.pdf, id=985, 513.08188pt x 498.08119pt>
 File: ./img/ch2/association_lambda.pdf Graphic file (type pdf)
  <use ./img/ch2/association_lambda.pdf>
 Package pdftex.def Info: ./img/ch2/association_lambda.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 414.32689pt.
-) (./chapter2/fig/gwas_power.tex <./img/ch2/association_power_A.pdf, id=3497, 650.43pt x 523.9575pt>
+(pdftex.def)             Requested size: 426.79137pt x 414.32689pt.
+) (./chapter2/fig/gwas_power.tex <./img/ch2/association_power_A.pdf, id=993, 650.43pt x 523.9575pt>
 File: ./img/ch2/association_power_A.pdf Graphic file (type pdf)
  <use ./img/ch2/association_power_A.pdf>
 Package pdftex.def Info: ./img/ch2/association_power_A.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 343.81429pt.
- <./img/ch2/association_power_B.pdf, id=3500, 650.43pt x 523.9575pt>
+(pdftex.def)             Requested size: 426.79137pt x 343.81429pt.
+ <./img/ch2/association_power_B.pdf, id=996, 650.43pt x 523.9575pt>
 File: ./img/ch2/association_power_B.pdf Graphic file (type pdf)
  <use ./img/ch2/association_power_B.pdf>
 Package pdftex.def Info: ./img/ch2/association_power_B.pdf used on input line 16.
-(pdftex.def)             Requested size: 426.79135pt x 343.81429pt.
- <./img/ch2/association_power_C.pdf, id=3501, 650.43pt x 523.9575pt>
+(pdftex.def)             Requested size: 426.79137pt x 343.81429pt.
+ <./img/ch2/association_power_C.pdf, id=997, 650.43pt x 523.9575pt>
 File: ./img/ch2/association_power_C.pdf Graphic file (type pdf)
  <use ./img/ch2/association_power_C.pdf>
 Package pdftex.def Info: ./img/ch2/association_power_C.pdf used on input line 25.
-(pdftex.def)             Requested size: 426.79135pt x 343.81429pt.
-) (./chapter2/tab/stats_power.tex) [75] [76 <./img/ch2/association_lambda.pdf>] [77 <./img/ch2/association_power_A.pdf>] [78 <./img/ch2/association_power_B.pdf>] [79 <./img/ch2/association_power_C.pdf>] [80] [81]) [82] [83]
-\openout2 = `chapter3/three.aux'.
+(pdftex.def)             Requested size: 426.79137pt x 343.81429pt.
+) (./chapter2/tab/stats_power.tex) [75] [76 <./img/ch2/association_lambda.pdf>] [77 <./img/ch2/association_power_A.pdf>] [78 <./img/ch2/association_power_B.pdf>] [79 <./img/ch2/association_power_C.pdf>] [80] [81]) [82] [83] (.build/main.acr) [237
 
- (./chapter3/three.tex
-Chapter 3.
-\openout6 = `main.mtc'.
 
-\openout6 = `main.mtc'.
 
-(.build/main.mtc5
-Overfull \hbox (0.84996pt too wide) detected at line 11
- [][][]\T1/jkp/m/n/10 101[][]
- []
 
 
-Overfull \hbox (0.84996pt too wide) detected at line 12
- [][][]\T1/jkp/m/n/10 101[][]
- []
 
 
-Overfull \hbox (0.84996pt too wide) detected at line 15
- [][][]\T1/jkp/m/n/10 104[][]
- []
+] [238
 
+] (.build/main.bbl [239
 
-Overfull \hbox (0.84996pt too wide) detected at line 16
- [][][]\T1/jkp/m/n/10 105[][]
- []
+] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249] [250]) [251] [252
 
-
-Overfull \hbox (0.84996pt too wide) detected at line 21
- [][][]\T1/jkp/m/n/10 123[][]
- []
-
-) [84
-
-
-
-] [85]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 51.
-
-[86] [87] (./chapter3/fig/pair_ibd_example.tex <./img/ch3/pair_ibd_example.pdf, id=3826, 583.45982pt x 289.08pt>
-File: ./img/ch3/pair_ibd_example.pdf Graphic file (type pdf)
- <use ./img/ch3/pair_ibd_example.pdf>
-Package pdftex.def Info: ./img/ch3/pair_ibd_example.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 211.46332pt.
-) [88 <./img/ch3/pair_ibd_example.pdf>] (./chapter3/fig/popstruct_1kg.tex <./img/ch3/popstruct_1kg.pdf, id=3887, 596.9068pt x 607.79268pt>
-File: ./img/ch3/popstruct_1kg.pdf Graphic file (type pdf)
- <use ./img/ch3/popstruct_1kg.pdf>
-Package pdftex.def Info: ./img/ch3/popstruct_1kg.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 434.59628pt.
-) [89] [90 <./img/ch3/popstruct_1kg.pdf>] (./chapter3/fig/info_fgt.tex <./img/ch3/info_fgt.pdf, id=3956, 364.76927pt x 146.87582pt>
-File: ./img/ch3/info_fgt.pdf Graphic file (type pdf)
- <use ./img/ch3/info_fgt.pdf>
-Package pdftex.def Info: ./img/ch3/info_fgt.pdf used on input line 6.
-(pdftex.def)             Requested size: 298.75264pt x 120.29999pt.
-) [91] (./chapter3/fig/info_dgt.tex <./img/ch3/info_dgt.pdf, id=3980, 371.02414pt x 251.57176pt>
-File: ./img/ch3/info_dgt.pdf Graphic file (type pdf)
- <use ./img/ch3/info_dgt.pdf>
-Package pdftex.def Info: ./img/ch3/info_dgt.pdf used on input line 6.
-(pdftex.def)             Requested size: 298.75264pt x 202.57817pt.
-) [92 <./img/ch3/info_fgt.pdf>] (./chapter3/fig/info_breakpoint.tex <./img/ch3/info_breakpoint.pdf, id=4017, 545.57097pt x 483.13525pt>
-File: ./img/ch3/info_breakpoint.pdf Graphic file (type pdf)
- <use ./img/ch3/info_breakpoint.pdf>
-Package pdftex.def Info: ./img/ch3/info_breakpoint.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 377.94978pt.
-
-
-LaTeX Warning: Float too large for page by 13.79228pt on input line 23.
-
-) [93 <./img/ch3/info_dgt.pdf>] [94 <./img/ch3/info_breakpoint.pdf>] [95] (./chapter3/fig/full_ibd_example.tex <./img/ch3/full_ibd_example.pdf, id=4111, 582.55846pt x 538.97559pt>
-File: ./img/ch3/full_ibd_example.pdf Graphic file (type pdf)
- <use ./img/ch3/full_ibd_example.pdf>
-Package pdftex.def Info: ./img/ch3/full_ibd_example.pdf used on input line 11.
-(pdftex.def)             Requested size: 426.79135pt x 394.87167pt.
-) [96] [97 <./img/ch3/full_ibd_example.pdf>] [98] (./chapter3/fig/info_phase_pedigree.tex <./img/ch3/info_phase_pedigree.pdf, id=4218, 336.82187pt x 209.67152pt>
-File: ./img/ch3/info_phase_pedigree.pdf Graphic file (type pdf)
- <use ./img/ch3/info_phase_pedigree.pdf>
-Package pdftex.def Info: ./img/ch3/info_phase_pedigree.pdf used on input line 6.
-(pdftex.def)             Requested size: 320.0935pt x 199.26039pt.
-) [99] (./chapter3/tab/shared_hap_rules.tex
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 10.
-
-) [100 <./img/ch3/info_phase_pedigree.pdf>] [101] (./chapter3/fig/demo_model.tex <./img/ch3/demo_model.pdf, id=4270, 511.0537pt x 248.9265pt>
-File: ./img/ch3/demo_model.pdf Graphic file (type pdf)
- <use ./img/ch3/demo_model.pdf>
-Package pdftex.def Info: ./img/ch3/demo_model.pdf used on input line 6.
-(pdftex.def)             Requested size: 405.45047pt x 197.4968pt.
-)
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 327.
-
-[102 <./img/ch3/demo_model.pdf>] [103] [104] (./chapter3/tab/stat_breakpoints.tex
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/jkp/m/sc/10'.
-(microtype)             Ignoring protrusion settings for this character.
-) [105] [106] (./chapter3/fig/naive_break_tru.tex <./img/ch3/naive_break_tru.pdf, id=4437, 583.95808pt x 596.04433pt>
-File: ./img/ch3/naive_break_tru.pdf Graphic file (type pdf)
- <use ./img/ch3/naive_break_tru.pdf>
-Package pdftex.def Info: ./img/ch3/naive_break_tru.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 435.63625pt.
-)
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 429.
-
-(./chapter3/fig/naive_length_tru.tex <./img/ch3/naive_length_tru.pdf, id=4452, 650.43pt x 505.89pt>
-File: ./img/ch3/naive_length_tru.pdf Graphic file (type pdf)
- <use ./img/ch3/naive_length_tru.pdf>
-Package pdftex.def Info: ./img/ch3/naive_length_tru.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 331.9586pt.
-) [107] [108 <./img/ch3/naive_break_tru.pdf>] [109 <./img/ch3/naive_length_tru.pdf>] [110] [111] (./chapter3/fig/beagle_break_tru.tex <./img/ch3/beagle_break_tru.pdf, id=4614, 584.67807pt x 415.11005pt>
-File: ./img/ch3/beagle_break_tru.pdf Graphic file (type pdf)
- <use ./img/ch3/beagle_break_tru.pdf>
-Package pdftex.def Info: ./img/ch3/beagle_break_tru.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 303.02148pt.
-) [112 <./img/ch3/beagle_break_tru.pdf>] (./chapter3/fig/beagle_length_tru.tex <./img/ch3/beagle_length_tru.pdf, id=4700, 650.43pt x 505.89pt>
-File: ./img/ch3/beagle_length_tru.pdf Graphic file (type pdf)
- <use ./img/ch3/beagle_length_tru.pdf>
-Package pdftex.def Info: ./img/ch3/beagle_length_tru.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 331.9586pt.
-) [113] [114 <./img/ch3/beagle_length_tru.pdf>] (./chapter3/tab/stat_ibd_1kg.tex
-Overfull \hbox (5.45pt too wide) detected at line 62
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 62
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 62
- 
- []
-
-) (./chapter3/fig/1kg20_lengths.tex <./img/ch3/length_1kg20.pdf, id=4753, 650.43pt x 505.89pt>
-File: ./img/ch3/length_1kg20.pdf Graphic file (type pdf)
- <use ./img/ch3/length_1kg20.pdf>
-Package pdftex.def Info: ./img/ch3/length_1kg20.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 331.9586pt.
-) [115] [116] [117 <./img/ch3/length_1kg20.pdf>] (./chapter3/fig/phase_fk_prop.tex <./img/ch3/phase_fk_prop.pdf, id=4799, 421.52081pt x 571.29236pt>
-File: ./img/ch3/phase_fk_prop.pdf Graphic file (type pdf)
- <use ./img/ch3/phase_fk_prop.pdf>
-Package pdftex.def Info: ./img/ch3/phase_fk_prop.pdf used on input line 6.
-(pdftex.def)             Requested size: 320.0935pt x 433.84673pt.
-) [118] [119 <./img/ch3/phase_fk_prop.pdf>] (./chapter3/fig/phase_fk_error.tex <./img/ch3/phase_fk_error.pdf, id=4852, 650.43pt x 397.485pt>
-File: ./img/ch3/phase_fk_error.pdf Graphic file (type pdf)
- <use ./img/ch3/phase_fk_error.pdf>
-Package pdftex.def Info: ./img/ch3/phase_fk_error.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 260.82462pt.
-) [120 <./img/ch3/phase_fk_error.pdf>] (./chapter3/fig/phase_fk_coverage.tex <./img/ch3/phase_coverage_1kg.pdf, id=4874, 722.7pt x 361.35pt>
-File: ./img/ch3/phase_coverage_1kg.pdf Graphic file (type pdf)
- <use ./img/ch3/phase_coverage_1kg.pdf>
-Package pdftex.def Info: ./img/ch3/phase_coverage_1kg.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 213.39867pt.
-) [121] [122 <./img/ch3/phase_coverage_1kg.pdf>] [123]) [124]
-\openout2 = `chapter4/four.aux'.
-
- (./chapter4/four.tex
-Chapter 4.
-\openout6 = `main.mtc'.
-
-\openout6 = `main.mtc'.
-
-(.build/main.mtc6
-Overfull \hbox (0.84996pt too wide) detected at line 1
- [][][]\T1/jkp/m/n/10 125[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 2
- [][][]\T1/jkp/m/n/10 127[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 4
- [][][]\T1/jkp/m/n/10 129[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 5
- [][][]\T1/jkp/m/n/10 130[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 6
- [][][]\T1/jkp/m/n/10 131[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 7
- [][][]\T1/jkp/m/n/10 134[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 11
- [][][]\T1/jkp/m/n/10 140[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 12
- [][][]\T1/jkp/m/n/10 141[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 14
- [][][]\T1/jkp/m/n/10 142[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 17
- [][][]\T1/jkp/m/n/10 150[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 18
- [][][]\T1/jkp/m/n/10 151[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 19
- [][][]\T1/jkp/m/n/10 153[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 20
- [][][]\T1/jkp/m/n/10 154[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 26
- [][][]\T1/jkp/m/n/10 162[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 29
- [][][]\T1/jkp/m/n/10 167[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 30
- [][][]\T1/jkp/m/n/10 170[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 31
- [][][]\T1/jkp/m/n/10 174[][]
- []
-
-) [125
-
-
-
-] [126]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 74.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 74.
-
-[127]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 84.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 84.
-
-(./chapter4/tab/errormodel.tex) [128]
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 8.76003pt on input line 148.
- [129] (./chapter4/fig/ceph1463.tex
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 7.20003pt on input line 20.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 8.00003pt on input line 79.
-) [130] [131] (./chapter4/fig/info_errormatch.tex <./img/ch4/info_errormatch.pdf, id=5141, 496.47736pt x 504.80205pt>
-File: ./img/ch4/info_errormatch.pdf Graphic file (type pdf)
- <use ./img/ch4/info_errormatch.pdf>
-Package pdftex.def Info: ./img/ch4/info_errormatch.pdf used on input line 8.
-(pdftex.def)             Requested size: 320.0935pt x 325.46002pt.
-) [132] [133 <./img/ch4/info_errormatch.pdf>] [134] (./chapter4/fig/poserrdens.tex <./img/ch4/poserrdens.pdf, id=5197, 594.8085pt x 455.01723pt>
-File: ./img/ch4/poserrdens.pdf Graphic file (type pdf)
- <use ./img/ch4/poserrdens.pdf>
-Package pdftex.def Info: ./img/ch4/poserrdens.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 326.50127pt.
-) [135 <./img/ch4/poserrdens.pdf>] (./chapter4/tab/generrpercent.tex) [136] [137] (./chapter4/fig/generrprop.tex <./img/ch4/generrprop.pdf, id=5276, 473.76497pt x 597.23125pt>
-File: ./img/ch4/generrprop.pdf Graphic file (type pdf)
- <use ./img/ch4/generrprop.pdf>
-Package pdftex.def Info: ./img/ch4/generrprop.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 538.0226pt.
-
-
-LaTeX Warning: Float too large for page by 29.86546pt on input line 13.
-
-) [138] [139 <./img/ch4/generrprop.pdf>] [140] [141] (./chapter4/fig/fk_error.tex <./img/ch4/fk_error_A_new.pdf, id=5401, 650.43pt x 216.81pt>
-File: ./img/ch4/fk_error_A_new.pdf Graphic file (type pdf)
- <use ./img/ch4/fk_error_A_new.pdf>
-Package pdftex.def Info: ./img/ch4/fk_error_A_new.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 142.26797pt.
- <./img/ch4/fk_error_B.pdf, id=5402, 650.43pt x 216.81pt>
-File: ./img/ch4/fk_error_B.pdf Graphic file (type pdf)
- <use ./img/ch4/fk_error_B.pdf>
-Package pdftex.def Info: ./img/ch4/fk_error_B.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 142.26797pt.
- [142]) [143 <./img/ch4/fk_error_A_new.pdf> <./img/ch4/fk_error_B.pdf>] (./chapter4/fig/naive_break_err.tex <./img/ch4/break_naive_err.pdf, id=5456, 582.81699pt x 594.04736pt>
-File: ./img/ch4/break_naive_err.pdf Graphic file (type pdf)
- <use ./img/ch4/break_naive_err.pdf>
-Package pdftex.def Info: ./img/ch4/break_naive_err.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 435.01064pt.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 12.
-
-) [144] [145 <./img/ch4/break_naive_err.pdf>] (./chapter4/fig/naive_length_err.tex <./img/ch4/length_naive_err.pdf, id=5553, 650.43pt x 505.89pt>
-File: ./img/ch4/length_naive_err.pdf Graphic file (type pdf)
- <use ./img/ch4/length_naive_err.pdf>
-Package pdftex.def Info: ./img/ch4/length_naive_err.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 331.9586pt.
-) (./chapter4/fig/full_ibd_error.tex <./img/ch4/full_ibd_error.pdf, id=5565, 564.1393pt x 408.39557pt>
-File: ./img/ch4/full_ibd_error.pdf Graphic file (type pdf)
- <use ./img/ch4/full_ibd_error.pdf>
-Package pdftex.def Info: ./img/ch4/full_ibd_error.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 308.96928pt.
-) [146] [147 <./img/ch4/length_naive_err.pdf>] (./chapter4/fig/beagle_break_err.tex <./img/ch4/break_beagle_err.pdf, id=5609, 584.97054pt x 411.30443pt>
-File: ./img/ch4/break_beagle_err.pdf Graphic file (type pdf)
- <use ./img/ch4/break_beagle_err.pdf>
-Package pdftex.def Info: ./img/ch4/break_beagle_err.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 300.08028pt.
-) [148 <./img/ch4/full_ibd_error.pdf>] (./chapter4/fig/beagle_length_err.tex <./img/ch4/beagle_length_err.pdf, id=5670, 650.43pt x 505.89pt>
-File: ./img/ch4/beagle_length_err.pdf Graphic file (type pdf)
- <use ./img/ch4/beagle_length_err.pdf>
-Package pdftex.def Info: ./img/ch4/beagle_length_err.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 331.9586pt.
-) [149 <./img/ch4/break_beagle_err.pdf>] [150 <./img/ch4/beagle_length_err.pdf>] [151] [152] [153] [154] (./chapter4/fig/info_hmm.tex) [155]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 637.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 637.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 661.
-
-[156]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 682.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 682.
-
-(./chapter4/fig/hmm_transmatrix.tex <./img/ch4/hmm_transmatrix.pdf, id=5869, 542.025pt x 216.81pt>
-File: ./img/ch4/hmm_transmatrix.pdf Graphic file (type pdf)
- <use ./img/ch4/hmm_transmatrix.pdf>
-Package pdftex.def Info: ./img/ch4/hmm_transmatrix.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 170.72223pt.
- [157]) [158 <./img/ch4/hmm_transmatrix.pdf>]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 734.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 734.
-
-[159] (./chapter4/tab/genpairprop.tex
-Overfull \hbox (1.94pt too wide) in paragraph at lines 15--86
-[]$[]$ $[]$ 
- []
-
-) [160]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 760.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 760.
-
-(./chapter4/fig/exp_genpair_frq.tex <./img/ch4/exp-genpair-frq.pdf, id=5910, 650.43pt x 314.17375pt>
-File: ./img/ch4/exp-genpair-frq.pdf Graphic file (type pdf)
- <use ./img/ch4/exp-genpair-frq.pdf>
-Package pdftex.def Info: ./img/ch4/exp-genpair-frq.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 206.15683pt.
-) [161 <./img/ch4/exp-genpair-frq.pdf>] [162] (./chapter4/fig/hmm_emission_delta.tex <./img/ch4/hmm_emission_delta_tru.pdf, id=5935, 614.295pt x 353.32pt>
-File: ./img/ch4/hmm_emission_delta_tru.pdf Graphic file (type pdf)
- <use ./img/ch4/hmm_emission_delta_tru.pdf>
-Package pdftex.def Info: ./img/ch4/hmm_emission_delta_tru.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 245.47852pt.
- <./img/ch4/hmm_emission_delta_err.pdf, id=5936, 614.295pt x 353.32pt>
-File: ./img/ch4/hmm_emission_delta_err.pdf Graphic file (type pdf)
- <use ./img/ch4/hmm_emission_delta_err.pdf>
-Package pdftex.def Info: ./img/ch4/hmm_emission_delta_err.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 245.47852pt.
-) [163] [164 <./img/ch4/hmm_emission_delta_tru.pdf> <./img/ch4/hmm_emission_delta_err.pdf>] [165] (./chapter4/fig/hmm_initial.tex <./img/ch4/hmm_initial.pdf, id=6037, 433.62pt x 216.81pt>
-File: ./img/ch4/hmm_initial.pdf Graphic file (type pdf)
- <use ./img/ch4/hmm_initial.pdf>
-Package pdftex.def Info: ./img/ch4/hmm_initial.pdf used on input line 6.
-(pdftex.def)             Requested size: 384.1096pt x 192.06375pt.
-) [166] [167 <./img/ch4/hmm_initial.pdf>] [168] [169] (./chapter4/tab/stat_hmm_accuracy.tex) [170] [171] (./chapter4/fig/break_hmm.tex <./img/ch4/break_hmm.pdf, id=6117, 583.7267pt x 412.47763pt>
-File: ./img/ch4/break_hmm.pdf Graphic file (type pdf)
- <use ./img/ch4/break_hmm.pdf>
-Package pdftex.def Info: ./img/ch4/break_hmm.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 301.58449pt.
-) (./chapter4/fig/length_hmm.tex <./img/ch4/length_hmm.pdf, id=6123, 650.43pt x 505.89pt>
-File: ./img/ch4/length_hmm.pdf Graphic file (type pdf)
-
-<use ./img/ch4/length_hmm.pdf>
-Package pdftex.def Info: ./img/ch4/length_hmm.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 331.9586pt.
-) [172 <./img/ch4/break_hmm.pdf>] (./chapter4/fig/1KG_chr20_length_hmm.tex <./img/ch4/1KG_chr20_length_hmm.pdf, id=6197, 650.43pt x 505.89pt>
-File: ./img/ch4/1KG_chr20_length_hmm.pdf Graphic file (type pdf)
- <use ./img/ch4/1KG_chr20_length_hmm.pdf>
-Package pdftex.def Info: ./img/ch4/1KG_chr20_length_hmm.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 331.9586pt.
-) (./chapter4/fig/emission_tmrca.tex <./img/ch4/emission_tmrca.pdf, id=6200, 592.8711pt x 348.28049pt>
-File: ./img/ch4/emission_tmrca.pdf Graphic file (type pdf)
- <use ./img/ch4/emission_tmrca.pdf>
-Package pdftex.def Info: ./img/ch4/emission_tmrca.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 250.72455pt.
- [173 <./img/ch4/length_hmm.pdf>]) [174 <./img/ch4/1KG_chr20_length_hmm.pdf>] [175 <./img/ch4/emission_tmrca.pdf>]) [176]
-\openout2 = `chapter5/five.aux'.
-
- (./chapter5/five.tex
-Chapter 5.
-\openout6 = `main.mtc'.
-
-\openout6 = `main.mtc'.
-
-(.build/main.mtc7
-Overfull \hbox (0.84996pt too wide) detected at line 1
- [][][]\T1/jkp/m/n/10 177[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 2
- [][][]\T1/jkp/m/n/10 179[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 3
- [][][]\T1/jkp/m/n/10 180[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 7
- [][][]\T1/jkp/m/n/10 184[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 8
- [][][]\T1/jkp/m/n/10 185[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 10
- [][][]\T1/jkp/m/n/10 188[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 12
- [][][]\T1/jkp/m/n/10 192[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 13
- [][][]\T1/jkp/m/n/10 192[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 14
- [][][]\T1/jkp/m/n/10 195[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 15
- [][][]\T1/jkp/m/n/10 196[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 16
- [][][]\T1/jkp/m/n/10 197[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 17
- [][][]\T1/jkp/m/n/10 203[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 18
- [][][]\T1/jkp/m/n/10 209[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 20
- [][][]\T1/jkp/m/n/10 221[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 21
- [][][]\T1/jkp/m/n/10 221[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 22
- [][][]\T1/jkp/m/n/10 222[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 23
- [][][]\T1/jkp/m/n/10 223[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 24
- [][][]\T1/jkp/m/n/10 226[][]
- []
-
-) [177
-
-
-
-] [178] [179]
-LaTeX Font Info:    Calculating math sizes for size <7.61896> on input line 88.
- [180] [181] [182]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 159.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 159.
-
-[183] [184] (./chapter5/fig/info_age.tex <./img/ch5/info_age.pdf, id=6424, 346.74083pt x 214.48pt>
-File: ./img/ch5/info_age.pdf Graphic file (type pdf)
- <use ./img/ch5/info_age.pdf>
-Package pdftex.def Info: ./img/ch5/info_age.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 264.01172pt.
-) [185]
-Underfull \vbox (badness 1694) has occurred while \output is active []
-
- [186 <./img/ch5/info_age.pdf>] (./chapter5/fig/age_example.tex <./img/ch5/age_example.pdf, id=6481, 578.16pt x 216.81pt>
-File: ./img/ch5/age_example.pdf Graphic file (type pdf)
- <use ./img/ch5/age_example.pdf>
-Package pdftex.def Info: ./img/ch5/age_example.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 160.04651pt.
-) [187 <./img/ch5/age_example.pdf>] [188] (./chapter5/fig/info_fgt_discord.tex <./img/ch5/info_fgt_discord.pdf, id=6523, 297.4584pt x 171.35393pt>
-File: ./img/ch5/info_fgt_discord.pdf Graphic file (type pdf)
- <use ./img/ch5/info_fgt_discord.pdf>
-Package pdftex.def Info: ./img/ch5/info_fgt_discord.pdf used on input line 6.
-(pdftex.def)             Requested size: 298.75264pt x 172.10913pt.
-) [189 <./img/ch5/info_fgt_discord.pdf>] (./chapter5/fig/info_hmm_discord.tex <./img/ch5/info_hmm_discord.pdf, id=6559, 433.62pt x 216.81pt>
-File: ./img/ch5/info_hmm_discord.pdf Graphic file (type pdf)
- <use ./img/ch5/info_hmm_discord.pdf>
-Package pdftex.def Info: ./img/ch5/info_hmm_discord.pdf used on input line 6.
-(pdftex.def)             Requested size: 341.43437pt x 170.72554pt.
-) [190] (./chapter5/fig/info_age_bias.tex <./img/ch5/info_age_bias.pdf, id=6567, 340.33821pt x 325.12216pt>
-File: ./img/ch5/info_age_bias.pdf Graphic file (type pdf)
- <use ./img/ch5/info_age_bias.pdf>
-Package pdftex.def Info: ./img/ch5/info_age_bias.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 407.7362pt.
- [191 <./img/ch5/info_hmm_discord.pdf>]) [192] [193 <./img/ch5/info_age_bias.pdf>] [194] [195] [196] (./chapter5/fig/discords_scat.tex <./img/ch5/discords_scat.pdf, id=6696, 519.9425pt x 505.89pt>
-File: ./img/ch5/discords_scat.pdf Graphic file (type pdf)
- <use ./img/ch5/discords_scat.pdf>
-Package pdftex.def Info: ./img/ch5/discords_scat.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 415.25703pt.
-
-
-LaTeX Warning: Float too large for page by 7.89964pt on input line 17.
-
-) [197] [198 <./img/ch5/discords_scat.pdf>] (./chapter5/tab/stats_discords.tex) [199] [200] (./chapter5/fig/discords_hist.tex <./img/ch5/discords_hist.pdf, id=6749, 560.0925pt x 310.15875pt>
-File: ./img/ch5/discords_hist.pdf Graphic file (type pdf)
- <use ./img/ch5/discords_hist.pdf>
-Package pdftex.def Info: ./img/ch5/discords_hist.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 236.35254pt.
-) [201 <./img/ch5/discords_hist.pdf>] [202] [203] (./chapter5/fig/vanilla_scat.tex <./img/ch5/vanilla_scat.pdf, id=6792, 519.9425pt x 505.89pt>
-File: ./img/ch5/vanilla_scat.pdf Graphic file (type pdf)
- <use ./img/ch5/vanilla_scat.pdf>
-Package pdftex.def Info: ./img/ch5/vanilla_scat.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 415.25703pt.
-) [204] [205 <./img/ch5/vanilla_scat.pdf>] (./chapter5/tab/stats_vanilla.tex) [206] (./chapter5/fig/vanilla_hist.tex <./img/ch5/vanilla_hist.pdf, id=6876, 560.0925pt x 310.15875pt>
-File: ./img/ch5/vanilla_hist.pdf Graphic file (type pdf)
- <use ./img/ch5/vanilla_hist.pdf>
-Package pdftex.def Info: ./img/ch5/vanilla_hist.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 236.35254pt.
-) (./chapter5/fig/vanilla_length_con_dis.tex <./img/ch5/vanilla_length_con_dis.pdf, id=6884, 650.43pt x 433.62pt>
-File: ./img/ch5/vanilla_length_con_dis.pdf Graphic file (type pdf)
- <use ./img/ch5/vanilla_length_con_dis.pdf>
-Package pdftex.def Info: ./img/ch5/vanilla_length_con_dis.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 284.53595pt.
-) [207 <./img/ch5/vanilla_hist.pdf>] [208 <./img/ch5/vanilla_length_con_dis.pdf>] (./chapter5/tab/stats_conflicts.tex) [209] (./chapter5/fig/generror_scat_tru.tex
-<./img/ch5/generror_scat_tru.pdf, id=6932, 519.9425pt x 346.29375pt>
-File: ./img/ch5/generror_scat_tru.pdf Graphic file (type pdf)
- <use ./img/ch5/generror_scat_tru.pdf>
-Package pdftex.def Info: ./img/ch5/generror_scat_tru.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 284.25333pt.
-) [210] [211 <./img/ch5/generror_scat_tru.pdf>] (./chapter5/fig/generror_scat_fgt.tex <./img/ch5/generror_scat_fgtH.pdf, id=6976, 519.9425pt x 346.29375pt>
-File: ./img/ch5/generror_scat_fgtH.pdf Graphic file (type pdf)
- <use ./img/ch5/generror_scat_fgtH.pdf>
-Package pdftex.def Info: ./img/ch5/generror_scat_fgtH.pdf used on input line 7.
-(pdftex.def)             Requested size: 426.79135pt x 284.25333pt.
- <./img/ch5/generror_scat_fgtP.pdf, id=6977, 519.9425pt x 346.29375pt>
-File: ./img/ch5/generror_scat_fgtP.pdf Graphic file (type pdf)
- <use ./img/ch5/generror_scat_fgtP.pdf>
-Package pdftex.def Info: ./img/ch5/generror_scat_fgtP.pdf used on input line 9.
-(pdftex.def)             Requested size: 426.79135pt x 284.25333pt.
-) (./chapter5/fig/generror_scat_dgt.tex <./img/ch5/generror_scat_dgt.pdf, id=6985, 519.9425pt x 346.29375pt>
-File: ./img/ch5/generror_scat_dgt.pdf Graphic file (type pdf)
- <use ./img/ch5/generror_scat_dgt.pdf>
-Package pdftex.def Info: ./img/ch5/generror_scat_dgt.pdf used on input line 7.
-(pdftex.def)             Requested size: 426.79135pt x 284.25333pt.
- [212] [213 <./img/ch5/generror_scat_fgtH.pdf> <./img/ch5/generror_scat_fgtP.pdf>]) [214 <./img/ch5/generror_scat_dgt.pdf>] (./chapter5/fig/generror_scat_hmm.tex <./img/ch5/generror_scat_hmm.pdf, id=7077, 519.9425pt x 346.29375pt>
-File: ./img/ch5/generror_scat_hmm.pdf Graphic file (type pdf)
- <use ./img/ch5/generror_scat_hmm.pdf>
-Package pdftex.def Info: ./img/ch5/generror_scat_hmm.pdf used on input line 7.
-(pdftex.def)             Requested size: 426.79135pt x 284.25333pt.
-) [215 <./img/ch5/generror_scat_hmm.pdf>] (./chapter5/fig/africa_length_con_dis.tex <./img/ch5/africa_length_con_dis_tru.pdf, id=7117, 650.43pt x 433.62pt>
-File: ./img/ch5/africa_length_con_dis_tru.pdf Graphic file (type pdf)
-
-<use ./img/ch5/africa_length_con_dis_tru.pdf>
-Package pdftex.def Info: ./img/ch5/africa_length_con_dis_tru.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 284.53595pt.
- <./img/ch5/africa_length_con_dis_err.pdf, id=7118, 650.43pt x 433.62pt>
-File: ./img/ch5/africa_length_con_dis_err.pdf Graphic file (type pdf)
- <use ./img/ch5/africa_length_con_dis_err.pdf>
-Package pdftex.def Info: ./img/ch5/africa_length_con_dis_err.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 284.53595pt.
-) [216] [217 <./img/ch5/africa_length_con_dis_tru.pdf> <./img/ch5/africa_length_con_dis_err.pdf>] (./chapter5/fig/generror_factor.tex <./img/ch5/generror_factor.pdf, id=7153, 595.83774pt x 406.02992pt>
-File: ./img/ch5/generror_factor.pdf Graphic file (type pdf)
- <use ./img/ch5/generror_factor.pdf>
-Package pdftex.def Info: ./img/ch5/generror_factor.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79135pt x 290.842pt.
-) [218] (./chapter5/tab/stats_generror.tex) [219 <./img/ch5/generror_factor.pdf>] [220] [221] [222] (./chapter5/fig/1kg_age_impact.tex <./img/ch5/1kg_age_impact.pdf, id=7271, 591.46643pt x 505.2264pt>
-File: ./img/ch5/1kg_age_impact.pdf Graphic file (type pdf)
- <use ./img/ch5/1kg_age_impact.pdf>
-Package pdftex.def Info: ./img/ch5/1kg_age_impact.pdf used on input line 6.
-(pdftex.def)             Requested size: 320.0935pt x 273.4272pt.
-) (./chapter5/fig/1kg_pop_impact.tex <./img/ch5/1kg_pop_impact_a.pdf, id=7274, 722.7pt x 433.62pt>
-File: ./img/ch5/1kg_pop_impact_a.pdf Graphic file (type pdf)
- <use ./img/ch5/1kg_pop_impact_a.pdf>
-Package pdftex.def Info: ./img/ch5/1kg_pop_impact_a.pdf used on input line 6.
-(pdftex.def)             Requested size: 426.79135pt x 256.07838pt.
- <./img/ch5/1kg_pop_impact_b.pdf, id=7275, 722.7pt x 433.62pt>
-File: ./img/ch5/1kg_pop_impact_b.pdf Graphic file (type pdf)
- <use ./img/ch5/1kg_pop_impact_b.pdf>
-Package pdftex.def Info: ./img/ch5/1kg_pop_impact_b.pdf used on input line 8.
-(pdftex.def)             Requested size: 426.79135pt x 256.07838pt.
-) [223] (./chapter5/tab/stats_1kg_impact.tex [224 <./img/ch5/1kg_age_impact.pdf>] [225 <./img/ch5/1kg_pop_impact_a.pdf> <./img/ch5/1kg_pop_impact_b.pdf>]) [226]) [227]
-\openout2 = `chapter6/six.aux'.
-
- (./chapter6/six.tex
-Chapter 6.
-\openout6 = `main.mtc'.
-
-\openout6 = `main.mtc'.
-
-(.build/main.mtc8
-Overfull \hbox (0.84996pt too wide) detected at line 1
- [][][]\T1/jkp/m/n/10 228[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 2
- [][][]\T1/jkp/m/n/10 230[][]
- []
-
-
-Overfull \hbox (0.84996pt too wide) detected at line 3
- [][][]\T1/jkp/m/n/10 232[][]
- []
-
-) [228
-
-
-
-] [229] [230] [231]) [232] [233] (.build/main.acr [234
-
-
-
-]) (.build/main.bbl [235] [236
-
-] [237] [238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249])
+]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the main.maf file.
 \openout6 = `main.maf'.
+
+
+
+Package minitoc(hints) Warning: W0059
+(minitoc(hints))                You have used \minitoc, 
+(minitoc(hints))                but not \dominitoc.
+
+
+Package minitoc(hints) Warning: W0068
+(minitoc(hints))                You have used \minitoc but not 
+(minitoc(hints))                \tableofcontents
+(minitoc(hints))                nor \faketableofcontents.
 
 Package minitoc(hints) Info: I0053
 (minitoc(hints))             You have loaded the float package; 
@@ -4240,35 +2824,33 @@ Package minitoc(hints) Info: I0053
 (minitoc(hints))             facilities can not be used for new types 
 (minitoc(hints))             of floats defined by the float package.
 
-
 Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the main.log file.
 
-[250]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+[253]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
  (.build/main.aux (.build/frontmatter.aux) (.build/chapter1/one.aux) (.build/chapter2/two.aux) (.build/chapter3/three.aux) (.build/chapter4/four.aux) (.build/chapter5/five.aux) (.build/chapter6/six.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 92F63D762D8C35D8212CF4B383EFF437;7070.
+(rerunfilecheck)             Checksum: ABF3F50690171B9D2BBE0EA01315F3C3;1100.
  ) 
 Here is how much of TeX's memory you used:
- 54431 strings out of 493089
- 1029704 string characters out of 6134842
- 1419664 words of memory out of 5000000
- 54193 multiletter control sequences out of 15000+600000
- 571164 words of font info for 1417 fonts, out of 8000000 for 9000
+ 48719 strings out of 493089
+ 929436 string characters out of 6134842
+ 1196143 words of memory out of 5000000
+ 49873 multiletter control sequences out of 15000+600000
+ 285961 words of font info for 780 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,19n,86p,10436b,2036s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsbo8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
-ublic/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpssmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pf
-b></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on .build/main.pdf (260 pages, 7932495 bytes).
+ 62i,18n,73p,10436b,1314s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on .build/main.pdf (56 pages, 1220946 bytes).
 PDF statistics:
- 7761 PDF objects out of 8907 (max. 8388607)
- 6449 compressed objects within 65 object streams
- 896 named destinations out of 1000 (max. 500000)
- 177279 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 1579 PDF objects out of 1728 (max. 8388607)
+ 1360 compressed objects within 14 object streams
+ 360 named destinations out of 1000 (max. 500000)
+ 83652 words of extra memory for PDF output out of 89155 (max. 10000000)
 
