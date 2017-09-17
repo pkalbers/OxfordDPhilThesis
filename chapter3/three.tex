@@ -149,7 +149,7 @@ In the latter case, it follows that the \n{2} individuals cannot share a haploty
 The \gls{dgt} is a special case of the \gls{fgt}, as the same composition of alleles is implied.
 For example, if the allelic configurations ${(0,1)}$ and ${(0,0)}$ are seen in individual~1, and configurations ${(1,0)}$ and ${(1,1)}$ in individual~2, the corresponding genotypic configurations are ${(0,1)}$ and ${(2,1)}$, respectively, which satisfies the breakpoint condition in both the \gls{fgt} and \gls{dgt}.
 However, because genotype data result from haplotype occurrence in individuals, not all breakpoints detectable under the \gls{fgt} can be found using the \gls{dgt}.
-At sites where the \gls{fgt} detects a breakpoint interval, the \gls{dgt} cannot if both sites are heterozygous in the same individual.
+At sites where the \gls{fgt} detects a breakpoint interval, the \gls{dgt} cannot break if both sites are heterozygous in the same individual.
 As a consequence, it can be expected that the \gls{dgt} is more restrictive than the \gls{fgt}; \eg if breakpoints are found, they are likely to sit farther apart.
 This is further exemplified in \cpref{fig:info_dgt}, which highlights the difference to the \gls{fgt} by comparison to the example shown in \cpref{fig:info_fgt}.
 
@@ -186,7 +186,7 @@ The allelic or genotypic states at $b_{L}$ or $b_{R}$ provide only the first ind
 The detected interval is therefore inclusive of the breakpoints such that the full length of the underlying IBD segment is covered.
 %However, this is expected to lead to an overestimation of the shared haplotype length.
 In cases where the end of a chromosome is reached without detecting any evidence of recombination, the terminal site is recorded to capture the length of the segment; this is hereafter referred to as a \emph{boundary case}.
-Further, note that a recombination event can occur with chromosomes outside the sub-tree of the lineages deriving from the focal mutation, such that a breakpoint may be falsely inferred; however, such cases are sufficiently rare to be negligible.
+Further, note that a recombination event can occur with chromosomes outside the sub-tree of the lineages deriving from the focal mutation, such that a breakpoint may be falsely inferred; however, such cases are assumed to be sufficiently rare and treated as being negligible.
 
 
 %
@@ -195,12 +195,12 @@ Further, note that a recombination event can occur with chromosomes outside the 
 
 As noted by \citet{Hudson:1985wh}, not all recombination events in the history of a sample are found by the \gls{fgt}, and are therefore also missed by the \gls{dgt}.
 In the implementation presented, a breakpoint is found by performing a scan along the sequence away from a target position.
-Given that the neighbouring haplotype regions derive from different ancestral lineages, in the general case, it is likely that a breakpoint will be found eventually (or the boundary of the chromosome is reached).
+Provided that the neighbouring haplotype regions derive from different ancestral lineages, in the general case, it is likely that a breakpoint will be found eventually (or the boundary of the chromosome is reached).
 
 The main limitation to the accuracy of the detected breakpoints is the overestimation of the interval, in relation to the underlying true IBD length; as shown in \cref{fig:info_breakpoint}{b}.
 While the underlying IBD segment is enclosed in the interval, it can be expected that breakpoints are detected at sites some distance away from where recombination occurred, thus overestimating the true length of the underlying IBD tract.
 The extent of overestimation is dependent on the number and density of observed variant sites in the sample.
-This suggests that the method may become more accurate with larger samples.
+This suggests that the method may become more accurate with larger samples\edit{, as the number of segregating sites observed in the sample is expected to increase with larger sample size}.
 Likewise, because the rate of mutation is directly proportional to the expected number of segregating sites \citep{Watterson:1975ur}, a higher mutation rate can generally be expected to decrease the overestimation of segment length.
 
 %
@@ -263,12 +263,12 @@ There is nonetheless sufficient information to deduce the allelic states given c
 \input{chapter3/fig/info_phase_pedigree}
 %
 
-As a result, a set of rules can be formulated which define the state of the shared allele if a certain genotype pair is observed in the \n{2} individuals considered.
+A set of rules can be formulated which define the state of the shared allele if a certain genotype pair is observed in the \n{2} individuals considered.
 As before, the infinite sites model is assumed.
 If both genotypes are homozygous for the same allele, the deduction of the shared allele is trivial.
 If they are homozygous for different alleles, they cannot share an allele.
 Importantly, because this is seen at breakpoint sites detected using the \gls{dgt}, which mark the limits of the underlying IBD segment, breakpoints are excluded from this analysis; recall that the \gls{fgt} cannot be used with genotype data.
-A caveat of this analysis, however, is that haplotypes cannot be distinguished if both individuals are heterozygous, as it is not known whether the the allele is shared or not.
+A caveat of this analysis, however, is that haplotypes cannot be distinguished if both individuals are heterozygous, as it is not known whether the allele is shared or not.
 This conflict arises because an unshared haplotype may be more closely related to either the shared or the other unshared haplotype.
 Thus, haplotype inference is restricted to sites at which \emph{heterozygous-homozygous} genotype pairs are found.
 This is further illustrated in \cref{fig:info_phase_pedigree}.
@@ -280,7 +280,7 @@ This is further illustrated in \cref{fig:info_phase_pedigree}.
 A complete definition of these rules is given in \cref{tab:shared_hap_rules}.
 The table gives the inferred allelic state of the shared haplotype for each of the possible combinations of \n{2} genotypes.
 Note that the alleles at \emph{heterozygous-heterozygous} sites are likely to be shared if \n{3} conditions are met; first, if the allele frequency at that site is lower than the frequency at the target position, second, if the allele only segregates within the subsample sharing the focal allele and, third, if the genealogy does not change along the sequence within an inferred interval.
-An allele that is lower in frequency is likely to be younger than the focal allele and, thus, to segregate on the same haplotype.
+An allele that is lower in frequency is likely to be younger than the focal allele and, thus, to \edit{be shared by some of the haplotypes within the sub-tree of the focal mutation}.
 However, this may only be the case under the infinite sites model, \eg because recurrent or back mutation may otherwise suggest a different genealogical order of descent.
 
 

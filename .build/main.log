@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  10 SEP 2017 18:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  17 SEP 2017 13:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2485,11 +2485,20 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `jkptt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\openout2 = `chapter2/two.aux'.
+\openout2 = `chapter3/three.aux'.
 
- (./chapter2/two.tex
-Chapter 2.
-LaTeX Font Info:    Try loading font information for T1+put on input line 16.
+ (./chapter3/three.tex [84{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+\openout7 = `main.ist'.
+
+
+
+
+
+
+]
+Chapter 3.
+LaTeX Font Info:    Try loading font information for T1+put on input line 12.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1put.fd
 File: t1put.fd 2001/06/04 font definitions for T1/put.
 )
@@ -2501,29 +2510,38 @@ Package microtype Info: Loading generic settings for font family
 
 \openout6 = `main.mtc'.
 
- (.build/main.mtc4)
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 32.
+ (.build/main.mtc5) (/usr/local/texlive/2015/texmf-dist/tex/latex/fmtcount/fc-UKenglish.def
+File: fc-UKenglish.def 2013/08/17
+) [85] [86]
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 42.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.76003pt on input line 32.
+(Font)              scaled to size 8.76003pt on input line 42.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `fvm' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [45{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-\openout7 = `main.ist'.
 
 
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 51.
 
 
+LaTeX Font Warning: Command \large invalid in math mode on input line 51.
 
-] (/usr/local/texlive/2015/texmf-dist/tex/latex/fmtcount/fc-UKenglish.def
-File: fc-UKenglish.def 2013/08/17
-) [46]
-LaTeX Font Info:    Try loading font information for TS1+jkp on input line 55.
+LaTeX Font Info:    Calculating math sizes for size <8.34955> on input line 51.
+[87] [88] (./chapter3/fig/pair_ibd_example.tex <./img/ch3/pair_ibd_example.pdf, id=243, 583.45982pt x 289.08pt>
+File: ./img/ch3/pair_ibd_example.pdf Graphic file (type pdf)
+ <use ./img/ch3/pair_ibd_example.pdf>
+Package pdftex.def Info: ./img/ch3/pair_ibd_example.pdf used on input line 6.
+(pdftex.def)             Requested size: 426.79137pt x 211.46332pt.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.00003pt on input line 16.
+) [89 <./img/ch3/pair_ibd_example.pdf>]
+LaTeX Font Info:    Try loading font information for TS1+jkp on input line 92.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
 File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
 )
@@ -2531,11 +2549,119 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `jkp' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+ (./chapter3/fig/popstruct_1kg.tex <./img/ch3/popstruct_1kg.pdf, id=309, 596.9068pt x 607.79268pt>
+File: ./img/ch3/popstruct_1kg.pdf Graphic file (type pdf)
+ <use ./img/ch3/popstruct_1kg.pdf>
+Package pdftex.def Info: ./img/ch3/popstruct_1kg.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 434.59628pt.
+) [90] [91 <./img/ch3/popstruct_1kg.pdf>] (./chapter3/fig/info_fgt.tex <./img/ch3/info_fgt.pdf, id=383, 364.76927pt x 146.87582pt>
+File: ./img/ch3/info_fgt.pdf Graphic file (type pdf)
+ <use ./img/ch3/info_fgt.pdf>
+Package pdftex.def Info: ./img/ch3/info_fgt.pdf used on input line 6.
+(pdftex.def)             Requested size: 298.75264pt x 120.29999pt.
+) [92] (./chapter3/fig/info_dgt.tex <./img/ch3/info_dgt.pdf, id=409, 371.02414pt x 251.57176pt>
+File: ./img/ch3/info_dgt.pdf Graphic file (type pdf)
+ <use ./img/ch3/info_dgt.pdf>
+Package pdftex.def Info: ./img/ch3/info_dgt.pdf used on input line 6.
+(pdftex.def)             Requested size: 298.75264pt x 202.57817pt.
+) [93 <./img/ch3/info_fgt.pdf>] (./chapter3/fig/info_breakpoint.tex <./img/ch3/info_breakpoint.pdf, id=448, 545.57097pt x 483.13525pt>
+File: ./img/ch3/info_breakpoint.pdf Graphic file (type pdf)
+ <use ./img/ch3/info_breakpoint.pdf>
+Package pdftex.def Info: ./img/ch3/info_breakpoint.pdf used on input line 6.
+(pdftex.def)             Requested size: 426.79137pt x 377.94978pt.
+
+
+LaTeX Warning: Float too large for page by 13.79228pt on input line 23.
+
+) [94 <./img/ch3/info_dgt.pdf>] [95 <./img/ch3/info_breakpoint.pdf>] [96] (./chapter3/fig/full_ibd_example.tex <./img/ch3/full_ibd_example.pdf, id=542, 582.55846pt x 538.97559pt>
+File: ./img/ch3/full_ibd_example.pdf Graphic file (type pdf)
+ <use ./img/ch3/full_ibd_example.pdf>
+Package pdftex.def Info: ./img/ch3/full_ibd_example.pdf used on input line 11.
+(pdftex.def)             Requested size: 426.79137pt x 394.87167pt.
+) [97] [98 <./img/ch3/full_ibd_example.pdf>] [99] (./chapter3/fig/info_phase_pedigree.tex <./img/ch3/info_phase_pedigree.pdf, id=652, 336.82187pt x 209.67152pt>
+File: ./img/ch3/info_phase_pedigree.pdf Graphic file (type pdf)
+ <use ./img/ch3/info_phase_pedigree.pdf>
+Package pdftex.def Info: ./img/ch3/info_phase_pedigree.pdf used on input line 6.
+(pdftex.def)             Requested size: 320.09352pt x 199.26039pt.
+) [100] (./chapter3/tab/shared_hap_rules.tex) [101 <./img/ch3/info_phase_pedigree.pdf>]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.20003pt on input line 55.
+(Font)              scaled to size 7.20003pt on input line 305.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 6.40002pt on input line 55.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 64.
+(Font)              scaled to size 6.40002pt on input line 305.
+ [102] (./chapter3/fig/demo_model.tex <./img/ch3/demo_model.pdf, id=707, 511.0537pt x 248.9265pt>
+File: ./img/ch3/demo_model.pdf Graphic file (type pdf)
+ <use ./img/ch3/demo_model.pdf>
+Package pdftex.def Info: ./img/ch3/demo_model.pdf used on input line 6.
+(pdftex.def)             Requested size: 405.45049pt x 197.4968pt.
+)
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 327.
+
+[103 <./img/ch3/demo_model.pdf>] [104] [105] (./chapter3/tab/stat_breakpoints.tex
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/jkp/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+) [106] [107] (./chapter3/fig/naive_break_tru.tex <./img/ch3/naive_break_tru.pdf, id=878, 583.95808pt x 596.04433pt>
+File: ./img/ch3/naive_break_tru.pdf Graphic file (type pdf)
+ <use ./img/ch3/naive_break_tru.pdf>
+Package pdftex.def Info: ./img/ch3/naive_break_tru.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 435.63625pt.
+)
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 429.
+
+(./chapter3/fig/naive_length_tru.tex <./img/ch3/naive_length_tru.pdf, id=893, 650.43pt x 505.89pt>
+File: ./img/ch3/naive_length_tru.pdf Graphic file (type pdf)
+ <use ./img/ch3/naive_length_tru.pdf>
+Package pdftex.def Info: ./img/ch3/naive_length_tru.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
+) [108] [109 <./img/ch3/naive_break_tru.pdf>] [110 <./img/ch3/naive_length_tru.pdf>] [111] [112] (./chapter3/fig/beagle_break_tru.tex <./img/ch3/beagle_break_tru.pdf, id=1059, 584.67807pt x 415.11005pt>
+File: ./img/ch3/beagle_break_tru.pdf Graphic file (type pdf)
+ <use ./img/ch3/beagle_break_tru.pdf>
+Package pdftex.def Info: ./img/ch3/beagle_break_tru.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 303.02148pt.
+) [113 <./img/ch3/beagle_break_tru.pdf>] (./chapter3/fig/beagle_length_tru.tex <./img/ch3/beagle_length_tru.pdf, id=1145, 650.43pt x 505.89pt>
+File: ./img/ch3/beagle_length_tru.pdf Graphic file (type pdf)
+ <use ./img/ch3/beagle_length_tru.pdf>
+Package pdftex.def Info: ./img/ch3/beagle_length_tru.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
+) [114] [115 <./img/ch3/beagle_length_tru.pdf>] (./chapter3/tab/stat_ibd_1kg.tex
+Overfull \hbox (5.45pt too wide) detected at line 62
+ 
+ []
+
+
+Overfull \hbox (5.45pt too wide) detected at line 62
+ 
+ []
+
+
+Overfull \hbox (5.45pt too wide) detected at line 62
+ 
+ []
+
+) (./chapter3/fig/1kg20_lengths.tex <./img/ch3/length_1kg20.pdf, id=1201, 650.43pt x 505.89pt>
+File: ./img/ch3/length_1kg20.pdf Graphic file (type pdf)
+ <use ./img/ch3/length_1kg20.pdf>
+Package pdftex.def Info: ./img/ch3/length_1kg20.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
+) [116] [117] [118 <./img/ch3/length_1kg20.pdf>] (./chapter3/fig/phase_fk_prop.tex <./img/ch3/phase_fk_prop.pdf, id=1249, 421.52081pt x 571.29236pt>
+File: ./img/ch3/phase_fk_prop.pdf Graphic file (type pdf)
+ <use ./img/ch3/phase_fk_prop.pdf>
+Package pdftex.def Info: ./img/ch3/phase_fk_prop.pdf used on input line 6.
+(pdftex.def)             Requested size: 320.09352pt x 433.84673pt.
+) [119] [120 <./img/ch3/phase_fk_prop.pdf>] (./chapter3/fig/phase_fk_error.tex <./img/ch3/phase_fk_error.pdf, id=1305, 650.43pt x 397.485pt>
+File: ./img/ch3/phase_fk_error.pdf Graphic file (type pdf)
+ <use ./img/ch3/phase_fk_error.pdf>
+Package pdftex.def Info: ./img/ch3/phase_fk_error.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 260.82462pt.
+) [121 <./img/ch3/phase_fk_error.pdf>] (./chapter3/fig/phase_fk_coverage.tex <./img/ch3/phase_coverage_1kg.pdf, id=1328, 722.7pt x 361.35pt>
+File: ./img/ch3/phase_coverage_1kg.pdf Graphic file (type pdf)
+ <use ./img/ch3/phase_coverage_1kg.pdf>
+Package pdftex.def Info: ./img/ch3/phase_coverage_1kg.pdf used on input line 8.
+(pdftex.def)             Requested size: 426.79137pt x 213.39867pt.
+) [122] [123 <./img/ch3/phase_coverage_1kg.pdf>]
+LaTeX Font Info:    Try loading font information for T1+phv on input line 686.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
@@ -2543,251 +2669,9 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [47] [48] (./chapter2/fig/info_algorithm.tex <./img/ch2/info_algorithm.pdf, id=201, 471.7923pt x 393.76453pt>
-File: ./img/ch2/info_algorithm.pdf Graphic file (type pdf)
- <use ./img/ch2/info_algorithm.pdf>
-Package pdftex.def Info: ./img/ch2/info_algorithm.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 356.21132pt.
-) [49] [50 <./img/ch2/info_algorithm.pdf>]
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
-(Font)              scaled to size 8.76003pt on input line 131.
- [51] [52] [53] [54] (./chapter2/fig/info_design_panels.tex <./img/ch2/info_design_panels.pdf, id=302, 372.0596pt x 110.18405pt>
-File: ./img/ch2/info_design_panels.pdf Graphic file (type pdf)
- <use ./img/ch2/info_design_panels.pdf>
-Package pdftex.def Info: ./img/ch2/info_design_panels.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 126.40129pt.
-) [55 <./img/ch2/info_design_panels.pdf>] (./chapter2/tab/refsize.tex) [56] (./chapter2/fig/info_design_accuracy.tex <./img/ch2/info_design_accuracy.pdf, id=367, 293.73227pt x 134.49617pt>
-File: ./img/ch2/info_design_accuracy.pdf Graphic file (type pdf)
-
-<use ./img/ch2/info_design_accuracy.pdf>
-Package pdftex.def Info: ./img/ch2/info_design_accuracy.pdf used on input line 6.
-(pdftex.def)             Requested size: 341.43439pt x 156.34401pt.
- [57]) [58 <./img/ch2/info_design_accuracy.pdf>] (./chapter2/tab/mim_qc.tex
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.00003pt on input line 12.
-
-Overfull \hbox (5.45pt too wide) detected at line 30
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 30
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 31
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 31
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 32
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 32
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 33
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 33
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 36
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 36
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 37
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 37
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 38
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 38
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 39
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 39
- 
- []
-
-) [59] (./chapter2/fig/mim_rsq.tex <./img/ch2/accuracy_mim_maf_rsq.pdf, id=442, 558.08058pt x 570.61919pt>
-File: ./img/ch2/accuracy_mim_maf_rsq.pdf Graphic file (type pdf)
- <use ./img/ch2/accuracy_mim_maf_rsq.pdf>
-Package pdftex.def Info: ./img/ch2/accuracy_mim_maf_rsq.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 436.39166pt.
-) [60] [61 <./img/ch2/accuracy_mim_maf_rsq.pdf>] (./chapter2/tab/mim_rsq.tex) [62] [63] (./chapter2/tab/imp_qc.tex
-Overfull \hbox (5.45pt too wide) detected at line 21
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 21
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 22
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 22
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 23
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 23
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 24
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 24
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 27
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 27
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 28
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 28
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 29
- 
- []
-
-
-Overfull \hbox (5.45pt too wide) detected at line 29
- 
- []
-
-) (./chapter2/fig/imp_rsq.tex <./img/ch2/accuracy_imp_maf_rsq.pdf, id=611, 454.85353pt x 593.86093pt>
-File: ./img/ch2/accuracy_imp_maf_rsq.pdf Graphic file (type pdf)
- <use ./img/ch2/accuracy_imp_maf_rsq.pdf>
-Package pdftex.def Info: ./img/ch2/accuracy_imp_maf_rsq.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 557.23257pt.
-
-Underfull \hbox (badness 2050) in paragraph at lines 12--12
-[]\T1/jkp/b/n/10 Figure 2.5: |Ac-cur-acy com-par-ison between meta-imputation and dir-ect im-puta-tions.
- []
-
-
-LaTeX Warning: Float too large for page by 5.87555pt on input line 13.
-
-) [64] [65 <./img/ch2/accuracy_imp_maf_rsq.pdf>] (./chapter2/tab/imp_rsq.tex
-Overfull \hbox (4.25pt too wide) detected at line 38
-\T1/jkp/m/n/10 ** 
- []
-
-
-Overfull \hbox (4.25pt too wide) detected at line 66
-\T1/jkp/m/n/10 ** 
- []
-
-
-Overfull \hbox (4.25pt too wide) detected at line 67
-\T1/jkp/m/n/10 ** 
- []
-
-
-Overfull \hbox (4.25pt too wide) detected at line 72
-\T1/jkp/m/n/10 ** 
- []
-
-
-LaTeX Warning: Float too large for page by 24.27309pt on input line 93.
-
-) [66] [67] (./chapter2/fig/imp_delta.tex <./img/ch2/accuracy_imputed_delta.pdf, id=726, 593.0735pt x 507.35097pt>
-File: ./img/ch2/accuracy_imputed_delta.pdf Graphic file (type pdf)
- <use ./img/ch2/accuracy_imputed_delta.pdf>
-Package pdftex.def Info: ./img/ch2/accuracy_imputed_delta.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 365.10663pt.
-) [68] [69 <./img/ch2/accuracy_imputed_delta.pdf>] [70] [71] (./chapter2/fig/info_design_power.tex <./img/ch2/info_design_power.pdf, id=877, 343.84279pt x 221.8694pt>
-File: ./img/ch2/info_design_power.pdf Graphic file (type pdf)
- <use ./img/ch2/info_design_power.pdf>
-Package pdftex.def Info: ./img/ch2/info_design_power.pdf used on input line 6.
-(pdftex.def)             Requested size: 384.10962pt x 247.87247pt.
-) [72] [73 <./img/ch2/info_design_power.pdf>] [74] (./chapter2/fig/power_lgc.tex <./img/ch2/association_lambda.pdf, id=985, 513.08188pt x 498.08119pt>
-File: ./img/ch2/association_lambda.pdf Graphic file (type pdf)
- <use ./img/ch2/association_lambda.pdf>
-Package pdftex.def Info: ./img/ch2/association_lambda.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 414.32689pt.
-) (./chapter2/fig/gwas_power.tex <./img/ch2/association_power_A.pdf, id=993, 650.43pt x 523.9575pt>
-File: ./img/ch2/association_power_A.pdf Graphic file (type pdf)
- <use ./img/ch2/association_power_A.pdf>
-Package pdftex.def Info: ./img/ch2/association_power_A.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 343.81429pt.
- <./img/ch2/association_power_B.pdf, id=996, 650.43pt x 523.9575pt>
-File: ./img/ch2/association_power_B.pdf Graphic file (type pdf)
- <use ./img/ch2/association_power_B.pdf>
-Package pdftex.def Info: ./img/ch2/association_power_B.pdf used on input line 16.
-(pdftex.def)             Requested size: 426.79137pt x 343.81429pt.
- <./img/ch2/association_power_C.pdf, id=997, 650.43pt x 523.9575pt>
-File: ./img/ch2/association_power_C.pdf Graphic file (type pdf)
- <use ./img/ch2/association_power_C.pdf>
-Package pdftex.def Info: ./img/ch2/association_power_C.pdf used on input line 25.
-(pdftex.def)             Requested size: 426.79137pt x 343.81429pt.
-) (./chapter2/tab/stats_power.tex) [75] [76 <./img/ch2/association_lambda.pdf>] [77 <./img/ch2/association_power_A.pdf>] [78 <./img/ch2/association_power_B.pdf>] [79 <./img/ch2/association_power_C.pdf>] [80] [81]) [82] [83] (.build/main.acr) [237
-
+(Font)              scaled to size 8.76003pt on input line 686.
+ [124]) [125] (.build/main.acr) [237
 
 
 
@@ -2835,22 +2719,22 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ABF3F50690171B9D2BBE0EA01315F3C3;1100.
+(rerunfilecheck)             Checksum: A18FBFF72A2336387EAC9D4E94E00245;1214.
  ) 
 Here is how much of TeX's memory you used:
- 48719 strings out of 493089
- 929436 string characters out of 6134842
- 1196143 words of memory out of 5000000
- 49873 multiletter control sequences out of 15000+600000
- 285961 words of font info for 780 fonts, out of 8000000 for 9000
+ 49094 strings out of 493089
+ 936395 string characters out of 6134842
+ 1171138 words of memory out of 5000000
+ 50104 multiletter control sequences out of 15000+600000
+ 361708 words of font info for 994 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,18n,73p,10436b,1314s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
-e1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on .build/main.pdf (56 pages, 1220946 bytes).
+ 62i,15n,73p,10436b,1313s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on .build/main.pdf (59 pages, 2035184 bytes).
 PDF statistics:
- 1579 PDF objects out of 1728 (max. 8388607)
- 1360 compressed objects within 14 object streams
- 360 named destinations out of 1000 (max. 500000)
- 83652 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1784 PDF objects out of 2073 (max. 8388607)
+ 1551 compressed objects within 16 object streams
+ 354 named destinations out of 1000 (max. 500000)
+ 104157 words of extra memory for PDF output out of 106986 (max. 10000000)
 

@@ -91,7 +91,7 @@ Here, several score metrics (\ccref{metaimpute_score}) and \n{2} merge operation
 
 It is convenient to think of genotype data as being arranged in a matrix, $G$, of size ${M \times N}$ where $M$ is the number of observed variant sites and $N$ is the diploid sample size.
 Let $g_{ij}$ denote the genotype observed at marker~$i$ in individual~$j$, such that $g_i$ refers to the vector of genotypes of size~$N$ at the ${i\text{th}}$~site, and $g_j$ the vector of genotypes of size~$M$ belonging to individual~$j$.
-Meta-imputation combined the information contained across several such genotype matrices.
+Meta-imputation combines the information contained across several such genotype matrices.
 Let $L$ denote the number of available genotype datasets imputed from different reference panels, such that ${G_{1}, \dots, G_{L}}$ are available, and ${k \in \{1,\ldots,L\}}$ is used to identify a particular matrix; note that ${L \geq 2}$ is assumed.
 Because reference data were imputed into the same study sample, the number of individuals, $N$, is constant in each matrix but $M_k$ may vary due to differences in coverage per reference panel.
 
@@ -245,8 +245,8 @@ This was done to allow for a larger number of replicate analyses, as will be des
 
 Generated split panels were used for separate imputations and subsequent integration of estimated genotype data through meta-imputation.
 To compare meta-imputed genotypes to those that were directly imputed from a unified panel, \n{2} additional reference datasets were generated from \gls{1kg} per scenario, which combined samples across respective split panels; referred to as the \emph{intersection} panel and the \emph{union} panel.
-The union reference contained variation as present in the original dataset, but for the individuals contained across split panels in a given scenario, and with monomorphic and singleton variants were removed.
-The intersection reference contained the same set of individuals as the union panel, but with variant sites not shared across all split panels were removed.
+The union reference contained variation as present in the original dataset, but for the individuals contained across split panels in a given scenario, and with monomorphic and singleton variants removed.
+The intersection reference contained the same set of individuals as the union panel, but where variant sites not shared across all split panels were removed.
 Unlike the split panels, from which imputed data were combined in meta-imputation, the genotype datasets obtained in imputations from the intersection and union panels were used in direct comparisons to meta-imputed data.
 The process of reference data generation is illustrated in \cpref{fig:info_design_panels}.
 A summary of the final reference datasets in each scenario is given in \cpref{tab:refsize}.
