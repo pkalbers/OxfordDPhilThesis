@@ -317,7 +317,7 @@ This process is repeated until only \n{1} lineage is left, which belongs to the 
 
 The history of a sample is reflected in its genealogy and can be described in terms of the topology of the tree and the lengths of the connecting branches.
 The branch length corresponds to the time interval between \n{2} successive coalescent events, which is of central interest in describing the coalescent process.
-Let this waiting time be denoted by \Correct{$T_j$}, where \Correct{$j$} corresponds to the number of distinct lineages during the time interval, which changes from \Correct{$j$} to \Correct{${j-1}$} at coalescence.
+Let this waiting time be denoted by \Correct{$T_i$}, where \Correct{$i$} corresponds to the number of distinct lineages during the time interval, which changes from \Correct{$i$} to \Correct{${i-1}$} at coalescence.
 An example of a simple genealogical tree is shown in \cpref{fig:info_coalescent}, in which the waiting times between coalescent events are indicated.
 In the following, the concept of the standard coalescent is described by assuming a haploid population of constant size, $N$, in which the effects of mutation, selection, recombination, or other biological processes are not involved.
 
@@ -352,7 +352,7 @@ It is therefore convenient to scale time in units of $N$~generations, namely
 	\tau ~=~ \frac{t}{N}
 \end{equation}
 where the time, $\tau$, is continuous (as opposed to time measured in distinct generations) and referred to as the \emph{population-scaled} time.
-The probability that a pair of lineages remains distinct during a given time interval is given below, and can now be approximated using the exponential distribution if the population size is sufficiently large, \ie as $N$ tends to infinity;
+The probability that a pair of lineages remains distinct during a given time interval can now be approximated using the exponential distribution if the population size is sufficiently large, \ie as $N$ tends to infinity; namely
 \begin{equation}\label{eq:coal_2_dont}
 	P(T_2 > \tau \mid N)
 	~=~ \Bigg( 1 - \frac{1}{N} \Bigg)^{\lfloor N \tau \rfloor}
@@ -361,51 +361,62 @@ The probability that a pair of lineages remains distinct during a given time int
 \end{equation}
 where ${\lfloor N \tau \rfloor}$ is the largest integer that does not exceed ${N \tau}$ \citep[\eg, see][]{nordborg2001coalescent}.
 
-The above can now be extended to consider $n$~lineages, which in the previous generation may have $n$ distinct ancestral lineages if no coalescent event has occurred, or ${n-1}$ otherwise.
-The probability of no coalescence at a given time can be derived as follows.
-Let the first lineage choose among $N$~ancestors with probability ${\rfrac{N}{N} = 1}$, the second lineage then chooses among the remaining ${N-1}$ ancestors with probability ${\rfrac{(N-1)}{N}}$, the third chooses among ${N-2}$ ancestors with probability ${\rfrac{(N-2)}{N}}$, and so on; \ie
-\begin{equation*}
-	\Big(\frac{N}{N}\Big) ~ \Big(\frac{N-1}{N}\Big) ~ \Big(\frac{N-2}{N}\Big) ~ \cdots ~ \Big(\frac{N-(n-1)}{N}\Big)
-\end{equation*}
-which is equal to
+
+\Correct{The above can now be extended to consider a sample of ${n\geq2}$ individuals.
+Let $i$ denote the number of lineages in the current generation.
+In the immediately previous generation, there are $i$ distinct ancestral lineages if no coalescent event has occurred, or ${i-1}$ otherwise.
+The probability of no coalescence in the previous generation can be derived by letting each lineage choose a different ancestor.}
+Let the first lineage choose among $N$~ancestors with probability ${\rfrac{N}{N} = 1}$, the second lineage then chooses among the remaining ${N-1}$ ancestors with probability ${\rfrac{(N-1)}{N}}$, the third chooses among ${N-2}$ ancestors with probability ${\rfrac{(N-2)}{N}}$, and so on.
+\Correct{Given $i$~lineages in the current generation, the probability that they also have $i$~ancestors in the immediately previous generation therefore is}
 \begin{equation}\label{eq:coal_n_dont}
-	\prod_{k=0}^{n-1} \frac{N-k}{N}
-	~=~ \prod_{k=1}^{n-1} \Big( 1 - \frac{k}{N} \Big)
-	~=~ 1 - {n \choose 2} \frac{1}{N} ~+~ \mathcal{O}\Big( \frac{1}{N^{2}} \Big)
-\end{equation}
-where the binomial coefficient, ${{n \choose 2} = \sum_{k=1}^{n-1}k}$, corresponds to the number of possible pairs.
-Similarly, the probability that any \n{2} of the $n$~lineages coalesce at a given time implies that the remaining lineages do not coalesce, therefore
-\begin{equation}\label{eq:coal_n_do}
 \begin{split}
-	P(T_n = \tau \mid N)
-	& ~=~ {n \choose 2} \frac{1}{N} ~\times~ \Big(1-\frac{1}{N}\Big) ~ \Big(1-\frac{2}{N}\Big) ~ \cdots ~ \Big(1-\frac{n-2}{N}\Big) \\
-	& ~=~ {n \choose 2} \frac{1}{N} ~\times~ \prod_{k=1}^{n-2} \Big( 1 - \frac{k}{N} \Big) \\
-	& ~=~ {n \choose 2} \frac{1}{N} ~+~ \mathcal{O}\Big( \frac{1}{N^{2}} \Big)
-	\ \text{.}
+  P_{i,i}(N)
+  & ~=~ \Big(\frac{N}{N}\Big) ~ \Big(\frac{N-1}{N}\Big) ~ \Big(\frac{N-2}{N}\Big) ~ \cdots ~ \Big(\frac{N-(i-1)}{N}\Big) \\
+  & ~=~ \Big(\frac{N}{N}\Big) ~ \Big(1-\frac{1}{N}\Big) ~ \Big(1-\frac{2}{N}\Big) ~ \cdots ~ \Big(1-\frac{i-1}{N}\Big) \\
+	& ~=~ \prod_{k=1}^{i-1} \Big( 1 - \frac{k}{N} \Big) \\
+  & ~=~ 1-\frac{{\sum_{k=1}^{i-1}k}}{N} ~+~ \mathcal{O}\Big( \frac{1}{N} \Big)
+	\quad = \quad 1 - {i \choose 2} \frac{1}{N} ~+~ \mathcal{O}\Big( \frac{1}{N} \Big) \CorrectLabel
 \end{split}
 \end{equation}
-Note that the term ${\mathcal{O}(N^{-2})}$ describes the limiting behaviour of \cref{eq:coal_n_dont,eq:coal_n_do} and captures all terms that decrease more rapidly than $\rfrac{1}{N}$ as $N$ tends to infinity.
-Mathematically, ${\mathcal{O}(N^{-2})}$ corresponds to the \emph{diffusion} limit of the continuous process, which can be ignored if the population size is sufficiently large \citep[\eg, see][]{wakeley2008}.
+where the binomial coefficient, \Correct{${{i \choose 2} = \sum_{k=1}^{i-1}k}$}, corresponds to the number of possible pairs.
+
+\Correct{Similarly, to derive the probability of a coalescent event in the immediately previous generation, it is implied that $i$~lineages have $i-1$~ancestors.
+Let any two lineages choose the same ancestor with probability ${i \choose 2}\frac{1}{N}$ while the remaining lineages choose a different ancestor.
+It follows that}
+\begin{equation}\label{eq:coal_n_do}
+\begin{split}
+	P_{i,i-1}(N)
+	& ~=~ {i \choose 2} \frac{1}{N} ~\times~ \Big(\frac{N-1}{N}\Big) ~ \Big(\frac{N-2}{N}\Big) ~ \cdots ~ \Big(\frac{N-(i-2)}{N}\Big) \\
+	& ~=~ {i \choose 2} \frac{1}{N} ~\times~ \prod_{k=1}^{i-2} \Big( 1 - \frac{k}{N} \Big) \\
+	& ~=~ {i \choose 2} \frac{1}{N} ~+~ \mathcal{O}\Big( \frac{1}{N} \Big)
+	\ \text{.} \CorrectLabel
+\end{split}
+\end{equation}
+Note that the term ${\mathcal{O}(N^{-1})}$ describes the limiting behaviour of \cref{eq:coal_n_dont,eq:coal_n_do} and captures all terms that decrease more rapidly than $\rfrac{1}{N}$ as $N$ tends to infinity.
+Mathematically, ${\mathcal{O}(N^{-1})}$ corresponds to the \emph{diffusion} limit of the continuous process, which can be ignored if the population size is sufficiently large \citep[\eg, see][]{wakeley2008}.
 By doing so, it is assumed that not more than \n{2} lineages coalesce at a given time and that the resulting tree has a binary topology.
-In the limit, and if ${n \ll N}$, the probability of a coalescent event at a given time is
-\begin{equation}\label{eq:coal_approx}
-	P(T_n = \tau \mid N) ~\approx~ {n \choose 2} \frac{1}{N}
-\end{equation}
-and, as before, the waiting time can be approximated in terms of the exponential distribution as given below.
+\Correct{Hence, in the limit and if ${i \ll N}$, the probability of no coalescence ({\ref{eq:coal_n_dont}}) and the probability of coalescence ({\ref{eq:coal_n_do}}) in the immediately previous generation, respectively, can be written as}
+\begin{equation*}
+	P_{i,i}(N) ~\approx~ 1 - {i \choose 2} \frac{1}{N} ~ \qquad ~
+  P_{i,i-1}(N) ~\approx~ {i \choose 2} \frac{1}{N}
+  \ \text{.} \CorrectLabel
+\end{equation*}
+
+\Correct{Using the above result, it follows that} the waiting time until a coalescent event can again be approximated in terms of the exponential distribution as given below.
 \begin{equation}\label{eq:coal_n_approx}
-	P(T_n > \tau \mid N)
-	~\approx~ \Bigg( 1 - {n \choose 2} \frac{1}{N} \Bigg)^{\lfloor N \tau \rfloor}
+	P(T_i > \tau \mid N)
+	~\approx~ \Bigg( 1 - {i \choose 2} \frac{1}{N} \Bigg)^{\lfloor N \tau \rfloor}
 	\quad \xrightarrow{~ N~\rightarrow~\infty ~} \quad
-	\euler{-{n \choose 2}\tau}
+	\euler{-{i \choose 2}\tau} \CorrectLabel
 \end{equation}
-Thus, in the continuous-time coalescent, the approximate waiting time between successive coalescent events, $T_n$, is exponentially distributed with rate ${n \choose 2}$, from which follows that the expected value is
+Thus, in the continuous-time coalescent, the approximate waiting time between successive coalescent events, \Correct{$T_i$}, is exponentially distributed with rate \Correct{${i \choose 2}$}, from which follows that the expected value is
 \begin{equation}\label{eq:coal_n_exp}
-	\mathbb{E}[T_n] ~=~ \frac{1}{{n \choose 2}} ~=~ \frac{2}{n(n-1)}
+	\mathbb{E}[T_i] ~=~ \frac{1}{{i \choose 2}} ~=~ \frac{2}{i(i-1)} \CorrectLabel
 \end{equation}
 and the variance is
 \begin{equation}\label{eq:coal_n_var}
-	\operatorname{Var}[T_n] ~=~ \frac{1}{{n \choose 2}^2} ~=~ \frac{4}{n^2 (n-1)^2}
-	\ .
+	\operatorname{Var}[T_i] ~=~ \frac{1}{{i \choose 2}^2} ~=~ \frac{4}{i^2 (i-1)^2}
+	\ . \CorrectLabel
 \end{equation}
 
 An important result of the coalescent is that an expectation for the \gls{tmrca} can be derived dependent on the population size.
@@ -416,10 +427,10 @@ Given the sum of branch lengths that need to be traced back to arrive at the \gl
 the expected value can be expressed as
 \begin{equation}\label{eq:coal_tmrca}
 	\mathbb{E}[T_\text{MRCA} \mid N]
-	~=~ \sum_{n = 2}^{N} \mathbb{E}[T_n]
-	~=~ \sum_{n = 2}^{N} \frac{2}{n(n-1)}
+	~=~ \sum_{i = 2}^{N} \mathbb{E}[T_k]
+	~=~ \sum_{i = 2}^{N} \frac{2}{i(i-1)}
 	~=~ 2~\Big( 1 - \frac{1}{N} \Big)
-	\ \text{.}
+	\ \text{.} \CorrectLabel
 \end{equation}
 Therefore, ${\mathbb{E}[T_\text{MRCA}] \approx 2}$ as ${N\rightarrow\infty}$, which implies that on average the number of generations until the entire sample has coalesced into a single ancestral lineage is equal to about twice the population size.
 
@@ -486,14 +497,14 @@ Under this assumption, the number of segregating sites (or \emph{variant} sites)
 The total branch length of the tree thereby determines the expected value of the number of segregating sites, denoted by $S_n$.
 From the sum of all branch lengths, \ie
 \begin{equation*}
-	T_\text{total} ~=~ j T_j ~+~ (j-1) T_{j-1} ~+~ (j-2) T_{j-2} ~+~ \ldots ~+~ 2 T_2 \CorrectLabel
+	T_\text{total} ~=~ i T_i ~+~ (i-1) T_{i-1} ~+~ (i-2) T_{i-2} ~+~ \ldots ~+~ 2 T_2 \CorrectLabel
 \end{equation*}
-where \Correct{$j$} is the number of distinct lineages during a given time interval,
+where \Correct{$i$} is the number of distinct lineages during a given time interval,
 the expected value of the total branch length can be computed as
 \begin{equation}
-	\mathbb{E}[T_\text{total}]
+	\mathbb{E}[T_\text{total} \mid n]
 	~=~ \sum_{i=2}^{n} i ~ \mathbb{E}[T_i]
-	~=~ \sum_{i=2}^{n} i ~ \frac{2}{i(i-1)}
+	~=~ \sum_{i=2}^{n} i ~ \frac{2}{i(i-1)} \CorrectLabel
 \end{equation}
 where ${\mathbb{E}[T_i]}$ is given by \ctref{eq:coal_n_exp}.
 From the above, the expected value of $S_n$ can be derived as follows.
@@ -547,47 +558,47 @@ The factor of 4 results from time being scaled in units of ${2 N}$ generations, 
 Note that this adjustment permeates the coalescent and implies similar changes in other equations.
 For example, the scaled mutation rate given in \ctref{eq:mutrate} needs to be written as $~{\theta = 4 N \mu}~$ if considered in a diploid population.
 
-Given a sample of $n$~chromosomes, the number of chromosomal lineages, $k$, may increase (due to recombination) or decrease (due to coalescence) back in time.
-First, consider the event of no recombination and no coalescence; \ie the value of $k$ remains the same in the previous generation \citep[\eg, see][]{tavare2004}.
+Given a sample of $n$~chromosomes, the number of chromosomal lineages, \Correct{$i$}, may increase (due to recombination) or decrease (due to coalescence) back in time.
+First, consider the event of no recombination and no coalescence; \ie the value of \Correct{$i$} remains the same in the previous generation \citep[\eg, see][]{tavare2004}.
 The probability of this event is
 \begin{equation}\label{eq:coalrec_dont1}
-	(1-\rho)^k~\times~\Big(1-\frac{1}{N} \Big)~\times~\Big(1-\frac{2}{N}\Big)~\times~\cdots~\times~\Big(1-\frac{k-1}{N}\Big)
+	(1-\rho)^i~\times~\Big(\frac{N-1}{N} \Big)~\Big(\frac{N-2}{N}\Big)~\cdots~\Big(\frac{N-(i-1)}{N}\Big) \CorrectLabel
 \end{equation}
-where ${(1 - \rho)^k}$ corresponds to the probability that none of the lineages recombine; the other terms refer to the probability of no coalescence, which was already defined in \ctref{eq:coal_n_dont}.
+where \Correct{${(1 - \rho)^i}$} corresponds to the probability that none of the lineages recombine; the other terms refer to the probability of no coalescence, which was already defined in \ctref{eq:coal_n_dont}.
 Now, because the rate at which \n{1} lineage branches into \n{2} lineages back in time is equal to $\rfrac{\phi}{2}$, \Cref{eq:coalrec_dont1} can be written as
 \begin{equation}\label{eq:coalrec_dont2}
-	1-\frac{k\phi}{2N}~-~1-{k \choose 2}\frac{1}{N}~+~\mathcal{O}\Big(\frac{1}{N^2}\Big)
-	\ \text{.}
+	1-\frac{i\phi}{2N}~-~1-{i \choose 2}\frac{1}{N}~+~\mathcal{O}\Big(\frac{1}{N}\Big)
+	\ \text{.} \CorrectLabel
 \end{equation}
-For the event ${k\rightarrow k+1}$, which can only be facilitated through recombination, it follows that the probability of a recombination event in the previous generation is given by
+For the event \Correct{${i\rightarrow i+1}$}, which can only be facilitated through recombination, it follows that the probability of a recombination event in the previous generation is given by
 \begin{equation}
-	\frac{k\phi}{2N}~+~\mathcal{O}\Big(\frac{1}{N^2}\Big)
-	\ \text{.}
+	\frac{i\phi}{2N}~+~\mathcal{O}\Big(\frac{1}{N}\Big)
+	\ \text{.} \CorrectLabel
 \end{equation}
-The term ${\mathcal{O}(N^{-2})}$ is the diffusion limit of the function and corresponds to the probability that more than \n{1} recombination event occurs at a given unit of time, which can be ignored for larger population sizes; \ie as $N$ tends to infinity.
-Similarly, a coalescent event in the previous generation means that ${k \rightarrow k-1}$, for which the probability has already been described in \ctref{eq:coal_approx}.
+The term ${\mathcal{O}(N^{-1})}$ is the diffusion limit of the function and corresponds to the probability that more than \n{1} recombination event occurs at a given unit of time, which can be ignored for larger population sizes; \ie as $N$ tends to infinity.
+Similarly, a coalescent event in the previous generation means that \Correct{${i \rightarrow i-1}$}, for which the probability has already been described in \ctref{eq:coal_n_do}.
 Also, as shown in \ctref{eq:coal_n_approx}, the probability of coalescent events, in the limit ${N\rightarrow\infty}$, is exponentially distributed with rate
 \begin{equation}
-	{k\choose 2}~=~\frac{k(k-1)}{2}
-	\ \text{.}
+	{i\choose 2}~=~\frac{i(i-1)}{2}
+	\ \text{.} \CorrectLabel
 \end{equation}
 Likewise, in the limit, recombination follows the same distribution in the coalescent at rate
 \begin{equation}
-	\frac{k\phi}{2}
-	\ \text{.}
+	\frac{i\phi}{2}
+	\ \text{.} \CorrectLabel
 \end{equation}
 
 It follows that the coalescent with recombination can be described as a continuous-time Markov chain with a \emph{birth-death} process.
 Lineages are ``born'' through recombination or ``die'' due to coalescence backward in time \citep[\eg, see][]{tavare2004,wakeley2008}.
-The state space is delimited by ${k=n}$ at present and ${k=1}$ at an \gls{mrca}.
+The state space is delimited by \Correct{${i=n}$} at present and \Correct{${i=1}$} at an \gls{mrca}.
 The transition rates can be summarised as follows.
 \begin{equation}
-k ~\rightarrow~
+i ~\rightarrow~
 \renewcommand{\arraystretch}{1.2}
 \left\{
 \begin{array}{llll}
-	k-1  &  \text{at rate} & \rfrac{k(k-1)}{2} & \text{if lineages coalesce} \\
-  k+1  &  \text{at rate} & \rfrac{k\phi}{2}  & \text{if lineages recombine}
+	i-1  &  \text{at rate} & \frac{i(i-1)}{2} & \text{if lineages coalesce} \\
+  i+1  &  \text{at rate} & \frac{i\phi}{2}  & \text{if lineages recombine} \CorrectLabel
 \end{array}
 \right.
 \end{equation}

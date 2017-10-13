@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  12 OCT 2017 16:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  13 OCT 2017 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2604,70 +2604,64 @@ LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 7.20003pt on input line 332.
  [18]
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 366.
+LaTeX Font Warning: Command \large invalid in math mode on input line 369.
 
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 366.
+LaTeX Font Warning: Command \large invalid in math mode on input line 369.
 
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 366.
+LaTeX Font Warning: Command \large invalid in math mode on input line 369.
 
 [19]
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 387.
+LaTeX Font Warning: Command \large invalid in math mode on input line 395.
 
-[20] [21] (./chapter1/fig/info_mutation.tex <./img/ch1/info_mutation.pdf, id=670, 446.05327pt x 181.78444pt>
+[20] [21] (./chapter1/fig/info_mutation.tex <./img/ch1/info_mutation.pdf, id=683, 446.05327pt x 181.78444pt>
 File: ./img/ch1/info_mutation.pdf Graphic file (type pdf)
  <use ./img/ch1/info_mutation.pdf>
 Package pdftex.def Info: ./img/ch1/info_mutation.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 173.94243pt.
 ) [22]
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 476.
+LaTeX Font Warning: Command \large invalid in math mode on input line 487.
 
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 477.
+LaTeX Font Warning: Command \large invalid in math mode on input line 488.
 
+[23 <./img/ch1/info_mutation.pdf>]
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 482.
+LaTeX Font Warning: Command \large invalid in math mode on input line 493.
 
-[23 <./img/ch1/info_mutation.pdf>] [24] [25] (./chapter1/fig/info_arg.tex <./img/ch1/info_arg.pdf, id=947, 571.60762pt x 247.27551pt>
+[24] [25] (./chapter1/fig/info_arg.tex <./img/ch1/info_arg.pdf, id=959, 571.60762pt x 247.27551pt>
 File: ./img/ch1/info_arg.pdf Graphic file (type pdf)
  <use ./img/ch1/info_arg.pdf>
 Package pdftex.def Info: ./img/ch1/info_arg.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 184.62985pt.
 ) [26 <./img/ch1/info_arg.pdf>]
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 557.
+LaTeX Font Warning: Command \large invalid in math mode on input line 568.
 
-[27]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 589.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 590.
-
-[28]
+[27] [28]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 6.40002pt on input line 620.
- (./chapter1/fig/info_seqtech.tex <./img/ch1/info_seqtech.pdf, id=1115, 536.88617pt x 241.69778pt>
+(Font)              scaled to size 6.40002pt on input line 631.
+ (./chapter1/fig/info_seqtech.tex <./img/ch1/info_seqtech.pdf, id=1124, 536.88617pt x 241.69778pt>
 File: ./img/ch1/info_seqtech.pdf Graphic file (type pdf)
  <use ./img/ch1/info_seqtech.pdf>
 Package pdftex.def Info: ./img/ch1/info_seqtech.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 192.13776pt.
-) (./chapter1/fig/cost_per_genome.tex <./img/ch1/cost_per_genome.pdf, id=1130, 505.89pt x 289.08pt>
+) [29] (./chapter1/fig/cost_per_genome.tex <./img/ch1/cost_per_genome.pdf, id=1159, 505.89pt x 289.08pt>
 File: ./img/ch1/cost_per_genome.pdf Graphic file (type pdf)
  <use ./img/ch1/cost_per_genome.pdf>
 Package pdftex.def Info: ./img/ch1/cost_per_genome.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 243.88417pt.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 12.
- [29]) [30 <./img/ch1/info_seqtech.pdf>] [31 <./img/ch1/cost_per_genome.pdf>] [32] (./chapter1/fig/allelefreq_1kg.tex <./img/ch1/allelefreq_1kg.pdf, id=1332, 650.43pt x 361.35pt>
+) [30 <./img/ch1/info_seqtech.pdf>] [31 <./img/ch1/cost_per_genome.pdf>] [32] (./chapter1/fig/allelefreq_1kg.tex <./img/ch1/allelefreq_1kg.pdf, id=1344, 650.43pt x 361.35pt>
 File: ./img/ch1/allelefreq_1kg.pdf Graphic file (type pdf)
  <use ./img/ch1/allelefreq_1kg.pdf>
 Package pdftex.def Info: ./img/ch1/allelefreq_1kg.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 237.1133pt.
-) [33 <./img/ch1/allelefreq_1kg.pdf>] (./chapter1/fig/gwascat.tex <./img/ch1/gwascat.pdf, id=1367, 578.16pt x 325.215pt>
+) [33 <./img/ch1/allelefreq_1kg.pdf>] (./chapter1/fig/gwascat.tex <./img/ch1/gwascat.pdf, id=1378, 578.16pt x 325.215pt>
 File: ./img/ch1/gwascat.pdf Graphic file (type pdf)
  <use ./img/ch1/gwascat.pdf>
 Package pdftex.def Info: ./img/ch1/gwascat.pdf used on input line 5.
@@ -2677,12 +2671,12 @@ Underfull \hbox (badness 1152) in paragraph at lines 11--11
 []\T1/jkp/b/n/10 Figure 1.12: |Sig-ni-fic-ant risk-associated vari-ants lis-ted in the NHGRI-EBI Cata-logue.
  []
 
-) (./chapter1/fig/gwa_spectrum.tex <./img/ch1/gwa_spectrum.pdf, id=1388, 592.95778pt x 305.85957pt>
+) [34] (./chapter1/fig/gwa_spectrum.tex <./img/ch1/gwa_spectrum.pdf, id=1412, 592.95778pt x 305.85957pt>
 File: ./img/ch1/gwa_spectrum.pdf Graphic file (type pdf)
  <use ./img/ch1/gwa_spectrum.pdf>
 Package pdftex.def Info: ./img/ch1/gwa_spectrum.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 220.15338pt.
-) [34] [35 <./img/ch1/gwascat.pdf>] [36 <./img/ch1/gwa_spectrum.pdf>] (./chapter1/fig/info_ibd.tex
+) [35 <./img/ch1/gwascat.pdf>] [36 <./img/ch1/gwa_spectrum.pdf>] [37] (./chapter1/fig/info_ibd.tex
 LaTeX Font Info:    Try loading font information for T1+phv on input line 5.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -2691,17 +2685,17 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- <./img/ch1/info_ibd.pdf, id=1558, 586.0505pt x 291.99991pt>
+ <./img/ch1/info_ibd.pdf, id=1588, 586.0505pt x 291.99991pt>
 File: ./img/ch1/info_ibd.pdf Graphic file (type pdf)
  <use ./img/ch1/info_ibd.pdf>
 Package pdftex.def Info: ./img/ch1/info_ibd.pdf used on input line 6.
 (pdftex.def)             Requested size: 426.79137pt x 212.65468pt.
- <./img/ch1/info_ibd_segment.pdf, id=1559, 530.66995pt x 233.21228pt>
+ <./img/ch1/info_ibd_segment.pdf, id=1589, 530.66995pt x 233.21228pt>
 File: ./img/ch1/info_ibd_segment.pdf Graphic file (type pdf)
  <use ./img/ch1/info_ibd_segment.pdf>
 Package pdftex.def Info: ./img/ch1/info_ibd_segment.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 187.56288pt.
- [37]) [38] [39 <./img/ch1/info_ibd.pdf> <./img/ch1/info_ibd_segment.pdf>] [40] [41] [42]) [43] [44] (.build/main.acr) [237
+) [38] [39 <./img/ch1/info_ibd.pdf> <./img/ch1/info_ibd_segment.pdf>] [40] [41] [42]) [43] [44] (.build/main.acr) [237
 
 
 
@@ -2754,19 +2748,19 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6FC25B8BF5CC0A657C45A2189C9D25B6;1432.
  ) 
 Here is how much of TeX's memory you used:
- 52427 strings out of 493089
- 993348 string characters out of 6134842
- 1420083 words of memory out of 5000000
- 53408 multiletter control sequences out of 15000+600000
+ 52424 strings out of 493089
+ 993296 string characters out of 6134842
+ 1420004 words of memory out of 5000000
+ 53406 multiletter control sequences out of 15000+600000
  378407 words of font info for 1015 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,19n,86p,10436b,2036s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsbo8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
 ype1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpssmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on .build/main.pdf (61 pages, 1678543 bytes).
+Output written on .build/main.pdf (61 pages, 1685973 bytes).
 PDF statistics:
- 2117 PDF objects out of 2487 (max. 8388607)
- 1720 compressed objects within 18 object streams
- 379 named destinations out of 1000 (max. 500000)
+ 2127 PDF objects out of 2487 (max. 8388607)
+ 1718 compressed objects within 18 object streams
+ 378 named destinations out of 1000 (max. 500000)
  126707 words of extra memory for PDF output out of 128383 (max. 10000000)
 
