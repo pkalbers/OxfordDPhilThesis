@@ -29,7 +29,7 @@ While linkage studies have been successful in the identification of genetic fact
 One major insight gained from the extensive study of the (human) genome is that the genetic variation between individuals is mostly determined by \emph{common} variants (\eg ${\geq 5\%}$ frequency), but most variant sites in the genome are \emph{rare}; that is, a particular allele is shared by only few individuals in the population (\eg 1 in \n{1000}).
 In general, low-frequency variants tend to be population-specific, but may also be highly differentiated between demographic groups on a finer scale \citep{Gravel:2011bgb,Bustamante:2011df,Mathieson:2014ig}.
 This is because rare variants are likely to have a relatively recent origin through mutation; \ie they are ``young'' in age and therefore have less time to spread.
-In comparison, genetic factors that contribute to substantial disease risk (particularly with early onset) are likely to be under purifying selection, which implies that they should be observed at relatively low frequencies \citep{Kryukov:2007ec,Marth:2011bz}.
+\Correct{For example}, genetic factors that contribute to substantial disease risk (particularly with early onset) are likely to be under purifying selection, which implies that they should be observed at relatively low frequencies \citep{Kryukov:2007ec,Marth:2011bz}.
 Recent research has indicated that the human genome harbours an unexpectedly high number of rare, deleterious variants due to the recent, exponential growth of the human population \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 
 Rare variants are now widely considered to play an important role in the predisposition to complex disease \citep{Bodmer:2008ep,Schork:2009ke,Manolio:2009jp,McClellan:2010ksa,Cirulli:2010cza}, though their contribution has been hypothesised for more than a decade \citep{Pritchard:2001hw}.
@@ -171,7 +171,8 @@ Recombination refers to the reorganisation of alleles during meiosis in sexually
 	\item[\textbf{Gene conversion}] is a non-reciprocal exchange of genetic material.
 	The \gls{dna} sequence at a section in \n{1} of the chromatids is replaced by a copy of the sequence on the other chromatid, resulting in the loss of its original sequence.
 \end{description}
-In a general context, chromosomal crossover is implied as the acting mechanism of recombination, whereas gene conversion is asserted specifically.
+\Correct{Here, chromosomal crossover is implied as the acting mechanism of recombination, whereas gene conversion is not considered in this thesis.
+In the following, the term \emph{recombination} therefore refers to crossover events between two homologous chromosomes.}
 
 %
 \input{chapter1/fig/info_meiosis}
@@ -236,7 +237,7 @@ The effects of mutation or selection are ignored, such that alleles are \emph{ne
 It follows that reproduction is considered as a random sampling process, in which the alleles that are transmitted into the next generation are drawn (with replacement) from the gene pool of the current population.
 An example is illustrated in \cpref{fig:info_wrightfisher}.
 
-Since each draw has only \n{2} possible outcomes, $A$~or~\edit{$a$}, each generation is produced by a series of independent Bernoulli trials such that allele frequencies are binomially distributed.
+Since each draw has only \n{2} possible outcomes, $A$~or~\Correct{$a$}, each generation is produced by a series of independent Bernoulli trials such that allele frequencies are binomially distributed.
 Let $X_t$ denote the number of $A$ alleles in generation $t$.
 Given ${X_t=i}$ allele copies (or individuals which carry the allele),
 the probability of drawing the $A$ allele is equal to its frequency in the current generation, denoted by ${\pi_i = \rfrac{i}{N}}$.
@@ -281,7 +282,7 @@ The transition probability given in \cref{eq:WFprob} still holds, but allele fre
 \begin{equation}
 	\pi_i ~=~ \frac{i}{N} ~ (1 - \mu_A) ~+~ \Big( 1 - \frac{i}{N} \Big) ~ \mu_a \ .
 \end{equation}
-If ${\mu_A, \mu_a > 0}$, then transitions from any state into any other state remain possible in each generation and permanent \edit{extinction or} fixation is avoided.
+If ${\mu_A, \mu_a > 0}$, then transitions from any state into any other state remain possible in each generation and permanent \Correct{extinction or} fixation is avoided.
 Note that in a population in which the effects of mutation and genetic drift are in statistical equilibrium allele frequencies are expected to follow the Hardy-Weinberg principle; \ie the population is in \gls{hwe}.
 
 
@@ -316,7 +317,7 @@ This process is repeated until only \n{1} lineage is left, which belongs to the 
 
 The history of a sample is reflected in its genealogy and can be described in terms of the topology of the tree and the lengths of the connecting branches.
 The branch length corresponds to the time interval between \n{2} successive coalescent events, which is of central interest in describing the coalescent process.
-Let this waiting time be denoted by $T_n$, where $n$ corresponds to the number of distinct lineages during the time interval, which changes from $n$ to ${n-1}$ at coalescence.
+Let this waiting time be denoted by \Correct{$T_j$}, where \Correct{$j$} corresponds to the number of distinct lineages during the time interval, which changes from \Correct{$j$} to \Correct{${j-1}$} at coalescence.
 An example of a simple genealogical tree is shown in \cpref{fig:info_coalescent}, in which the waiting times between coalescent events are indicated.
 In the following, the concept of the standard coalescent is described by assuming a haploid population of constant size, $N$, in which the effects of mutation, selection, recombination, or other biological processes are not involved.
 
@@ -328,11 +329,11 @@ To arrive at the probability that \n{2} lineages coalesce $t>0$ generations back
 Because generations are independent, the probability that the \n{2} lineages are distinct over $t-1$~generations is
 \begin{equation}
 	P(T_2 \geq t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1}
-	\ \text{.} \medit
+	\ \text{.} \CorrectLabel
 \end{equation}
 Therefore, the probability that \n{2} lineages coalesce $t$ generations back in time is geometrically distributed with rate $N^{-1}$, such that
 \begin{equation}\label{eq:coalprob}
-	P(T_2 = t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1} ~ \frac{1}{N} \medit
+	P(T_2 = t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1} ~ \frac{1}{N} \CorrectLabel
 \end{equation}
 which arises from the number of independent Bernoulli trials needed until the same ancestor is chosen by \n{2} lineages.
 It follows from the geometric distribution that the expected number of generations up to and including the coalescent event is
@@ -485,9 +486,9 @@ Under this assumption, the number of segregating sites (or \emph{variant} sites)
 The total branch length of the tree thereby determines the expected value of the number of segregating sites, denoted by $S_n$.
 From the sum of all branch lengths, \ie
 \begin{equation*}
-	T_\text{total} ~=~ i T_i ~+~ (i-1) T_{i-1} ~+~ (i-2) T_{i-2} ~+~ \ldots ~+~ 2 T_2
+	T_\text{total} ~=~ j T_j ~+~ (j-1) T_{j-1} ~+~ (j-2) T_{j-2} ~+~ \ldots ~+~ 2 T_2 \CorrectLabel
 \end{equation*}
-where $i$ is the number of distinct lineages during a given time interval,
+where \Correct{$j$} is the number of distinct lineages during a given time interval,
 the expected value of the total branch length can be computed as
 \begin{equation}
 	\mathbb{E}[T_\text{total}]
@@ -506,7 +507,7 @@ By rearrangement, the following equation can be obtained;
 \begin{equation}\label{eq:theta_w}
 	\hat{\theta}_W = \frac{S_n}{\sum_{i=1}^{n-1} \frac{1}{i}}
 \end{equation}
-which is an unbiased estimator of the genetic diversity in \edit{a} sample of sequence data; also known as Watterson's $\theta$ \citep{Watterson:1975ur}.
+which is an unbiased estimator of the genetic diversity in \Correct{a} sample of sequence data; also known as Watterson's $\theta$ \citep{Watterson:1975ur}.
 With regard to the calculation of the effective population size as described in the previous section (\pref{ref:calceffpopsize}), it can be seen that an estimate for the value of \Ne can be obtained, for example, from \cref{eq:mutrate,eq:theta_w} given an estimate of the mutation rate.
 
 
@@ -516,7 +517,7 @@ With regard to the calculation of the effective population size as described in 
 
 Recombination is ubiquitous in nature and crucially involved in the spread of genetic variability in populations of sexually reproducing organisms.
 \Citet{Hudson:1983vs} showed that the genealogical process in the coalescent can be extended to model recombination along the sequence of a sample.
-In contrast to \edit{neutral} mutation events, which do not affect the topology of a tree under the standard coalescent, recombination events have a considerable effect on the structure of the genealogy.
+In contrast to \Correct{neutral} mutation events, which do not affect the topology of a tree under the standard coalescent, recombination events have a considerable effect on the structure of the genealogy.
 
 Consider the sequence of \n{1} of the chromosomes present in a diploid individual.
 Due to recombination, different sections of the chromosome can be traced back to the ancestral material in \n{2} parents in the immediately previous generation, and further to \n{4} grandparents in the second previous generation, and so on.
@@ -635,8 +636,9 @@ The \gls{ngs} platforms shown in \cref{fig:info_seqtech} follow \citet{Mardis:20
 
 The arrival and commodification of \gls{ngs} technologies have made it feasible to sequence a whole human genome within days or weeks, rather that months or years.
 There is an ongoing reduction in labour and cost, while speed and accuracy of data generation is improving.
-Interestingly, the rate at which the cost per genome is decreasing has outpaced Moore's Law, which originally predicted that the number of transistors in a dense integrated circuit would double approximately every \n{2} years \citep{moore1965}.
-This conjecture has been used to valuate the rate of improvement in many technological fields, where a technology is commonly regarded to progress well if it can `keep track' with this expectation.
+\Delete{Interestingly, the rate at which the cost per genome is decreasing has outpaced Moore's Law, which originally predicted that the number of transistors in a dense integrated circuit would double approximately every two years.
+%\citep{moore1965}.
+This conjecture has been used to valuate the rate of improvement in many technological fields, where a technology is commonly regarded to progress well if it can `keep track' with this expectation.}
 For example, the cost of the \gls{hgp} sequencing the first human genome has been estimated at more than \SI{3}[\$]{billion}.
 The first human diploid genome (James Watson) was sequenced for less than \SI{1}[\$]{million} \citep{Wheeler:2008bb}.
 Currently, the goal of the \SI{1000}[\$]{} genome is surprisingly close; see \cpref{fig:cost_per_genome}.
@@ -788,7 +790,7 @@ Finally, the heterozygous state might have a selective advantage, meaning that t
 
 The field of population genetics has been fascinated with the possibility of estimating the time of mutation events.
 Early and often purely theoretical approaches had been conceived prior to the discovery of the coalescent.
-For example, \citet{Kimura:1973ug} found that the frequency of a allele can be used as an estimator for its age, which they derived in a diffusion process.
+For example, \citet{Kimura:1973ug} found that the frequency of \Correct{an} allele can be used as an estimator for its age, which they derived in a diffusion process.
 The expected age of a neutral allele in a constant population is given by
 \begin{equation}\label{eq:intro_kimura_ohta}
 	\mathbb{E}\left[t_m\right]~=~\frac{-2x}{1-x}~\log(x)

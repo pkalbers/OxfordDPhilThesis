@@ -259,9 +259,23 @@ list-final-separator={, and }%
 \setulcolor{yellow}
 \setstcolor{red}
 \setul{0.5ex}{0.3ex}
-\newcommand{\edit}[1]{\hl{#1}}
-\def\medit{\quad\mbox{\footnotesize\hl{\texttt{CORRECTED}}}\xspace}
-\newcommand{\cancel}[1]{{\st{#1}}}
+
+% correction
+\newcommand{\Correct}[1]{\hl{#1}}
+\def\CorrectLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{CORRECTED}}}\xspace} % MATH
+
+% addition
+\newcommand{\Addition}[1]{{\hl{#1}}}
+
+% deletion
+\newcommand{\Delete}[1]{{\st{#1}}}
+\DeclareRobustCommand{\DeleteNote}[1]{%
+\null%
+\noindent%
+\colorbox{red}{\textcolor{white}{\footnotesize\texttt{REMOVED}}} %
+\quad %
+\textcolor{red}{#1}%
+\null}
 
 
 

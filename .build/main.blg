@@ -28,51 +28,50 @@ Repeated entry---line 107 of file manual.bib
  : @book{hein2004gene
  :                   ,
 I'm skipping whatever remains of this entry
-Warning--empty journal in Browning:2011ic
 Warning--empty journal in Delaneau:2008dk
 Warning--empty journal in griffiths1997
 Warning--empty institution in Loh:2016bl
 Warning--empty journal in Marchini:2010cga
 Warning--can't use both volume and number fields in moskvina2005minor
-You've used 214 entries,
+You've used 212 entries,
             2378 wiz_defined-function locations,
-            1822 strings with 72303 characters,
-and the built_in function-call counts, 147315 in all, are:
-= -- 10414
-> -- 15140
-< -- 129
-+ -- 4832
-- -- 4813
-* -- 16339
-:= -- 27819
-add.period$ -- 954
-call.type$ -- 214
-change.case$ -- 1313
-chr.to.int$ -- 207
-cite$ -- 220
-duplicate$ -- 4124
-empty$ -- 6986
-format.name$ -- 5103
-if$ -- 27197
-int.to.chr$ -- 8
+            1812 strings with 72048 characters,
+and the built_in function-call counts, 146314 in all, are:
+= -- 10312
+> -- 15090
+< -- 128
++ -- 4817
+- -- 4799
+* -- 16243
+:= -- 27651
+add.period$ -- 946
+call.type$ -- 212
+change.case$ -- 1300
+chr.to.int$ -- 206
+cite$ -- 217
+duplicate$ -- 4087
+empty$ -- 6919
+format.name$ -- 5085
+if$ -- 26999
+int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 219
-newline$ -- 1072
-num.names$ -- 858
-pop$ -- 1217
+missing$ -- 217
+newline$ -- 1062
+num.names$ -- 850
+pop$ -- 1204
 preamble$ -- 1
-purify$ -- 1322
+purify$ -- 1309
 quote$ -- 0
-skip$ -- 2746
+skip$ -- 2721
 stack$ -- 0
-substring$ -- 7564
-swap$ -- 798
+substring$ -- 7488
+swap$ -- 792
 text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1902
-warning$ -- 6
-while$ -- 1018
+type$ -- 1884
+warning$ -- 5
+while$ -- 1008
 width$ -- 0
-write$ -- 2767
+write$ -- 2742
 (There were 4 error messages)

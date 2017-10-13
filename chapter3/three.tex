@@ -200,7 +200,7 @@ Provided that the neighbouring haplotype regions derive from different ancestral
 The main limitation to the accuracy of the detected breakpoints is the overestimation of the interval, in relation to the underlying true IBD length; as shown in \cref{fig:info_breakpoint}{b}.
 While the underlying IBD segment is enclosed in the interval, it can be expected that breakpoints are detected at sites some distance away from where recombination occurred, thus overestimating the true length of the underlying IBD tract.
 The extent of overestimation is dependent on the number and density of observed variant sites in the sample.
-This suggests that the method may become more accurate with larger samples\edit{, as the number of segregating sites observed in the sample is expected to increase with larger sample size}.
+This suggests that the method may become more accurate with larger samples\Addition{, as the number of segregating sites observed in the sample is expected to increase with sample size}.
 Likewise, because the rate of mutation is directly proportional to the expected number of segregating sites \citep{Watterson:1975ur}, a higher mutation rate can generally be expected to decrease the overestimation of segment length.
 
 %
@@ -227,62 +227,63 @@ Note that in the simulations conducted, the generated haplotypes were randomly p
 
 
 
-
+\DeleteNote{Section ``Genotype phasing by inference of the shared haplotype''}
 %
-\section{Genotype phasing by inference of the shared haplotype}
-\label{sec:ibd_phasing}
+% %
+% \section{Genotype phasing by inference of the shared haplotype}
+% \label{sec:ibd_phasing}
+% %
 %
-
-In this section, I extend the IBD detection method such that the allelic sequence of the shared haplotype can be deduced.
-Since it is assumed that a breakpoint interval covers a region in which \n{2} individuals share a haplotype recently co-inherited from a common ancestor, in principle it is possible to infer the shared haplotype sequence based on genealogical constraints.
-By knowing the sequence of the shared haplotype, it follows that the sequences of the ``unshared'' haplotypes in both individuals can be derived.
-The approach presented can therefore be seen as an application to genotype \emph{phasing}, \ie the inference of haplotypes from genotype data, which has become a fundamental problem in genetic research \citep{Browning:2011ic}.
-
-Currently, the most accurate and widely employed phasing algorithms are designed to infer haplotype sharing using \glspl{hmm}, which typically operate under a probabilistic model of coalescence with recombination \citep{Stephens:2001kh,Delaneau:2008dk}.
-Notable examples include computational tools such as \texttt{SHAPEIT} \citep{Delaneau:2011iu,Delaneau:2013hi} and \texttt{EAGLE} \citep{loh2016fast,Loh:2016bl}.
-The basic phasing process can be described in context of the influential \citet{Li:2003uz} model, where haplotypes are reconstructed from genotype data as ``imperfect mosaics'' of other haplotypes (\eg using a reference panel).
-Existing phasing methods typically show high levels of accuracy.
-However, the phase at low-frequency variants is often problematic to resolve because patterns of allelic variation or \gls{ld} may be too rare to allow correlation with available haplotype information.
-
-Here, I explore the feasibility of phasing genotypes at sites within a given breakpoint interval using the IBD detection method presented in the previous section; haplotypes are therefore inferred \emph{locally} and are limited to the region covered by the interval.
-In the following, I explain the genealogical constraints that determine the possible haplotype allocation of alleles in genotype data.
-I then describe the general phasing approach as implemented here.
-
+% In this section, I extend the IBD detection method such that the allelic sequence of the shared haplotype can be deduced.
+% Since it is assumed that a breakpoint interval covers a region in which \n{2} individuals share a haplotype recently co-inherited from a common ancestor, in principle it is possible to infer the shared haplotype sequence based on genealogical constraints.
+% By knowing the sequence of the shared haplotype, it follows that the sequences of the ``unshared'' haplotypes in both individuals can be derived.
+% The approach presented can therefore be seen as an application to genotype \emph{phasing}, \ie the inference of haplotypes from genotype data, which has become a fundamental problem in genetic research \citep{Browning:2011ic}.
 %
-\subsection{Genealogical constraints arising from IBD}
+% Currently, the most accurate and widely employed phasing algorithms are designed to infer haplotype sharing using \glspl{hmm}, which typically operate under a probabilistic model of coalescence with recombination \citep{Stephens:2001kh,Delaneau:2008dk}.
+% Notable examples include computational tools such as \texttt{SHAPEIT} \citep{Delaneau:2011iu,Delaneau:2013hi} and \texttt{EAGLE} \citep{loh2016fast,Loh:2016bl}.
+% The basic phasing process can be described in context of the influential \citet{Li:2003uz} model, where haplotypes are reconstructed from genotype data as ``imperfect mosaics'' of other haplotypes (\eg using a reference panel).
+% Existing phasing methods typically show high levels of accuracy.
+% However, the phase at low-frequency variants is often problematic to resolve because patterns of allelic variation or \gls{ld} may be too rare to allow correlation with available haplotype information.
 %
-
-At a given site, the genotypic states observed at \n{2} diploid individuals represent the sum of alleles, where each allele derives from a mutation event on some branch of the genealogical tree of the sample.
-By knowing that \n{2} haplotypes were co-inherited from a recent \gls{mrca}, a part of this unseen genealogy is resolved, such that certain genotypes can only be formed if mutation events occurred on certain branches of the tree.
-This can be seen as being analogous to having partial pedigree information; \ie the \n{2} individuals are implicitly treated as the ``offspring'' of their ancestral ``parent''.
-By following the line of descent, the ancestral haplotype can be inferred if consistent with observed genotypes.
-However, here, the assumed pedigree is incomplete, because ancestral relations of the \n{2} unshared haplotypes are not known from available IBD information.
-There is nonetheless sufficient information to deduce the allelic states given certain genotypic arrangements.
-
+% Here, I explore the feasibility of phasing genotypes at sites within a given breakpoint interval using the IBD detection method presented in the previous section; haplotypes are therefore inferred \emph{locally} and are limited to the region covered by the interval.
+% In the following, I explain the genealogical constraints that determine the possible haplotype allocation of alleles in genotype data.
+% I then describe the general phasing approach as implemented here.
 %
-\input{chapter3/fig/info_phase_pedigree}
+% %
+% \subsection{Genealogical constraints arising from IBD}
+% %
 %
-
-A set of rules can be formulated which define the state of the shared allele if a certain genotype pair is observed in the \n{2} individuals considered.
-As before, the infinite sites model is assumed.
-If both genotypes are homozygous for the same allele, the deduction of the shared allele is trivial.
-If they are homozygous for different alleles, they cannot share an allele.
-Importantly, because this is seen at breakpoint sites detected using the \gls{dgt}, which mark the limits of the underlying IBD segment, breakpoints are excluded from this analysis; recall that the \gls{fgt} cannot be used with genotype data.
-A caveat of this analysis, however, is that haplotypes cannot be distinguished if both individuals are heterozygous, as it is not known whether the allele is shared or not.
-This conflict arises because an unshared haplotype may be more closely related to either the shared or the other unshared haplotype.
-Thus, haplotype inference is restricted to sites at which \emph{heterozygous-homozygous} genotype pairs are found.
-This is further illustrated in \cref{fig:info_phase_pedigree}.
-
+% At a given site, the genotypic states observed at \n{2} diploid individuals represent the sum of alleles, where each allele derives from a mutation event on some branch of the genealogical tree of the sample.
+% By knowing that \n{2} haplotypes were co-inherited from a recent \gls{mrca}, a part of this unseen genealogy is resolved, such that certain genotypes can only be formed if mutation events occurred on certain branches of the tree.
+% This can be seen as being analogous to having partial pedigree information; \ie the \n{2} individuals are implicitly treated as the ``offspring'' of their ancestral ``parent''.
+% By following the line of descent, the ancestral haplotype can be inferred if consistent with observed genotypes.
+% However, here, the assumed pedigree is incomplete, because ancestral relations of the \n{2} unshared haplotypes are not known from available IBD information.
+% There is nonetheless sufficient information to deduce the allelic states given certain genotypic arrangements.
 %
-\input{chapter3/tab/shared_hap_rules}
+% %
+% \input{chapter3/fig/info_phase_pedigree}
+% %
 %
-
-A complete definition of these rules is given in \cref{tab:shared_hap_rules}.
-The table gives the inferred allelic state of the shared haplotype for each of the possible combinations of \n{2} genotypes.
-Note that the alleles at \emph{heterozygous-heterozygous} sites are likely to be shared if \n{3} conditions are met; first, if the allele frequency at that site is lower than the frequency at the target position, second, if the allele only segregates within the subsample sharing the focal allele and, third, if the genealogy does not change along the sequence within an inferred interval.
-An allele that is lower in frequency is likely to be younger than the focal allele and, thus, to \edit{be shared by some of the haplotypes within the sub-tree of the focal mutation}.
-However, this may only be the case under the infinite sites model, \eg because recurrent or back mutation may otherwise suggest a different genealogical order of descent.
-
+% A set of rules can be formulated which define the state of the shared allele if a certain genotype pair is observed in the \n{2} individuals considered.
+% As before, the infinite sites model is assumed.
+% If both genotypes are homozygous for the same allele, the deduction of the shared allele is trivial.
+% If they are homozygous for different alleles, they cannot share an allele.
+% Importantly, because this is seen at breakpoint sites detected using the \gls{dgt}, which mark the limits of the underlying IBD segment, breakpoints are excluded from this analysis; recall that the \gls{fgt} cannot be used with genotype data.
+% A caveat of this analysis, however, is that haplotypes cannot be distinguished if both individuals are heterozygous, as it is not known whether the allele is shared or not.
+% This conflict arises because an unshared haplotype may be more closely related to either the shared or the other unshared haplotype.
+% Thus, haplotype inference is restricted to sites at which \emph{heterozygous-homozygous} genotype pairs are found.
+% This is further illustrated in \cref{fig:info_phase_pedigree}.
+%
+% %
+% \input{chapter3/tab/shared_hap_rules}
+% %
+%
+% A complete definition of these rules is given in \cref{tab:shared_hap_rules}.
+% The table gives the inferred allelic state of the shared haplotype for each of the possible combinations of \n{2} genotypes.
+% Note that the alleles at \emph{heterozygous-heterozygous} sites are likely to be shared if \n{3} conditions are met; first, if the allele frequency at that site is lower than the frequency at the target position, second, if the allele only segregates within the subsample sharing the focal allele and, third, if the genealogy does not change along the sequence within an inferred interval.
+% An allele that is lower in frequency is likely to be younger than the focal allele and, thus, to \Correct{be shared by some of the haplotypes within the sub-tree of the focal mutation}.
+% However, this may only be the case under the infinite sites model, \eg because recurrent or back mutation may otherwise suggest a different genealogical order of descent.
+%
 
 
 
@@ -438,7 +439,7 @@ For example, it can be seen that a larger proportion of \fk{2}~variants (\SI{15.
 
 The distribution of physical and genetic IBD length is shown in \cpref{fig:naive_length_tru}.
 These results were obtained after boundary cases were removed in each approach (\ie discarding segments where the end of a chromosome was reached without detecting a breakpoint), so as to ensure that observed IBD length was delimited by recombination on both sides of a segment; \SI{1.448516}{\percent}, \SI{1.400165}{\percent}, and \SI{1.636716}{\percent}
-was removed in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively, and \SI{1.339693}{\percent} in the set of true IBD segments.
+were removed in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively, and \SI{1.339693}{\percent} in the set of true IBD segments.
 Data were then intersected again to retain the same set of target sites in each approach; as a result, \dec{2.929475}~million unique segments were retained (\SI{98.363284}{\percent}).
 
 Median physical length (and median genetic length) over the set of retained segments was computed for each approach.
@@ -471,7 +472,7 @@ in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively.
 In summary, the \gls{fgt} on true haplotype data in \cref{app:fgt_h} overall achieved the highest levels of accuracy while maintaining low error.
 This was particularly seen in comparison to \cref{app:fgt_p}, which differed only in the additionally included phasing step.
 Since genomic datasets were typically composed of phased haplotypes, \cref{app:fgt_p} can be seen as being the realistic approach.
-However, the higher rate or error at lower frequency variants may pose a problem for analysis for rare variants.
+However, the higher error rate at lower frequency variants may pose a problem for analysis for rare variants.
 As an alternative, the \gls{dgt} on genotype data, \cref{app:dgt}, can be used to detect IBD with high accuracy and comparatively low error rates.
 However, the larger proportion of overestimated IBD breakpoints may result in additional error, \eg if it is assumed that the genealogy is consistent along the sequence of inferred IBD segments.
 
@@ -590,91 +591,96 @@ However, the IBD lengths were highest at \fk{[3,5]} when the \gls{fgt} was used,
 
 
 
-
+\DeleteNote{Section ``Inference of the shared haplotype sequence''}
 %
-\subsubsection{Inference of the shared haplotype sequence}
+% %
+% \subsubsection{Inference of the shared haplotype sequence}
+% %
 %
-
-The IBD-based phasing concept described in \cpref{sec:ibd_phasing} was explored in this section.
-Given the genealogical constraints that follow from the assumption that the genealogy does not change along the sequence within a given breakpoint interval, it is straightforward to derive the sequence of the shared haplotype.
-This applies to sites where exactly \n{1} genotype is heterozygous and \n{1} is homozygous in a pair of individuals.
-In the following, such heterozygous-homozygous sites are referred to as being \emph{informative}, as opposed to sites where both genotypes are heterozygous, which are referred to as being \emph{indeterminate}.
-At sites where both genotypes are homozygous, phasing is trivial.
-Hence, phasing is attempted at heterozygous sites along the sequence.
-
-The analysis was performed on the full set of IBD segments detected using the \gls{dgt} in the simulated dataset; recall that the \gls{fgt} requires (phased) haplotypes and cannot be used on genotype data.
-Also, note that breakpoint sites delimit the interval enclosing a haplotype that is shared by descent, but they themselves represent the first positions along the sequence at which haplotype sharing was broken through recombination; hence, breakpoint sites were excluded from the inference.
-The purpose of this evaluation was to determine the proportions of correctly and incorrectly phased sites, as well as the proportion of indeterminate sites.
-This was then compared to the same haplotypes inferred using the set of true IBD segments.
-
-In the following, \n{2} approaches were explored; first, haplotype inference was performed separately per IBD segment and, second, the segments identified by the same shared allele were grouped and a majority-rule was applied to determine the shared haplotype sequence (referred to as \emph{consensus} approach).
-The latter represents an attempt to increase the number of informative sites, as these may differ if more pairs of individuals are considered.
-Since they share the same focal allele, it is assumed that this allele identifies the same haplotype in all pairs.
-
+% The IBD-based phasing concept described in \cpref{sec:ibd_phasing} was explored in this section.
+% Given the genealogical constraints that follow from the assumption that the genealogy does not change along the sequence within a given breakpoint interval, it is straightforward to derive the sequence of the shared haplotype.
+% This applies to sites where exactly \n{1} genotype is heterozygous and \n{1} is homozygous in a pair of individuals.
+% In the following, such heterozygous-homozygous sites are referred to as being \emph{informative}, as opposed to sites where both genotypes are heterozygous, which are referred to as being \emph{indeterminate}.
+% At sites where both genotypes are homozygous, phasing is trivial.
+% Hence, phasing is attempted at heterozygous sites along the sequence.
 %
-\input{chapter3/fig/phase_fk_prop}
+% The analysis was performed on the full set of IBD segments detected using the \gls{dgt} in the simulated dataset; recall that the \gls{fgt} requires (phased) haplotypes and cannot be used on genotype data.
+% Also, note that breakpoint sites delimit the interval enclosing a haplotype that is shared by descent, but they themselves represent the first positions along the sequence at which haplotype sharing was broken through recombination; hence, breakpoint sites were excluded from the inference.
+% The purpose of this evaluation was to determine the proportions of correctly and incorrectly phased sites, as well as the proportion of indeterminate sites.
+% This was then compared to the same haplotypes inferred using the set of true IBD segments.
 %
-
-A random subset of \n{10000} IBD segments was drawn for each \fk{}~category from the full set of detected intervals using the \gls{dgt} in which the shared haplotype was inferred.
-Similarly, for the consensus approach, target sites were randomly drawn for the set of identified targets for each \fk{}~category, such that the total number of identified segments did not exceed \n{10000} per \fk{}~category.
-Haplotypes were then inferred and combined in each focal group by applying a majority-rule to estimate the sequence of the shared haplotype.
-For each segment, the proportions of correctly inferred, incorrectly inferred, or indeterminate alleles was then determined per \fk{}~category.
-Additionally, to compare these results to the ``truth'', the same subsets of IBD segments was analysed in each approach, but where estimated haplotype length was delimited by the corresponding true IBD segments.
-The same was done for both approaches, but using the set of true IBD segments to delimit the haplotype sequence.
-The results of this analysis are shown in \cpref{fig:phase_fk_prop}.
-
-When true IBD segments were used, \cref{fig:phase_fk_prop}{a}, the proportion of incorrectly phased sites was consistently low along the allele frequency range; however, note that this proportion was not equal to zero.
-In comparison, the proportion of error increased towards higher allele frequencies when IBD was detected using the \gls{dgt}, \cref{fig:phase_fk_prop}{b}, which was seen in both the segment-based approach and the consensus approach.
-Notably, the proportion of indeterminate sites was consistently close to $50\%$ in the segment-based approach using both true and detected data.
-However, the proportion of correctly phased genotypes decreased towards higher allele frequencies; from \SI{46.173}{\percent} at \fk{2}~variants to \SI{42.330}{\percent} at \fk{25}~variants.
-In the consensus approach, the proportion of correctly phased genotypes showed a rapid increase but then reached a plateau around $70\%$ in when true IBD segments were used, and between $60\%$ and $65\%$ when detected segments were used.
-
+% In the following, \n{2} approaches were explored; first, haplotype inference was performed separately per IBD segment and, second, the segments identified by the same shared allele were grouped and a majority-rule was applied to determine the shared haplotype sequence (referred to as \emph{consensus} approach).
+% The latter represents an attempt to increase the number of informative sites, as these may differ if more pairs of individuals are considered.
+% Since they share the same focal allele, it is assumed that this allele identifies the same haplotype in all pairs.
 %
-\input{chapter3/fig/phase_fk_error}
+% %
+% \input{chapter3/fig/phase_fk_prop}
+% %
 %
-
-The distribution of incorrectly phased genotypes was further analysed to distinguish error due to singletons and other focal alleles that fell within the intervals of the segments analysed.
-These results are shown in \cpref{fig:phase_fk_error}.
-Note that in both, the exclusion of singletons did not markedly reduce the overall proportion of incorrectly phased genotypes.
-In both the segment-based approach and the consensus approach, error was noticeably reduced if genotypes at other focal variants were excluded.
-Importantly, by excluding singletons and other focal alleles that fell within the interval of the segments analysed, error was reduced to zero when true IBD segments were used.
-In fact, incorrectly phased genotypes only occurred within the overestimated regions of detected IBD segments; \ie using the \gls{dgt}.
-
-This finding is important as it suggests that haplotypes could be determined correctly if overestimation in the detection of breakpoints could be reduced or excluded.
-For example, instead of considering the full length of the segments detected, genotype phase could be determined from a narrow interval around a given target site.
-
-
-
+% A random subset of \n{10000} IBD segments was drawn for each \fk{}~category from the full set of detected intervals using the \gls{dgt} in which the shared haplotype was inferred.
+% Similarly, for the consensus approach, target sites were randomly drawn for the set of identified targets for each \fk{}~category, such that the total number of identified segments did not exceed \n{10000} per \fk{}~category.
+% Haplotypes were then inferred and combined in each focal group by applying a majority-rule to estimate the sequence of the shared haplotype.
+% For each segment, the proportions of correctly inferred, incorrectly inferred, or indeterminate alleles was then determined per \fk{}~category.
+% Additionally, to compare these results to the ``truth'', the same subsets of IBD segments was analysed in each approach, but where estimated haplotype length was delimited by the corresponding true IBD segments.
+% The same was done for both approaches, but using the set of true IBD segments to delimit the haplotype sequence.
+% The results of this analysis are shown in \cpref{fig:phase_fk_prop}.
 %
-\subsubsection{Phasing coverage of pairwise shared haplotypes per individual}
+% When true IBD segments were used, \cref{fig:phase_fk_prop}{a}, the proportion of incorrectly phased sites was consistently low along the allele frequency range; however, note that this proportion was not equal to zero.
+% In comparison, the proportion of error increased towards higher allele frequencies when IBD was detected using the \gls{dgt}, \cref{fig:phase_fk_prop}{b}, which was seen in both the segment-based approach and the consensus approach.
+% Notably, the proportion of indeterminate sites was consistently close to $50\%$ in the segment-based approach using both true and detected data.
+% However, the proportion of correctly phased genotypes decreased towards higher allele frequencies; from \SI{46.173}{\percent} at \fk{2}~variants to \SI{42.330}{\percent} at \fk{25}~variants.
+% In the consensus approach, the proportion of correctly phased genotypes showed a rapid increase but then reached a plateau around $70\%$ in when true IBD segments were used, and between $60\%$ and $65\%$ when detected segments were used.
+%
+% %
+% \input{chapter3/fig/phase_fk_error}
+% %
+%
+% The distribution of incorrectly phased genotypes was further analysed to distinguish error due to singletons and other focal alleles that fell within the intervals of the segments analysed.
+% These results are shown in \cpref{fig:phase_fk_error}.
+% Note that in both, the exclusion of singletons did not markedly reduce the overall proportion of incorrectly phased genotypes.
+% In both the segment-based approach and the consensus approach, error was noticeably reduced if genotypes at other focal variants were excluded.
+% Importantly, by excluding singletons and other focal alleles that fell within the interval of the segments analysed, error was reduced to zero when true IBD segments were used.
+% In fact, incorrectly phased genotypes only occurred within the overestimated regions of detected IBD segments; \ie using the \gls{dgt}.
+%
+% This finding is important as it suggests that haplotypes could be determined correctly if overestimation in the detection of breakpoints could be reduced or excluded.
+% For example, instead of considering the full length of the segments detected, genotype phase could be determined from a narrow interval around a given target site.
 %
 
-Although the presented IBD-based phasing approach attempted to only determine genotype phase locally, it may nonetheless be of interest to explore the possibility to phase individuals ``globally''; that is, to distinguish haplotypes from genotype data along the full length of a chromosome per individual.
-To this end, it is relevant to determine the coverage of shared haplotypes along a chromosome per individual.
-Since simulated data may not be suited to derive expectations that would apply to reality, the following analysis was conducted on data from the \glsentrylong{1kg} Phase~\rom{3}, chromosome~20.
 
-I randomly selected \n{500} of the \n{2504} individuals and, for each individual, I identified all other individuals (in the whole sample of \n{2504} individuals) which shared any rare allele at \fk{[2,25]} with a given individual.
-The average number of rare alleles shared between a given individual and any other individual was \MeanValue{15234.930}{455.259586}, and the average number of unique individuals who shared any rare allele with a given individual was \MeanValue{1396.796}{9.654698}, which ranged between \n{888} and \n{1978}.
-The \gls{dgt} was used to detect segment breakpoints per pairwise shared focal allele; for comparison, the same was done using the \gls{fgt}, although only the \gls{dgt} would be applied in the context of genotype phasing.
-
+\DeleteNote{Section ``Phasing coverage of pairwise shared haplotypes per individual''}
 %
-\input{chapter3/fig/phase_fk_coverage}
+% %
+% \subsubsection{Phasing coverage of pairwise shared haplotypes per individual}
+% %
+%
+% Although the presented IBD-based phasing approach attempted to only determine genotype phase locally, it may nonetheless be of interest to explore the possibility to phase individuals ``globally''; that is, to distinguish haplotypes from genotype data along the full length of a chromosome per individual.
+% To this end, it is relevant to determine the coverage of shared haplotypes along a chromosome per individual.
+% Since simulated data may not be suited to derive expectations that would apply to reality, the following analysis was conducted on data from the \glsentrylong{1kg} Phase~\rom{3}, chromosome~20.
+%
+% I randomly selected \n{500} of the \n{2504} individuals and, for each individual, I identified all other individuals (in the whole sample of \n{2504} individuals) which shared any rare allele at \fk{[2,25]} with a given individual.
+% The average number of rare alleles shared between a given individual and any other individual was \MeanValue{15234.930}{455.259586}, and the average number of unique individuals who shared any rare allele with a given individual was \MeanValue{1396.796}{9.654698}, which ranged between \n{888} and \n{1978}.
+% The \gls{dgt} was used to detect segment breakpoints per pairwise shared focal allele; for comparison, the same was done using the \gls{fgt}, although only the \gls{dgt} would be applied in the context of genotype phasing.
+%
+% %
+% \input{chapter3/fig/phase_fk_coverage}
+% %
+%
+% Each set of detected segments was then reduced to include only unique IBD intervals; again after sorting by focal allele frequency such that the focal allele is the one with lowest frequency within a given segment.
+% Recall that duplicate segments refer to IBD intervals that are tagged by multiple \fk{}~variants, which are assumed to sit on the same underlying shared haplotype.
+% The average number of unique segments retained per individual was \MeanValue{5071.224}{79.976994} for the \gls{dgt} and \MeanValue{5460.694}{85.317616} for the \gls{fgt}; note that haplotype data were phased.
+% Retained haplotype segments were aligned by position along the chromosome to measure coverage, \ie the proportion of the chromosome covered.
+% Mean coverage across all \n{500} randomly selected individuals is given in \cpref{fig:phase_fk_coverage}, which indicates the $n$-fold cumulative coverage by \fk{}~category; shown for true IBD segments (\cref{fig:phase_fk_coverage}{a}) and segments detected using the \gls{dgt} (\cref{fig:phase_fk_coverage}{b}).
+%
+% Coverage was overall higher for the \gls{dgt} compared to the \gls{fgt}, due to overestimating IBD lengths.
+% Notably, neither the \gls{dgt} nor the \gls{fgt} reached full coverage on average.
+% However, a steady increase was seen when \fk{}~variants at higher frequency were included.
+% Considering \fk{2}~variants alone, the \gls{dgt} reached ${>50\%}$ 1-fold coverage, which was higher compared to the \gls{fgt} with ${< 40\%}$ 1-fold coverage.
+% Considering focal alleles occurring at higher frequencies, the \gls{dgt} was at ${\approx 99\%}$ 1-fold cummulative coverage at \fk{\leq 20}, whereas the \gls{fgt} slowly approached ${\approx 95\%}$ 1-fold cummulative coverage at \fk{\leq 25}.
+%
+% These results indicate that a ``global'' phasing approach using inferred IBD information alone would not be able to fully determine haplotypes in sample data of unrelated individuals.
+% However, note that similar approaches have been applied to sets of related individuals, for which it can be expected that there are more and longer pairwise shared haplotypes; \ie \glsentryfull{lrp} methods \citep{Kong:2008gh,Palin:2011cl,loh2016fast}.
 %
 
-Each set of detected segments was then reduced to include only unique IBD intervals; again after sorting by focal allele frequency such that the focal allele is the one with lowest frequency within a given segment.
-Recall that duplicate segments refer to IBD intervals that are tagged by multiple \fk{}~variants, which are assumed to sit on the same underlying shared haplotype.
-The average number of unique segments retained per individual was \MeanValue{5071.224}{79.976994} for the \gls{dgt} and \MeanValue{5460.694}{85.317616} for the \gls{fgt}; note that haplotype data were phased.
-Retained haplotype segments were aligned by position along the chromosome to measure coverage, \ie the proportion of the chromosome covered.
-Mean coverage across all \n{500} randomly selected individuals is given in \cpref{fig:phase_fk_coverage}, which indicates the $n$-fold cumulative coverage by \fk{}~category; shown for true IBD segments (\cref{fig:phase_fk_coverage}{a}) and segments detected using the \gls{dgt} (\cref{fig:phase_fk_coverage}{b}).
-
-Coverage was overall higher for the \gls{dgt} compared to the \gls{fgt}, due to overestimating IBD lengths.
-Notably, neither the \gls{dgt} nor the \gls{fgt} reached full coverage on average.
-However, a steady increase was seen when \fk{}~variants at higher frequency were included.
-Considering \fk{2}~variants alone, the \gls{dgt} reached ${>50\%}$ 1-fold coverage, which was higher compared to the \gls{fgt} with ${< 40\%}$ 1-fold coverage.
-Considering focal alleles occurring at higher frequencies, the \gls{dgt} was at ${\approx 99\%}$ 1-fold cummulative coverage at \fk{\leq 20}, whereas the \gls{fgt} slowly approached ${\approx 95\%}$ 1-fold cummulative coverage at \fk{\leq 25}.
-
-These results indicate that a ``global'' phasing approach using inferred IBD information alone would not be able to fully determine haplotypes in sample data of unrelated individuals.
-However, note that similar approaches have been applied to sets of related individuals, for which it can be expected that there are more and longer pairwise shared haplotypes; \ie \glsentryfull{lrp} methods \citep{Kong:2008gh,Palin:2011cl,loh2016fast}.
 
 
 %
@@ -705,8 +711,10 @@ Nonetheless, the infinite sites model is usually seen as a reasonable approximat
 However, the presence of genotype error cannot be ruled out and therefore requires further consideration.
 
 
+\Delete{
 Lastly, the IBD-based phasing concept showed that that it is possible to derive the shared allelic state sequence in pairs of individuals that share a haplotype by descent.
 This approach, in its current implementation, is only able to phase genotype data over locally shared segments.
 However, a potential utility of such a local phasing approach may arise considering that rare variants can be used to identify recent relatedness patterns in large datasets.
 Because a given rare allele identifies the underlying shared haplotype, the inferred sequence is likely to correctly distinguish the haplotypes of an individual within a shorter region around the target position.
 For example, this information may serve as a \emph{post-hoc} correction to haplotype data produced using existing phasing methods.
+}

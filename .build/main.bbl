@@ -171,8 +171,8 @@ Botstein, D., White, R.~L., Skolnick, M., and Davis, R.~W. (1980).
   fragment length polymorphisms.}
 \newblock {\em American journal of human genetics\/}, {\bf 32}(3), 314--331.
 
-\bibitem[Browning and Browning(2011a)Browning and Browning]{Browning:2011do}
-Browning, B.~L. and Browning, S.~R. (2011a).
+\bibitem[Browning and Browning(2011)Browning and Browning]{Browning:2011do}
+Browning, B.~L. and Browning, S.~R. (2011).
 \newblock {A fast, powerful method for detecting identity by descent.}
 \newblock {\em American journal of human genetics\/}, {\bf 88}(2), 173--182.
 
@@ -199,11 +199,6 @@ Browning, S.~R. and Browning, B.~L. (2010).
   Individuals}.
 \newblock {\em The American Journal of Human Genetics\/}, {\bf 86}(4),
   526--539.
-
-\bibitem[Browning and Browning(2011b)Browning and Browning]{Browning:2011ic}
-Browning, S.~R. and Browning, B.~L. (2011b).
-\newblock {Haplotype phasing: existing methods and new developments}.
-\newblock {\bf 12}(10), 703--714.
 
 \bibitem[Browning and Browning(2012)Browning and Browning]{Browning:2012cx}
 Browning, S.~R. and Browning, B.~L. (2012).
@@ -1508,14 +1503,6 @@ Stam, P. (1980).
 \newblock {The distribution of the fraction of the genome identical by descent
   in finite random mating populations}.
 \newblock {\em Genetical research\/}, {\bf 35}(02), 131.
-
-\bibitem[Stephens {\em et~al.}(2001)Stephens, Smith, and
-  Donnelly]{Stephens:2001kh}
-Stephens, M., Smith, N.~J., and Donnelly, P. (2001).
-\newblock {A new statistical method for haplotype reconstruction from
-  population data.}
-\newblock {\em The American Journal of Human Genetics\/}, {\bf 68}(4),
-  978--989.
 
 \bibitem[Stone(1961)Stone]{Stone:1961js}
 Stone, M. (1961).
