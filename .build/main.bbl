@@ -433,6 +433,11 @@ Fu, W., O{\textquoteright}Connor, T.~D., Jun, G., Kang, H.~M., Abecasis, G.,
   protein-coding variants}.
 \newblock {\em Nature\/}, {\bf 493}(7431), 216--220.
 
+\bibitem[Fu(1995)Fu]{Fu:1995hp}
+Fu, Y.~X. (1995).
+\newblock {Statistical Properties of Segregating Sites}.
+\newblock {\em Theoretical population biology\/}, {\bf 48}(2), 172--197.
+
 \bibitem[Fu and Li(1999)Fu and Li]{Fu:1999fj}
 Fu, Y.-X. and Li, W.-H. (1999).
 \newblock {Coalescing into the 21st Century: An Overview and Prospects of
@@ -519,6 +524,11 @@ Fuchsberger, C., Flannick, J., Teslovich, T.~M., Mahajan, A., Agarwala, V.,
 \newblock {Whole-genome sequence variation, population structure and
   demographic history of the Dutch population.}
 \newblock {\em Nature Genetics\/}, {\bf 46}(8), 818--825.
+
+\bibitem[Gibson(2012)Gibson]{Gibson:2012kca}
+Gibson, G. (2012).
+\newblock {Rare and common variants: twenty arguments}.
+\newblock {\em Nature Reviews Genetics\/}, {\bf 13}(2), 135--145.
 
 \bibitem[Gordon {\em et~al.}(2001)Gordon, Heath, Liu, and Ott]{Gordon:2001im}
 Gordon, D., Heath, S.~C., Liu, X., and Ott, J. (2001).
@@ -1797,5 +1807,14 @@ Yu, N., Zhao, Z., Fu, Y.~X., Sambuughin, N., Ramsay, M., Jenkins, T., Leskinen,
 \newblock {Global patterns of human DNA sequence variation in a 10-kb region on
   chromosome 1.}
 \newblock {\em Molecular Biology and Evolution\/}, {\bf 18}(2), 214--222.
+
+\bibitem[Zuk {\em et~al.}(2014)Zuk, Schaffner, Samocha, Do, Hechter,
+  Kathiresan, Daly, Neale, Sunyaev, and Lander]{Zuk:2014jv}
+Zuk, O., Schaffner, S.~F., Samocha, K., Do, R., Hechter, E., Kathiresan, S.,
+  Daly, M.~J., Neale, B.~M., Sunyaev, S.~R., and Lander, E.~S. (2014).
+\newblock {Searching for missing heritability: designing rare variant
+  association studies.}
+\newblock {\em Proceedings of the National Academy of Sciences\/}, {\bf
+  111}(4), E455--64.
 
 \end{thebibliography}
