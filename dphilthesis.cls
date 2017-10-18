@@ -84,6 +84,9 @@
 \usepackage{setspace}
 
 
+% widows/orphans
+%\usepackage[defaultlines=3,all]{nowidow}
+
 
 % colours
 \usepackage[usenames,dvipsnames,x11names]{xcolor}
@@ -256,6 +259,14 @@ list-final-separator={, and }%
 
 % corrections
 \usepackage{soulutf8}
+\soulregister\citep7
+\soulregister\citet7
+\soulregister\cref7
+\soulregister\xspace7
+\soulregister\eg7
+\soulregister\ie7
+\soulregister\gls7
+\soulregister\rom7
 \setulcolor{yellow}
 \setstcolor{red}
 \setul{0.5ex}{0.3ex}
@@ -263,19 +274,26 @@ list-final-separator={, and }%
 % correction
 \newcommand{\Correct}[1]{\hl{#1}}
 \def\CorrectLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{CORRECTED}}}\xspace} % MATH
+\DeclareRobustCommand{\CorrectNote}[1]{{%
+\noindent%
+\colorbox{yellow}{%
+\footnotesize\texttt{CORRECTED} %
+\colorbox{white}{\footnotesize\texttt{\quad #1 \quad}}%
+\hfill
+}}}
 
 % addition
 \newcommand{\Addition}[1]{{\hl{#1}}}
 
 % deletion
 \newcommand{\Delete}[1]{{\st{#1}}}
-\DeclareRobustCommand{\DeleteNote}[1]{%
-\null%
+\DeclareRobustCommand{\DeleteNote}[1]{{%
 \noindent%
-\colorbox{red}{\textcolor{white}{\footnotesize\texttt{REMOVED}}} %
-\quad %
-\textcolor{red}{#1}%
-\null}
+\colorbox{red}{%
+\footnotesize\texttt{REMOVED} %
+\colorbox{white}{\footnotesize\texttt{\quad #1 \quad}}%
+\null
+}}}
 
 
 
@@ -496,7 +514,8 @@ list-final-separator={, and }%
 \renewcommand{\textfraction}{0.1}
 \renewcommand{\floatpagefraction}{0.75}
 
-\setlength{\textfloatsep}{20pt plus15pt minus4pt} % Flexible spacing after figures
+\setlength{\textfloatsep}{20pt plus15pt minus4pt} % Flexible spacing around floats
+%\setlength{\intextsep}{20pt plus15pt minus10pt} % floats inserted inside text (using h)
 
 
 % Hyphenation and pagebreak

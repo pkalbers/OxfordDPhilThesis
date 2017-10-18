@@ -233,6 +233,11 @@ Cai, L., Fisher, A.~L., Huang, H., and Xie, Z. (2016).
 \newblock {CRISPR-mediated genome editing and human diseases}.
 \newblock {\em Genes {\&} Diseases\/}, {\bf 3}(4), 244--251.
 
+\bibitem[Chakravarti(1999)Chakravarti]{Chakravarti:1999ic}
+Chakravarti, A. (1999).
+\newblock {Population genetics - making sense out of sequence}.
+\newblock {\em Nature Genetics\/}, {\bf 21}, 56--60.
+
 \bibitem[Chen {\em et~al.}(2013)Chen, Zhang, Li, Pei, and Deng]{Chen:2013jx}
 Chen, J., Zhang, J.-G., Li, J., Pei, Y.-F., and Deng, H.-W. (2013).
 \newblock {On Combining Reference Data to Improve Imputation Accuracy}.
@@ -291,6 +296,11 @@ Cox, D.~G. and Kraft, P. (2006).
 Crow, J.~F. (1954).
 \newblock Breeding structure of populations. ii. effective population number.
 \newblock {\em Statistics and mathematics in biology\/}, {\bf 543}, 556.
+
+\bibitem[Crow and Kimura(1970)Crow and Kimura]{crow1970introduction}
+Crow, J.~F. and Kimura, M. (1970).
+\newblock An introduction to population genetics theory.
+\newblock {\em An introduction to population genetics theory.}
 
 \bibitem[Daly {\em et~al.}(2001)Daly, Rioux, Schaffner, Hudson, and
   Lander]{Daly:2001ka}
@@ -380,14 +390,24 @@ Eberle, M.~A., Fritzilas, E., Krusche, P., Kallberg, M., Moore, B.~L.,
   pedigree.}
 \newblock {\em Genome Research\/}, {\bf 27}(1), 1--9.
 
-\bibitem[Ewens(2012)Ewens]{ewens2012}
-Ewens, W.~J. (2012).
+\bibitem[Ewens(2012a)Ewens]{ewens2012}
+Ewens, W.~J. (2012a).
 \newblock {\em {Mathematical Population Genetics 1: Theoretical
   Introduction}\/}, volume~27.
 \newblock Springer Science \& Business Media.
 
-\bibitem[Fisher(1930)Fisher]{Fisher1930}
-Fisher, R.~A. (1930).
+\bibitem[Ewens(2012b)Ewens]{ewens2012mathematical}
+Ewens, W.~J. (2012b).
+\newblock {\em Mathematical population genetics 1: theoretical introduction\/},
+  volume~27.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Fisher(1930a)Fisher]{fisher1930genetical}
+Fisher, R. (1930a).
+\newblock The genetical theory of natural selection.
+
+\bibitem[Fisher(1930b)Fisher]{Fisher1930}
+Fisher, R.~A. (1930b).
 \newblock {\em The genetical theory of natural selection\/}.
 \newblock Oxford University Press, Oxford.
 
@@ -905,6 +925,21 @@ Kryukov, G.~V., Pennacchio, L.~A., and Sunyaev, S.~R. (2007).
   for complex disease and association studies.}
 \newblock {\em The American Journal of Human Genetics\/}, {\bf 80}(4),
   727--739.
+
+\bibitem[Labuda {\em et~al.}(1996)Labuda, Labuda, Korab-Laskowska, Cole,
+  Zietkiewicz, Weissenbach, Popowska, Pronicka, Root, and
+  Glorieux]{labuda1996linkage}
+Labuda, M., Labuda, D., Korab-Laskowska, M., Cole, D.~E., Zietkiewicz, E.,
+  Weissenbach, J., Popowska, E., Pronicka, E., Root, A.~W., and Glorieux, F.~H.
+  (1996).
+\newblock Linkage disequilibrium analysis in young populations: pseudo-vitamin
+  d-deficiency rickets and the founder effect in french canadians.
+\newblock {\em American journal of human genetics\/}, {\bf 59}(3), 633.
+
+\bibitem[Lander(1996)Lander]{Lander:1996fj}
+Lander, E.~S. (1996).
+\newblock {The new genomics: Global views of biology}.
+\newblock {\em Science\/}, {\bf 274}(5287), 536--539.
 
 \bibitem[Lawson {\em et~al.}(2012)Lawson, Hellenthal, Myers, and
   Falush]{Lawson:2012ha}
@@ -1725,6 +1760,13 @@ Wakeley, J. and Wilton, P. (2016).
 \newblock In R.~M. Kliman, editor, {\em Encyclopedia of Evolutionary
   Biology\/}, pages 287 -- 292. Academic Press, Oxford.
 
+\bibitem[Wang(2005)Wang]{Wang:2005wy}
+Wang, J. (2005).
+\newblock {Estimation of effective population sizes from data on genetic
+  markers}.
+\newblock {\em Philosophical Transactions of the Royal Society B: Biological
+  Sciences\/}, {\bf 360}(1459), 1395--1409.
+
 \bibitem[Watson and Crick(1953)Watson and Crick]{Watson:1953ug}
 Watson, J.~D. and Crick, F.~H. (1953).
 \newblock {Molecular structure of nucleic acids; a structure for deoxyribose
@@ -1795,9 +1837,14 @@ Wright, S. (1922).
 \newblock {Coefficients of Inbreeding and Relationship}.
 \newblock {\em The American Naturalist\/}, {\bf 56}(645), 330--338.
 
-\bibitem[Wright(1931)Wright]{Wright1931}
-Wright, S. (1931).
+\bibitem[Wright(1931a)Wright]{Wright1931}
+Wright, S. (1931a).
 \newblock {Evolution in Mendelian Populations}.
+\newblock {\em Genetics\/}, {\bf 16}(2), 97--159.
+
+\bibitem[Wright(1931b)Wright]{Wright:1931ub}
+Wright, S. (1931b).
+\newblock {Evolution in Mendelian Populations.}
 \newblock {\em Genetics\/}, {\bf 16}(2), 97--159.
 
 \bibitem[Yu {\em et~al.}(2001)Yu, Zhao, Fu, Sambuughin, Ramsay, Jenkins,

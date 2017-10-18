@@ -31,7 +31,7 @@ One major insight gained from the extensive study of the (human) genome is that 
 In general, low-frequency variants tend to be population-specific, but may also be highly differentiated between demographic groups on a finer scale \citep{Gravel:2011bgb,Bustamante:2011df,Mathieson:2014ig}.
 This is because rare variants are likely to have a relatively recent origin through mutation; \ie they are ``young'' in age and therefore have less time to spread.
 \Correct{Conversely}, genetic factors that contribute to substantial disease risk (particularly with early onset) are likely to be under purifying selection, which implies that they should be observed at relatively low frequencies, \eg despite being ``old''.
-\Correct{However, recent research has indicated that the human genome harbours an excess of rare, functional variants, which may entail deleterious effects, as a result of recent, explosive growth and weak purifying selection} \citep[\eg, see][]{Kryukov:2007ec,Marth:2011bz, Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
+\Correct{However, recent research has indicated that the human genome harbours an excess of rare, functional variants, which may entail deleterious consequences, due to the combined effects of recent, explosive growth and weak purifying selection} \citep[\eg, see][]{Kryukov:2007ec,Marth:2011bz, Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 
 
 Rare variants are now \Correct{considered to be potentially involved in} the predisposition to complex disease \citep{Bodmer:2008ep,Schork:2009ke,McClellan:2010ksa,Cirulli:2010cza}, though their contribution has been hypothesised for more than a decade \citep{Pritchard:2001hw}.
@@ -443,50 +443,26 @@ Therefore, \Correct{if ${n \ll N}$,} ${\mathbb{E}[T_\text{MRCA}] \approx 2}$ \Ad
 \subsubsection{Effective population size}
 %
 
+\CorrectNote{Section rewritten}
+
 Natural populations rarely adhere to the assumptions made by mathematical models.
 One such example is the rather unrealistic assumption that the population size remains constant over time.
 The rate at which coalescent events occur in the genealogy of a sample is conditional on the size of the population in each generation, which in reality is often highly variable.
-Statistical models in population genetics may therefore resort to the concept of an effective population size, denoted by \Ne, to substitute the census population size, $N$.
+Statistical models in population genetics therefore resort to the concept of an effective population size, denoted by \Ne, to substitute the census population size, $N$.
 
-\Addition{The concept was introduced by} \citet{Wright:1931ub} \Addition{and further developed by many others;} \eg \citet{crow1970introduction}.
-The value of \Ne is defined as the size of an ``ideal'' (Wright-Fisher) population \citep{fisher1930genetical,Wright:1931ub}, which would result in the same value of a given genetic property of interest.
-Several concepts of \Ne have been developed; for example the inbreeding effective size, variance effective size, and the coalescent effective size \citep[\eg, see]{Wang:2005wy}.
+The effective population size is one of the central concepts of population genetics, which was introduced by \citet{Wright:1931ub} and further developed by many others; \eg \citet{crow1970introduction}.
+The value of \Ne is commonly defined as the number of individuals in an ``ideal'' Wright-Fisher population \citep{fisher1930genetical,Wright:1931ub} which shows the same value of a given genetic property of interest as seen in the non-ideal, natural population \citep{ewens2012mathematical}.
 
-
-
-The effective population size corresponds to the size of an ``ideal'' (Wright-Fisher) population, which typically is much smaller than the census population size.
-
-The value of \Ne is generally difficult to estimate,
-
-the stochastic nature of processes and factors such as genetic drift, inbreeding, sex-ratio, number of breeding individuals, non-random mating, reproductive success (to name a few)
-which affect the genetic variation within a population.
-
-in which mating is random, there is no selection, there is no population structure, there is no mutation and generations are non-overlapping.
-
-
-
-Note that the biological meaning and the mathematical definition of \Ne may vary depending on the properties of the biological system under consideration.
-To account for variations in population size in the standard coalescent, \Ne can be defined as the \emph{variance effective size} and is estimated such that the coalescent process would result in the same shape of genetic variation as expected in a population of constant size.
-
-
+Although the effective size is of crucial interest in population genetics, the complexity of \Ne is difficult to define and estimate, because it collapses a large number of variable stochastic factors into a single parameter.
+Properties such as heterozygosity and allele frequency in a population of finite size will fluctuate over time, due to the stochastic sampling process of a finite number of gametes, which is influenced by variable factors such as sex ratio, number of breeding individuals, and variance in reproductive success.
+Several definitions of \Ne have been developed, for example dependent on the rate of increase in homozygosity (inbreeding effective size) or the variance in allele frequency change from one generation to the next (variance effective size), but which can only predict different aspects of the underlying population history; see review by \citet{Wang:2005wy}.
 
 Note that \Ne may differ from the census size of a population by several magnitudes.
 For example, the human population currently counts several billion individuals globally, whereas the long-term, diploid effective size is commonly defined in the order of ${\Ne \approx \num{10000}}$; \eg based on estimates from \gls{dna} polymorphism data \citep[\eg][]{Takahata:1993ko,Yu:2001wl}.
 
-
-Suppose the size of a population is known at each generation back time, where $N_i$ denotes the census size in generation~$i$ over a period of $t$ discrete generations.
-The effective size can be computed as
-\begin{equation}
-	\Ne ~=~ \frac{t}{ \sum_{i=1}^{t} \frac{1}{N_i} }
-\end{equation}
-which is the harmonic mean of $N_i$.
-However, because past population sizes are typically difficult to assess,
-
-
-\Addition{For example,} \Ne can be estimated from the genetic diversity observed in a population.
-The measure of genetic diversity is dependent on the rate of mutation in the genome, which is described in the following section\label{ref:calceffpopsize}.
-
 For consistency with the definitions provided so far, the following sections in this chapter keep $N$ to denote the population size, but this is substituted by \Ne in the remaining chapters.
+
+
 
 
 %
@@ -526,7 +502,7 @@ Under this assumption, the number of segregating sites (or \emph{variant} sites)
 The total branch length of the tree thereby determines the expected value of the number of segregating sites, denoted by $S_n$.
 From the sum of all branch lengths, \ie
 \begin{equation*}
-	T_\text{total} ~=~ i T_i ~+~ (i-1) T_{i-1} ~+~ (i-2) T_{i-2} ~+~ \ldots ~+~ 2 T_2 \CorrectLabel
+	T_\text{total} ~=~ i T_i ~+~ (i-1) T_{i-1} ~+~ (i-2) T_{i-2} ~+~ \ldots ~+~ 2 T_2
 \end{equation*}
 where \Correct{$i$} is the number of distinct lineages during a given time interval,
 the expected value of the total branch length can be computed as
@@ -710,8 +686,11 @@ The pilot phase described approximately 15~million \glspl{snp}, most of which ha
 Several pilot projects were undertaken, including low-coverage \gls{wgs} of \n{179} individuals from \n{4} populations, high-depth sequencing of \n{2} trios (parents and child), and targeted exome-sequencing of \n{697} individuals from \n{7} different populations.
 
 The variants discovered in the pilot stage were common ($>5\%$ minor allele frequency); that is, low-frequency variants were underrepresented.
-It had been recognised that rare and low-frequency variants are candidates for functional mutations under weak purifying selection and therefore could further our understanding of complex disease \citep{Marth:2011bz,Tennessen:2012ck}.
-To capture variants that occur at lower frequencies per population sample, it was necessary to sequence hundreds or thousands of genomes \citep{Kaiser:2008wd}.
+\Correct{Although the prevalent hypothesis at that time proposed that the variants underlying common diseases will also be common in the population \citep{Lander:1996fj,Chakravarti:1999ic}, it was argued that low-frequency and rare variants may also contribute to disease susceptibility and therefore could further our understanding of complex phenotypes \citep{Pritchard:2001hw}.}
+But to capture variants that occur at lower frequencies per population sample, it was necessary to sequence hundreds or thousands of genomes \citep{Kaiser:2008wd}.
+
+
+
 
 %
 \input{chapter1/fig/allelefreq_1kg}
@@ -719,7 +698,10 @@ To capture variants that occur at lower frequencies per population sample, it wa
 
 This led to Phase~\rom{1} of the \glsentrylong{1kg}, carried out on \n{1029} individuals from \n{14} populations, and comprising a combination of low-coverage \gls{wgs}, targeted exome sequencing, and genotyping by microarray.
 This resulted in the profiling of 38~million \glspl{snp} in total, with the majority being rare \citep{GenomesProjectConsortium:2012co}.
+\Addition{It must be noted that low-coverage sequencing is unlikely to capture rare variants with high accuracy, as they may not be called correctly due to inherent sequencing errors.
+However, Phase~\rom{1} represented a crucial step towards achieving complete characterisation of the genetic variation present in the human genome.}
 Phase~\rom{2} of the project focussed on methods development, while increasing the sample size to \n{1700} indivudals; these methods were applied to a total of \n{2504} samples from \n{26} populations in Phase~\rom{3}, leading to a final release dataset of 84.7~million \glspl{snp} and the completion of the project \citep{Auton:2015gk}.
+\Addition{Notably, although Phase~\rom{3} conducted low-coverage whole-genome ($>4x$) and high-coverage exome ($>50x$) sequencing, variants were called using improved methods (\eg haplotype-aware variant callers and methods based on \emph{de~novo} assembly) to produce the final dataset.}
 \Cpref{fig:allelefreq_1kg} illustrates the allele frequency spectrum of all variants identified through the \glsentrylong{1kg} (final release, Phase~\rom{3}); shown per chromosome after removal of private mutations (singletons).
 
 
@@ -752,7 +734,7 @@ This disparity is illustrated in \cpref{fig:gwa_spectrum}, which outlines a seem
 The limitations of both approaches lie at the extremes (outside the band indicated in \cref{fig:gwa_spectrum}).
 
 Notably, rare variants with modest or low penetrance are difficult to detect by either linkage or \gls{gwa} analysis.
-Since it became apparent that the human genome harbours an abundance of rare and low-frequency variants, it has been suggested that there might be unexpectedly large amounts of deleterious rare variants with low to modest effects \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
+Since it became apparent that the human genome harbours an abundance of rare and low-frequency variants, it has been suggested that \Correct{a large proportion of rare variants may also have functional implications with} low to modest effects \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 Using \gls{gwa} methods, the interrogation of alleles observed at very low (rare) frequencies may represent a conceptual limitation, however, it is hoped that the detection of low-frequency variants with intermediate effect can be improved.
 
 
@@ -778,7 +760,7 @@ Traditional measures of relatedness define IBD as the gametic relationship at a 
 For example, the probability that \n{2} homologous alleles are identical by descent in the same diploid individual is given by the inbreeding coefficient.
 However, such traditional approaches often assume that the relationship status of the individuals is known or can be derived from possible pedigree relationships, where ancestors are defined with respect to the founders of a pedigree.
 It has been argued that ancestry defined in reference to a founder sample is ``something arbitrary'' \citep[][p~141]{maynardsmith1989}; see \citet{Rousset:2002bz}.
-Moreover, this definition of IBD (in particular the distinction between IBD and IBS) seems to be in conflict with coalescent theory, which postulates that every allele is technically identical by descent in the individuals which carry them, because all shared mutations in the genome can be traced back to a common ancestor at different times in the past \citep{Powell:2010di}.
+Moreover, this definition of IBD (in particular the distinction between IBD and IBS) seems to be in conflict with coalescent theory, which postulates that every allele is technically identical by descent in the individuals which carry them, because all shared mutations in the genome can be traced back to a common ancestor at different times in the past \citep{Powell:2010di}\Addition{; that is, given the assumptions of the infinite sites model \citep{Kimura:1969tn,Watterson:1975ur}.}
 
 %
 \subsection{Genealogical concept}
@@ -873,15 +855,21 @@ They used \glsentryfull{rflp} data from \n{240} French families, estimating the 
 As a result, they estimated this mutation to have occurred \n{3000} to \n{6000} years ago, which was consistent with an estimate of approximately \n{3000}~years found by \citet{Slatkin:2000us}, who replicated the study on intronic microsatellite data provided by \citet{Morral:1994vx}.
 
 \Citet{Risch:1995ir} examined \n{6} closely linked microsatellite markers in data from \n{59} Ashkenazi Jewish families with idiopathic torsion dystonia (ITD), a rare disorder involving involuntary and sustained muscle contractions.
-They showed that cases with early-onset ITD (Oppenheim's dystonia) are due to a single founder-mutation, which they estimated to have emerged around \n{350} years ago, during a period when the population was geographically restricted to historic Jewish settlements in northeastern Europe.
+They showed that cases with early-onset ITD (Oppenheim's dystonia) are due to a single founder-mutation.
+\Addition{Based on linkage analysis and observations of strong \gls{ld} around the ITD locus, they estimated this mutation} to have emerged around \n{350} years ago \Addition{(assuming 25-year generations)}.
+\Addition{However, }\citet{labuda1996linkage}\Addition{ provided a correction to account for founder effects in the model, which suggested that the mutation originated several centuries earlier than reported by }\citet{Risch:1995ir}\Addition{, during a period when the Jewish population was founded in eastern Europe.
+This corrected result was further confirmed through re-analysis by }\citet{Slatkin:2000us}.
 
-More recently, \citet{Fu:2012hg} used exome data from \n{6515} individuals and estimated the age of more than 1~million protein-coding \glspl{snp}, using a simulation-based approach under several established demographic models.
+\Addition{As noted by \citet{Slatkin:2000us}, the recombination and mutation rates (as well as other demographic parameters such as the exponential growth rate) used to estimate allele age represent a source of uncertainty.
+For example, the age range reported by \citet{Serre:1990uy} was estimated based on several values that were consistent with data available at the time.}
+
+In a more recent study, \citet{Fu:2012hg} used exome data from \n{6515} individuals and estimated the age of more than 1~million protein-coding \glspl{snp}, using a simulation-based approach under several established demographic models.
 In addition, they predicted whether variants were deleterious using a range of different methods, Interestingly, they found that the probability that a variant was predicted to be deleterious was strongly related to estimated allele age.
 \Citet{Fu:2012hg} found that some of the genes surveyed, among those which had been associated with human diseases, showed a significant excess of putative deleterious variants which were estimated to have a relatively recent origin through mutation.
 For example, several of those genes had been implicated in coronary artery atherosclerosis (\textsl{CPE}), hereditary spastic paraplegia (\textsl{KIAA0196}), premature ovarian failure (\textsl{LAMC1}), and Alzheimer's disease (\textsl{LRP1}).
 In fact, the majority of identified deleterious variants within gene-coding regions were rare in frequency, enriched for mutations of large effect size, and indicated to have emerged relatively recently, within in the last \n{5000} to \n{10000} years.
 
-In general, it has been argued that the observed excess of deleterious rare variants in the human genome is due to a recent, explosive population growth, following a bottleneck population size after the expansion out of Africa, \n{50000} to \n{100000} years ago, and the advent of agriculture, approximately \n{10000} years ago \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
+In general, it has been argued that \Correct{the large number of rare variants observed} in the human genome is due to a recent, explosive population growth, following a bottleneck population size after the expansion out of Africa, \n{50000} to \n{100000} years ago, and the advent of agriculture, approximately \n{10000} years ago \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 For example, the effects of (weak) purifying selection can be considered as being too slow to purge young alleles with disadvantageous phenotypic consequences from the population, such that there might be an unrecognised large abundance of rare variants in the human genome which could influence disease risk in yet unaccounted ways.
 An argument to the contrary, however, suggests that recent demographic changes such as population growth may have had negligible impact on the mutational load carried by an individual on average \citep{Simons:2014fj}.
 As such, the amount of ascertained rare variants may not necessarily contribute to complex disease risk unless they exert strongly deleterious effects on fitness.

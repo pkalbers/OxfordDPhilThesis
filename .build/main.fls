@@ -1187,6 +1187,8 @@ INPUT chapter1/fig/info_seqtech.tex
 INPUT ./img/ch1/info_seqtech.pdf
 INPUT ./img/ch1/info_seqtech.pdf
 INPUT ./img/ch1/info_seqtech.pdf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT chapter1/fig/cost_per_genome.tex
 INPUT chapter1/fig/cost_per_genome.tex
 INPUT ./img/ch1/cost_per_genome.pdf
@@ -1195,8 +1197,6 @@ INPUT ./img/ch1/cost_per_genome.pdf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT chapter1/fig/allelefreq_1kg.tex
 INPUT chapter1/fig/allelefreq_1kg.tex
 INPUT ./img/ch1/allelefreq_1kg.pdf
@@ -1234,10 +1234,10 @@ INPUT chapter1/fig/gwa_spectrum.tex
 INPUT ./img/ch1/gwa_spectrum.pdf
 INPUT ./img/ch1/gwa_spectrum.pdf
 INPUT ./img/ch1/gwa_spectrum.pdf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmit8t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpsyw.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpsy.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmn7t.vf
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmit8t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmit8t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmit8r.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmite.tfm

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  17 OCT 2017 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  18 OCT 2017 18:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2005,11 +2005,11 @@ File: english.mld 2006/01/13
 ))
 Package minitoc Info: I0052
 (minitoc)             \mtcsetoffset redefines 
-(minitoc)             "mtcoffset" as "-1ex" on input line 333.
+(minitoc)             "mtcoffset" as "-1ex" on input line 351.
 Package minitoc Info: I0014
 (minitoc)             \mtcsetfeature redefines the macro 
 (minitoc)             "openminitoc" as 
-(minitoc)             "\vspace {0.5ex}" on input line 336.
+(minitoc)             "\vspace {0.5ex}" on input line 354.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2014/10/28 v1.5a package for extended references (FMi)
 \c@vrcnt=\count272
@@ -2104,7 +2104,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip89
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 557.
+Package hyperref Info: Option `colorlinks' set `true' on input line 576.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2230.
@@ -2239,11 +2239,11 @@ Package: glossary-tree 2015/02/03 v4.13 (NLCT)
 \glo@main@file=\write8
 \openout8 = `main.glo'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 578.
+Package glossaries Info: Writing glossary file main.glo on input line 597.
 \glo@acronym@file=\write9
 \openout9 = `main.acn'.
 
-Package glossaries Info: Writing glossary file main.acn on input line 578.
+Package glossaries Info: Writing glossary file main.acn on input line 597.
  (./macros.sty (/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box132
 \UL@hyphenbox=\box133
@@ -2615,51 +2615,58 @@ LaTeX Font Warning: Command \large invalid in math mode on input line 373.
 
 LaTeX Font Warning: Command \large invalid in math mode on input line 399.
 
-[20] [21] [22] (./chapter1/fig/info_mutation.tex <./img/ch1/info_mutation.pdf, id=709, 446.05327pt x 181.78444pt>
+[20] [21] [22] (./chapter1/fig/info_mutation.tex <./img/ch1/info_mutation.pdf, id=727, 446.05327pt x 181.78444pt>
 File: ./img/ch1/info_mutation.pdf Graphic file (type pdf)
  <use ./img/ch1/info_mutation.pdf>
 Package pdftex.def Info: ./img/ch1/info_mutation.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 173.94243pt.
 ) [23 <./img/ch1/info_mutation.pdf>]
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 491.
-
-
 LaTeX Font Warning: Command \large invalid in math mode on input line 492.
 
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 497.
+LaTeX Font Warning: Command \large invalid in math mode on input line 493.
 
-[24] [25] (./chapter1/fig/info_arg.tex <./img/ch1/info_arg.pdf, id=977, 571.60762pt x 247.27551pt>
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 498.
+
+[24]
+
+LaTeX Warning: Reference `ref:calceffpopsize' on page 1 undefined on input line 527.
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 527.
+
+[25] (./chapter1/fig/info_arg.tex <./img/ch1/info_arg.pdf, id=993, 571.60762pt x 247.27551pt>
 File: ./img/ch1/info_arg.pdf Graphic file (type pdf)
  <use ./img/ch1/info_arg.pdf>
 Package pdftex.def Info: ./img/ch1/info_arg.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 184.62985pt.
 ) [26]
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 572.
+LaTeX Font Warning: Command \large invalid in math mode on input line 573.
 
 [27 <./img/ch1/info_arg.pdf>] [28]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 6.40002pt on input line 635.
- [29] (./chapter1/fig/info_seqtech.tex <./img/ch1/info_seqtech.pdf, id=1160, 536.88617pt x 241.69778pt>
+(Font)              scaled to size 6.40002pt on input line 636.
+ [29] (./chapter1/fig/info_seqtech.tex <./img/ch1/info_seqtech.pdf, id=1176, 536.88617pt x 241.69778pt>
 File: ./img/ch1/info_seqtech.pdf Graphic file (type pdf)
  <use ./img/ch1/info_seqtech.pdf>
 Package pdftex.def Info: ./img/ch1/info_seqtech.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 192.13776pt.
-) (./chapter1/fig/cost_per_genome.tex <./img/ch1/cost_per_genome.pdf, id=1175, 505.89pt x 289.08pt>
+) [30 <./img/ch1/info_seqtech.pdf>] (./chapter1/fig/cost_per_genome.tex <./img/ch1/cost_per_genome.pdf, id=1284, 505.89pt x 289.08pt>
 File: ./img/ch1/cost_per_genome.pdf Graphic file (type pdf)
  <use ./img/ch1/cost_per_genome.pdf>
 Package pdftex.def Info: ./img/ch1/cost_per_genome.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 243.88417pt.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 12.
-) [30 <./img/ch1/info_seqtech.pdf>] [31 <./img/ch1/cost_per_genome.pdf>] [32] (./chapter1/fig/allelefreq_1kg.tex <./img/ch1/allelefreq_1kg.pdf, id=1362, 650.43pt x 361.35pt>
+) [31 <./img/ch1/cost_per_genome.pdf>] [32] (./chapter1/fig/allelefreq_1kg.tex <./img/ch1/allelefreq_1kg.pdf, id=1378, 650.43pt x 361.35pt>
 File: ./img/ch1/allelefreq_1kg.pdf Graphic file (type pdf)
  <use ./img/ch1/allelefreq_1kg.pdf>
 Package pdftex.def Info: ./img/ch1/allelefreq_1kg.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 237.1133pt.
-) [33] (./chapter1/fig/gwascat.tex <./img/ch1/gwascat.pdf, id=1394, 578.16pt x 325.215pt>
+) [33] [34 <./img/ch1/allelefreq_1kg.pdf>] (./chapter1/fig/gwascat.tex <./img/ch1/gwascat.pdf, id=1424, 578.16pt x 325.215pt>
 File: ./img/ch1/gwascat.pdf Graphic file (type pdf)
  <use ./img/ch1/gwascat.pdf>
 Package pdftex.def Info: ./img/ch1/gwascat.pdf used on input line 5.
@@ -2669,12 +2676,12 @@ Underfull \hbox (badness 1152) in paragraph at lines 11--11
 []\T1/jkp/b/n/10 Figure 1.12: |Sig-ni-fic-ant risk-associated vari-ants lis-ted in the NHGRI-EBI Cata-logue.
  []
 
-) [34 <./img/ch1/allelefreq_1kg.pdf>] (./chapter1/fig/gwa_spectrum.tex <./img/ch1/gwa_spectrum.pdf, id=1427, 592.95778pt x 305.85957pt>
+) (./chapter1/fig/gwa_spectrum.tex <./img/ch1/gwa_spectrum.pdf, id=1445, 592.95778pt x 305.85957pt>
 File: ./img/ch1/gwa_spectrum.pdf Graphic file (type pdf)
  <use ./img/ch1/gwa_spectrum.pdf>
 Package pdftex.def Info: ./img/ch1/gwa_spectrum.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 220.15338pt.
-) [35 <./img/ch1/gwascat.pdf>] [36 <./img/ch1/gwa_spectrum.pdf>] [37] (./chapter1/fig/info_ibd.tex
+) [35] [36 <./img/ch1/gwascat.pdf>] [37 <./img/ch1/gwa_spectrum.pdf>] (./chapter1/fig/info_ibd.tex
 LaTeX Font Info:    Try loading font information for T1+phv on input line 5.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -2683,17 +2690,17 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- <./img/ch1/info_ibd.pdf, id=1604, 586.0505pt x 291.99991pt>
+ <./img/ch1/info_ibd.pdf, id=1619, 586.0505pt x 291.99991pt>
 File: ./img/ch1/info_ibd.pdf Graphic file (type pdf)
  <use ./img/ch1/info_ibd.pdf>
 Package pdftex.def Info: ./img/ch1/info_ibd.pdf used on input line 6.
 (pdftex.def)             Requested size: 426.79137pt x 212.65468pt.
- <./img/ch1/info_ibd_segment.pdf, id=1605, 530.66995pt x 233.21228pt>
+ <./img/ch1/info_ibd_segment.pdf, id=1620, 530.66995pt x 233.21228pt>
 File: ./img/ch1/info_ibd_segment.pdf Graphic file (type pdf)
  <use ./img/ch1/info_ibd_segment.pdf>
 Package pdftex.def Info: ./img/ch1/info_ibd_segment.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 187.56288pt.
-) [38] [39 <./img/ch1/info_ibd.pdf> <./img/ch1/info_ibd_segment.pdf>] [40] [41] [42]) [43] [44] (.build/main.acr) [237
+ [38]) [39] [40 <./img/ch1/info_ibd.pdf> <./img/ch1/info_ibd_segment.pdf>] [41] [42] [43]) [44] [45] (.build/main.acr) [237
 
 
 
@@ -2706,9 +2713,7 @@ Package pdftex.def Info: ./img/ch1/info_ibd_segment.pdf used on input line 8.
 
 ] (.build/main.bbl [239
 
-] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249] [250]) [251] [252
-
-]
+] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249] [250] [251]) [252]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the main.maf file.
@@ -2736,7 +2741,9 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the main.log file.
 
-[253]
+[253
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
  (.build/main.aux (.build/frontmatter.aux) (.build/chapter1/one.aux) (.build/chapter2/two.aux) (.build/chapter3/three.aux) (.build/chapter4/four.aux) (.build/chapter5/five.aux) (.build/chapter6/six.aux))
@@ -2744,21 +2751,25 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6FC25B8BF5CC0A657C45A2189C9D25B6;1432.
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 52432 strings out of 493089
- 993472 string characters out of 6134842
- 1423655 words of memory out of 5000000
- 53415 multiletter control sequences out of 15000+600000
- 377954 words of font info for 1012 fonts, out of 8000000 for 9000
+ 52523 strings out of 493089
+ 995090 string characters out of 6134842
+ 1424812 words of memory out of 5000000
+ 53500 multiletter control sequences out of 15000+600000
+ 377784 words of font info for 1011 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,19n,86p,10436b,2036s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsbo8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
 ype1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpssmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on .build/main.pdf (61 pages, 1693286 bytes).
+Output written on .build/main.pdf (62 pages, 1709314 bytes).
 PDF statistics:
- 2147 PDF objects out of 2487 (max. 8388607)
- 1734 compressed objects within 18 object streams
- 381 named destinations out of 1000 (max. 500000)
+ 2189 PDF objects out of 2487 (max. 8388607)
+ 1775 compressed objects within 18 object streams
+ 389 named destinations out of 1000 (max. 500000)
  126707 words of extra memory for PDF output out of 128383 (max. 10000000)
 

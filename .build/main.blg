@@ -9,6 +9,7 @@ A level-1 auxiliary file: chapter4/four.aux
 A level-1 auxiliary file: chapter5/five.aux
 A level-1 auxiliary file: chapter6/six.aux
 The style file: biblio.bst
+Reallocated field_info (elt_size=4) to 10129 items from 5000.
 Database file #1: library.bib
 Repeated entry---line 8756 of file library.bib
  : @article{malecot1948mathematics
@@ -29,49 +30,50 @@ Repeated entry---line 107 of file manual.bib
  :                   ,
 I'm skipping whatever remains of this entry
 Warning--empty journal in Delaneau:2008dk
+Warning--empty journal in fisher1930genetical
 Warning--empty journal in griffiths1997
 Warning--empty institution in Loh:2016bl
 Warning--empty journal in Marchini:2010cga
 Warning--can't use both volume and number fields in moskvina2005minor
-You've used 215 entries,
+You've used 223 entries,
             2378 wiz_defined-function locations,
-            1827 strings with 72514 characters,
-and the built_in function-call counts, 147864 in all, are:
-= -- 10456
-> -- 15182
-< -- 130
-+ -- 4845
-- -- 4827
-* -- 16396
-:= -- 27925
-add.period$ -- 959
-call.type$ -- 215
-change.case$ -- 1318
-chr.to.int$ -- 209
-cite$ -- 220
-duplicate$ -- 4143
-empty$ -- 7019
-format.name$ -- 5116
-if$ -- 27297
-int.to.chr$ -- 7
+            1867 strings with 73596 characters,
+and the built_in function-call counts, 151255 in all, are:
+= -- 10787
+> -- 15340
+< -- 138
++ -- 4898
+- -- 4873
+* -- 16683
+:= -- 28530
+add.period$ -- 990
+call.type$ -- 223
+change.case$ -- 1366
+chr.to.int$ -- 214
+cite$ -- 229
+duplicate$ -- 4285
+empty$ -- 7250
+format.name$ -- 5172
+if$ -- 27956
+int.to.chr$ -- 10
 int.to.str$ -- 0
-missing$ -- 220
-newline$ -- 1077
-num.names$ -- 862
-pop$ -- 1218
+missing$ -- 229
+newline$ -- 1116
+num.names$ -- 894
+pop$ -- 1265
 preamble$ -- 1
-purify$ -- 1327
+purify$ -- 1376
 quote$ -- 0
-skip$ -- 2757
+skip$ -- 2852
 stack$ -- 0
-substring$ -- 7603
-swap$ -- 802
-text.length$ -- 13
+substring$ -- 7817
+swap$ -- 824
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1911
-warning$ -- 5
-while$ -- 1023
+type$ -- 1980
+warning$ -- 6
+while$ -- 1056
 width$ -- 0
-write$ -- 2781
+write$ -- 2881
 (There were 4 error messages)
