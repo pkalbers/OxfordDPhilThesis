@@ -262,6 +262,8 @@ list-final-separator={, and }%
 \soulregister\citep7
 \soulregister\citet7
 \soulregister\cref7
+\soulregister\cpref7
+\soulregister\Cpref7
 \soulregister\xspace7
 \soulregister\eg7
 \soulregister\ie7
@@ -273,7 +275,7 @@ list-final-separator={, and }%
 
 % correction
 \newcommand{\Correct}[1]{\hl{#1}}
-\def\CorrectLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{CORRECTED}}}\xspace} % MATH
+\def\CorrectLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{CORRECTED}}}\xspace}
 \DeclareRobustCommand{\CorrectNote}[1]{{%
 \noindent%
 \colorbox{yellow}{%
@@ -284,6 +286,7 @@ list-final-separator={, and }%
 
 % addition
 \newcommand{\Addition}[1]{{\hl{#1}}}
+\def\AdditionLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{ADDED}}}\xspace}
 
 % deletion
 \newcommand{\Delete}[1]{{\st{#1}}}

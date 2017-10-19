@@ -33,7 +33,7 @@ Commonly employed imputation methods are, for example, \texttt{Beagle} \citep{Br
 
 Genotypes can be imputed with remarkably high accuracy, allowing researchers to assay only a modest number of markers in sampled individuals, which makes large-scale data collection feasible and cost-effective \citep{Li:2009kfa}.
 The accuracy of imputation is dependent on several factors.
-These include the number of genotyped markers in the study sample, \cancel{the number of individuals sampled,} the size of the reference panel, and the genetic similarity between sampled and reference individuals \citep{Howie:2009hq, Roshyara:2015gi}.
+These include the number of genotyped markers in the study sample, \Delete{the number of individuals sampled,} the size of the reference panel, and the genetic similarity between sampled and reference individuals \citep{Howie:2009hq, Roshyara:2015gi}.
 The coverage of the reference panel further influences the power to find significant associations.
 The availability and choice of reference data therefore becomes crucial in considerations of statistical power in study design.
 
@@ -208,7 +208,7 @@ If the highest score value is equal in more than \n{1} candidate genotypes, \n{1
 \paragraph{Weighted linear combination (\texttt{WLS}).}
 Tuple values of the meta-imputed genotype are derived from candidate genotypes as a linear combination of their posterior probability per genotypic state.
 This is calculated as the weighted average over analogue genotype probabilities, using corresponding score values as weights.
-Each candidate genotype thereby contributes to the resulting probability distribution in $\hat{g}_{ij}$, except for genotypes with $s_{ijk}=0$.
+Each candidate genotype thereby contributes to the resulting probability distribution in $\hat{g}_{ij}$\Delete{, except for genotypes with $s_{ijk}=0$}.
 Probability values in each tuple $a_{ijk}$ are multiplied by their assigned $s_{ijk}$ after normalising scores such that values in $s_{ij}$ sum to 1.
 The tuple of the meta-imputed genotype is then constructed by calculating the sum over the weighted probabilities at each genotypic state; see below (the mathematical definition follows \citet{Stone:1961js}).
 \begin{equation}\label{metaimpute_wlc}
@@ -233,6 +233,7 @@ This original dataset was split into non-overlapping subsets in \n{2} scenarios,
 	\item[\textbf{Scenario B}] included \n{4} panels from different continental populations (AFR, AMR, ASN, and EUR) as an example use case when panels of distinct-ancestry samples are available.
 \end{description}
 Because sample sizes of the population groups considered in Scenario~B differed in \gls{1kg} (more than in Scenario~A), extracted individuals were randomly drawn from each group to create panels of equal size.
+\Addition{Note that this was done to be able to better compare imputation accuracy among the generated panels, but which is not a requirement when using the meta-imputation method.}
 Monomorphic sites and singletons were removed in each generated panel to more closely resemble data from independently conducted studies, where singleton or monomorphic variant calls are likely to be removed in the final dataset.
 In the following, the term \emph{split panel} is used to denote subset reference data from \gls{1kg}.
 Throughout, analyses were limited to data from \n{1} chromosome, namely chromosome~20.
@@ -285,9 +286,17 @@ The generation of the genotype scaffold is described below, followed by details 
 %
 
 The study sample used for imputations was extracted as a scaffold from data of the \gls{got2d}, consisting of \n{2657} individuals of Central and Northern European descent \citep{Fuchsberger:2016df}.\footnote{GoT2D Consortium: \url{http://www.type2diabetesgenetics.org/projects/got2d} \accessed{2016}{12}{02}}
-The dataset is composed of data obtained on several platforms, including \glsentrylong{wgs}, \glsentrylong{wes}, and exome chip data.
-To maintain a congruent set of markers in the genotype scaffold, variants typed on \emph{Illumina Omni2.5 Array} were extracted from the larger \gls{got2d} dataset, yielding \n{40255} variants of in total \n{387499} \glspl{snp} on chromosome~20 in \gls{got2d}, after removing monomorphic sites and singletons.
+The dataset is composed of data obtained on several platforms, including \glsentrylong{wgs} \Addition{($\sim5\times$)}, \glsentrylong{wes} \Addition{($\sim82\times$)}, and genotyping data using the \emph{Illumina Omni2.5 Array}.
+To maintain a congruent set of markers in the genotype scaffold, variants typed on the latter were extracted from the larger \gls{got2d} dataset, yielding \n{40255} variants of in total \n{387499} \glspl{snp} on chromosome~20 in \gls{got2d}, after removing monomorphic sites and singletons.
 Remaining sites were masked for comparison after imputation, where imputed variants were matched to their corresponding sites in the masked dataset to calculate genotype accuracy.
+
+%
+\input{chapter2/fig/sfs_got2d}
+%
+
+\Addition{\Cpref{fig:sfs_got2d} shows the \gls{sfs} of variants captured in the \gls{got2d} dataset, highlighting the discrepancy between the frequency distribution observed at all captured variants and those obtained through genotyping only.
+Rare variants (\eg at allele frequency $\leq1\%$) are underrepresented in the genotyped set of SNPs and, thus, in the extracted genotype scaffold.
+Imputation from a reference panel into the scaffold attempts to fill these gaps, including sites with alleles occurring at lower frequencies.}
 
 
 %
