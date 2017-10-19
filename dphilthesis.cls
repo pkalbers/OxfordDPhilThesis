@@ -149,7 +149,7 @@
 % caption
 \usepackage{setspace}
 \usepackage[%
-font={small,stretch=1.2},%
+font={small,stretch=1.1},%
 labelfont=bf,%
 margin=2mm,%
 singlelinecheck=false%
@@ -268,6 +268,7 @@ list-final-separator={, and }%
 \soulregister\eg7
 \soulregister\ie7
 \soulregister\gls7
+\soulregister\glsentryfull7
 \soulregister\rom7
 \setulcolor{yellow}
 \setstcolor{red}
