@@ -1046,6 +1046,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbsyc.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbexa.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbexa.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbexa.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmiw.vf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmi.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpbn7t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpbmiw.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbmi.tfm
@@ -1079,8 +1081,6 @@ INPUT chapter2/fig/info_design_power.tex
 INPUT ./img/ch2/info_design_power.pdf
 INPUT ./img/ch2/info_design_power.pdf
 INPUT ./img/ch2/info_design_power.pdf
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmiw.vf
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmi.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmn8t.vf
 INPUT chapter2/fig/power_lgc.tex
 INPUT chapter2/fig/power_lgc.tex

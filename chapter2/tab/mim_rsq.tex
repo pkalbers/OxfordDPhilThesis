@@ -5,7 +5,9 @@
 \Caption{Accuracy measured for each meta-imputation setting}
 {Accuracy was measured as mean~$r^2$ (${\pm\text{SE}}$) per \gls{maf} bin; defined to reflect average levels of accuracy measured at rare, low-frequency, and common variants.
 Reported values were measured after \gls{qc} for each meta-imputation setting (combination of merge operation and score metric), in Scenarios~A and B.
-The setting with the highest accuracy per \gls{maf} bin and per scenario is highlighted (\textbf{bold}).}
+\Addition{Retained variants were intersected across datasets per MAF bin.
+The number of SNPs at which mean~$r^2$ was measured, $n$, is reported per scenario below the MAF range.}
+The setting with the highest accuracy per \gls{maf} bin and per scenario is highlighted (\textbf{bold}).\CorrectLabel}
 {tab:mim_rsq}
 \centering
 \TableUnits
@@ -14,57 +16,55 @@ The setting with the highest accuracy per \gls{maf} bin and per scenario is high
 	l@{\quad}c@{\quad}c%
 	S[table-format=1.3]%
   @{}S[table-format=1.3]%
-	S[table-format=5.0]%
 	S[table-format=1.3]%
 	@{}S[table-format=1.3]%
-	S[table-format=5.0]%
 	}
 \toprule
 {MAF bin} & {Merge} & {Score} &
-\multicolumn{3}{c}{Scenario A} &
-\multicolumn{3}{c}{Scenario B} \\
-\cmidrule(lr){4-6}
-\cmidrule(lr){7-9}
- & & & {Mean $r^2$} & {($\pm$~SE$^\ast$)} & {$n$} & {Mean $r^2$} & {($\pm$~SE$^\ast$)} & {$n$} \\
+\multicolumn{2}{c}{Scenario A} &
+\multicolumn{2}{c}{Scenario B} \\
+\cmidrule(lr){4-5}
+\cmidrule(lr){6-7}
+ & & & {Mean $r^2$} & {($\pm$~SE$^\ast$)} & {Mean $r^2$} & {($\pm$~SE$^\ast$)} \\
 \otoprule
-{{[0.00, 0.01]}}
+\multirow{3}{*}{\shortstack[l]{{\bfseries[0.00, 0.01]} \\ ~ $n_A = \num{28341}$ \\ ~ $n_B = \num{33443}$}}
  & \texttt{MSS}
-   & \texttt{MP} &  0.584947 & (1.946525) & 31694  &  0.557479 & (1.822788) & 42101 \\
- & & \texttt{IS} &  0.567338 & (1.968234) & 32099  &  0.554399 & (1.819030) & 42769 \\
- & & \texttt{SC} &  0.564983 & (1.952322) & 31646  &  0.544109 & (1.769496) & 42335 \\
- & & \texttt{RS} &  0.578163 & (1.988586) & 30693  &  0.535900 & (1.900744) & 38468 \\
-\cmidrule(lr){3-9}
- & \texttt{WLC}
-   & \texttt{MP} & \bfseries 0.607540 & (2.018734) & 28818  & \bfseries 0.603224 & (1.911612) & 35020 \\
- & & \texttt{IS} &  0.599807 & (2.003624) & 29461  &  0.592187 & (1.869955) & 37049 \\
- & & \texttt{SC} &  0.606387 & (2.027033) & 28607  &  0.602938 & (1.910916) & 34793 \\
- & & \texttt{RS} &  0.606362 & (2.030836) & 28545  &  0.600816 & (1.917677) & 34748 \\
-\cmidrule(lr){2-9}
-{{(0.01, 0.05]}}
+  & \texttt{MP} & \bfseries 0.610644 & (2.057332)  &  0.601723 & (1.997402) \\
+& & \texttt{IS} &  0.602369 & (2.067987)  &  0.599291 & (2.005439) \\
+& & \texttt{SC} &  0.600145 & (2.040775)  &  0.594598 & (1.961289) \\
+& & \texttt{RS} &  0.600892 & (2.051666)  &  0.578417 & (1.977409) \\
+\cmidrule(lr){3-7}
+& \texttt{WLC}
+  & \texttt{MP} &  0.609431 & (2.041139)  & \bfseries 0.603334 & (1.957030) \\
+& & \texttt{IS} &  0.607690 & (2.042573)  &  0.602691 & (1.958653) \\
+& & \texttt{SC} &  0.607655 & (2.038668)  &  0.601475 & (1.951390) \\
+& & \texttt{RS} &  0.607538 & (2.038956)  &  0.601114 & (1.951605) \\
+\cmidrule(lr){1-7}
+\multirow{3}{*}{\shortstack[l]{{\bfseries(0.01, 0.05]} \\ ~ $n_A = \num{38669}$ \\ ~ $n_B = \num{37364}$}}
  & \texttt{MSS}
-   & \texttt{MP} &  0.818479 & (1.169141) & 43330  &  0.798540 & (1.324721) & 42865 \\
- & & \texttt{IS} &  0.809187 & (1.168439) & 43787  &  0.813986 & (1.219665) & 43341 \\
- & & \texttt{SC} &  0.803550 & (1.146422) & 43499  &  0.789748 & (1.231260) & 43570 \\
- & & \texttt{RS} &  0.813084 & (1.157015) & 41848  &  0.768786 & (1.416076) & 40173 \\
-\cmidrule(lr){3-9}
+  & \texttt{MP} &  0.870894 & (0.952739)  &  0.858368 & (1.075501) \\
+& & \texttt{IS} &  0.859376 & (1.008176)  &  0.860007 & (1.071849) \\
+& & \texttt{SC} &  0.855345 & (0.968571)  &  0.845538 & (1.061551) \\
+& & \texttt{RS} &  0.847281 & (1.035284)  &  0.807120 & (1.266720) \\
+\cmidrule(lr){3-7}
  & \texttt{WLC}
-   & \texttt{MP} & \bfseries 0.875631 & (0.870685) & 39309  & \bfseries 0.864771 & (0.936379) & 39240 \\
- & & \texttt{IS} &  0.866544 & (0.903124) & 40107  &  0.856054 & (0.961843) & 40376 \\
- & & \texttt{SC} &  0.874198 & (0.878352) & 39000  &  0.863396 & (0.936293) & 38992 \\
- & & \texttt{RS} &  0.874232 & (0.878709) & 38972  &  0.862837 & (0.940820) & 38943 \\
-\cmidrule(lr){2-9}
-{{(0.05, 0.50]}}
+  & \texttt{MP} & \bfseries 0.879115 & (0.866827)  & \bfseries 0.866884 & (0.956957) \\
+& & \texttt{IS} &  0.876414 & (0.877540)  &  0.865731 & (0.961977) \\
+& & \texttt{SC} &  0.875809 & (0.876575)  &  0.863791 & (0.961773) \\
+& & \texttt{RS} &  0.875685 & (0.876986)  &  0.863342 & (0.962887) \\
+\cmidrule(lr){1-7}
+\multirow{3}{*}{\shortstack[l]{{\bfseries(0.05, 0.50]} \\ ~ $n_A = \num{92797}$ \\ ~ $n_B = \num{91375}$}}
  & \texttt{MSS}
- 	 & \texttt{MP} &  0.970186 & (0.280056) & 93571  &  0.960115 & (0.372269) & 93068 \\
- & & \texttt{IS} &  0.966985 & (0.287216) & 93569  &  0.962408 & (0.343832) & 93567 \\
- & & \texttt{SC} &  0.964351 & (0.287651) & 93541  &  0.955981 & (0.342034) & 93544 \\
- & & \texttt{RS} &  0.961725 & (0.301301) & 93336  &  0.931022 & (0.488260) & 92876 \\
- \cmidrule(lr){3-9}
+  & \texttt{MP} &  0.975080 & (0.212736)  &  0.969429 & (0.261345) \\
+& & \texttt{IS} &  0.971473 & (0.232792)  &  0.970468 & (0.261916) \\
+& & \texttt{SC} &  0.968808 & (0.234113)  &  0.964816 & (0.253617) \\
+& & \texttt{RS} &  0.965034 & (0.262540)  &  0.939578 & (0.418136) \\
+ \cmidrule(lr){3-7}
  & \texttt{WLC}
- 	 & \texttt{MP} & \bfseries 0.976555 & (0.181332) & 92952  & \bfseries 0.972756 & (0.192585) & 92198 \\
- & & \texttt{IS} &  0.975928 & (0.183156) & 92943  &  0.971667 & (0.195965) & 92435 \\
- & & \texttt{SC} &  0.976184 & (0.179378) & 92857  &  0.971936 & (0.191300) & 92122 \\
- & & \texttt{RS} &  0.976165 & (0.179460) & 92852  &  0.971744 & (0.191307) & 92096 \\
+  & \texttt{MP} & \bfseries 0.977060 & (0.175426)  & \bfseries 0.973858 & (0.184269) \\
+& & \texttt{IS} &  0.976379 & (0.178054)  &  0.973197 & (0.184769) \\
+& & \texttt{SC} &  0.976284 & (0.178625)  &  0.972677 & (0.187366) \\
+& & \texttt{RS} &  0.976253 & (0.178787)  &  0.972410 & (0.188150) \\
  \bottomrule
  \end{tabular}
  \begin{tablenotes}\footnotesize
@@ -72,3 +72,71 @@ The setting with the highest accuracy per \gls{maf} bin and per scenario is high
  \end{tablenotes}
  \end{threeparttable}
 \end{table}
+
+
+
+%
+% pre-correction (SNPS were not intersected):
+%
+% \begin{threeparttable}
+% \begin{tabular}{%
+% 	l@{\quad}c@{\quad}c%
+% 	S[table-format=1.3]%
+%   @{}S[table-format=1.3]%
+% 	S[table-format=5.0]%
+% 	S[table-format=1.3]%
+% 	@{}S[table-format=1.3]%
+% 	S[table-format=5.0]%
+% 	}
+% \toprule
+% {MAF bin} & {Merge} & {Score} &
+% \multicolumn{3}{c}{Scenario A} &
+% \multicolumn{3}{c}{Scenario B} \\
+% \cmidrule(lr){4-6}
+% \cmidrule(lr){7-9}
+%  & & & {Mean $r^2$} & {($\pm$~SE$^\ast$)} & {$n$} & {Mean $r^2$} & {($\pm$~SE$^\ast$)} & {$n$} \\
+% \otoprule
+% {{[0.00, 0.01]}}
+%  & \texttt{MSS}
+%    & \texttt{MP} &  0.584947 & (1.946525) & 31694  &  0.557479 & (1.822788) & 42101 \\
+%  & & \texttt{IS} &  0.567338 & (1.968234) & 32099  &  0.554399 & (1.819030) & 42769 \\
+%  & & \texttt{SC} &  0.564983 & (1.952322) & 31646  &  0.544109 & (1.769496) & 42335 \\
+%  & & \texttt{RS} &  0.578163 & (1.988586) & 30693  &  0.535900 & (1.900744) & 38468 \\
+% \cmidrule(lr){3-9}
+%  & \texttt{WLC}
+%    & \texttt{MP} & \bfseries 0.607540 & (2.018734) & 28818  & \bfseries 0.603224 & (1.911612) & 35020 \\
+%  & & \texttt{IS} &  0.599807 & (2.003624) & 29461  &  0.592187 & (1.869955) & 37049 \\
+%  & & \texttt{SC} &  0.606387 & (2.027033) & 28607  &  0.602938 & (1.910916) & 34793 \\
+%  & & \texttt{RS} &  0.606362 & (2.030836) & 28545  &  0.600816 & (1.917677) & 34748 \\
+% \cmidrule(lr){2-9}
+% {{(0.01, 0.05]}}
+%  & \texttt{MSS}
+%    & \texttt{MP} &  0.818479 & (1.169141) & 43330  &  0.798540 & (1.324721) & 42865 \\
+%  & & \texttt{IS} &  0.809187 & (1.168439) & 43787  &  0.813986 & (1.219665) & 43341 \\
+%  & & \texttt{SC} &  0.803550 & (1.146422) & 43499  &  0.789748 & (1.231260) & 43570 \\
+%  & & \texttt{RS} &  0.813084 & (1.157015) & 41848  &  0.768786 & (1.416076) & 40173 \\
+% \cmidrule(lr){3-9}
+%  & \texttt{WLC}
+%    & \texttt{MP} & \bfseries 0.875631 & (0.870685) & 39309  & \bfseries 0.864771 & (0.936379) & 39240 \\
+%  & & \texttt{IS} &  0.866544 & (0.903124) & 40107  &  0.856054 & (0.961843) & 40376 \\
+%  & & \texttt{SC} &  0.874198 & (0.878352) & 39000  &  0.863396 & (0.936293) & 38992 \\
+%  & & \texttt{RS} &  0.874232 & (0.878709) & 38972  &  0.862837 & (0.940820) & 38943 \\
+% \cmidrule(lr){2-9}
+% {{(0.05, 0.50]}}
+%  & \texttt{MSS}
+%  	 & \texttt{MP} &  0.970186 & (0.280056) & 93571  &  0.960115 & (0.372269) & 93068 \\
+%  & & \texttt{IS} &  0.966985 & (0.287216) & 93569  &  0.962408 & (0.343832) & 93567 \\
+%  & & \texttt{SC} &  0.964351 & (0.287651) & 93541  &  0.955981 & (0.342034) & 93544 \\
+%  & & \texttt{RS} &  0.961725 & (0.301301) & 93336  &  0.931022 & (0.488260) & 92876 \\
+%  \cmidrule(lr){3-9}
+%  & \texttt{WLC}
+%  	 & \texttt{MP} & \bfseries 0.976555 & (0.181332) & 92952  & \bfseries 0.972756 & (0.192585) & 92198 \\
+%  & & \texttt{IS} &  0.975928 & (0.183156) & 92943  &  0.971667 & (0.195965) & 92435 \\
+%  & & \texttt{SC} &  0.976184 & (0.179378) & 92857  &  0.971936 & (0.191300) & 92122 \\
+%  & & \texttt{RS} &  0.976165 & (0.179460) & 92852  &  0.971744 & (0.191307) & 92096 \\
+%  \bottomrule
+%  \end{tabular}
+%  \begin{tablenotes}\footnotesize
+%  	\item[{${\ast}$}] Standard error (SE) $\times 10^{-3}$
+%  \end{tablenotes}
+%  \end{threeparttable}
