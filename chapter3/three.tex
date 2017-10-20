@@ -58,7 +58,7 @@ The inference of recombination is based on the \emph{four-gamete test} by \citet
 
 In the following section, I highlight the genealogical properties of rare variants which make them useful for the inference of recent and relatively long haplotypes by descent.
 I then describe the method by which IBD segments are detected, conditional on variation observed at a focal rare variant.
-In addition, I present a simple approach to infer the shared haplotype sequence from genotype data.
+\Delete{In addition, I present a simple approach to infer the shared haplotype sequence from genotype data.}
 For the evaluation of the methodology presented, I generated a large dataset using coalescent simulations, so as to measure the accuracy of the IBD detection method in comparison to the true IBD structure (determined from simulation records).
 These results are also compared to IBD detected using an alternate method.
 Lastly, I apply the method presented in this chapter to data from the \glsentryfull{1kg}.
@@ -88,13 +88,12 @@ Given this exponential ``decay'' of IBD length over time, rare or low-frequency 
 For example, \citet{Mathieson:2014ig} selected doubletons (alleles that are present only twice in a sample), which they refer to as \fk{2} variants, to identify the shared haplotype in the \n{2} individuals sharing the allele.
 To borrow from this notation, henceforth, \fk{} is used to denote a variant at which $k$ allele copies are found in a sample.
 
-To emphasise the utility of rare variants, see the example shown in \cref{fig:pair_ibd_example}.
+To emphasise the utility of rare variants, see the example shown in \cpref{fig:pair_ibd_example}.
 Using coalescent simulations, a sample of ${N = \num{5000}}$ chromosomes was generated.\footnote{See \cpref{sec:msprime} for a description of how data were simulated.}
 A rare variant was randomly selected (frequency $\leq 0.5\%$), as well as \n{2} of the chromosomes which share the focal allele.
 The underlying IBD structure for the given pair of chromosomes was determined from simulation records and shown in \cref{fig:pair_ibd_example}{a}.
 IBD segments are distinguished by the \glsentryfull{tmrca} at each position along the sequence.
-To illustrate pairwise allele sharing,
-The frequency of each allele shared by the \n{2} haplotypes is shown by chromosomal position in alignment with the IBD structure above; see \cref{fig:pair_ibd_example}{b}.
+To illustrate pairwise allele sharing, \Correct{the} frequency of each allele shared by the \n{2} haplotypes is shown by chromosomal position in alignment with the IBD structure above; see \cref{fig:pair_ibd_example}{b}.
 As suggested in the figure, the majority of low-frequency variants align with IBD segments that are more recent.
 
 %
@@ -123,7 +122,7 @@ Lastly, I conclude this section by highlighting certain caveats of the implement
 %
 
 \N{2} approaches for a non-probabilistic inference of recombination events are described below; these are the \emph{\acrlong{fgt}} \citep{Hudson:1985wh}, which requires haplotype information, and the criterion of \emph{inconsistent homozygote genotypes} \citep[see][]{Mathieson:2014ig}, which requires genotype data; henceforth referred to as the \emph{\acrlong{dgt}}.
-
+\Addition{Note that the aim of this implementation is to detect recombination in pairs of diploid individuals, relative to a given target position in the genome.}
 
 \paragraph{\Gls{fgt}.}
 Given \n{4} haplotypes in \n{2} diploid individuals, a recombination event is inferred between \n{2} loci if all \n{4} possible gametes are observed.
@@ -131,14 +130,17 @@ This holds true under the infinite sites model \citep{Kimura:1969tn}, where muta
 It follows that for a pair of sites there are \n{4} possible allelic state configurations; ${(0,0)}$, ${(0,1)}$, ${(1,0)}$, and ${(1,1)}$, where 0 and 1 denote the ancestral and derived type, respectively.
 If all \n{4} configurations are observed, genealogies at the \n{2} sites are incompatible and the observation can only be explained by a recombination event that occurred in the history of the sample.
 Because recurring mutations or back mutations are assumed to have zero probability, at least \n{1} recombination event must have occurred in the interval between the \n{2} sites.
-An example configuration is shown in \cpref{fig:info_fgt}.
-Notably, private or \emph{de~novo} mutations appearing as singletons in the sample cannot lead to the observation of the \n{4} required configurations.
-Although the exact location of chromosomal crossover cannot be retrieved from the data, the \gls{fgt} can be used to find the smallest interval in which recombination occurred.
 In the following, the term \emph{breakpoint} is used for either of the \n{2} sites that together delimit the interval.
+An example configuration is shown in \cpref{fig:info_fgt}.
 
 %
 \input{chapter3/fig/info_fgt}
 %
+
+Notably, private or \emph{de~novo} mutations appearing as singletons in the sample cannot lead to the observation of the \n{4} required configurations.
+Although the exact location of chromosomal crossover cannot be retrieved from the data, the \gls{fgt} can be used to find the smallest interval in which recombination occurred.
+\Addition{However, it is important to note that this test cannot determine which of the four haplotypes recombined, and where it is also possible that there have been multiple recombination events between any two of the four haplotypes within the detected interval.
+Also, while it would be possible to consider other individuals to infer recombination events that have occurred in the sample, the purpose of this implementation is to detect recombination between haplotypes contained within two individuals sharing a given focal allele.}
 
 
 \paragraph{\Gls{dgt}.}
@@ -151,11 +153,13 @@ For example, if the allelic configurations ${(0,1)}$ and ${(0,0)}$ are seen in i
 However, because genotype data result from haplotype occurrence in individuals, not all breakpoints detectable under the \gls{fgt} can be found using the \gls{dgt}.
 At sites where the \gls{fgt} detects a breakpoint interval, the \gls{dgt} cannot break if both sites are heterozygous in the same individual.
 As a consequence, it can be expected that the \gls{dgt} is more restrictive than the \gls{fgt}; \eg if breakpoints are found, they are likely to sit farther apart.
-This is further exemplified in \cpref{fig:info_dgt}, which highlights the difference to the \gls{fgt} by comparison to the example shown in \cpref{fig:info_fgt}.
 
 %
 \input{chapter3/fig/info_dgt}
 %
+
+\Addition{The \gls{dgt} thereby simplifies the breakpoint condition to observing opposite homozygote genotypes in two diploid individuals, but where allele sharing at a given target site (that is heterozygous in both individuals) is required such that the conditions of the \gls{fgt} would be satisfied.}
+This is further exemplified in \cpref{fig:info_dgt}, which highlights the difference to the \gls{fgt} by comparison to the example shown in \cpref{fig:info_fgt}.
 
 
 %
@@ -186,7 +190,17 @@ The allelic or genotypic states at $b_{L}$ or $b_{R}$ provide only the first ind
 The detected interval is therefore inclusive of the breakpoints such that the full length of the underlying IBD segment is covered.
 %However, this is expected to lead to an overestimation of the shared haplotype length.
 In cases where the end of a chromosome is reached without detecting any evidence of recombination, the terminal site is recorded to capture the length of the segment; this is hereafter referred to as a \emph{boundary case}.
-Further, note that a recombination event can occur with chromosomes outside the sub-tree of the lineages deriving from the focal mutation, such that a breakpoint may be falsely inferred; however, such cases are assumed to be sufficiently rare and treated as being negligible.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Note that a recombination event can occur with chromosomes outside the sub-tree of the lineages deriving from the focal mutation, such that a breakpoint may be falsely inferred.
+Consider individual~1 with haplotypes ${\{A,B\}}$ and individual~2 with haplotypes ${\{C,D\}}$, where haplotypes $B$~and~$C$ share a focal allele at a given site such that their lineages form a sub-tree.
+The IBD segment between $B$~and~$C$ is delimited by the two nearest recombination events on either side, but where it is possible that either $A$~and~$B$ or $C$~and~$D$
+Breakpoints are eventually found by independently scanning to the left and right-hand side, either using the \gls{fgt} or \gls{dgt}, but where it cannot be known which pair of haplotypes (among the four contained within the two individuals) recombined.
+It is possible, for example, that
+however, such cases are assumed to be sufficiently rare and treated as being negligible.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %
