@@ -85,7 +85,7 @@
 
 
 % widows/orphans
-%\usepackage[defaultlines=3,all]{nowidow}
+\usepackage[defaultlines=3,all]{nowidow}
 
 
 % colours
@@ -111,8 +111,6 @@
 \usepackage{url}
 \usepackage{xspace}
 
-
-\renewcommand{\floatpagefraction}{0.333}
 
 
 
@@ -269,7 +267,10 @@ list-final-separator={, and }%
 \soulregister\ie7
 \soulregister\gls7
 \soulregister\glsentryfull7
+\soulregister\fk7
+\soulregister\SI7
 \soulregister\rom7
+\soulregister\dec7
 \setulcolor{yellow}
 \setstcolor{red}
 \setul{0.5ex}{0.3ex}
@@ -292,11 +293,12 @@ list-final-separator={, and }%
 % deletion
 \newcommand{\Delete}[1]{{\st{#1}}}
 \DeclareRobustCommand{\DeleteNote}[1]{{%
+\vspace{5mm}%
 \noindent%
 \colorbox{red}{%
 \footnotesize\texttt{REMOVED} %
 \colorbox{white}{\footnotesize\texttt{\quad #1 \quad}}%
-\null
+\vspace{5mm}%
 }}}
 
 
@@ -514,12 +516,24 @@ list-final-separator={, and }%
 % Figure placement on page
 %  This is to help prevent too many figures on their own pages. From:
 %  http://dcwww.camd.dtu.dk/~schiotz/comp/LatexTips/LatexTips.html#captfont
-\renewcommand{\topfraction}{0.85}
-\renewcommand{\textfraction}{0.1}
-\renewcommand{\floatpagefraction}{0.75}
+% \renewcommand{\topfraction}{0.85}
+% \renewcommand{\textfraction}{0.1}
+% \renewcommand{\floatpagefraction}{0.75}
 
-\setlength{\textfloatsep}{20pt plus15pt minus4pt} % Flexible spacing around floats
+%\setlength{\textfloatsep}{20pt plus15pt minus4pt} % Flexible spacing around floats
 %\setlength{\intextsep}{20pt plus15pt minus10pt} % floats inserted inside text (using h)
+
+% \renewcommand{\totalnumber}{2}
+% \renewcommand{\topnumber}{1}
+% \renewcommand{\bottomnumber}{1}
+\renewcommand{\topfraction}{0.75}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\textfraction}{0.25}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\floatsep}{20pt plus15pt minus5pt}
+\setlength{\textfloatsep}{20pt plus15pt minus5pt}
+\setlength{\intextsep}{20pt plus15pt minus5pt}
+
 
 
 % Hyphenation and pagebreak
