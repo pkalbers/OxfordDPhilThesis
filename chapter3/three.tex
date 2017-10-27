@@ -504,96 +504,191 @@ However, the larger proportion of overestimated IBD breakpoints may result in ad
 \label{sec:ibd_beagle_tru}
 %
 
+\CorrectNote{Section rewritten to include corrections and additional results.}
+
 Simulated data were additionally analysed using the \texttt{Refined\,IBD} algorithm implemented in \texttt{Beagle} version~4.1 \citep{Browning:2013eh}.\footnote{Beagle 4.1: \url{https://faculty.washington.edu/browning/beagle/beagle.html} \accessed{2016}{11}{22}}
-The method is based on the non-probabilistic \texttt{GERMLINE} algorithm \citep{Gusev:2009hd}, which identifies putative IBD segments from short exact matches between haplotype pairs; candidate segments are found by extending identified regions to longer inexact matches.
+The method is based on the non-probabilistic \texttt{GERMLINE} algorithm \citep{Gusev:2009hd}, which identifies putative IBD segments from short exact matches between haplotype pairs.
+Candidate segments are then found by extending identified regions to longer inexact matches.
 In \texttt{Refined\,IBD}, an additional probabilistic approach is included to assess candidate segments conditional on the \gls{lr} of the data, calculated under IBD and non-IBD models.
 A \gls{lod} score is calculated as ${\log_{10}(\text{LR})}$, and segments are reported as IBD if the \gls{lod} score is above a specified threshold.
 This approach has been found to achieve greater accuracy than \texttt{GERMLINE} alone or \texttt{fastIBD}, which is a non-probabilistic method that detects IBD based on haplotype frequency \citep{Browning:2011do,Browning:2013eh}.
 
-\Correct{Note that the method requires haplotype data and cannot be executed with genotype information alone.
-In the following, \cref{app:fgt_h} refers to the analysis conducted on true haplotypes and \cref{app:fgt_p} on phased haplotypes.}
-
+The method requires haplotype data and cannot be executed with genotype information alone.
+In the following, \cref{app:fgt_h} refers to the analysis conducted on true haplotypes and \cref{app:fgt_p} on phased haplotypes.
 The analysis was performed using default parameters in \texttt{Refined\,IBD} (retaining candidate segments at ${\mbox{LOD}>3.0}$) and after conversion of simulated data into \gls{vcf}\footnote{Variant Call Format: \url{http://vcftools.sourceforge.net/VCF-poster.pdf} \accessed{2016}{11}{22}}.
-The analysis returned \dec{13.688781}~million IBD segments in \ref{app:fgt_h}, of which \SI{0.248108}{\percent} were duplicated, and \dec{13.647038}~million in \ref{app:fgt_p}, of which \SI{0.248933}{\percent} were duplicated.
-The median length of all detected segments was \SI{0.190912}{\mega\basepair} and \SI{0.191496}{\mega\basepair} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively (after removal of duplicates).
 
 
-AIMS
+The purpose of the following analysis was to evaluate whether \texttt{Refined\,IBD} could be used as a method to detect recombination breakpoints and thereby the length of the underlying shared haplotype.
+This was done by reference to the set of true IBD segments that was determined from simulation records for the set of previously analysed target sites at all \fk{[2,25]} variants found in the data (allele frequency $\leq 0.5\%$).
+However, note that the detection approach employed by \texttt{Refined\,IBD} reports all segments inferred for a given pair of haplotypes, such that detected and true intervals cannot be matched by direct reference to a particular target site.
+Hence, for each pair of haplotypes present in both sets (detected and true), it was necessary to match segments based on their intervals.
+As a consequence, it was not possible, for example, to make statements about IBD segments falsely identified by \texttt{Refined\,IBD}, as these would be among the segments removed in the matching process.
 
-LIMITATIONS
+In \cref{app:fgt_h}, the analysis returned \dec{13.688781}~million IBD segments at \dec{6.910821}~million haplotype pairs.
+A similar number was returned in \cref{app:fgt_p}, where \dec{13.647038}~million segments were found at \dec{6.855710}~million pairs.
+The haplotype pairs at which IBD could be inferred differed between these results;
+for example, \dec{4.377713}~million pairs were present in both datasets.
+The set of available true IBD segments contained \dec{11.597968}~million intervals at \dec{2.638412}~million pairs.
+The number of pairs matched between each detected set and the true set was \dec{2.332363}~million in \ref{app:fgt_h} and \dec{1.661487}~million in \ref{app:fgt_p}.
+
+The lower number of matched pairs in \cref{app:fgt_p} was due to mismatched haplotypes resulting from the phasing process.
+Note that it was straightforward to account for haplotype mismatches in the previous analysis, where the focal haplotype could be identified from a given target allele, but which was not possible in the present analysis.
+It would be possible, for example, to match segments by pair of individuals (instead of haplotype pair) to avoid haplotype mismatches due to phasing.
+This would introduce a bias when evaluating the accuracy of detected haplotype breakpoints due to possible overlaps of shared haplotypes within the same pair of individuals.
+To circumvent this bias, such segments were randomly sampled per individual pair if an overlap was found in the set of results returned in the analysis on the phased dataset, so as to allow the identification of the correct true IBD segment based on matching pairs of individuals.
+This removed \dec{0.144859}~million detected IBD segments (\Percent{1.061468}) in \cref{app:fgt_p}, but increased the number of segments that could be matched to the set of true segments (\dec{1.886876}~million pairs).
+
+In the following, two analyses were performed.
+First, the sets of detected IBD segments in \cref{app:fgt_h,app:fgt_p} were matched to the set of true segments based on interval overlap.
+The proportion of overlap was measured relative to both the inferred and true segments, where segments were ignored if none of the inferred intervals overlapped with any of the true segments available for a given pair.
+Second, to facilitate comparisons to the targeted IBD detection method evaluated in the previous section, where the accuracy of breakpoint detection was measured in relation to a given target site, inferred segments were matched to the set of true segments based on the inferred interval containing a given target site.
 
 
-on average, found \dec{1.980775} and \dec{1.990609} per haplotype pair using true haplotypes \ref{app:fgt_h} and phased haplotypes \ref{app:fgt_p}, respectively.
-\dec{1.137447} per haplotype pair in the set of unique true IBD segments
+%
+\input{chapter3/fig/beagle_overlap}
+%
 
-The majority of inferred IBD segments were relatively short in length;
-for example, \Percent{1.424919} and \Percent{1.420697} of the detected segments were longer than 1~\gls{Mb} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively,
-compared to \Percent{14.79594} in the set of unique true segments.
 
-\n{976503} (\Percent{32.53868}) were matched in \ref{app:fgt_h}
-\n{236644} (\Percent{7.885366}) in \ref{app:fgt_p}
+When intervals were matched by overlap, on average, \Percent{97.8214} of an inferred interval overlapped with a true shared haplotype in \cref{app:fgt_h}, but only \Percent{42.97985} of a given true interval was covered by an inferred segment on average.
+This was similar in \ref{app:fgt_p}; \Percent{97.39512} and \Percent{41.57889}, respectively.
+The density of overlap measured relative to both the inferred and true segments is shown in \cpref{fig:beagle_overlap}.
+These results indicate that the length of segments detected by \texttt{Refined\,IBD} were more likely to be underestimated, but where it is possible that the underlying shared haplotype may be covered by multiple, shorter segments.
+For example, an average of \dec{1.137447} unique segments per pair was known from simulation records, but \dec{1.980775} and \dec{1.971152} segments were inferred per pair on average in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
 
-The accuracy of detected IBD segments was measured in relation to the true IBD intervals, which were already determined for the set of previously analysed target sites; \ie all \fk{[2,25]} variants found in the data (allele frequency $\leq 0.5\%$).
-The detection approach employed by \texttt{Refined\,IBD} reports all segments inferred for a given pair of haplotypes, such that detected and true intervals cannot be matched by direct reference to a particular target site.
-Hence, for a given pair of haplotypes, true and detected segments were matched if the focal allele associated with a true segment fell within the interval of the detected segment, which was discarded if none of the pairwise shared target alleles were found within the detected interval.
-This matching process resulted in a set of \dec{2.166492}~million unique segments in the analysis conduced on true haplotypes, \cref{app:fgt_h}.
-% This number is low when seen in relation to the full set of unique segments detected (\SI{0.1586614}{\percent}), but reasonably large in relation to the set of true unique segments available (\SI{72.19106}{\percent}).
-For the phased dataset, \cref{app:fgt_p}, \dec{0.528477}~million unique segments were matched.
-% , which corresponded to a lower proportion of retained segments in relation to both the full set (\SI{3.917097}{\percent}) and the set of true segments (\SI{17.76833}{\percent}).
-The lower number of segments retained in \cref{app:fgt_p} is likely to be the consequence of mismatched haplotypes in original and phased data.
 
-\Correct{}
-Note that is was straightforward to account for haplotype mismatches in the previous analysis, where the focal haplotype could be identified from a given target allele.
-However, this was not possible in the present analysis.
 
-\Correct{Note that the purpose of this analysis is to evaluate whether \texttt{Refined\,IBD} could be used as a method to detect recombination breakpoints.
-Here, it is not directly possible, for example, to make statements about IBD segments falsely identified by \texttt{Refined\,IBD}, as these would be among the segments removed in the matching process.}
+Next, the sets of inferred IBD segments returned in \cref{app:fgt_h,app:fgt_p} were matched to the set of true intervals by the condition that a given target site was contained in the inferred interval.
+The matching process resulted in \dec{9.173353}~million segments in \ref{app:fgt_h}, but which were reduced to \dec{2.107930}~million by removing duplicate intervals per pair.
+Likewise, \dec{8.958549}~million segments were matched in \ref{app:fgt_p}, which was reduced to \dec{2.083768}~million.
 
-After the removal of segments at which haplotype pairs did not share any of the alleles in \fk{[2,25]}, median lengths were longer in comparison to the original datasets; \SI{0.255496}{\mega\basepair} and \SI{0.256070}{\mega\basepair} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
-This can be seen as the result of both the removal of falsely identified segments, as well as segments that were older and thereby expected to be shorter.
+Recall that the set of true haplotypes contained all segments found around a given target site, but where multiple shared alleles may sit on the same shared haplotype.
+To reduce such duplicates, identical intervals per pair were sorted by the frequency of target alleles, where only the segment around the shared allele with the lowest frequency was retained (and randomly sampled if multiple shared alleles occurred at the same frequency).
+This enabled the analysis of breakpoint accuracy conditional on the frequency of the target allele.
+
 
 %
 \input{chapter3/fig/beagle_break_tru}
 %
 
-The majority of retained breakpoints was underestimated in both \cref{app:fgt_h,,app:fgt_p}; \SI{55.35559}{\percent} and \SI{56.60644}{\percent}, respectively.
-In \cref{app:fgt_h}, \SI{44.38505}{\percent} were overestimated and \SI{0.2593594}{\percent} coincided with true breakpoint positions.
-This was similar in \cref{app:fgt_p}, where \SI{43.15511}{\percent} were overestimated and \SI{0.2384493}{\percent} coincided.
-Accuracy was measured in terms of the physical distance between breakpoint position and the corresponding focal site.
-Because the latter was not specified in the results obtained from \texttt{Refined\,IBD}, the same focal position as associated with the matched true IBD segment was assumed.
-Data were not reduced to the intersection of segments retained across datasets, due to the low number of consistent matches.
-These results are illustrated in \cpref{fig:beagle_break_tru}.
 
-The distance distribution of true and detected breakpoints (\cref{fig:beagle_break_tru}{A}) suggests that detected breakpoints were closely distributed around the corresponding true breakpoints.
-However, overall accuracy was low in both \ref{app:fgt_h} and \ref{app:fgt_p}, reaching ${r^2 = \dec{0.2868218}}$ and ${r^2 = \dec{0.1707155}}$, respectively.
-The magnitude of error, \gls{rmsle}, was lower in \ref{app:fgt_h} compared to \ref{app:fgt_p}; \dec{0.5954253} and \dec{0.6158843}, respectively.
+In reference to the matched true IBD intervals, \Percent{47.03292} and \Percent{45.9847} of the detected breakpoints were overestimated in \cref{app:fgt_h,app:fgt_p}, respectively,
+while \Percent{49.8754} and \Percent{51.06569} were underestimated.
+Differences due to phasing were seen at lower frequency target alleles, \eg at \fk{2}, for which
+\Percent{48.35232} were underestimated in \ref{app:fgt_h} but \Percent{58.75466} \ref{app:fgt_p}.
+The accuracy of breakpoint detection using \texttt{Refined\,IBD} is illustrated in \cpref{fig:beagle_break_tru}.
+
+
+The density of true and detected breakpoints (\cref{fig:beagle_break_tru}{A}) suggests that the breakpoints inferred using \texttt{Refined\,IBD} were closely distributed around the corresponding true breakpoints.
+However, overall accuracy was low in both \ref{app:fgt_h} and \ref{app:fgt_p}, reaching
+${r^2 = \dec{0.3539768}}$ and
+${r^2 = \dec{0.2092084}}$, respectively.
+The magnitude of error, \gls{rmsle}, was similar in both \ref{app:fgt_h} \ref{app:fgt_p};
+\dec{0.5339044} and
+\dec{0.5477256}, respectively.
 When true haplotypes were analysed, \cref{app:fgt_h}, accuracy decreased steadily towards higher allele frequencies.
-For example, accuracy was highest for \fk{2}~variants (${r^2 = \dec{0.34591189}}$) but lowest for \fk{25}~variants (${r^2 = \dec{0.07445725}}$).
-However, the magnitude of error was highest for \fk{2}~variants (${\rmsle = \dec{0.7498976}}$) and lowest for \fk{25}~variants (${\rmsle = \dec{0.5433645}}$).
-When haplotypes were phased, \cref{app:fgt_p}, error was further increased at \fk{2}~variants (${\rmsle = \dec{0.999}}$) in comparison to \fk{25}~variants (${\rmsle = \dec{0.5456303}}$).
-The higher error at lower allele frequencies was also reflected in $r^2$~values; \eg accuracy was low at \fk{2} (${r^2 = \dec{0.08720971}}$), higher at \fk{5} (${r^2 = \dec{0.13222751}}$), but lowest at \fk{25} (${r^2 = \dec{0.04827430}}$).
-The difference between true and phased datasets is further highlighted in  \cref{fig:beagle_break_tru}{B}, where a higher proportion of \fk{2}~variants is seen to be underestimated in \ref{app:fgt_p}.
+For example, accuracy was highest for \fk{2}~variants
+(${r^2 = \dec{0.52206694}}$) but lowest for \fk{25}~variants
+(${r^2 = \dec{0.08020972}}$).
+The magnitude of error was similar across allele frequencies, \eg at \fk{2}
+(${\rmsle = \dec{0.5713065}}$) and \fk{25}~variants
+(${\rmsle = \dec{0.5226131}}$).
+When haplotypes were phased, \cref{app:fgt_p}, error was increased at \fk{2}~variants
+(${\rmsle = \dec{0.7062560}}$) in comparison to \fk{25}~variants
+(${\rmsle = \dec{0.5268743}}$).
+The higher error at lower allele frequencies was also reflected in $r^2$~values; \eg accuracy was low at \fk{2}
+(${r^2 = \dec{0.16387089}}$) and highest at \fk{3}
+(${r^2 = \dec{0.21495542}}$), but lowest at \fk{25}
+(${r^2 = \dec{0.07223534}}$).
+The difference between true and phased datasets is further highlighted in  \cref{fig:beagle_break_tru}{B}, where a higher proportion of \fk{2}~variants is seen to be underestimated in \cref{app:fgt_p}.
+
 
 %
 \input{chapter3/fig/beagle_length_tru}
 %
 
-The distribution of physical and genetic lengths for the segments retained in \cref{app:fgt_h,,app:fgt_p} are in shown in \cpref{fig:beagle_length_tru}, in relation to the true IBD lengths at each \fk{}~category.
+
+The distribution of physical and genetic lengths for the segments retained in \cref{app:fgt_h,app:fgt_p} are in shown in \cpref{fig:beagle_length_tru}, in relation to the true IBD lengths at each \fk{}~category.
 Because \ref{app:fgt_h} and \ref{app:fgt_p} were compared on different sets of detected segments, the reported lengths of true segments were computed from the set matched to \ref{app:fgt_h}.
-Boundary cases were removed to avoid potential bias in length comparisons; \SI{1.012328}{\percent} and \SI{0.8926612}{\percent} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
+Boundary cases were removed to avoid potential bias in length comparisons;
+\Percent{1.682883} and
+\Percent{1.665493} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
 
 Overall median physical length (and median genetic length) was
-\SI{0.1851263}{\mega\basepair} (\SI{0.6206617}{\centi\morgan}) in \ref{app:fgt_h} and
-\SI{0.1915816}{\mega\basepair} (\SI{0.4289705}{\centi\morgan}) in \ref{app:fgt_p}, but both were shorter in comparison to true IBD segments at \SI{0.2600899}{\mega\basepair} (\SI{0.9115976}{\centi\morgan}).
-At \fk{2}~variants, the median length of IBD segments inferred in \ref{app:fgt_h} was \SI{1.1504220}{\mega\basepair} (\SI{1.8253656}{\centi\morgan}), which was longer compared to \ref{app:fgt_p}, where median length was \SI{1.1260528}{\mega\basepair} (\SI{1.7774934}{\centi\morgan}).
-However, both were considerably shorter in comparison to the true segments, \SI{3.4129234}{\mega\basepair} (\SI{5.2287476}{\centi\morgan}).
-This difference persisted towards higher allele frequencies; \eg for \fk{25}~variants, where the median of true lengths was
-\SI{0.3826137}{\mega\basepair} (\SI{0.6360041}{\centi\morgan}), which was
-longer compared to \SI{0.2015983}{\mega\basepair} (\SI{0.3778032}{\centi\morgan}) in \ref{app:fgt_h} and \SI{0.2018875}{\mega\basepair} (\SI{0.3730844}{\centi\morgan}) in \ref{app:fgt_p}.
+\SI{0.239924}{\mega\basepair} (\SI{0.4575771}{\centi\morgan}) in \ref{app:fgt_h} and
+\SI{0.238462}{\mega\basepair} (\SI{0.4533713}{\centi\morgan}) in \ref{app:fgt_p},
+but both were shorter in comparison to the set of true IBD segments at
+\SI{0.450181}{\mega\basepair} (\SI{0.7805489}{\centi\morgan}).
+At \fk{2}~variants, the median length of IBD segments inferred in \ref{app:fgt_h} was
+\SI{1.0257910}{\mega\basepair} (\SI{1.8123059}{\centi\morgan}),
+which was longer compared to \ref{app:fgt_p}, where median length was
+\SI{0.9945990}{\mega\basepair} (\SI{1.7275540}{\centi\morgan}).
+However, both were considerably shorter in comparison to the true segments around \fk{2}~variants at
+\SI{2.1377210}{\mega\basepair} (\SI{3.7699265}{\centi\morgan}).
+This difference persisted towards higher allele frequencies; \eg for \fk{25}~variants;
+\SI{0.1977400}{\mega\basepair} (\SI{0.3704905}{\centi\morgan}) in \ref{app:fgt_h} and
+\SI{0.1974080}{\mega\basepair} (\SI{0.3699867}{\centi\morgan}) in \ref{app:fgt_p}, compared to the median length of the matched true segments at
+\SI{0.3600640}{\mega\basepair} (\SI{0.5955694}{\centi\morgan}).
 
 
-\Correct{These results suggested} that the lengths of inferred breakpoint intervals are likely to be shorter than the underlying haplotype region shared by descent.
+These results suggested that the lengths of inferred breakpoint intervals are likely to be shorter than the underlying haplotype region shared by descent.
 Thus, the \texttt{Refined\,IBD} algorithm is less accurate with regard to the inference of the recombination breakpoints that delimit the underlying IBD tract.
+It was not possible in this analysis to evaluate whether IBD was inferred incorrectly, as incorrect segments would have been removed in the matching process between the sets of inferred and true shared haplotype segments that were determined from simulation records.
+However, by also evaluating the relative proportion of total base overlap between inferred and true intervals, it was indicated that IBD detection using \texttt{Refined\,IBD} is likely to result in multiple, shorter segments along the length of the underlying shared haplotype.
+
+
+%
+% NOTE: first version used wrong data somehow, and did not include the overlap analysis
+%
+% The accuracy of detected IBD segments was measured in relation to the true IBD intervals, which were already determined for the set of previously analysed target sites; \ie all \fk{[2,25]} variants found in the data (allele frequency $\leq 0.5\%$).
+% The detection approach employed by \texttt{Refined\,IBD} reports all segments inferred for a given pair of haplotypes, such that detected and true intervals cannot be matched by direct reference to a particular target site.
+% Hence, for a given pair of haplotypes, true and detected segments were matched if the focal allele associated with a true segment fell within the interval of the detected segment, which was discarded if none of the pairwise shared target alleles were found within the detected interval.
+% This matching process resulted in a set of \dec{2.166492}~million unique segments in the analysis conduced on true haplotypes, \cref{app:fgt_h}.
+% % This number is low when seen in relation to the full set of unique segments detected (\SI{0.1586614}{\percent}), but reasonably large in relation to the set of true unique segments available (\SI{72.19106}{\percent}).
+% For the phased dataset, \cref{app:fgt_p}, \dec{0.528477}~million unique segments were matched.
+% % , which corresponded to a lower proportion of retained segments in relation to both the full set (\SI{3.917097}{\percent}) and the set of true segments (\SI{17.76833}{\percent}).
+% The lower number of segments retained in \cref{app:fgt_p} is likely to be the consequence of mismatched haplotypes in original and phased data.
+%
+%
+% After the removal of segments at which haplotype pairs did not share any of the alleles in \fk{[2,25]}, median lengths were longer in comparison to the original datasets; \SI{0.255496}{\mega\basepair} and \SI{0.256070}{\mega\basepair} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
+% This can be seen as the result of both the removal of falsely identified segments, as well as segments that were older and thereby expected to be shorter.
+%
+%
+% The majority of retained breakpoints was underestimated in both \cref{app:fgt_h,,app:fgt_p}; \SI{55.35559}{\percent} and \SI{56.60644}{\percent}, respectively.
+% In \cref{app:fgt_h}, \SI{44.38505}{\percent} were overestimated and \SI{0.2593594}{\percent} coincided with true breakpoint positions.
+% This was similar in \cref{app:fgt_p}, where \SI{43.15511}{\percent} were overestimated and \SI{0.2384493}{\percent} coincided.
+% Accuracy was measured in terms of the physical distance between breakpoint position and the corresponding focal site.
+% Because the latter was not specified in the results obtained from \texttt{Refined\,IBD}, the same focal position as associated with the matched true IBD segment was assumed.
+% Data were not reduced to the intersection of segments retained across datasets, due to the low number of consistent matches.
+% These results are illustrated in \cpref{fig:beagle_break_tru}.
+%
+%
+% The distance distribution of true and detected breakpoints (\cref{fig:beagle_break_tru}{A}) suggests that detected breakpoints were closely distributed around the corresponding true breakpoints.
+% However, overall accuracy was low in both \ref{app:fgt_h} and \ref{app:fgt_p}, reaching ${r^2 = \dec{0.2868218}}$ and ${r^2 = \dec{0.1707155}}$, respectively.
+% The magnitude of error, \gls{rmsle}, was lower in \ref{app:fgt_h} compared to \ref{app:fgt_p}; \dec{0.5954253} and \dec{0.6158843}, respectively.
+% When true haplotypes were analysed, \cref{app:fgt_h}, accuracy decreased steadily towards higher allele frequencies.
+% For example, accuracy was highest for \fk{2}~variants (${r^2 = \dec{0.34591189}}$) but lowest for \fk{25}~variants (${r^2 = \dec{0.07445725}}$).
+% However, the magnitude of error was highest for \fk{2}~variants (${\rmsle = \dec{0.7498976}}$) and lowest for \fk{25}~variants (${\rmsle = \dec{0.5433645}}$).
+% When haplotypes were phased, \cref{app:fgt_p}, error was further increased at \fk{2}~variants (${\rmsle = \dec{0.999}}$) in comparison to \fk{25}~variants (${\rmsle = \dec{0.5456303}}$).
+% The higher error at lower allele frequencies was also reflected in $r^2$~values; \eg accuracy was low at \fk{2} (${r^2 = \dec{0.08720971}}$), higher at \fk{5} (${r^2 = \dec{0.13222751}}$), but lowest at \fk{25} (${r^2 = \dec{0.04827430}}$).
+% The difference between true and phased datasets is further highlighted in  \cref{fig:beagle_break_tru}{B}, where a higher proportion of \fk{2}~variants is seen to be underestimated in \ref{app:fgt_p}.
+%
+%
+% The distribution of physical and genetic lengths for the segments retained in \cref{app:fgt_h,,app:fgt_p} are in shown in \cpref{fig:beagle_length_tru}, in relation to the true IBD lengths at each \fk{}~category.
+% Because \ref{app:fgt_h} and \ref{app:fgt_p} were compared on different sets of detected segments, the reported lengths of true segments were computed from the set matched to \ref{app:fgt_h}.
+% Boundary cases were removed to avoid potential bias in length comparisons; \SI{1.012328}{\percent} and \SI{0.8926612}{\percent} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
+%
+%
+% Overall median physical length (and median genetic length) was
+% \SI{0.1851263}{\mega\basepair} (\SI{0.6206617}{\centi\morgan}) in \ref{app:fgt_h} and
+% \SI{0.1915816}{\mega\basepair} (\SI{0.4289705}{\centi\morgan}) in \ref{app:fgt_p}, but both were shorter in comparison to true IBD segments at \SI{0.2600899}{\mega\basepair} (\SI{0.9115976}{\centi\morgan}).
+% At \fk{2}~variants, the median length of IBD segments inferred in \ref{app:fgt_h} was \SI{1.1504220}{\mega\basepair} (\SI{1.8253656}{\centi\morgan}), which was longer compared to \ref{app:fgt_p}, where median length was \SI{1.1260528}{\mega\basepair} (\SI{1.7774934}{\centi\morgan}).
+% However, both were considerably shorter in comparison to the true segments, \SI{3.4129234}{\mega\basepair} (\SI{5.2287476}{\centi\morgan}).
+% This difference persisted towards higher allele frequencies; \eg for \fk{25}~variants, where the median of true lengths was
+% \SI{0.3826137}{\mega\basepair} (\SI{0.6360041}{\centi\morgan}), which was
+% longer compared to \SI{0.2015983}{\mega\basepair} (\SI{0.3778032}{\centi\morgan}) in \ref{app:fgt_h} and \SI{0.2018875}{\mega\basepair} (\SI{0.3730844}{\centi\morgan}) in \ref{app:fgt_p}.
+%
+
+
 
 
 

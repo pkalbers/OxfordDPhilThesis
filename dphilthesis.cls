@@ -259,6 +259,7 @@ list-final-separator={, and }%
 \usepackage{soulutf8}
 \soulregister\citep7
 \soulregister\citet7
+\soulregister\ref7
 \soulregister\cref7
 \soulregister\cpref7
 \soulregister\Cpref7

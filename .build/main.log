@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  23 OCT 2017 20:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  27 OCT 2017 18:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2011,11 +2011,11 @@ File: english.mld 2006/01/13
 ))
 Package minitoc Info: I0052
 (minitoc)             \mtcsetoffset redefines 
-(minitoc)             "mtcoffset" as "-1ex" on input line 357.
+(minitoc)             "mtcoffset" as "-1ex" on input line 358.
 Package minitoc Info: I0014
 (minitoc)             \mtcsetfeature redefines the macro 
 (minitoc)             "openminitoc" as 
-(minitoc)             "\vspace {0.5ex}" on input line 360.
+(minitoc)             "\vspace {0.5ex}" on input line 361.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2014/10/28 v1.5a package for extended references (FMi)
 \c@vrcnt=\count272
@@ -2107,7 +2107,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip89
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 594.
+Package hyperref Info: Option `colorlinks' set `true' on input line 595.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2230.
@@ -2242,11 +2242,11 @@ Package: glossary-tree 2015/02/03 v4.13 (NLCT)
 \glo@main@file=\write8
 \openout8 = `main.glo'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 615.
+Package glossaries Info: Writing glossary file main.glo on input line 616.
 \glo@acronym@file=\write9
 \openout9 = `main.acn'.
 
-Package glossaries Info: Writing glossary file main.acn on input line 615.
+Package glossaries Info: Writing glossary file main.acn on input line 616.
  (./macros.sty (/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box132
 \UL@hyphenbox=\box133
@@ -2271,6 +2271,12 @@ LaTeX Warning: Label `92@xvr' multiply defined.
 
 
 LaTeX Warning: Label `92@vr' multiply defined.
+
+
+LaTeX Warning: Label `93@xvr' multiply defined.
+
+
+LaTeX Warning: Label `93@vr' multiply defined.
 
 ) (.build/chapter5/five.aux) (.build/chapter6/six.aux))
 \openout1 = `main.aux'.
@@ -2623,17 +2629,22 @@ File: ./img/ch3/naive_length_tru.pdf Graphic file (type pdf)
  <use ./img/ch3/naive_length_tru.pdf>
 Package pdftex.def Info: ./img/ch3/naive_length_tru.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [108 <./img/ch3/naive_length_tru.pdf>] [109] (./chapter3/fig/beagle_break_tru.tex <./img/ch3/beagle_break_tru.pdf, id=1187, 584.67807pt x 415.11005pt>
-File: ./img/ch3/beagle_break_tru.pdf Graphic file (type pdf)
- <use ./img/ch3/beagle_break_tru.pdf>
-Package pdftex.def Info: ./img/ch3/beagle_break_tru.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 303.02148pt.
- [110]) [111 <./img/ch3/beagle_break_tru.pdf>] (./chapter3/fig/beagle_length_tru.tex <./img/ch3/beagle_length_tru.pdf, id=1286, 650.43pt x 505.89pt>
-File: ./img/ch3/beagle_length_tru.pdf Graphic file (type pdf)
- <use ./img/ch3/beagle_length_tru.pdf>
-Package pdftex.def Info: ./img/ch3/beagle_length_tru.pdf used on input line 5.
+) [108 <./img/ch3/naive_length_tru.pdf>] [109] [110] (./chapter3/fig/beagle_overlap.tex <./img/ch3/beagle_overlap.pdf, id=1197, 578.16pt x 289.08pt>
+File: ./img/ch3/beagle_overlap.pdf Graphic file (type pdf)
+ <use ./img/ch3/beagle_overlap.pdf>
+Package pdftex.def Info: ./img/ch3/beagle_overlap.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 213.39534pt.
+) [111] (./chapter3/fig/beagle_break_tru.tex <./img/ch3/beagle_break_tru_new.pdf, id=1212, 590.214pt x 414.93036pt>
+File: ./img/ch3/beagle_break_tru_new.pdf Graphic file (type pdf)
+ <use ./img/ch3/beagle_break_tru_new.pdf>
+Package pdftex.def Info: ./img/ch3/beagle_break_tru_new.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 300.05388pt.
+) [112 <./img/ch3/beagle_overlap.pdf>] (./chapter3/fig/beagle_length_tru.tex <./img/ch3/beagle_length_tru_new.pdf, id=1242, 650.43pt x 505.89pt>
+File: ./img/ch3/beagle_length_tru_new.pdf Graphic file (type pdf)
+ <use ./img/ch3/beagle_length_tru_new.pdf>
+Package pdftex.def Info: ./img/ch3/beagle_length_tru_new.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [112] (./chapter3/tab/stat_ibd_1kg.tex
+ [113 <./img/ch3/beagle_break_tru_new.pdf>]) [114 <./img/ch3/beagle_length_tru_new.pdf>] (./chapter3/tab/stat_ibd_1kg.tex
 Overfull \hbox (5.45pt too wide) detected at line 62
  
  []
@@ -2648,13 +2659,13 @@ Overfull \hbox (5.45pt too wide) detected at line 62
  
  []
 
-[113 <./img/ch3/beagle_length_tru.pdf>]) (./chapter3/fig/1kg20_lengths.tex <./img/ch3/length_1kg20.pdf, id=1343, 650.43pt x 505.89pt>
+) (./chapter3/fig/1kg20_lengths.tex <./img/ch3/length_1kg20.pdf, id=1358, 650.43pt x 505.89pt>
 File: ./img/ch3/length_1kg20.pdf Graphic file (type pdf)
  <use ./img/ch3/length_1kg20.pdf>
 Package pdftex.def Info: ./img/ch3/length_1kg20.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [114] [115 <./img/ch3/length_1kg20.pdf>]
-LaTeX Font Info:    Try loading font information for T1+phv on input line 712.
+) [115] [116]
+LaTeX Font Info:    Try loading font information for T1+phv on input line 832.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
@@ -2663,8 +2674,11 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
-(Font)              scaled to size 8.76003pt on input line 712.
-) [116] [117] (.build/main.acr) [237
+(Font)              scaled to size 8.76003pt on input line 832.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [117 <./img/ch3/length_1kg20.pdf>]) [118] [119] (.build/main.acr) [237
 
 
 
@@ -2712,26 +2726,26 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ABEE0C78002C25F7396CECE0041BD08F;1019.
+(rerunfilecheck)             Checksum: D466B993244D33CC03C56F4E5864DEF9;1019.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 49201 strings out of 493089
- 939209 string characters out of 6134842
- 1176346 words of memory out of 5000000
- 50293 multiletter control sequences out of 15000+600000
- 382526 words of font info for 989 fonts, out of 8000000 for 9000
+ 49241 strings out of 493089
+ 939839 string characters out of 6134842
+ 1176461 words of memory out of 5000000
+ 50299 multiletter control sequences out of 15000+600000
+ 385174 words of font info for 1008 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,16n,73p,10436b,1356s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on .build/main.pdf (49 pages, 2246401 bytes).
+Output written on .build/main.pdf (51 pages, 2259981 bytes).
 PDF statistics:
- 1802 PDF objects out of 2073 (max. 8388607)
- 1509 compressed objects within 16 object streams
- 344 named destinations out of 1000 (max. 500000)
- 111294 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 1824 PDF objects out of 2073 (max. 8388607)
+ 1527 compressed objects within 16 object streams
+ 347 named destinations out of 1000 (max. 500000)
+ 111299 words of extra memory for PDF output out of 128383 (max. 10000000)
 
