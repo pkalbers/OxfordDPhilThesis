@@ -542,14 +542,12 @@ For the phased dataset, \cref{app:fgt_p}, \dec{0.528477}~million unique segments
 % , which corresponded to a lower proportion of retained segments in relation to both the full set (\SI{3.917097}{\percent}) and the set of true segments (\SI{17.76833}{\percent}).
 The lower number of segments retained in \cref{app:fgt_p} is likely to be the consequence of mismatched haplotypes in original and phased data.
 
-<<<<<<< HEAD
 \Correct{}
 Note that is was straightforward to account for haplotype mismatches in the previous analysis, where the focal haplotype could be identified from a given target allele.
 However, this was not possible in the present analysis.
-=======
+
 \Correct{Note that the purpose of this analysis is to evaluate whether \texttt{Refined\,IBD} could be used as a method to detect recombination breakpoints.
 Here, it is not directly possible, for example, to make statements about IBD segments falsely identified by \texttt{Refined\,IBD}, as these would be among the segments removed in the matching process.}
->>>>>>> 54ae1a02bebab94a57da7e7f36d6c8d40060e90e
 
 After the removal of segments at which haplotype pairs did not share any of the alleles in \fk{[2,25]}, median lengths were longer in comparison to the original datasets; \SI{0.255496}{\mega\basepair} and \SI{0.256070}{\mega\basepair} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
 This can be seen as the result of both the removal of falsely identified segments, as well as segments that were older and thereby expected to be shorter.
