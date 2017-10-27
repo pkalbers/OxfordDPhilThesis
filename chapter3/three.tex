@@ -510,10 +510,28 @@ In \texttt{Refined\,IBD}, an additional probabilistic approach is included to as
 A \gls{lod} score is calculated as ${\log_{10}(\text{LR})}$, and segments are reported as IBD if the \gls{lod} score is above a specified threshold.
 This approach has been found to achieve greater accuracy than \texttt{GERMLINE} alone or \texttt{fastIBD}, which is a non-probabilistic method that detects IBD based on haplotype frequency \citep{Browning:2011do,Browning:2013eh}.
 
+\Correct{Note that the method requires haplotype data and cannot be executed with genotype information alone.
+In the following, \cref{app:fgt_h} refers to the analysis conducted on true haplotypes and \cref{app:fgt_p} on phased haplotypes.}
+
 The analysis was performed using default parameters in \texttt{Refined\,IBD} (retaining candidate segments at ${\mbox{LOD}>3.0}$) and after conversion of simulated data into \gls{vcf}\footnote{Variant Call Format: \url{http://vcftools.sourceforge.net/VCF-poster.pdf} \accessed{2016}{11}{22}}.
-Note that haplotype data are required; therefore only the \gls{fgt} was evaluated using true and phased haplotype data in \cref{app:fgt_h,,app:fgt_p}, respectively.
 The analysis returned \dec{13.688781}~million IBD segments in \ref{app:fgt_h}, of which \SI{0.248108}{\percent} were duplicated, and \dec{13.647038}~million in \ref{app:fgt_p}, of which \SI{0.248933}{\percent} were duplicated.
 The median length of all detected segments was \SI{0.190912}{\mega\basepair} and \SI{0.191496}{\mega\basepair} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively (after removal of duplicates).
+
+
+AIMS
+
+LIMITATIONS
+
+
+on average, found \dec{1.980775} and \dec{1.990609} per haplotype pair using true haplotypes \ref{app:fgt_h} and phased haplotypes \ref{app:fgt_p}, respectively.
+\dec{1.137447} per haplotype pair in the set of unique true IBD segments
+
+The majority of inferred IBD segments were relatively short in length;
+for example, \Percent{1.424919} and \Percent{1.420697} of the detected segments were longer than 1~\gls{Mb} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively,
+compared to \Percent{14.79594} in the set of unique true segments.
+
+\n{976503} (\Percent{32.53868}) were matched in \ref{app:fgt_h}
+\n{236644} (\Percent{7.885366}) in \ref{app:fgt_p}
 
 The accuracy of detected IBD segments was measured in relation to the true IBD intervals, which were already determined for the set of previously analysed target sites; \ie all \fk{[2,25]} variants found in the data (allele frequency $\leq 0.5\%$).
 Note that the detection approach employed by \texttt{Refined\,IBD} reports all segments inferred for a given pair of haplotypes, such that detected and true intervals cannot be matched by direct reference to a particular target site.
@@ -523,6 +541,10 @@ This matching process resulted in a set of \dec{2.166492}~million unique segment
 For the phased dataset, \cref{app:fgt_p}, \dec{0.528477}~million unique segments were matched.
 % , which corresponded to a lower proportion of retained segments in relation to both the full set (\SI{3.917097}{\percent}) and the set of true segments (\SI{17.76833}{\percent}).
 The lower number of segments retained in \cref{app:fgt_p} is likely to be the consequence of mismatched haplotypes in original and phased data.
+
+\Correct{}
+Note that is was straightforward to account for haplotype mismatches in the previous analysis, where the focal haplotype could be identified from a given target allele.
+However, this was not possible in the present analysis.
 
 After the removal of segments at which haplotype pairs did not share any of the alleles in \fk{[2,25]}, median lengths were longer in comparison to the original datasets; \SI{0.255496}{\mega\basepair} and \SI{0.256070}{\mega\basepair} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
 This can be seen as the result of both the removal of falsely identified segments, as well as segments that were older and thereby expected to be shorter.
