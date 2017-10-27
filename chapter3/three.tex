@@ -534,7 +534,7 @@ compared to \Percent{14.79594} in the set of unique true segments.
 \n{236644} (\Percent{7.885366}) in \ref{app:fgt_p}
 
 The accuracy of detected IBD segments was measured in relation to the true IBD intervals, which were already determined for the set of previously analysed target sites; \ie all \fk{[2,25]} variants found in the data (allele frequency $\leq 0.5\%$).
-Note that the detection approach employed by \texttt{Refined\,IBD} reports all segments inferred for a given pair of haplotypes, such that detected and true intervals cannot be matched by direct reference to a particular target site.
+The detection approach employed by \texttt{Refined\,IBD} reports all segments inferred for a given pair of haplotypes, such that detected and true intervals cannot be matched by direct reference to a particular target site.
 Hence, for a given pair of haplotypes, true and detected segments were matched if the focal allele associated with a true segment fell within the interval of the detected segment, which was discarded if none of the pairwise shared target alleles were found within the detected interval.
 This matching process resulted in a set of \dec{2.166492}~million unique segments in the analysis conduced on true haplotypes, \cref{app:fgt_h}.
 % This number is low when seen in relation to the full set of unique segments detected (\SI{0.1586614}{\percent}), but reasonably large in relation to the set of true unique segments available (\SI{72.19106}{\percent}).
@@ -542,9 +542,14 @@ For the phased dataset, \cref{app:fgt_p}, \dec{0.528477}~million unique segments
 % , which corresponded to a lower proportion of retained segments in relation to both the full set (\SI{3.917097}{\percent}) and the set of true segments (\SI{17.76833}{\percent}).
 The lower number of segments retained in \cref{app:fgt_p} is likely to be the consequence of mismatched haplotypes in original and phased data.
 
+<<<<<<< HEAD
 \Correct{}
 Note that is was straightforward to account for haplotype mismatches in the previous analysis, where the focal haplotype could be identified from a given target allele.
 However, this was not possible in the present analysis.
+=======
+\Correct{Note that the purpose of this analysis is to evaluate whether \texttt{Refined\,IBD} could be used as a method to detect recombination breakpoints.
+Here, it is not directly possible, for example, to make statements about IBD segments falsely identified by \texttt{Refined\,IBD}, as these would be among the segments removed in the matching process.}
+>>>>>>> 54ae1a02bebab94a57da7e7f36d6c8d40060e90e
 
 After the removal of segments at which haplotype pairs did not share any of the alleles in \fk{[2,25]}, median lengths were longer in comparison to the original datasets; \SI{0.255496}{\mega\basepair} and \SI{0.256070}{\mega\basepair} in \ref{app:fgt_h} and \ref{app:fgt_p}, respectively.
 This can be seen as the result of both the removal of falsely identified segments, as well as segments that were older and thereby expected to be shorter.
@@ -589,8 +594,8 @@ This difference persisted towards higher allele frequencies; \eg for \fk{25}~var
 longer compared to \SI{0.2015983}{\mega\basepair} (\SI{0.3778032}{\centi\morgan}) in \ref{app:fgt_h} and \SI{0.2018875}{\mega\basepair} (\SI{0.3730844}{\centi\morgan}) in \ref{app:fgt_p}.
 
 
-While this analysis does not permit to make statements about falsely identified IBD segments, as these were among the segments removed in the matching process, the results presented showed that the lengths of inferred breakpoint intervals are likely to be shorter than the underlying haplotype region shared by descent.
-Thus, the \texttt{Refined\,IBD} algorithm is less accurate with regard to the inference of the recombination events that delimit the underlying IBD tract.
+\Correct{These results suggested} that the lengths of inferred breakpoint intervals are likely to be shorter than the underlying haplotype region shared by descent.
+Thus, the \texttt{Refined\,IBD} algorithm is less accurate with regard to the inference of the recombination breakpoints that delimit the underlying IBD tract.
 
 
 
