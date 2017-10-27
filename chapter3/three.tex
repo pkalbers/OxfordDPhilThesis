@@ -405,9 +405,11 @@ This threshold was chosen arbitrarily, but such that the considered frequency ra
 The set of target sites comprised \dec{0.317020}~million \glspl{snp} that were heterozygous in the individuals sharing a focal allele.
 This resulted in \dec{11.597968}~million pairwise analyses and an equal number of IBD segments detected using the \gls{fgt} on the true and phased haplotypes in \cref{app:fgt_h,,app:fgt_p}, respectively, and the \gls{dgt} on genotype data in \cref{app:dgt}.
 
-Because the same IBD segment may be inferred from multiple target sites, the analysis was reduced to the set of uniquely detected breakpoint intervals per pair of individuals in each approach.
-Duplicate segments were removed after the corresponding target variants were sorted by allele frequency, with lower frequencies at the top and removing duplicate segments below.
-Detected segments were thereby tagged by the presumably youngest shared alleles within the intervals.
+Because the same IBD interval may be inferred from multiple shared alleles in a given haplotype pair, the analysis was reduced to the set of uniquely detected segments per pair in each approach.
+Duplicate segments were removed by sorting identical intervals by the frequency of target alleles, where only the segment detected around the allele of the lowest frequency was retained (and sampled if multiple shared alleles occurred at the same frequency).
+Detected segments were thereby tagged by the presumably youngest shared allele within a given interval.
+\Correct{This enabled the analysis to measure breakpoint accuracy conditional on the frequency of the target allele, which otherwise may have produced biased results due to sharing of higher-frequency alleles that are presumed to be older than the \gls{tmrca} of the underlying shared haplotype.}
+
 The number of uniquely identified segments differed slightly in \cref{app:fgt_h,,app:fgt_p,,app:dgt};
 \dec{2.983342}~million (\SI{25.72297}{\percent}),
 \dec{3.091288}~million (\SI{26.65370}{\percent}), and
@@ -434,10 +436,10 @@ Accuracy decreased towards higher allele frequency in each approach.
 For example, for \fk{2}~variants, $r^2$ was \dec{0.998}, \Correct{\dec{0.895}}, and \dec{0.995} in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively,
 which was reduced for \fk{25}~variants where ${r^2 = \dec{0.701}}$ in~\ref{app:fgt_h} and ${r^2 = \dec{0.730}}$ in~\ref{app:fgt_p}, but where \ref{app:dgt} was seen to decrease more rapidly by comparison (${r^2 = \dec{0.560}}$).
 
-Notably, when haplotype data were phased in \ref{app:fgt_p}, accuracy was highest at \fk{5}~variants (${r^2 = \dec{0.963}}$), indicating that accuracy was decreased at lower frequencies.
+Notably, when haplotype data were phased in \cref{app:fgt_p}, accuracy was highest at \fk{5}~variants (${r^2 = \dec{0.963}}$), indicating that accuracy was decreased at lower frequencies.
 Similarly, \gls{rmsle} scores reflected the same general pattern, but where the magnitude of error in \ref{app:fgt_p} was at a maximum at \fk{2}~variants.
 \Correct{One explanation is that relatively long haplotype regions are more likely to be affected by phasing errors, in particular switch errors, to which the \gls{fgt} but not the \gls{dgt} is susceptible.
-Hence, because} \fk{2} \Correct{haplotypes are likely to be longer compared to haplotypes tagged by higher-frequency alleles, phasing errors are more likely to lead to an underestimation of shared haplotype lengths.}
+Hence, because \fk{2} haplotypes are likely to be longer compared to haplotypes tagged by higher-frequency alleles (as a higher frequency is indicative for an older age), phasing errors are more likely to fall within longer shared haplotype regions and thereby may facilitate an underestimation of shared haplotype lengths.}
 
 %
 \input{chapter3/fig/naive_break_tru}
@@ -563,7 +565,7 @@ Likewise, \dec{8.958549}~million segments were matched in \ref{app:fgt_p}, which
 
 Recall that the set of true haplotypes contained all segments found around a given target site, but where multiple shared alleles may sit on the same shared haplotype.
 To reduce such duplicates, identical intervals per pair were sorted by the frequency of target alleles, where only the segment around the shared allele with the lowest frequency was retained (and randomly sampled if multiple shared alleles occurred at the same frequency).
-This enabled the analysis of breakpoint accuracy conditional on the frequency of the target allele.
+This enabled the analysis to measure breakpoint accuracy conditional on the frequency of the target allele.
 
 
 %
@@ -696,7 +698,7 @@ However, by also evaluating the relative proportion of total base overlap betwee
 \subsubsection{IBD detection in real data: 1000 Genomes, chromosome 20}
 %
 
-The IBD detection method presented was applied to the final release dataset of the \glsentrylong{1kg} Phase~\rom{3} \citep{GenomesProjectConsortium:2012co,Auton:2015gk}, which included ${N=\num{2504}}$ individuals.
+The IBD detection \Correct{methodology developed in this chapter (\gls{fgt} and \gls{dgt})} was applied to the final release dataset of the \glsentrylong{1kg} Phase~\rom{3} \citep{GenomesProjectConsortium:2012co,Auton:2015gk}, which included ${N=\num{2504}}$ individuals.
 IBD detection was performed for each autosome (chromosomes 1--22), where selected target sites comprised all shared rare variants at allele frequency ${\leq 0.5\%}$; \ie \fk{} where ${k \in \{2, \ldots, 25\}}$.
 However, to enable a closer comparison to the results obtained on the simulated dataset (which simulated variable recombination rates as inferred for chromosome~20), the following results are presented for chromosome~20 only.
 A summary of the IBD detection results for chromosomes 1--22 is given in \cpref{tab:stat_ibd_1kg}.
@@ -728,6 +730,21 @@ The length of segments identified at lower frequencies was longer in comparison 
 \SI{0.1492150}{\mega\basepair} (\SI{0.2918440}{\centi\morgan}) using the \gls{fgt} and \gls{dgt}, respectively.
 However, the IBD lengths were highest at \fk{[3,5]} when the \gls{fgt} was used, but which was not the case for the \gls{dgt}.
 
+
+
+--
+
+In the simulation analysis, ...
+a ratio of \dec{36.58675} detected segments per target allele on average,
+and \dec{9.750788} and \dec{9.39432} for dgt, fgt* after removing duplicate segments
+but \dec{30.116861} in the analysis of \gls{1kg}, chromosome~20.
+and \dec{} after removing duplicate segments
+
+ratio median physical (genetic) length of dgt/fgt* was \dec{1.380145} (\dec{1.383059}) in the simulation analysis
+\dec{1.1251870} (\dec{1.1185651}) at \fk{2}~variants
+but \dec{1.764705} (\dec{1.86263}) here, and \dec{2.040322} (\dec{2.1948717}) at \fk{2}~variants.
+
+--
 
 
 

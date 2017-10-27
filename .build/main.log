@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  27 OCT 2017 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  27 OCT 2017 19:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2615,21 +2615,21 @@ LaTeX Font Warning: Command \large invalid in math mode on input line 344.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/jkp/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-) (./chapter3/fig/naive_break_tru.tex <./img/ch3/naive_break_tru.pdf, id=1010, 583.95808pt x 596.04433pt>
+) [105] (./chapter3/fig/naive_break_tru.tex <./img/ch3/naive_break_tru.pdf, id=1017, 583.95808pt x 596.04433pt>
 File: ./img/ch3/naive_break_tru.pdf Graphic file (type pdf)
  <use ./img/ch3/naive_break_tru.pdf>
 Package pdftex.def Info: ./img/ch3/naive_break_tru.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 435.63625pt.
- [105])
+ [106])
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 450.
+LaTeX Font Warning: Command \large invalid in math mode on input line 452.
 
-[106] [107 <./img/ch3/naive_break_tru.pdf>] (./chapter3/fig/naive_length_tru.tex <./img/ch3/naive_length_tru.pdf, id=1110, 650.43pt x 505.89pt>
+(./chapter3/fig/naive_length_tru.tex <./img/ch3/naive_length_tru.pdf, id=1039, 650.43pt x 505.89pt>
 File: ./img/ch3/naive_length_tru.pdf Graphic file (type pdf)
  <use ./img/ch3/naive_length_tru.pdf>
 Package pdftex.def Info: ./img/ch3/naive_length_tru.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [108 <./img/ch3/naive_length_tru.pdf>] [109] [110] (./chapter3/fig/beagle_overlap.tex <./img/ch3/beagle_overlap.pdf, id=1197, 578.16pt x 289.08pt>
+) [107] [108 <./img/ch3/naive_break_tru.pdf>] [109 <./img/ch3/naive_length_tru.pdf>] [110] (./chapter3/fig/beagle_overlap.tex <./img/ch3/beagle_overlap.pdf, id=1198, 578.16pt x 289.08pt>
 File: ./img/ch3/beagle_overlap.pdf Graphic file (type pdf)
  <use ./img/ch3/beagle_overlap.pdf>
 Package pdftex.def Info: ./img/ch3/beagle_overlap.pdf used on input line 5.
@@ -2639,12 +2639,12 @@ File: ./img/ch3/beagle_break_tru_new.pdf Graphic file (type pdf)
  <use ./img/ch3/beagle_break_tru_new.pdf>
 Package pdftex.def Info: ./img/ch3/beagle_break_tru_new.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 300.05388pt.
-) [112 <./img/ch3/beagle_overlap.pdf>] (./chapter3/fig/beagle_length_tru.tex <./img/ch3/beagle_length_tru_new.pdf, id=1242, 650.43pt x 505.89pt>
+) [112 <./img/ch3/beagle_overlap.pdf>] [113 <./img/ch3/beagle_break_tru_new.pdf>] (./chapter3/fig/beagle_length_tru.tex <./img/ch3/beagle_length_tru_new.pdf, id=1309, 650.43pt x 505.89pt>
 File: ./img/ch3/beagle_length_tru_new.pdf Graphic file (type pdf)
  <use ./img/ch3/beagle_length_tru_new.pdf>
 Package pdftex.def Info: ./img/ch3/beagle_length_tru_new.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
- [113 <./img/ch3/beagle_break_tru_new.pdf>]) [114 <./img/ch3/beagle_length_tru_new.pdf>] (./chapter3/tab/stat_ibd_1kg.tex
+) [114 <./img/ch3/beagle_length_tru_new.pdf>] (./chapter3/tab/stat_ibd_1kg.tex
 Overfull \hbox (5.45pt too wide) detected at line 62
  
  []
@@ -2659,13 +2659,13 @@ Overfull \hbox (5.45pt too wide) detected at line 62
  
  []
 
-) (./chapter3/fig/1kg20_lengths.tex <./img/ch3/length_1kg20.pdf, id=1358, 650.43pt x 505.89pt>
+) (./chapter3/fig/1kg20_lengths.tex <./img/ch3/length_1kg20.pdf, id=1361, 650.43pt x 505.89pt>
 File: ./img/ch3/length_1kg20.pdf Graphic file (type pdf)
  <use ./img/ch3/length_1kg20.pdf>
 Package pdftex.def Info: ./img/ch3/length_1kg20.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [115] [116]
-LaTeX Font Info:    Try loading font information for T1+phv on input line 832.
+ [115]) [116] [117 <./img/ch3/length_1kg20.pdf>]
+LaTeX Font Info:    Try loading font information for T1+phv on input line 849.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
@@ -2674,11 +2674,8 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
-(Font)              scaled to size 8.76003pt on input line 832.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [117 <./img/ch3/length_1kg20.pdf>]) [118] [119] (.build/main.acr) [237
+(Font)              scaled to size 8.76003pt on input line 849.
+ [118]) [119] (.build/main.acr) [237
 
 
 
@@ -2733,19 +2730,19 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 49241 strings out of 493089
- 939839 string characters out of 6134842
- 1176461 words of memory out of 5000000
+ 49243 strings out of 493089
+ 939865 string characters out of 6134842
+ 1183461 words of memory out of 5000000
  50299 multiletter control sequences out of 15000+600000
- 385174 words of font info for 1008 fonts, out of 8000000 for 9000
+ 385373 words of font info for 1009 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,16n,73p,10436b,1356s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on .build/main.pdf (51 pages, 2259981 bytes).
+Output written on .build/main.pdf (51 pages, 2264010 bytes).
 PDF statistics:
- 1824 PDF objects out of 2073 (max. 8388607)
- 1527 compressed objects within 16 object streams
+ 1829 PDF objects out of 2073 (max. 8388607)
+ 1532 compressed objects within 16 object streams
  347 named destinations out of 1000 (max. 500000)
  111299 words of extra memory for PDF output out of 128383 (max. 10000000)
 

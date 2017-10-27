@@ -17,7 +17,7 @@
 \glsgroupheading{D}\relax \glsresetentrylist %
 \glossentry{dgt}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{93\delimR 101}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{104\delimR 109}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{104\delimR 110}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{115\delimR 118}}}\glsgroupskip
 \glsgroupheading{F}\relax \glsresetentrylist %
 \glossentry{fgt}{\glossaryentrynumbers{\relax 
@@ -59,7 +59,8 @@
 \glsgroupheading{T}\relax \glsresetentrylist %
 \glossentry{tmrca}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{91}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{100\delimN 101}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{100\delimN 101}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{105}}}\glsgroupskip
 \glsgroupheading{V}\relax \glsresetentrylist %
 \glossentry{vcf}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{110}}}\glsgroupskip
