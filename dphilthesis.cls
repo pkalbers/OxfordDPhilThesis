@@ -6,7 +6,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{dphilthesis}[2016/02/02 Oxford thesis class]
 
-\LoadClass[openright, 11pt]{report}
+\LoadClass[openright,11pt]{report}
 %\LoadClass[twoside, 11pt]{report}
 
 \newif\ifmc@nobind
@@ -263,6 +263,7 @@ list-final-separator={, and }%
 \soulregister\cref7
 \soulregister\cpref7
 \soulregister\Cpref7
+\soulregister\pref7
 \soulregister\xspace7
 \soulregister\eg7
 \soulregister\ie7
@@ -278,30 +279,38 @@ list-final-separator={, and }%
 
 % correction
 \newcommand{\Correct}[1]{\hl{#1}}
-\def\CorrectLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{CORRECTED}}}\xspace}
-\DeclareRobustCommand{\CorrectNote}[1]{{%
-\noindent%
+\newcommand{\CorrectNote}[1]{%
+\vspace{2.5mm}%
+\noindent{%
+\footnotesize\texttt{
+\fcolorbox{YellowOrange}{white}{%
 \colorbox{yellow}{%
-\footnotesize\texttt{CORRECTED} %
-\colorbox{white}{\footnotesize\texttt{\quad #1 \quad}}%
-\hfill
+\textcolor{black}{CORRECTED}%
+} %
+\quad #1 \quad%
+}%
+\vspace{2.5mm}%
 }}}
+\def\CorrectLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{CORRECTED}}}\xspace}
 
 % addition
 \newcommand{\Addition}[1]{{\hl{#1}}}
 \def\AdditionLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{ADDED}}}\xspace}
 
 % deletion
-\newcommand{\Delete}[1]{{\st{#1}}}
-\DeclareRobustCommand{\DeleteNote}[1]{{%
+\newcommand{\Delete}[1]{\textcolor{gray}{\st{#1}}}
+\newcommand{\DeleteNote}[1]{%
 \vspace{5mm}%
-\noindent%
+\noindent{%
+\footnotesize\texttt{%
+\fcolorbox{red}{white}{%
 \colorbox{red}{%
-\footnotesize\texttt{REMOVED} %
-\colorbox{white}{\footnotesize\texttt{\quad #1 \quad}}%
+\textcolor{white}{REMOVED}%
+} %
+\quad #1 \quad%
+}%
 \vspace{5mm}%
 }}}
-
 
 
 % Headers/Footers
@@ -580,9 +589,13 @@ list-final-separator={, and }%
 
 \addtolength{\skip\footins}{2pt}
 
+
+
+
 %%% MUST BE LAST
 
 \usepackage{varioref}
+
 
 % Links
 \usepackage[hidelinks]{hyperref}

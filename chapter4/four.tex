@@ -31,7 +31,8 @@ For example, it has been shown that even minor amounts of genotype error can dis
 
 Identification of incorrectly typed or called genotypes remains a difficult problem, which becomes more challenging as the magnitude of data increases.
 But, for example, as shown by \citet{Cox:2006kv} and independently by \citet{Moskvina:2006fz},
-genotype error does not always affect the distributions of genotypes to the extent that \gls{hwe} can be violated, which is disturbing given the circumstance that departures from \gls{hwe} are often used as a simple and quick method to test for and thereby exclude presumably incorrect genotypes.
+genotype error \Addition{theoretically} does not always affect the distributions of genotypes to the extent that \gls{hwe} can be violated.
+\Correct{Given the common practise to exclude presumably incorrect genotypes based on departures from \gls{hwe}, it therefore remains difficult to catch falsely called or typed variants.}
 
 
 In this chapter, I explore the impact of genotype error on the detection of \gls{ibd} segments and, based on these results, I implement a new approach for targeted IBD inference using a \gls{hmm}.
@@ -70,7 +71,8 @@ The general form of the expected genotype frequency is given in \cref{eq:genprop
 In presence of genotype error, the actual, \emph{true} genotype is distinguished from the \emph{observed} genotype, $\tilde{g}_k$, and the observed frequency, ${f_{\tilde{g}}(k)}$, is different from the true (but unknown) genotype frequency, dependent on the rate of error.
 More precisely, let the rate at which genotype $g_j$ is classified as $\tilde{g}_i$ be denoted by $\varepsilon_{ij}$, where ${i,j \in \lbrace 0, 1, 2 \rbrace}$.
 The value of $\varepsilon_{ij}$ is often referred to as the \emph{penetrance} of a genotype and represents the probability of observing genotype~$\tilde{g}_i$ given the true genotype~$g_j$ \citep{ott1999analysis,Gordon:2002cz}.
-For convenience, penetrance parameters can be represented in a ${3 \times 3}$ confusion matrix, $\mathcal{E}$, below.
+\Addition{In the following, I use the term \emph{error~rate} to refer to genotype penetrance.}
+For convenience, \Correct{error rate} parameters can be represented in a ${3 \times 3}$ confusion matrix, $\mathcal{E}$, below.
 \begin{equation}\label{eq:errormatrix}\onehalfspacing
 \mathcal{E} =
 \begin{bmatrix}
@@ -99,11 +101,11 @@ where $i=j$ indicates correct classification and $i \neq j$ misclassification of
 
 
 %
-\subsubsection{Genotype penetrance models}
+\subsubsection{Genotype error models}
 %
 
-\Cref{eq:errormatrix,eq:errfrqprob} provide a generic framework for the penetrance of genotypes and the calculation of genotype frequencies after error.
-\N{2} penetrance models are presented below which provide formulations for the calculation of model parameters $\varepsilon_{ij}$.
+\Cref{eq:errormatrix,eq:errfrqprob} provide a generic framework for the \Correct{error rate} of genotypes and the calculation of genotype frequencies after error.
+\N{2} \Correct{error} models are presented below which provide formulations for the calculation of model parameters $\varepsilon_{ij}$.
 
 \citet{Douglas:2002hp} introduced a genotype-based model with parameters $\gamma$ and $\eta$, denoting the probability of a homozygous genotype to be misclassified as a heterozygous genotype and vice-versa, respectively.
 The intuition behind this model is based on technical error in the \gls{pcr} amplification process, which is used in both genotyping and sequencing methods for the replication of DNA fragments.
@@ -111,20 +113,22 @@ However, note that observed genotypes $\tilde{g}_0$ and $\tilde{g}_2$ both have 
 
 As an alternative, misclassification of genotypes can be modelled as a consequence of errors that occur at random and independently in each of the \n{2} alleles.
 An explicit formulation of an allele-based model was proposed by \citet{Gordon:2001im}, where $\epsilon_0$ was defined as the probability that allele~0 ($h_0$) was observed as allele~1 ($h_1$), and $\epsilon_1$ the probability that $h_1$ was observed as $h_0$.
-Penetrance functions for both models are given in \cpref{tab:errormodel}; note that these are arranged as in error matrix $\mathcal{E}$ in \cref{eq:errormatrix}.
+\Correct{Error} functions for both models are given in \cpref{tab:errormodel}; note that these are arranged as in error matrix $\mathcal{E}$ in \cref{eq:errormatrix}.
 
 %
 \input{chapter4/tab/errormodel}
 %
 
 
-In the following section, I estimated the genotype penetrance rates in different datasets.
+In the following section, I estimated genotype \Correct{error rates} in different datasets.
 In each, error was computed from the proportions of correctly and incorrectly classified genotypes, such that error parameters were estimated for each model.
 
-% %
-% \input{chapter4/tab/errormodel_extended}
-% TODO work on extended error model
-% %
+
+%
+\input{chapter4/fig/error_models}
+%
+
+
 
 %
 \section{Generation of platform-specific genotype error profiles}
@@ -206,12 +210,12 @@ At each matched site, the population frequency was assigned as recorded in the f
 Sites for which no frequency information was available were removed.
 %, which was the case for a fraction of sites in \emph{Omni2.5} and \emph{Affy6.0}.
 Then, the retained genotypes in the matched datasets were used to measure the rate at which a true genotype ($g_0$, $g_1$, or $g_2$) was observed as the same or another genotype ($\tilde{g}_0$, $\tilde{g}_1$, or $\tilde{g}_2$).
-This was done to obtain estimates for the genotype penetrance parameters $\varepsilon_{ij}$ in error matrix $\mathcal{E}$.
+This was done to obtain estimates for \Correct{error rate} parameters $\varepsilon_{ij}$ in matrix $\mathcal{E}$.
 
 
 
 %
-\subsection{Penetrance of genotype error in sequencing and genotyping data}
+\subsection{Rate of genotype error in sequencing and genotyping data}
 %
 
 % IDEA Clarify the aims: to generate error profile which can be used in subsequent construction of a probabilistic IBD model; here, to evaluate measured error rates and compare to expectations, eg. higher error near centromere
@@ -231,7 +235,7 @@ In contrast to sequencing datasets, error rates decreased if $g_0$ was ignored, 
 
 % The discrepancy between inclusion and exclusion of assumed $g_0$ genotypes indicates a bias towards oversaturation with correctly observed genotypes in both \emph{1000G} datasets, such that genotype accuracy may have been artificially inflated.
 
-In the following, the penetrance of genotypes was investigated in greater detail, for which matched sites from each true genotype class were considered; first, by exploring the distribution of error along the genome and, second, by true genotype class to obtain empirical penetrance estimates, which was then extended to generate frequency-dependent error profiles for each dataset.
+In the following, the \Correct{error rate} of genotypes was investigated in greater detail, for which matched sites from each true genotype class were considered; first, by exploring the distribution of error along the genome and, second, by true genotype class to obtain empirical \Correct{error rate} estimates, which was then extended to generate frequency-dependent error profiles for each dataset.
 
 
 %
@@ -257,10 +261,10 @@ However, a few regions showed error rates near 10\%.
 
 
 %
-\subsubsection{Empirical estimation of genotype penetrance}
+\subsubsection{Empirical estimation of genotype error rate}
 %
 
-Estimates for penetrance parameters in $\mathcal{E}$ were derived by considering the proportional relation among observed types per true genotype class.
+Estimates for \Correct{error rate} parameters in $\mathcal{E}$ were derived by considering the proportional relation among observed types per true genotype class.
 For each true genotype class $j$, the number of genotypes observed in class $i$ was divided by the total number in class $j$, which gives the empirical value of parameter $\varepsilon_{ij}$; denoted by $\tilde{\varepsilon}_{ij}$.
 For an exact formulation, let $n_{ij}$ be the number of observed $\tilde{g}_i$ genotypes whose actual type belongs to the true genotype class $j$.
 The empirical value is calculated as
@@ -279,18 +283,18 @@ Notably, $\tilde{\varepsilon}_{00}$ was highest in all sequencing datasets, wher
 %This again suggests that in the sequencing datasets more $g_0$ genotypes were correctly observed than expected.
 In each dataset, true homozygous genotypes were more likely to be misclassified as heterozygotes than as the opposite homozygote, but the probability to observe opposite homozygotes was non-zero throughout.
 Misclassification of true heterozygous genotypes showed a preference towards genotypes that are homozygous for the reference allele; except in \emph{Affy6.0} where misclassification rates were nearly equal for $\tilde{g}_0$ and $\tilde{g}_2$.
-As formulated in \ctref{eq:errfrqprob}, the observed genotype frequency is a function of the true allele frequency and the penetrance of genotypes.
-Hence, the frequency-dependent distribution of empirical genotype penetrance was assessed; see section below.
+As formulated in \ctref{eq:errfrqprob}, the observed genotype frequency is a function of the true allele frequency and \Correct{error rates} of genotypes.
+Hence, the frequency-dependent distribution of empirical \Correct{error rate} was assessed; see section below.
 
 
 %
-\subsubsection{Frequency-dependent penetrance distribution}
+\subsubsection{Frequency-dependent genotype error distribution}
 %
 
 For each true genotype class, sites were pooled by their assigned population allele frequencies
 into \n{200} frequency bins of equal scope on linear scale; \ie bins were separated in steps of 0.5\%.
-Using \ctref{eq:empexperr}, the proportions of observed genotypes were calculated in each bin, to obtain penetrance expectations across the frequency spectrum.
-Additionally, because it can be expected that $N_j$ becomes small at lower genotype frequencies, bins where the number of genotypes dropped below a nominal threshold were marked to indicate less support for estimated penetrance values.
+Using \ctref{eq:empexperr}, the proportions of observed genotypes were calculated in each bin, to obtain \Correct{error rate} expectations across the frequency spectrum.
+Additionally, because it can be expected that $N_j$ becomes small at lower genotype frequencies, bins where the number of genotypes dropped below a nominal threshold were marked to indicate less support for estimated \Correct{error rates}.
 \N{3} nominal levels of support were distinguished;
 \begin{align*}
 	\textit{Low support}     & \quad\text{if}\quad {N_j < 100}\ , \\
@@ -302,7 +306,7 @@ Additionally, because it can be expected that $N_j$ becomes small at lower genot
 \input{chapter4/fig/generrprop}
 %
 
-For each dataset, the resulting penetrance distributions are shown in \cpref{fig:generrprop}.
+For each dataset, the resulting \Correct{error rate} distributions are shown in \cpref{fig:generrprop}.
 The most striking observation is the substantial loss of accuracy for $g_0$ genotypes at higher allele frequencies.
 For example in \emph{1000G.A}, all $g_0$ in the highest frequency bin were misclassified as $\tilde{g}_2$, despite high support.
 The proportion of $g_0$ observed as $\tilde{g}_1$ was low throughout.
@@ -335,7 +339,7 @@ For comparison, an alternate IBD detection method was applied to the same data (
 
 One of the genotype error profiles constructed in the previous section was used to induce realistic error patterns in simulated data.
 Among the \n{4} test datasets, both sequencing datasets were recorded with higher levels of support.
-Although \emph{1000G.B} showed overall lower levels of genotype error, \emph{1000G.A} can be seen as being more representative for data obtained in recent large-scale studies; hence, the integration of error was conducted according to the frequency-dependent penetrance distribution in the \emph{1000G.A} profile.
+Although \emph{1000G.B} showed overall lower levels of genotype error, \emph{1000G.A} can be seen as being more representative for data obtained in recent large-scale studies; hence, the integration of error was conducted according to the frequency-dependent \Correct{error rate} distribution in the \emph{1000G.A} profile.
 The process of error integration in simulated data is described below.
 
 
@@ -355,7 +359,7 @@ Haplotypes were randomly assigned into fixed pairs which would later form the ge
 Error was included by randomly replacing haplotype pairs dependent on the empirically determined misclassification rates per true genotype class~$j$.
 This was done by selecting each variant site in turn and indexing each haplotype pair that would form genotype~$g_j$ before error.
 The index ensured that pairs would be drawn without replacement.
-Then, for each class~$j$, indexed pairs were randomly drawn and assigned to each of the \n{3} observed genotype classes, in proportions equal to empirical penetrance rates, as determined for the given allele frequency of the currently selected site.
+Then, for each class~$j$, indexed pairs were randomly drawn and assigned to each of the \n{3} observed genotype classes, in proportions equal to empirical \Correct{error rates}, as determined for the given allele frequency of the currently selected site.
 Haplotype pairs were ``mutated'' according to their assigned class, such that they would form $\tilde{g}_i$ after error.
 
 These haplotype data were then converted into a corresponding genotype dataset, which was then phased using \texttt{SHAPEIT\,2} \citep{Delaneau:2008dk,Delaneau:2013hi}; see description in \cpref{sec:ibd_analysis}.
@@ -519,7 +523,7 @@ For exaple, strict quality control may exclude certain candidate target sites, b
 The general insight gained from this analysis is that the impact of genotype error on the detection of IBD segments is not negligible.
 Given the example in shown \cpref{fig:full_ibd_error}, it is suggested that even small amounts of misclassified genotypes may disrupt the IBD detection process and is likely to result in a general underestimation of the underlying IBD length.
 Therefore, the analysis has provided sufficient evidence to justify the development of a more extensive method for IBD detection.
-In particular, I used the the estimated proportions of genotype penetrance to extend the targeted IBD detection approach such that the distribution of genotype pairs can be modelled for inference under IBD and non-IBD; this is presented in the following section.
+In particular, I used the the estimated proportions of genotype \Correct{error} to extend the targeted IBD detection approach such that the distribution of genotype pairs can be modelled for inference under IBD and non-IBD; this is presented in the following section.
 % From this, a novel, fully probabilistic approach was developed using a \gls{hmm}.
 
 

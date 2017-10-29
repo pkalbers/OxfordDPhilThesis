@@ -1,14 +1,20 @@
-\BOOKMARK [0][-]{chapter.3}{Using rare variants to detect haplotype sharing and identity by descent}{}% 35
-\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 36
-\BOOKMARK [1][-]{section.3.2}{Rare variants as indicators of haplotype sharing by descent}{chapter.3}% 37
-\BOOKMARK [1][-]{section.3.3}{IBD detection around rare variants}{chapter.3}% 38
-\BOOKMARK [2][-]{subsection.3.3.1}{Inference of historical recombination events}{section.3.3}% 39
-\BOOKMARK [2][-]{subsection.3.3.2}{Description of the algorithm}{section.3.3}% 40
-\BOOKMARK [2][-]{subsection.3.3.3}{Anticipated limitations}{section.3.3}% 41
-\BOOKMARK [1][-]{section.3.4}{Evaluation}{chapter.3}% 42
-\BOOKMARK [2][-]{subsection.3.4.1}{Data generation}{section.3.4}% 43
-\BOOKMARK [2][-]{subsection.3.4.2}{Accuracy analysis}{section.3.4}% 44
-\BOOKMARK [1][-]{section.3.5}{Results}{chapter.3}% 45
-\BOOKMARK [1][-]{section.3.6}{Discussion}{chapter.3}% 46
-\BOOKMARK [0][-]{section*.25}{Abbreviations}{}% 90
-\BOOKMARK [0][-]{chapter*.27}{Bibliography}{}% 91
+\BOOKMARK [0][-]{chapter.4}{Consideration of genotype error in the inference of haplotype sharing by descent}{}% 47
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 48
+\BOOKMARK [2][-]{subsection.4.1.1}{Probability of genotype error}{section.4.1}% 49
+\BOOKMARK [1][-]{section.4.2}{Generation of platform-specific genotype error profiles}{chapter.4}% 50
+\BOOKMARK [2][-]{subsection.4.2.1}{High-confidence genome data as benchmark for comparisons}{section.4.2}% 51
+\BOOKMARK [2][-]{subsection.4.2.2}{Selection and preparation of datasets from different platforms}{section.4.2}% 52
+\BOOKMARK [2][-]{subsection.4.2.3}{Rate of genotype error in sequencing and genotyping data}{section.4.2}% 53
+\BOOKMARK [1][-]{section.4.3}{Impact of genotype error on IBD detection}{chapter.4}% 54
+\BOOKMARK [2][-]{subsection.4.3.1}{Integration of empirical error distributions in simulated data}{section.4.3}% 55
+\BOOKMARK [2][-]{subsection.4.3.2}{Results}{section.4.3}% 56
+\BOOKMARK [2][-]{subsection.4.3.3}{Discussion}{section.4.3}% 57
+\BOOKMARK [1][-]{section.4.4}{A Hidden Markov Model for IBD inference}{chapter.4}% 58
+\BOOKMARK [2][-]{subsection.4.4.1}{The algorithm for probabilistic IBD inference}{section.4.4}% 59
+\BOOKMARK [2][-]{subsection.4.4.2}{Description of the model}{section.4.4}% 60
+\BOOKMARK [2][-]{subsection.4.4.3}{Integration of empirically determined genotype error rates}{section.4.4}% 61
+\BOOKMARK [2][-]{subsection.4.4.4}{Inference of IBD segments}{section.4.4}% 62
+\BOOKMARK [2][-]{subsection.4.4.5}{Results}{section.4.4}% 63
+\BOOKMARK [2][-]{subsection.4.4.6}{Discussion}{section.4.4}% 64
+\BOOKMARK [0][-]{section*.42}{Abbreviations}{}% 90
+\BOOKMARK [0][-]{chapter*.44}{Bibliography}{}% 91

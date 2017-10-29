@@ -2,69 +2,71 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{glssymbols}\relax \glsresetentrylist %
 \glossentry{1kg}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{91}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{116}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{118}}}\glsgroupskip
-\glsgroupheading{A}\relax \glsresetentrylist %
-\glossentry{arg}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{88}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{97}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{101}}}\glsgroupskip
-\glsgroupheading{C}\relax \glsresetentrylist %
-\glossentry{cdf}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{107\delimN 108}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{113}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{128}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{141}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{163}}}\glsgroupskip
 \glsgroupheading{D}\relax \glsresetentrylist %
 \glossentry{dgt}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{93\delimR 101}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{104\delimR 110}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{115\delimR 118}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{137}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{139\delimR 142}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{145\delimN 146}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{162\delimN 163}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{166}}}\glsgroupskip
 \glsgroupheading{F}\relax \glsresetentrylist %
 \glossentry{fgt}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{93\delimR 101}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{104\delimR 109}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{115\delimR 118}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{137}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{139\delimR 142}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{145\delimN 146}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{162\delimN 163}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{166}}}%
+\glossentry{fnr}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{137}}}%
+\glossentry{fpr}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{137}}}\glsgroupskip
+\glsgroupheading{G}\relax \glsresetentrylist %
+\glossentry{gwa}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{121}}}\glsgroupskip
 \glsgroupheading{H}\relax \glsresetentrylist %
-\glossentry{hapmap}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{103}}}\glsgroupskip
+\glossentry{hmm}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{122}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{139}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{145\delimR 148}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{150}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{154}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{159}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{162}}}%
+\glossentry{hwe}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{122\delimN 123}}}\glsgroupskip
 \glsgroupheading{I}\relax \glsresetentrylist %
 \glossentry{ibd}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{87}}}\glsgroupskip
-\glsgroupheading{L}\relax \glsresetentrylist %
-\glossentry{ld}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{88}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{90}}}%
-\glossentry{lod}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{110}}}%
-\glossentry{lr}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{110}}}%
-\glossentry{lrp}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{89}}}\glsgroupskip
-\glsgroupheading{M}\relax \glsresetentrylist %
-\glossentry{Mb}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{91}}}%
-\glossentry{mrca}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{88}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{90\delimN 91}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{99}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{103}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{122}}}%
+\glossentry{ipg}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{126\delimR 130}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{133\delimR 135}}}\glsgroupskip
+\glsgroupheading{N}\relax \glsresetentrylist %
+\glossentry{ngs}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{121}}}\glsgroupskip
+\glsgroupheading{P}\relax \glsresetentrylist %
+\glossentry{pcr}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{124}}}\glsgroupskip
 \glsgroupheading{R}\relax \glsresetentrylist %
 \glossentry{rmsle}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{104\delimR 106}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{113}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{137}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{139}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{162\delimN 163}}}\glsgroupskip
 \glsgroupheading{S}\relax \glsresetentrylist %
 \glossentry{snp}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{91}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{104}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{126\delimR 129}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{138}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{146}}}\glsgroupskip
 \glsgroupheading{T}\relax \glsresetentrylist %
 \glossentry{tmrca}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{91}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{100\delimN 101}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{105}}}\glsgroupskip
-\glsgroupheading{V}\relax \glsresetentrylist %
-\glossentry{vcf}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{110}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{142}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{148}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{150}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{154}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{165}}}\glsgroupskip
 \glsgroupheading{W}\relax \glsresetentrylist %
 \glossentry{wgs}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{98}}}%
+		\setentrycounter[]{page}\glsnumberformat{127}}}%
 \end{theglossary}\glossarypostamble

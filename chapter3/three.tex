@@ -345,7 +345,7 @@ Population sizes of EU and AS were calculated as ${N = \rfrac{N_0}{\euler{-r t}}
 
 
 %
-\subsubsection{Simulated dataset}
+\subsubsection{Simulated dataset}\label{sec:simdata}
 %
 
 A sample of \n{5000} haplotypes was simulated, where the set of generated chromosomes represented a sample taken from the EU population.
@@ -396,8 +396,7 @@ The following approaches were distinguished:
 
 
 %
-\section{Results}
-\label{sec:ibd_results}
+\section{Results}\label{sec:ibd_results}
 %
 
 IBD detection was carried out on a large set of target sites, for which all \fk{} variants found at ${k \in \lbrace 2, \ldots, 25 \rbrace}$ were selected, \ie alleles shared at frequency ${\leq 0.5\%}$.
@@ -497,16 +496,15 @@ Since genomic datasets were typically composed of phased haplotypes, \cref{app:f
 However, the higher error rate at lower frequency variants may pose a problem for analysis for rare variants.
 As an alternative, the \gls{dgt} on genotype data, \cref{app:dgt}, can be used to detect IBD with high accuracy and comparatively low error rates.
 However, the larger proportion of overestimated IBD breakpoints may result in additional error, \eg if it is assumed that the genealogy is consistent along the sequence of inferred IBD segments.
-
+\label{sec:ibd_results_end}
 
 
 
 %
-\subsubsection{IBD detection using the \emph{Refined\,IBD} algorithm}
-\label{sec:ibd_beagle_tru}
+\subsubsection{IBD detection using the \emph{Refined\,IBD} method}\label{sec:ibd_beagle_tru}
 %
 
-\CorrectNote{Section rewritten to include corrections and additional results.}
+\CorrectNote{Section rewritten to include multiple corrections and additional results.}
 
 Simulated data were additionally analysed using the \texttt{Refined\,IBD} algorithm implemented in \texttt{Beagle} version~4.1 \citep{Browning:2013eh}.\footnote{Beagle 4.1: \url{https://faculty.washington.edu/browning/beagle/beagle.html} \accessed{2016}{11}{22}}
 The method is based on the non-probabilistic \texttt{GERMLINE} algorithm \citep{Gusev:2009hd}, which identifies putative IBD segments from short exact matches between haplotype pairs.
@@ -699,9 +697,9 @@ However, by also evaluating the relative proportion of total base overlap betwee
 %
 
 The IBD detection \Correct{methodology developed in this chapter (\gls{fgt} and \gls{dgt})} was applied to the final release dataset of the \glsentrylong{1kg} Phase~\rom{3} \citep{GenomesProjectConsortium:2012co,Auton:2015gk}, which included ${N=\num{2504}}$ individuals.
-IBD detection was performed for each autosome (chromosomes 1--22), where selected target sites comprised all shared rare variants at allele frequency ${\leq 0.5\%}$; \ie \fk{} where ${k \in \{2, \ldots, 25\}}$.
-However, to enable a closer comparison to the results obtained on the simulated dataset (which simulated variable recombination rates as inferred for chromosome~20), the following results are presented for chromosome~20 only.
-A summary of the IBD detection results for chromosomes 1--22 is given in \cpref{tab:stat_ibd_1kg}.
+IBD detection was performed for each autosome (chromosomes \mbox{1--22}), where selected target sites comprised all variants found at allele frequency ${\leq 0.5\%}$; \ie \fk{} where ${k \in \{2, \ldots, 25\}}$.
+However, to facilitate a closer comparison to the results obtained on the simulated dataset, \Correct{which used a variable recombination rate as provided by the Built~37 \gls{hapmap} Phase~\rom{2} genetic map for chromosome~20} (see \ccref{sec:simdata}), the following results focus on chromosome~20 only.
+A summary of the IBD detection results for chromosomes \mbox{1--22} is given in \cpref{tab:stat_ibd_1kg}.
 
 %
 \input{chapter3/tab/stat_ibd_1kg}
@@ -731,20 +729,18 @@ The length of segments identified at lower frequencies was longer in comparison 
 However, the IBD lengths were highest at \fk{[3,5]} when the \gls{fgt} was used, but which was not the case for the \gls{dgt}.
 
 
+%
+\input{chapter3/fig/ibd_example_1000G}
+%
 
---
-
-In the simulation analysis, ...
-a ratio of \dec{36.58675} detected segments per target allele on average,
-and \dec{9.750788} and \dec{9.39432} for dgt, fgt* after removing duplicate segments
-but \dec{30.116861} in the analysis of \gls{1kg}, chromosome~20.
-and \dec{} after removing duplicate segments
-
-ratio median physical (genetic) length of dgt/fgt* was \dec{1.380145} (\dec{1.383059}) in the simulation analysis
-\dec{1.1251870} (\dec{1.1185651}) at \fk{2}~variants
-but \dec{1.764705} (\dec{1.86263}) here, and \dec{2.040322} (\dec{2.1948717}) at \fk{2}~variants.
-
---
+\Correct{The main observation from applying the \gls{fgt} and \gls{dgt} to real data is that the detected shared haplotype segments appear to be shorter than suggested by the previous analysis on simulated data.
+It is possible that a large number of segments were underestimated due to the detection of false positive breakpoints; \eg through violations of the infinite sites model or other sources of error, which can be expected to be present in real data such as \gls{1kg}.
+The example shown in \cpref{fig:ibd_example_1000G} may support this notion.
+One of the selected target sites was chosen at random and each pair of individuals sharing the focal allele were re-analysed to record all positions at which the a breakpoint was found relative to the focal allele.
+In each pair, it can be seen that a few, isolated breakpoints appear within longer, unbroken regions, followed by a quick succession of detected breakpoints.
+This pattern can be compared to \cref{fig:full_ibd_example}{a} (\pref{fig:full_ibd_example}), which showed a similar example from the simulated dataset.
+Clusters of breakpoints were (generally) detected at some distance away from the true, underlying recombination breakpoint, whereas single, isolated breakpoints were rarely observed in simulated data.
+It is therefore possible that the detection of short shared haplotype intervals in \gls{1kg} data may indeed be due to false positive breakpoints.}
 
 
 
@@ -855,17 +851,23 @@ Current phasing methods such as \texttt{SHAPEIT\,2} typically show very low erro
 However, occasionally, alleles are placed on the wrong haplotype.
 This may happen at single loci (\emph{flip~errors}) or such that longer haplotype stretches are exchanged (\emph{switch~errors}).
 Both types of error can affect breakpoint detection under the \gls{fgt} as both flip and switch errors may change the configuration of alleles observed in relation to a given focal variant.
-As an alternate solution to using phased haplotypes, the \gls{dgt} can be used on genotype data, which is therefore not affected by phasing error.
+As an alternate solution to using phased haplotypes, the \gls{dgt} can be used on genotype data, as it is not affected by phasing error.
 However, the lengths of detected IBD segments tend to be overestimated.
 
-Notably, the IBD results obtained from analysis of the \gls{1kg} dataset suggests that the \gls{fgt} was similarly affected by phasing error as seen in the simulation analysis.
-However, the \gls{dgt} was also affected by other sources of error.
-One consideration is that both the \gls{fgt} and \gls{dgt} assume the infinite sites model, but this is only an approximation of conditions observable in nature.
+The IBD results obtained from analysis of the \gls{1kg} dataset suggested that the \gls{fgt} was similarly affected by phasing error as seen in the simulation analysis.
+However, the \gls{dgt} was also affected by additional sources of error.
+One consideration is that both the \gls{fgt} and \gls{dgt} assume the infinite sites model, but which is only an approximation to the conditions observable in nature.
 In particular, back mutations and recurrent mutations are excluded in the model, but these are prevalent in the (human) genome.
 For instance, recurrent mutations can produce patterns of variation that would otherwise only be observable if recombination had occurred \citep{McVean:2002ws}.
 Thus, false positive breakpoints may be inferred, such that IBD length is underestimated.
 Nonetheless, the infinite sites model is usually seen as a reasonable approximation to reality, as the number of variant sites in a sample is typically much smaller than the number of nucleotides in the chromosomal sequence \citep{hein2004gene}.
-However, the presence of genotype error cannot be ruled out and therefore requires further consideration.
+
+The presence of error in real data cannot be ruled out; \Correct{in particular, given the known error rates in current sequencing and genotyping technologies,
+imperfect statistical methods used in different pipelines for data generation, such as genome assembly, variant calling, and filtering strategies, as well as human error in data processing.
+Hence, error in \gls{1kg} data is practically guaranteed to be present and likely to have had an impact on the accuracy of the IBD detection methodology presented in this chapter.
+It is therefore unlikely that the rule-based approach presented here could be used reliably when working with biological datasets.
+In the following chapter, I focus on the analysis of error in different datasets, and I use this information to develop a novel, probabilistic method for shared haplotype detection around target sites.}
+
 
 
 \Delete{

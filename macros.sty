@@ -1,11 +1,10 @@
 
-
 % page references
-\renewcommand\reftextcurrent   {this~page}
-\renewcommand\reftextfaceafter {next~page} %{page~\thevpagerefnum}
-\renewcommand\reftextfacebefore{previous~page} %{page~\thevpagerefnum}
-\renewcommand\reftextafter     {next~page} %{page~\thevpagerefnum}
-\renewcommand\reftextbefore    {previous~page} %{page~\thevpagerefnum}
+\renewcommand{\reftextcurrent}{this~page}
+\renewcommand{\reftextfaceafter}{next~page}
+\renewcommand{\reftextfacebefore}{previous~page}
+\renewcommand{\reftextafter}{next~page}
+\renewcommand{\reftextbefore}{previous~page}
 \def\reftextfaraway#1{page~\pageref{#1}}
 
 \newcommand{\creflastconjunction}{, and\nobreakspace}
@@ -189,10 +188,10 @@
 }
 
 
-% Highlight for corrections
-\usepackage[normalem]{ulem} % use normalem to protect \emph
-\newcommand\correct{\bgroup\markoverwith
-	{\textcolor{blue!20}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
+% % Highlight for corrections
+% \usepackage[normalem]{ulem} % use normalem to protect \emph
+% \newcommand\correct{\bgroup\markoverwith
+% 	{\textcolor{blue!20}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
 
 
 % 'approach' enumeration
