@@ -1,14 +1,10 @@
 % !TEX root = ../../main.tex
 
 
-\begin{figure}[!htb]
+\begin{figure}[!htbp]
 \includegraphics[width=\textwidth]{./img/ch4/error_models}
 \Caption{Expected proportions of genotype error for the genotype and allele-based models}
-{
-... using the error function provided in \cpref{tab:errormodel}.
-
-the proportions sum to 1 by column
-
-\AdditionLabel}
+{The graphs show the expected proportions of true genotypes ($g$) that make up an observed genotype ($\tilde{g}$) given the true allele frequency; calculated at different, nominal error rates (see legend).
+The error functions provided in \cpref{tab:errormodel} were used as in \cpref{eq:errfrqprob} and results were normalised to sum to 1 per observed genotype (columns).\AdditionLabel}
 {fig:error_models}
 \end{figure}

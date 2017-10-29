@@ -113,20 +113,22 @@ However, note that observed genotypes $\tilde{g}_0$ and $\tilde{g}_2$ both have 
 
 As an alternative, misclassification of genotypes can be modelled as a consequence of errors that occur at random and independently in each of the \n{2} alleles.
 An explicit formulation of an allele-based model was proposed by \citet{Gordon:2001im}, where $\epsilon_0$ was defined as the probability that allele~0 ($h_0$) was observed as allele~1 ($h_1$), and $\epsilon_1$ the probability that $h_1$ was observed as $h_0$.
-\Correct{Error} functions for both models are given in \cpref{tab:errormodel}; note that these are arranged as in error matrix $\mathcal{E}$ in \cref{eq:errormatrix}.
 
 %
 \input{chapter4/tab/errormodel}
 %
 
+%
+\input{chapter4/fig/error_models}
+%
+
+\Correct{Error} functions for both models are given in \cpref{tab:errormodel}; note that these are arranged as in error matrix $\mathcal{E}$ in \cref{eq:errormatrix}.
+\Addition{To illustrate the expectations arising from these models, \cpref{fig:error_models} shows the expected proportions of true genotypes found as a given observed genotype at different, nominal error rates, for both the genotype and allele-based models.}
+\Addition{It should be noted that the error parameters specified in each model may not apply equally to each variant in genomic data, due to differences arising from technical bias in the sequencing or genotyping process and variations in the accessibility of DNA along the genome (\eg chromatin structure variations near telomeric or centromeric regions).}
 
 In the following section, I estimated genotype \Correct{error rates} in different datasets.
 In each, error was computed from the proportions of correctly and incorrectly classified genotypes, such that error parameters were estimated for each model.
 
-
-%
-\input{chapter4/fig/error_models}
-%
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  29 OCT 2017 18:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  29 OCT 2017 23:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2291,6 +2291,18 @@ LaTeX Warning: Label `150@xvr' multiply defined.
 
 LaTeX Warning: Label `150@vr' multiply defined.
 
+
+LaTeX Warning: Label `151@xvr' multiply defined.
+
+
+LaTeX Warning: Label `151@vr' multiply defined.
+
+
+LaTeX Warning: Label `152@xvr' multiply defined.
+
+
+LaTeX Warning: Label `152@vr' multiply defined.
+
 ) (.build/chapter6/six.aux))
 \openout1 = `main.aux'.
 
@@ -2570,15 +2582,15 @@ LaTeX Font Warning: Command \normalsize invalid in math mode on input line 86.
 
 LaTeX Font Warning: Command \normalsize invalid in math mode on input line 86.
 
-[123] (./chapter4/tab/errormodel.tex) (./chapter4/fig/error_models.tex <./img/ch4/error_models.pdf, id=222, 481.7599pt x 582.6354pt>
+[123] (./chapter4/tab/errormodel.tex) (./chapter4/fig/error_models.tex <./img/ch4/error_models.pdf, id=220, 500.54735pt x 596.32007pt>
 File: ./img/ch4/error_models.pdf Graphic file (type pdf)
  <use ./img/ch4/error_models.pdf>
 Package pdftex.def Info: ./img/ch4/error_models.pdf used on input line 5.
-(pdftex.def)             Requested size: 426.79137pt x 516.16129pt.
+(pdftex.def)             Requested size: 426.79137pt x 508.46678pt.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.20003pt on input line 10.
- [124]) [125 <./img/ch4/error_models.pdf>]
-LaTeX Font Info:    Try loading font information for TS1+jkp on input line 147.
+(Font)              scaled to size 7.20003pt on input line 9.
+) [124] [125 <./img/ch4/error_models.pdf>]
+LaTeX Font Info:    Try loading font information for TS1+jkp on input line 149.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
 File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
 )
@@ -2587,35 +2599,35 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 6.40002pt on input line 147.
-LaTeX Font Info:    Try loading font information for T1+fvs on input line 152.
+(Font)              scaled to size 6.40002pt on input line 149.
+LaTeX Font Info:    Try loading font information for T1+fvs on input line 154.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/bera/t1fvs.fd
 File: t1fvs.fd 2004/09/07 scalable font definitions for T1/fvs.
 )
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 8.76003pt on input line 152.
+(Font)              scaled to size 8.76003pt on input line 154.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `fvs' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./chapter4/fig/ceph1463.tex
+ [126] (./chapter4/fig/ceph1463.tex
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
 (Font)              scaled to size 7.20003pt on input line 20.
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 79.
-) [126] [127] (./chapter4/fig/info_errormatch.tex <./img/ch4/info_errormatch.pdf, id=343, 496.47736pt x 504.80205pt>
+) [127] (./chapter4/fig/info_errormatch.tex <./img/ch4/info_errormatch.pdf, id=340, 496.47736pt x 504.80205pt>
 File: ./img/ch4/info_errormatch.pdf Graphic file (type pdf)
  <use ./img/ch4/info_errormatch.pdf>
 Package pdftex.def Info: ./img/ch4/info_errormatch.pdf used on input line 8.
 (pdftex.def)             Requested size: 320.09352pt x 325.46002pt.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 14.
-) [128] [129 <./img/ch4/info_errormatch.pdf>] (./chapter4/fig/poserrdens.tex <./img/ch4/poserrdens.pdf, id=399, 594.8085pt x 455.01723pt>
+ [128]) [129 <./img/ch4/info_errormatch.pdf>] [130] (./chapter4/fig/poserrdens.tex <./img/ch4/poserrdens.pdf, id=413, 594.8085pt x 455.01723pt>
 File: ./img/ch4/poserrdens.pdf Graphic file (type pdf)
  <use ./img/ch4/poserrdens.pdf>
 Package pdftex.def Info: ./img/ch4/poserrdens.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 326.50127pt.
-) [130] [131 <./img/ch4/poserrdens.pdf>] (./chapter4/tab/generrpercent.tex) [132] (./chapter4/fig/generrprop.tex <./img/ch4/generrprop.pdf, id=478, 473.76497pt x 597.23125pt>
+) [131] (./chapter4/tab/generrpercent.tex) [132 <./img/ch4/poserrdens.pdf>] [133] (./chapter4/fig/generrprop.tex <./img/ch4/generrprop.pdf, id=495, 473.76497pt x 597.23125pt>
 File: ./img/ch4/generrprop.pdf Graphic file (type pdf)
  <use ./img/ch4/generrprop.pdf>
 Package pdftex.def Info: ./img/ch4/generrprop.pdf used on input line 5.
@@ -2624,7 +2636,7 @@ Package pdftex.def Info: ./img/ch4/generrprop.pdf used on input line 5.
 
 LaTeX Warning: Float too large for page by 16.66667pt on input line 13.
 
-) [133] [134 <./img/ch4/generrprop.pdf>] [135] [136] (./chapter4/fig/fk_error.tex
+) [134] [135 <./img/ch4/generrprop.pdf>] [136] [137] (./chapter4/fig/fk_error.tex
 LaTeX Font Info:    Try loading font information for T1+phv on input line 5.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -2633,17 +2645,17 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- <./img/ch4/fk_error_A_new.pdf, id=611, 650.43pt x 216.81pt>
+ <./img/ch4/fk_error_A_new.pdf, id=637, 650.43pt x 216.81pt>
 File: ./img/ch4/fk_error_A_new.pdf Graphic file (type pdf)
  <use ./img/ch4/fk_error_A_new.pdf>
 Package pdftex.def Info: ./img/ch4/fk_error_A_new.pdf used on input line 6.
 (pdftex.def)             Requested size: 426.79137pt x 142.26797pt.
- <./img/ch4/fk_error_B.pdf, id=612, 650.43pt x 216.81pt>
+ <./img/ch4/fk_error_B.pdf, id=638, 650.43pt x 216.81pt>
 File: ./img/ch4/fk_error_B.pdf Graphic file (type pdf)
  <use ./img/ch4/fk_error_B.pdf>
 Package pdftex.def Info: ./img/ch4/fk_error_B.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 142.26797pt.
-) [137] (./chapter4/fig/naive_break_err.tex <./img/ch4/break_naive_err.pdf, id=640, 582.81699pt x 594.04736pt>
+) [138 <./img/ch4/fk_error_A_new.pdf> <./img/ch4/fk_error_B.pdf>] (./chapter4/fig/naive_break_err.tex <./img/ch4/break_naive_err.pdf, id=685, 582.81699pt x 594.04736pt>
 File: ./img/ch4/break_naive_err.pdf Graphic file (type pdf)
  <use ./img/ch4/break_naive_err.pdf>
 Package pdftex.def Info: ./img/ch4/break_naive_err.pdf used on input line 5.
@@ -2653,114 +2665,114 @@ Package pdftex.def Info: ./img/ch4/break_naive_err.pdf used on input line 5.
 LaTeX Font Warning: Command \large invalid in math mode on input line 12.
 
 LaTeX Font Info:    Calculating math sizes for size <8.34955> on input line 12.
-[138 <./img/ch4/fk_error_A_new.pdf> <./img/ch4/fk_error_B.pdf>]) (./chapter4/fig/naive_length_err.tex <./img/ch4/length_naive_err.pdf, id=696, 650.43pt x 505.89pt>
+) [139] [140 <./img/ch4/break_naive_err.pdf>] (./chapter4/fig/naive_length_err.tex <./img/ch4/length_naive_err.pdf, id=784, 650.43pt x 505.89pt>
 File: ./img/ch4/length_naive_err.pdf Graphic file (type pdf)
  <use ./img/ch4/length_naive_err.pdf>
 Package pdftex.def Info: ./img/ch4/length_naive_err.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) (./chapter4/fig/full_ibd_error.tex <./img/ch4/full_ibd_error.pdf, id=708, 564.1393pt x 408.39557pt>
+) [141 <./img/ch4/length_naive_err.pdf>] (./chapter4/fig/full_ibd_error.tex <./img/ch4/full_ibd_error.pdf, id=811, 564.1393pt x 408.39557pt>
 File: ./img/ch4/full_ibd_error.pdf Graphic file (type pdf)
  <use ./img/ch4/full_ibd_error.pdf>
 Package pdftex.def Info: ./img/ch4/full_ibd_error.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 308.96928pt.
-) [139] [140 <./img/ch4/break_naive_err.pdf>] [141 <./img/ch4/length_naive_err.pdf>] (./chapter4/fig/beagle_break_err.tex <./img/ch4/break_beagle_err.pdf, id=825, 584.97054pt x 411.30443pt>
+) [142 <./img/ch4/full_ibd_error.pdf>] (./chapter4/fig/beagle_break_err.tex <./img/ch4/break_beagle_err.pdf, id=892, 584.97054pt x 411.30443pt>
 File: ./img/ch4/break_beagle_err.pdf Graphic file (type pdf)
  <use ./img/ch4/break_beagle_err.pdf>
 Package pdftex.def Info: ./img/ch4/break_beagle_err.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 300.08028pt.
- [142 <./img/ch4/full_ibd_error.pdf>]) (./chapter4/fig/beagle_length_err.tex <./img/ch4/beagle_length_err.pdf, id=889, 650.43pt x 505.89pt>
+) (./chapter4/fig/beagle_length_err.tex <./img/ch4/beagle_length_err.pdf, id=900, 650.43pt x 505.89pt>
 File: ./img/ch4/beagle_length_err.pdf Graphic file (type pdf)
  <use ./img/ch4/beagle_length_err.pdf>
 Package pdftex.def Info: ./img/ch4/beagle_length_err.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [143 <./img/ch4/break_beagle_err.pdf>] [144 <./img/ch4/beagle_length_err.pdf>] [145] [146] [147] (./chapter4/fig/info_hmm.tex)
+) [143] [144 <./img/ch4/break_beagle_err.pdf>] [145 <./img/ch4/beagle_length_err.pdf>] [146] [147] (./chapter4/fig/info_hmm.tex [148])
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 641.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 643.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 641.
-
-[148]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 665.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 643.
 
 [149]
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 686.
+LaTeX Font Warning: Command \large invalid in math mode on input line 667.
+
+[150]
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 688.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 686.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 688.
 
-(./chapter4/fig/hmm_transmatrix.tex <./img/ch4/hmm_transmatrix.pdf, id=1100, 542.025pt x 216.81pt>
+(./chapter4/fig/hmm_transmatrix.tex <./img/ch4/hmm_transmatrix.pdf, id=1122, 542.025pt x 216.81pt>
 File: ./img/ch4/hmm_transmatrix.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_transmatrix.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_transmatrix.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 170.72223pt.
-) [150] [151 <./img/ch4/hmm_transmatrix.pdf>]
+) [151] [152 <./img/ch4/hmm_transmatrix.pdf>]
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 738.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 740.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 738.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 740.
 
 (./chapter4/tab/genpairprop.tex
 Overfull \hbox (1.93999pt too wide) in paragraph at lines 15--86
 []$[]$ $[]$ 
  []
 
-) [152]
+)
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 764.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 766.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 764.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 766.
 
-(./chapter4/fig/exp_genpair_frq.tex <./img/ch4/exp-genpair-frq.pdf, id=1142, 650.43pt x 314.17375pt>
+[153] (./chapter4/fig/exp_genpair_frq.tex <./img/ch4/exp-genpair-frq.pdf, id=1161, 650.43pt x 314.17375pt>
 File: ./img/ch4/exp-genpair-frq.pdf Graphic file (type pdf)
  <use ./img/ch4/exp-genpair-frq.pdf>
 Package pdftex.def Info: ./img/ch4/exp-genpair-frq.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 206.15683pt.
-) [153] [154 <./img/ch4/exp-genpair-frq.pdf>] (./chapter4/fig/hmm_emission_delta.tex <./img/ch4/hmm_emission_delta_tru.pdf, id=1168, 614.295pt x 353.32pt>
+) [154] [155 <./img/ch4/exp-genpair-frq.pdf>] (./chapter4/fig/hmm_emission_delta.tex <./img/ch4/hmm_emission_delta_tru.pdf, id=1186, 614.295pt x 353.32pt>
 File: ./img/ch4/hmm_emission_delta_tru.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_emission_delta_tru.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_emission_delta_tru.pdf used on input line 6.
 (pdftex.def)             Requested size: 426.79137pt x 245.47852pt.
- <./img/ch4/hmm_emission_delta_err.pdf, id=1169, 614.295pt x 353.32pt>
+ <./img/ch4/hmm_emission_delta_err.pdf, id=1187, 614.295pt x 353.32pt>
 File: ./img/ch4/hmm_emission_delta_err.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_emission_delta_err.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_emission_delta_err.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 245.47852pt.
-) [155] [156 <./img/ch4/hmm_emission_delta_tru.pdf> <./img/ch4/hmm_emission_delta_err.pdf>] [157] (./chapter4/fig/hmm_initial.tex <./img/ch4/hmm_initial.pdf, id=1271, 433.62pt x 216.81pt>
+) [156] [157 <./img/ch4/hmm_emission_delta_tru.pdf> <./img/ch4/hmm_emission_delta_err.pdf>] [158] (./chapter4/fig/hmm_initial.tex <./img/ch4/hmm_initial.pdf, id=1291, 433.62pt x 216.81pt>
 File: ./img/ch4/hmm_initial.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_initial.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_initial.pdf used on input line 6.
 (pdftex.def)             Requested size: 384.10962pt x 192.06375pt.
-) [158] [159 <./img/ch4/hmm_initial.pdf>] [160] (./chapter4/tab/stat_hmm_accuracy.tex
+) [159 <./img/ch4/hmm_initial.pdf>] [160] [161] (./chapter4/tab/stat_hmm_accuracy.tex
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/jkp/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
- [161]) [162] (./chapter4/fig/break_hmm.tex <./img/ch4/break_hmm.pdf, id=1349, 583.7267pt x 412.47763pt>
+) [162] [163] (./chapter4/fig/break_hmm.tex <./img/ch4/break_hmm.pdf, id=1369, 583.7267pt x 412.47763pt>
 File: ./img/ch4/break_hmm.pdf Graphic file (type pdf)
  <use ./img/ch4/break_hmm.pdf>
 Package pdftex.def Info: ./img/ch4/break_hmm.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 301.58449pt.
-) (./chapter4/fig/length_hmm.tex <./img/ch4/length_hmm.pdf, id=1356, 650.43pt x 505.89pt>
+) (./chapter4/fig/length_hmm.tex <./img/ch4/length_hmm.pdf, id=1376, 650.43pt x 505.89pt>
 File: ./img/ch4/length_hmm.pdf Graphic file (type pdf)
 
 <use ./img/ch4/length_hmm.pdf>
 Package pdftex.def Info: ./img/ch4/length_hmm.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) (./chapter4/fig/1KG_chr20_length_hmm.tex <./img/ch4/1KG_chr20_length_hmm.pdf, id=1366, 650.43pt x 505.89pt>
+) [164 <./img/ch4/break_hmm.pdf>] (./chapter4/fig/1KG_chr20_length_hmm.tex <./img/ch4/1KG_chr20_length_hmm.pdf, id=1454, 650.43pt x 505.89pt>
 File: ./img/ch4/1KG_chr20_length_hmm.pdf Graphic file (type pdf)
  <use ./img/ch4/1KG_chr20_length_hmm.pdf>
 Package pdftex.def Info: ./img/ch4/1KG_chr20_length_hmm.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) (./chapter4/fig/emission_tmrca.tex <./img/ch4/emission_tmrca.pdf, id=1369, 592.8711pt x 348.28049pt>
+) (./chapter4/fig/emission_tmrca.tex <./img/ch4/emission_tmrca.pdf, id=1457, 592.8711pt x 348.28049pt>
 File: ./img/ch4/emission_tmrca.pdf Graphic file (type pdf)
  <use ./img/ch4/emission_tmrca.pdf>
 Package pdftex.def Info: ./img/ch4/emission_tmrca.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 250.72455pt.
-) [163] [164 <./img/ch4/break_hmm.pdf>]) [165 <./img/ch4/length_hmm.pdf>] [166 <./img/ch4/1KG_chr20_length_hmm.pdf>] [167 <./img/ch4/emission_tmrca.pdf>] (.build/main.acr) [237
+) [165 <./img/ch4/length_hmm.pdf>] [166 <./img/ch4/1KG_chr20_length_hmm.pdf>]) [167 <./img/ch4/emission_tmrca.pdf>] [168] (.build/main.acr) [237
 
 
 
@@ -2814,11 +2826,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 49843 strings out of 493089
- 950316 string characters out of 6134842
- 1168019 words of memory out of 5000000
+ 49848 strings out of 493089
+ 950363 string characters out of 6134842
+ 1169010 words of memory out of 5000000
  50728 multiletter control sequences out of 15000+600000
- 436580 words of font info for 1073 fonts, out of 8000000 for 9000
+ 436942 words of font info for 1076 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,18n,73p,10436b,1356s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{subsubsection*.10} has been referenced but does not exist, replaced by a fixed one
@@ -2841,10 +2853,10 @@ pdfTeX warning (dest): name{subsection.3.4.1} has been referenced but does not e
 
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on .build/main.pdf (64 pages, 2106968 bytes).
+Output written on .build/main.pdf (65 pages, 2035560 bytes).
 PDF statistics:
- 1937 PDF objects out of 2073 (max. 8388607)
- 1631 compressed objects within 17 object streams
- 415 named destinations out of 1000 (max. 500000)
+ 1955 PDF objects out of 2073 (max. 8388607)
+ 1647 compressed objects within 17 object streams
+ 416 named destinations out of 1000 (max. 500000)
  130321 words of extra memory for PDF output out of 154059 (max. 10000000)
 
