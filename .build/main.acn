@@ -31,6 +31,7 @@
 \glossaryentry{IPG?\glossentry{ipg}|setentrycounter[]{page}\glsnumberformat}{135}
 \glossaryentry{IPG?\glossentry{ipg}|setentrycounter[]{page}\glsnumberformat}{136}
 \glossaryentry{IPG?\glossentry{ipg}|setentrycounter[]{page}\glsnumberformat}{136}
+\glossaryentry{1000G?\glossentry{1kg}|setentrycounter[]{page}\glsnumberformat}{138}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{138}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{138}
 \glossaryentry{RMSLE?\glossentry{rmsle}|setentrycounter[]{page}\glsnumberformat}{138}
@@ -38,64 +39,64 @@
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{138}
 \glossaryentry{FPR?\glossentry{fpr}|setentrycounter[]{page}\glsnumberformat}{139}
 \glossaryentry{FNR?\glossentry{fnr}|setentrycounter[]{page}\glsnumberformat}{139}
-\glossaryentry{FNR?\glossentry{fnr}|setentrycounter[]{page}\glsnumberformat}{139}
-\glossaryentry{FPR?\glossentry{fpr}|setentrycounter[]{page}\glsnumberformat}{139}
-\glossaryentry{SNP?\glossentry{snp}|setentrycounter[]{page}\glsnumberformat}{139}
+\glossaryentry{FNR?\glossentry{fnr}|setentrycounter[]{page}\glsnumberformat}{140}
+\glossaryentry{FPR?\glossentry{fpr}|setentrycounter[]{page}\glsnumberformat}{140}
+\glossaryentry{SNP?\glossentry{snp}|setentrycounter[]{page}\glsnumberformat}{140}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{140}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{140}
 \glossaryentry{RMSLE?\glossentry{rmsle}|setentrycounter[]{page}\glsnumberformat}{140}
 \glossaryentry{RMSLE?\glossentry{rmsle}|setentrycounter[]{page}\glsnumberformat}{140}
-\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{140}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{141}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{141}
+\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{142}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{142}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{142}
-\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{142}
-\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{142}
-\glossaryentry{1000G?\glossentry{1kg}|setentrycounter[]{page}\glsnumberformat}{142}
-\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{143}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{143}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{143}
+\glossaryentry{1000G?\glossentry{1kg}|setentrycounter[]{page}\glsnumberformat}{143}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{143}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{143}
-\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{146}
-\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{146}
-\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{146}
-\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{147}
-\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{147}
-\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{147}
+\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{144}
+\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{144}
+\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{144}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{147}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{147}
+\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{147}
+\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{147}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{147}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{148}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{148}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{148}
-\glossaryentry{SNP?\glossentry{snp}|setentrycounter[]{page}\glsnumberformat}{148}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{148}
+\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{148}
+\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{148}
+\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{148}
+\glossaryentry{SNP?\glossentry{snp}|setentrycounter[]{page}\glsnumberformat}{148}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{149}
+\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{150}
 \glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{150}
-\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{151}
+\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{152}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{152}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{156}
 \glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{156}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{161}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{161}
-\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{163}
-\glossaryentry{RMSLE?\glossentry{rmsle}|setentrycounter[]{page}\glsnumberformat}{163}
-\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{163}
 \glossaryentry{RMSLE?\glossentry{rmsle}|setentrycounter[]{page}\glsnumberformat}{164}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{164}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{164}
 \glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{164}
 \glossaryentry{RMSLE?\glossentry{rmsle}|setentrycounter[]{page}\glsnumberformat}{164}
-\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{164}
-\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{164}
-\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{164}
+\glossaryentry{HMM?\glossentry{hmm}|setentrycounter[]{page}\glsnumberformat}{164}
+\glossaryentry{RMSLE?\glossentry{rmsle}|setentrycounter[]{page}\glsnumberformat}{165}
+\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{165}
+\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{165}
+\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{165}
+\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{165}
 \glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{165}
 \glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{165}
 \glossaryentry{1000G?\glossentry{1kg}|setentrycounter[]{page}\glsnumberformat}{165}
-\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{166}
-\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{166}
-\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{166}
-\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{167}
-\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{167}
+\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{167}
+\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{167}
+\glossaryentry{T\textsubscript {MRCA}?\glossentry{tmrca}|setentrycounter[]{page}\glsnumberformat}{167}
+\glossaryentry{FGT?\glossentry{fgt}|setentrycounter[]{page}\glsnumberformat}{168}
+\glossaryentry{DGT?\glossentry{dgt}|setentrycounter[]{page}\glsnumberformat}{168}

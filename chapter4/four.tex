@@ -315,7 +315,7 @@ Additionally, because it can be expected that $N_j$ becomes small at lower genot
 \end{align*}
 
 %
-\input{chapter4/fig/generrprop}
+\input{chapter4/fig/generrprop}\label{sec:emp_gen_err_prop}
 %
 
 For each dataset, the resulting \Correct{error rate} distributions are shown in \cpref{fig:generrprop}.
@@ -348,6 +348,10 @@ For comparison, an alternate IBD detection method was applied to the same data (
 
 
 
+
+
+
+
 %
 \section{Impact of genotype error on IBD detection}
 \label{sec:impact_error_data}
@@ -357,7 +361,6 @@ One of the genotype error profiles constructed in the previous section was used 
 Among the \n{4} test datasets, both sequencing datasets were recorded with higher levels of support.
 Although \emph{1000G.B} showed overall lower levels of genotype error, \emph{1000G.A} can be seen as being more representative for data obtained in recent large-scale studies; hence, the integration of error was conducted according to the frequency-dependent \Correct{error rate} distribution in the \emph{1000G.A} profile.
 The process of error integration in simulated data is described below.
-
 
 
 %
@@ -379,12 +382,16 @@ Then, for each class~$j$, indexed pairs were randomly drawn and assigned to each
 Haplotype pairs were ``mutated'' according to their assigned class, such that they would form $\tilde{g}_i$ after error.
 
 These haplotype data were then converted into a corresponding genotype dataset, which was then phased using \texttt{SHAPEIT\,2} \citep{Delaneau:2008dk,Delaneau:2013hi}; see description in \cpref{sec:ibd_analysis}.
-The \n{3} resulting datasets resembled the original datasets used in the evaluation of IBD inference presented in Chapter~3 (\ctref{sec:ibd_results}), which therefore allowed
-assessment in relation to the simulated genealogy and the underlying IBD structure of the sample, as well as a direct comparison to the results generated before error was included.
+The \n{3} resulting datasets resembled the original datasets used in the evaluation of IBD inference presented in Chapter~3 (\ctref{sec:ibd_results}), which therefore facilitated assessment in relation to the simulated genealogy and the underlying IBD structure of the sample, as well as a direct comparison to the results generated before error was included.
 
 % Note that, here, frequency-dependent error distributions per genotype class were generated from the \emph{1000G.A} profile by pooling and averaging matched variant sites into \n{200} allele frequency bins.
 % This was done to reduce the variance in estimated distributions.
 % At each site in the data, penetrance rates were calculated through linear interpolation from averaged values and then normalised such that their sum was equal to~1 per site-frequency.
+
+\Addition{Recall that, for example, the empirically determined proportions of the true $g_0$ class per observed $\tilde{g}_2$ were likely to be inflated at higher allele frequencies; as discussed in \cpref{sec:emp_gen_err_prop}.
+Errors reproduced in the simulated dataset may therefore be higher than actually present in the \gls{1kg} dataset.
+% For example, the original simulation dataset contained no monomorphic sites, but {\Percent{1.967461}} of all sites were monomorphic after the integration of error.
+A more detailed account of the characteristics and consequences of the integration of error in the simulated dataset is given in \cpref{sec:ibd_results_err}.}
 
 
 %
@@ -499,7 +506,8 @@ Since the innermost breakpoint interval delimits the inferred IBD segment, it ca
 %
 
 The probabilistic \texttt{Refined\,IBD} method for IBD detection was applied to the data after the inclusion of error.
-The analysis was conducted on true and phased haplotype data, \cref{A4:fgt_h,,A4:fgt_p}, which returned \dec{12.194909}~million and \dec{12397767}~million segment, respectively.
+Because the method requires haplotype data, the analysis was performed on the generated (true) haplotypes and the set of phased haplotypes; \Correct{in the following referred to as \cref{A4:fgt_h,,A4:fgt_p}.}
+The analysis returned \dec{12.194909}~million and \Correct{\dec{12.397767}~million} segments, respectively.
 Because IBD is not reported in reference to a particular target site, as is done in \texttt{tidy}, the set of true IBD segments available was matched to inferred IBD segments if target positions fell within detected intervals of reported segments; see \cpref{sec:ibd_beagle_tru}.
 As a result, only \dec{1.496065}~million segments were matched in \ref{A4:fgt_h} and \dec{0.373604}~million in \ref{A4:fgt_p}, of which \SI{76.74319}{\percent} and \SI{76.51203}{\percent} were unique, respectively.
 Data were not intersected due to the small number of segments retained in each approach.
