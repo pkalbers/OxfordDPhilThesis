@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  29 OCT 2017 23:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  30 OCT 2017 00:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2254,7 +2254,14 @@ Package glossaries Info: Writing glossary file main.acn on input line 629.
 \enitdp@approach_=\count306
 \c@casei=\count307
 \enitdp@case=\count308
-)) (./abbreviations.tex) (.build/main.aux (.build/frontmatter.aux) (.build/chapter1/one.aux) (.build/chapter2/two.aux) (.build/chapter3/three.aux) (.build/chapter4/four.aux) (.build/chapter5/five.aux
+)) (./abbreviations.tex) (.build/main.aux (.build/frontmatter.aux) (.build/chapter1/one.aux) (.build/chapter2/two.aux) (.build/chapter3/three.aux) (.build/chapter4/four.aux
+
+LaTeX Warning: Label `fig:info_hmm' multiply defined.
+
+
+LaTeX Warning: Label `fig:info_hmm@cref' multiply defined.
+
+) (.build/chapter5/five.aux
 
 LaTeX Warning: Label `145@xvr' multiply defined.
 
@@ -2685,94 +2692,93 @@ File: ./img/ch4/beagle_length_err.pdf Graphic file (type pdf)
  <use ./img/ch4/beagle_length_err.pdf>
 Package pdftex.def Info: ./img/ch4/beagle_length_err.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [143] [144 <./img/ch4/break_beagle_err.pdf>] [145 <./img/ch4/beagle_length_err.pdf>] [146] [147] (./chapter4/fig/info_hmm.tex [148])
+) [143] [144 <./img/ch4/break_beagle_err.pdf>] [145 <./img/ch4/beagle_length_err.pdf>] [146] [147] (./chapter4/fig/info_hmm.tex [148]) (./chapter6/fig/info_hmm_hap.tex)
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 643.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 643.
-
-[149]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 667.
-
-[150]
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 688.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 647.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 688.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 647.
 
-(./chapter4/fig/hmm_transmatrix.tex <./img/ch4/hmm_transmatrix.pdf, id=1122, 542.025pt x 216.81pt>
+[149] [150]
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 671.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 692.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 692.
+
+[151] (./chapter4/fig/hmm_transmatrix.tex <./img/ch4/hmm_transmatrix.pdf, id=1130, 542.025pt x 216.81pt>
 File: ./img/ch4/hmm_transmatrix.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_transmatrix.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_transmatrix.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 170.72223pt.
-) [151] [152 <./img/ch4/hmm_transmatrix.pdf>]
+) [152 <./img/ch4/hmm_transmatrix.pdf>]
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 740.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 744.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 740.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 744.
 
-(./chapter4/tab/genpairprop.tex
+[153] (./chapter4/tab/genpairprop.tex
 Overfull \hbox (1.93999pt too wide) in paragraph at lines 15--86
 []$[]$ $[]$ 
  []
 
-)
+) [154]
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 766.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 770.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 766.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 770.
 
-[153] (./chapter4/fig/exp_genpair_frq.tex <./img/ch4/exp-genpair-frq.pdf, id=1161, 650.43pt x 314.17375pt>
+(./chapter4/fig/exp_genpair_frq.tex <./img/ch4/exp-genpair-frq.pdf, id=1165, 650.43pt x 314.17375pt>
 File: ./img/ch4/exp-genpair-frq.pdf Graphic file (type pdf)
  <use ./img/ch4/exp-genpair-frq.pdf>
 Package pdftex.def Info: ./img/ch4/exp-genpair-frq.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 206.15683pt.
-) [154] [155 <./img/ch4/exp-genpair-frq.pdf>] (./chapter4/fig/hmm_emission_delta.tex <./img/ch4/hmm_emission_delta_tru.pdf, id=1186, 614.295pt x 353.32pt>
+) [155 <./img/ch4/exp-genpair-frq.pdf>] [156] (./chapter4/fig/hmm_emission_delta.tex <./img/ch4/hmm_emission_delta_tru.pdf, id=1192, 614.295pt x 353.32pt>
 File: ./img/ch4/hmm_emission_delta_tru.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_emission_delta_tru.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_emission_delta_tru.pdf used on input line 6.
 (pdftex.def)             Requested size: 426.79137pt x 245.47852pt.
- <./img/ch4/hmm_emission_delta_err.pdf, id=1187, 614.295pt x 353.32pt>
+ <./img/ch4/hmm_emission_delta_err.pdf, id=1193, 614.295pt x 353.32pt>
 File: ./img/ch4/hmm_emission_delta_err.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_emission_delta_err.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_emission_delta_err.pdf used on input line 8.
 (pdftex.def)             Requested size: 426.79137pt x 245.47852pt.
-) [156] [157 <./img/ch4/hmm_emission_delta_tru.pdf> <./img/ch4/hmm_emission_delta_err.pdf>] [158] (./chapter4/fig/hmm_initial.tex <./img/ch4/hmm_initial.pdf, id=1291, 433.62pt x 216.81pt>
+) [157] [158 <./img/ch4/hmm_emission_delta_tru.pdf> <./img/ch4/hmm_emission_delta_err.pdf>] (./chapter4/fig/hmm_initial.tex <./img/ch4/hmm_initial.pdf, id=1286, 433.62pt x 216.81pt>
 File: ./img/ch4/hmm_initial.pdf Graphic file (type pdf)
  <use ./img/ch4/hmm_initial.pdf>
 Package pdftex.def Info: ./img/ch4/hmm_initial.pdf used on input line 6.
 (pdftex.def)             Requested size: 384.10962pt x 192.06375pt.
-) [159 <./img/ch4/hmm_initial.pdf>] [160] [161] (./chapter4/tab/stat_hmm_accuracy.tex
+) [159] [160 <./img/ch4/hmm_initial.pdf>] [161] [162] (./chapter4/tab/stat_hmm_accuracy.tex
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/jkp/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-) [162] [163] (./chapter4/fig/break_hmm.tex <./img/ch4/break_hmm.pdf, id=1369, 583.7267pt x 412.47763pt>
+) (./chapter4/fig/break_hmm.tex <./img/ch4/break_hmm.pdf, id=1358, 583.7267pt x 412.47763pt>
 File: ./img/ch4/break_hmm.pdf Graphic file (type pdf)
  <use ./img/ch4/break_hmm.pdf>
 Package pdftex.def Info: ./img/ch4/break_hmm.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 301.58449pt.
-) (./chapter4/fig/length_hmm.tex <./img/ch4/length_hmm.pdf, id=1376, 650.43pt x 505.89pt>
+) [163] (./chapter4/fig/length_hmm.tex <./img/ch4/length_hmm.pdf, id=1373, 650.43pt x 505.89pt>
 File: ./img/ch4/length_hmm.pdf Graphic file (type pdf)
-
-<use ./img/ch4/length_hmm.pdf>
+ <use ./img/ch4/length_hmm.pdf>
 Package pdftex.def Info: ./img/ch4/length_hmm.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) [164 <./img/ch4/break_hmm.pdf>] (./chapter4/fig/1KG_chr20_length_hmm.tex <./img/ch4/1KG_chr20_length_hmm.pdf, id=1454, 650.43pt x 505.89pt>
+)
+[164] (./chapter4/fig/1KG_chr20_length_hmm.tex <./img/ch4/1KG_chr20_length_hmm.pdf, id=1391, 650.43pt x 505.89pt>
 File: ./img/ch4/1KG_chr20_length_hmm.pdf Graphic file (type pdf)
  <use ./img/ch4/1KG_chr20_length_hmm.pdf>
 Package pdftex.def Info: ./img/ch4/1KG_chr20_length_hmm.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) (./chapter4/fig/emission_tmrca.tex <./img/ch4/emission_tmrca.pdf, id=1457, 592.8711pt x 348.28049pt>
+) (./chapter4/fig/emission_tmrca.tex <./img/ch4/emission_tmrca.pdf, id=1394, 592.8711pt x 348.28049pt>
 File: ./img/ch4/emission_tmrca.pdf Graphic file (type pdf)
  <use ./img/ch4/emission_tmrca.pdf>
 Package pdftex.def Info: ./img/ch4/emission_tmrca.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 250.72455pt.
-) [165 <./img/ch4/length_hmm.pdf>] [166 <./img/ch4/1KG_chr20_length_hmm.pdf>]) [167 <./img/ch4/emission_tmrca.pdf>] [168] (.build/main.acr) [237
+) [165 <./img/ch4/break_hmm.pdf>] [166 <./img/ch4/length_hmm.pdf>]) [167 <./img/ch4/1KG_chr20_length_hmm.pdf>] [168 <./img/ch4/emission_tmrca.pdf>] (.build/main.acr) [237
 
 
 
@@ -2819,17 +2825,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 154.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 154.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F79FD114A778D03802E1E9894C3E53A3;1705.
+(rerunfilecheck)             Checksum: 033D8E74F55F23BA484CD87FFEE529AD;1705.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 49848 strings out of 493089
- 950363 string characters out of 6134842
- 1169010 words of memory out of 5000000
- 50728 multiletter control sequences out of 15000+600000
+ 49884 strings out of 493089
+ 950958 string characters out of 6134842
+ 1173268 words of memory out of 5000000
+ 50760 multiletter control sequences out of 15000+600000
  436942 words of font info for 1076 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,18n,73p,10436b,1356s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2838,8 +2844,6 @@ pdfTeX warning (dest): name{subsubsection*.10} has been referenced but does not 
 pdfTeX warning (dest): name{section.3.2} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{subsubsection*.17} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.24} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.3.4.1} has been referenced but does not exist, replaced by a fixed one
 
@@ -2853,7 +2857,7 @@ pdfTeX warning (dest): name{subsection.3.4.1} has been referenced but does not e
 
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on .build/main.pdf (65 pages, 2035560 bytes).
+Output written on .build/main.pdf (65 pages, 2039325 bytes).
 PDF statistics:
  1955 PDF objects out of 2073 (max. 8388607)
  1647 compressed objects within 17 object streams
