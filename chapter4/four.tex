@@ -73,7 +73,7 @@ More precisely, let the rate at which genotype $g_j$ is classified as $\tilde{g}
 The value of $\varepsilon_{ij}$ is often referred to as the \emph{penetrance} of a genotype and represents the probability of observing genotype~$\tilde{g}_i$ given the true genotype~$g_j$ \citep{ott1999analysis,Gordon:2002cz}.
 \Addition{In the following, I use the term \emph{error~rate} to refer to genotype penetrance.}
 For convenience, \Correct{error rate} parameters can be represented in a ${3 \times 3}$ confusion matrix, $\mathcal{E}$, below.
-\begin{equation}\label{eq:errormatrix}\onehalfspacing
+\begin{equation}\label{eq:errormatrix}%\onehalfspacing
 \mathcal{E} =
 \begin{bmatrix}
 	\varepsilon_{00}  &  \varepsilon_{01}  &  \varepsilon_{02}  \\
@@ -83,7 +83,7 @@ For convenience, \Correct{error rate} parameters can be represented in a ${3 \ti
 \end{equation}
 
 Considering the relation ${\sum_{i=0}^{2} \varepsilon_{ij} = 1 ~ \forall ~ j}$, where ${0 \leq \varepsilon_{ij} \leq 1}$, it follows that the expected observation frequency of a genotype is
-\begin{equation}\label{eq:errfrqprob}\onehalfspacing
+\begin{equation}\label{eq:errfrqprob}%\onehalfspacing
 f_{\tilde{g}}(k) ~=~
 \begin{cases}
 ~	f_g(0)~\varepsilon_{00} ~+~
@@ -123,11 +123,13 @@ An explicit formulation of an allele-based model was proposed by \citet{Gordon:2
 %
 
 \Correct{Error} functions for both models are given in \cpref{tab:errormodel}; note that these are arranged as in error matrix $\mathcal{E}$ in \cref{eq:errormatrix}.
-\Addition{To illustrate the expectations arising from these models, \cpref{fig:error_models} shows the expected proportions of true genotypes found as a given observed genotype at different, nominal error rates, for both the genotype and allele-based models.}
+\Addition{To illustrate the expectations arising from these models, \cpref{fig:error_models} shows the expected proportions of true genotypes that make up a given observed genotype, at different, nominal error rates, for both the genotype and allele-based models.}
 \Addition{It should be noted that the error parameters specified in each model may not apply equally to each variant in genomic data, due to differences arising from technical bias in the sequencing or genotyping process and variations in the accessibility of DNA along the genome (\eg chromatin structure variations near telomeric or centromeric regions).}
 
 In the following section, I estimated genotype \Correct{error rates} in different datasets.
 In each, error was computed from the proportions of correctly and incorrectly classified genotypes, such that error parameters were estimated for each model.
+
+
 
 
 
@@ -202,9 +204,12 @@ The other \n{2} datasets, \emph{Omni2.5} and \emph{Affy6.0}, which were part of 
 Misclassification of \gls{snp} genotypes was determined by comparison of each test dataset to the truth dataset, which was done for chromosomes~1--22.
 Genotype data were matched by chromosome and variant position (GRCh37/hg19).
 As a precaution, sites where reference or alternate nucleotides did not match between test and truth datasets were removed, although only genotypes were compared.
-Note that \gls{ipg} data did not contain variants called as being homozygous for the reference allele ($g_0$).
+
+It is important to note that \gls{ipg} data did not contain variants called as being homozygous for the reference allele ($g_0$).
+\Addition{\Citet{Eberle:2016ki} identified high-confidence regions in the 13 individual call sets (\textsf{NA12877}, \textsf{NA12878}, and their 11 children) by collating sites that were called as being homozygous for the reference allele and monomorphic in the sample.
+Monomorphic variants that were homozygous for the alternate allele were included.}
 Therefore, the following assumption was made.
-If the position of a variant site in a given test dataset was within high-confidence regions (using the \gls{ipg} accessibility mask), but not reported in the truth dataset, the true state was assumed to be the $g_0$~type.
+If the position of a variant site in a given test dataset was within high-confidence regions of the \gls{ipg} accessibility mask \Addition{provided by \citet{Eberle:2016ki}}, but not reported in the truth dataset, the true state was assumed to be the $g_0$~type.
 This relies on the expectation that the high-confidence intervals comprised data which would have otherwise been reported as a different type.
 This matching process is illustrated in \cpref{fig:info_errormatch}.
 
@@ -216,24 +221,29 @@ This was done to obtain estimates for \Correct{error rate} parameters $\varepsil
 
 
 
+
+
+
 %
 \subsection{Rate of genotype error in sequencing and genotyping data}
 %
 
 % IDEA Clarify the aims: to generate error profile which can be used in subsequent construction of a probabilistic IBD model; here, to evaluate measured error rates and compare to expectations, eg. higher error near centromere
 
-The total number of matched variant sites was \dec{76.859}~million in \emph{1000G.A}, but of which \dec{73.435}~million ($\approx$96\%) were assumed as homozygous reference genotypes from high-confidence regions in \gls{ipg}.
+The total number of matched variant sites was \dec{76.859}~million in \emph{1000G.A}, but of which \dec{73.435}~million ($\approx$96\%) were assumed as homozygous reference genotypes.
+\Correct{Recall that this assumption applied only to sites found within the high-confidence regions as specified in the \gls{ipg} accessibility mask.}
 A lower amount was available in \emph{1000G.B}, where \dec{59.234}~million genotypes were retained, but of which \dec{56.739}~million ($\approx$96\%) were assumed.
+
 This large proportion of sites at which a true $g_0$~genotype was assumed may not come as a surprise, because there is a high chance that a considerable fraction of the variants present in either test dataset may fall within the lengths covered by high-confidence regions.
 However, because $g_0$ genotypes were removed in \gls{ipg} data, it is a necessary assumption that those genotypes can be recovered from high-confidence regions.
-Otherwise, error rates could not be determined for $g_0$~genotypes.
+Otherwise, error could not be determined for $g_0$~genotypes.
 Overall, 0.079\% of genotypes were misclassified in \emph{1000G.A}, and 0.025\% in \emph{1000G.B}.
 If assumed $g_0$ genotypes are ignored, thus only considering true genotype classes ${j \in \lbrace 1,2 \rbrace}$, overall error was increased; reaching 0.538\% and 0.183\% in \emph{1000G.A} and \emph{1000G.B}, respectively.
 
 Due to the comparatively lower number of available sites in genotyping data (\emph{Omni2.5} and \emph{Affy6.0}), the matched \texttt{NA12877} and \texttt{NA12878} datasets were merged.
-Together, the total number of sites was \dec{4.464}~million in \emph{Omni2.5} and \dec{1.733}~million in \emph{Affy6.0}, and where \dec{3.087}~million ($\approx$69\%) and \dec{0.932}~million ($\approx$54\%) were assumed, respectively.
-The rate of misclassified genotypes in \emph{Omni2.5} was \SI{1.177}{\percent}, whereas in \emph{Affy6.0} overall error was \SI{1.164}{\percent}.
-In contrast to sequencing datasets, error rates decreased if $g_0$ was ignored, yielding \SI{0.113}{\percent} and \SI{0.106}{\percent} of misclassified genotypes in \emph{Omni2.5} and \emph{Affy6.0}, respectively.
+Together, the total number of \Correct{matched genotypes} was \Correct{\dec{4.233817}~million} in \emph{Omni2.5} and \Correct{\dec{1.715609}~million} in \emph{Affy6.0}, and where \Correct{\dec{1.361437}~million ($\approx$32\%)} and \Correct{\dec{0.793548}~million ($\approx$46\%)} \Correct{of true genotypes were assumed as being homozygous for the reference allele}, respectively.
+The \Correct{proportion} of misclassified genotypes was \Correct{{\SI{0.2557975}{\percent}}} in \emph{Omni2.5}, and \Correct{{\SI{0.139484}{\percent}}} in \emph{Affy6.0}.
+Error decreased in both genotyping datasets if $g_0$ was ignored, yielding \Correct{{\SI{0.06786946}{\percent}}} and \Correct{{\SI{0.1056017}{\percent}}} of misclassified genotypes in \emph{Omni2.5} and \emph{Affy6.0}, respectively.
 
 % The discrepancy between inclusion and exclusion of assumed $g_0$ genotypes indicates a bias towards oversaturation with correctly observed genotypes in both \emph{1000G} datasets, such that genotype accuracy may have been artificially inflated.
 
@@ -251,15 +261,15 @@ Error densities were calculated by dividing the number of incorrect genotypes by
 \input{chapter4/fig/poserrdens}
 %
 
-The distribution of error in the \emph{1000G.A} dataset was consistently low on average, but where error densities increased towards telomere regions and near centromeres, reaching error rates above 1\% and occasionally above 5\%.
+The distribution of error in the \emph{1000G.A} dataset was consistently low on average \Correct{({\SI{0.09493559}{\percent}})}, but where error densities increased towards telomere regions and near centromeres, reaching error rates above 1\%.
 This is expected, because DNA in the telomeric and centromeric regions is highly repetitive and rich in GC content, which results in difficulties in the amplification process and makes sequence reads difficult to align to the genome.
-This pattern was less pronounced in \emph{1000G.B}, as sites outside high-confidence regions were excluded, which resulted in a clear reduction of error along the genome.
+This pattern was less pronounced in \emph{1000G.B}, as sites outside high-confidence regions were excluded, which resulted in a clear reduction of error along the genome \Correct{on average ({\SI{0.02820162}{\percent}})}.
 However, most chromosomes showed locally increased error rates, but where rates above 1\% were rarely observed.
 Yet, the persistence of error hotspots indicates that not all low-confidence regions were identified from quality assessment of sequencing data.
 
-In genotyping data, error rates showed less variability along the genome, \eg in the \emph{Omni2.5} dataset, but where error rates averaged above 1\%, with a few regions of increased error above 5\%.
-Although error was low on average in \emph{Affy6.0}, the likewise lower number of sites resulted in sparse coverage, but which rarely increased above 1\%.
-However, a few regions showed error rates near 10\%.
+In genotyping data, error rates showed less variability along the genome, \eg in the \emph{Omni2.5} dataset, but where error rates averaged \Correct{at {\SI{0.2743292}{\percent}}}, with a few regions of increased error above 5\%.
+Although error was low on average in \emph{Affy6.0}, \Correct{averaging at {\SI{0.3078328}{\percent}}}, the likewise lower number of sites resulted in sparse coverage.
+However, a few regions showed error rates \Correct{above 5\%, but which were located near the telomeric or centromeric regions.}
 
 
 %
@@ -309,13 +319,17 @@ Additionally, because it can be expected that $N_j$ becomes small at lower genot
 %
 
 For each dataset, the resulting \Correct{error rate} distributions are shown in \cpref{fig:generrprop}.
-The most striking observation is the substantial loss of accuracy for $g_0$ genotypes at higher allele frequencies.
-For example in \emph{1000G.A}, all $g_0$ in the highest frequency bin were misclassified as $\tilde{g}_2$, despite high support.
 The proportion of $g_0$ observed as $\tilde{g}_1$ was low throughout.
-This effect was seen in all \n{4} datasets, regardless of level of support, which was low for bins above 80\% frequency in all datasets, except \emph{1000G.A}.
-However, this pattern should be interpreted with caution, as the set of true homozygous reference genotypes had to be assumed from high-confidence regions in \gls{ipg} data.
+This effect was seen in all \n{4} datasets, regardless of level of support, which was low for bins above 80\% frequency in all datasets (except \emph{1000G.A} with reduced support).
+The most striking observation is the loss of accuracy for true $g_0$ genotypes at higher allele frequencies.
+For example in \emph{1000G.A}, the proportion of $g_0$ genotypes that were misclassified as $\tilde{g}_2$ increased substantially towards 100\% alternate allele frequency.
 
-A possible explanation for this observation may be seen in somatic mutations in the sampled biological material.
+\Correct{However, this pattern should be interpreted with caution, due to the imperfect matching process between data generated on different platforms and, in particular, because the set of true homozygous reference genotypes had to be assumed from high-confidence regions in \gls{ipg} data.
+For example, it is expected that $g_0$ genotypes are rarely observed at higher allele frequencies in a sample.
+Given that several hundred $g_0$ genotypes were seen at relatively high population frequencies makes it likely that a large proportion of $g_2$ genotypes were falsely assumed as $g_0$;
+\eg due to missed or filtered variant calls.}
+
+\Correct{Another} explanation for this observation may be seen in somatic mutations in the sampled biological material.
 Data for both \textsf{NA12877} and \textsf{NA12878} were generated from lymphoblastoid cell lines created from sampled B-Lymphocyte cells.
 For example, it has been shown that induced pluripotent stem cells may accumulate genetic modifications \citep{Gore:2011id}.
 Although CEPH cell lines are often used as a renewable resource of DNA, the possibility that cell lines undergo further genetic modifications may not be excluded.
