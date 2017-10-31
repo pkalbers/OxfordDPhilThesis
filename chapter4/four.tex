@@ -111,12 +111,12 @@ where $i=j$ indicates correct classification and $i \neq j$ misclassification of
 The intuition behind this model is based on technical error in the \gls{pcr} amplification process, which is used in both genotyping and sequencing methods for the replication of DNA fragments.
 However, note that observed genotypes $\tilde{g}_0$ and $\tilde{g}_2$ both have equal probability to arise from misclassification of $g_1$, and the probability that a homozygous genotype appears as the opposite homozygote, $g_0$ as $\tilde{g}_2$ or $g_2$ as $\tilde{g}_0$, is zero.
 
+As an alternative, misclassification of genotypes can be modelled as a consequence of errors that occur at random and independently in each of the \n{2} alleles.
+An explicit formulation of an allele-based model was proposed by \citet{Gordon:2001im}, where $\epsilon_0$ was defined as the probability that allele~0 ($h_0$) was observed as allele~1 ($h_1$), and $\epsilon_1$ the probability that $h_1$ was observed as $h_0$.
+
 %
 \input{chapter4/tab/errormodel}
 %
-
-As an alternative, misclassification of genotypes can be modelled as a consequence of errors that occur at random and independently in each of the \n{2} alleles.
-An explicit formulation of an allele-based model was proposed by \citet{Gordon:2001im}, where $\epsilon_0$ was defined as the probability that allele~0 ($h_0$) was observed as allele~1 ($h_1$), and $\epsilon_1$ the probability that $h_1$ was observed as $h_0$.
 
 %
 \input{chapter4/fig/error_models}
@@ -750,19 +750,18 @@ In a population genetics setting, time is scaled in units of $2\Ne$ generations 
 % \N{1} time unit therefore is ${\tau = \rfrac{t}{2\Ne}}$, where $t$ corresponds to time measured in discrete generations.
 Thus, the scaled rate of recombination within the interval between consecutive sites and per time unit is equal to ${4\Ne r_j}$.
 
-The expected age of a focal allele, measured in scaled time units and denoted by $\tau_k$, can be estimated directly from its frequency.
-For example, \citet{Kimura:1973ug} formulated the expected age of a selectively neutral allele in a stationary population, which was derived in a diffusion process;
-\begin{equation}\label{eq:kimura}
-	\frac{-2x}{1-x} \log(x)
-\end{equation}
-where $x$ corresponds to the allele frequency in the sample; here calculated as ${x = \rfrac{k}{2N}}$.
-In context of the coalescent, \citet{Griffiths:2013ec} derived the following formulation for the \gls{tmrca} under a constant population size and the assumption of the infinite sites model \citep{Kimura:1969tn,Watterson:1975ur};
-\begin{equation}\label{eq:griffiths}
-	2  ~ {{n-1}\choose{b}}^{-1} ~ \sum_{j=2}^{n} ~ {{n-j}\choose{b-1}} ~ \frac{n-j+1}{n(j-1)}
-\end{equation}
-where $b$ is the number of allele copies in the sample and $n$ the haploid sample size; here corresponding to $k$ and $2N$, respectively.
-Both formulations result in approximately equal distributions for allelic age.
-Here, \cref{eq:kimura} was used for computation of $\tau_k$ due to its simplicity.
+The expected age of an allele, measured in scaled time units and denoted by $\tau_k$, can be estimated directly from its frequency; \Correct{as already presented in \cpref{sec:alleleage}.}
+\Correct{Briefly,} \citet{Kimura:1973ug} derived a formulation for the expected age of a selectively neutral allele in a stationary population using diffusion theory; \Correct{see \cref{eq:intro_kimura_ohta}.}
+Later, \citet{Griffiths:2013ec} showed that the expected age of an allele in a constant population can be derived in context of the coalescent, given the assumptions of the infinite sites model; \Correct{see \cref{eq:intro_griffiths_tavare}.}
+Both approaches result in approximately equal distributions for allelic age
+\Addition{with negligible differences; \eg for a sample of ${n=\num{1000}}$ haplotypes, the expected age of an \fk{2} allele is
+${\mathbb{E}\left[t_m\right]=\dec{0.02490825}}$ using \cref{eq:intro_kimura_ohta} and
+${\mathbb{E}\left[t_m\right]=\dec{0.02398986}}$ using \cref{eq:intro_griffiths_tavare}.
+}
+Here, \cref{eq:intro_kimura_ohta} was used for computation of $\tau_k$ due to its simplicity.
+
+\Addition{It should be noted that the expectation of allele age as used here implies the assumption of a constant population size, which is rarely observed in nature and also not the case for the simulated dataset on which the presented method was evaluated (as presented further below).
+The value of the expected age is nonetheless useful to arrive at approximate transition probabilities in this \gls{hmm}.}
 
 The distance to a recombination event follows the geometrical distribution if measured in discrete generations.
 However, it can be approximated on a continuous time scale using the exponential distribution in the limit as $\Ne$ tends to infinity; that is, generally, if population size is sufficiently large \citep[see][]{hein2004gene}.
@@ -801,80 +800,126 @@ the IBD inference would be biased as the length of distinctly inferred segments 
 \label{sec:HmmEmiss}
 %
 
+\CorrectNote{This section was simplified according to the comments provided.}
+
 The model parameter $\xi$ stores the emission or \emph{output} probability vectors of the hidden states.
 Each vector is a probability distribution over the possible observation states with sum~1.
-The probability to observe a given genotype pair in \emph{ibd} is written as ${P_\textit{ibd}(k_1,k_2) = \delta_{k_1 k_2}}$ and in \emph{non} as ${P_\textit{non}(k_1,k_2) = \eta_{k_1 k_2}}$, where ${k_1,k_2 \in \{0,1,2\}}$.
-In the following, the emission probabilities for the possible genotype pairs are derived from their expected proportions in both hidden states.
-First, the \emph{non} state is considered.
-Then, the formulations are extended to derive expectations in the \emph{ibd} state.
+There are \n{6} possible states in which a pair of genotypes can be observed.
+A genotype pair is denoted by ${g_{k_1,k_2}}$, where ${k_1,k_2 \in \{0,1,2\}}$.
+In the following, the emission probabilities for the possible genotype pairs are derived for each hidden state; \emph{non} and \emph{ibd}.
+The probability to observe a given genotype pair is written as ${P_\textit{non}(k_1,k_2) = \eta_{k_1 k_2}}$ in \emph{non}, and ${P_\textit{ibd}(k_1,k_2) = \delta_{k_1 k_2}}$ in \emph{ibd}.
 
-\paragraph{Emission probabilities in the \emph{non} state.}
-Consider $m=2$ genotypes observed in a pair of individuals at a single locus.
+Consider a pair of genotypes observed in two diploid individuals at a single locus.
 Each genotype can be observed in one of \n{3} possible states, which are again indexed by ${k \in \lbrace 0,1,2 \rbrace}$, where $k$ counts the alternate alleles that compose a genotype.
-Similarly, let $\alpha_{k}$ count the genotypes, $g_{k}$, that compose a genotype pair, ${g_{k_{1} k_{2}}}$.
-For example, the pair ${g_{0 0}}$ carries \n{2} $g_0$ genotypes, such that ${\alpha_{0} = 2}$, ${\alpha_{1} = 0}$, and ${\alpha_{2} = 0}$, the pair ${g_{0 1}}$ carries \n{1} $g_0$ and \n{1} $g_1$ genotype, such that ${\alpha_{0} = 1}$, ${\alpha_{1} = 1}$, and ${\alpha_{2} = 0}$, and so on.
-Expected pairwise frequencies follow a multinomial distribution.
-Recall that ${f_{g}(k) = {{n}\choose{k}}~p^{n-k}~q^{k}}$ where ${n=2}$, as given in \ctref{eq:genpropk}.
-In the general case, that is in a randomly mating population, genotypes in both individuals are assumed to be independent.
-It follows that the expected frequency of a given genotype pair is the joint probability of the expected genotype frequencies involved; expressed below.
-\begin{equation}\label{eq:genpairalpha}
-	f_\textit{pair}(\alpha_{0}, \alpha_{1}, \alpha_{2}) = {{m}\choose{\alpha_{0}, \alpha_{1}, \alpha_{2}}}~\prod_{k=0}^{m} f_{g}(k)^{\alpha_{k}}
-\end{equation}
-The order of genotypes in a pair is ignored; \eg the pairs ${g_{01}}$ and ${g_{10}}$ are identical.
-In the following, the order ${k_1 \leq k_2}$ is preferred in notation.
-Note that the expected frequency for a pair of diploid genotypes cannot be represented by assuming a ploidy level of ${n=4}$ in \cref{eq:genpropk}.
-For example, the frequency of genotype pair ${g_{02}}$ is different to the frequency of ${g_{11}}$, despite the same number of allelic types that compose the genotypes in the pair, but which would be equal if \cref{eq:genpropk} is used.
-It is therefore necessary to distinguish genotypes by individual.
-
-The probability of observing a given genotype pair in \emph{non} can now be modelled using \cref{eq:genpairalpha}.
-However, for convenience, the following function is used, which dependents only on $k_1$~and~$k_2$;
-\begin{equation}\label{eq:genpairnon}\onehalfspacing
-	\eta_{k_1 k_2} ~=~
-  \begin{cases}
-		~ p^4       & ~ \text{if $k_1 = 0$, ~ $k_2 = 0$} \\
-    ~ 4 p^3 q   & ~ \text{if $k_1 = 0$, ~ $k_2 = 1$} \\
-    ~ 2 p^2 q^2 & ~ \text{if $k_1 = 0$, ~ $k_2 = 2$} \\
-    ~ 4 p^2 q^2 & ~ \text{if $k_1 = 1$, ~ $k_2 = 1$} \\
-    ~ 4 p q^3   & ~ \text{if $k_1 = 1$, ~ $k_2 = 2$} \\
-    ~ q^4       & ~ \text{if $k_1 = 2$, ~ $k_2 = 2$}
-  \end{cases}
-\end{equation}
-where $p$ and ${q=1-p}$ correspond to the frequency of the reference and alternate allele, respectively, in the sample at the current site in the sequence.
+Recall that the expected frequency of a single genotype is ${f_{g}(k) = {{n}\choose{k}}~p^{n-k}~q^{k}}$ where ${n=2}$ for the \n{2} haplotypes per individual, an where $p$ and ${q=1-p}$ correspond to the frequency of the reference and alternate allele, respectively, as given in \ctref{eq:genpropk}.
+In the general case, that is in a randomly mating population, the genotypes in both individuals are assumed to be independent.
+It follows that the expected frequency of a genotype pair is the joint probability of the expected genotype frequencies involved.
 
 %
 \input{chapter4/tab/genpairprop}
 %
 
-\paragraph{Emission probabilities in the \emph{ibd} state.}
-The formulations derived in the previous paragraph assume a pair of unrelated individuals; that is if alleles are independently distributed in the population and haplotype occurrence in individuals is random.
-This assumption does not hold if the \n{2} individuals share a haplotype identical by descent.
-Because it is not straightforward to arrive at a similarly simple expression as given in \cref{eq:genpairalpha}, it is more convenient to construct a function similar to \cref{eq:genpairnon}.
-For this purpose see \cpref{tab:genpairprop}, which provides a more intuitive representation of the composition of haplotypes in each genotype pair, where the allelic contribution in each pair is illustrated for both \emph{non} and \emph{ibd}.
+Here, independence of genotype frequencies is assumed for the \emph{non} state, but which does not apply if the \n{2} individuals share a haplotype identical by descent as considered in the \emph{ibd} state.
+For example, under the the infinite sites model, it is expected that genotypes $g_{0,2}$ and $g_{2,0}$ cannot be observed if they share a haplotype by descent.
+For simplicity, \cpref{tab:genpairprop} provides a convenient representation of the composition of haplotypes per genotype pair in \emph{non} and \emph{ibd}, from which the expected genotype pair frequency can be derived.
 
-If a haplotype is shared by both individuals, some combinations of alleles cannot be observed under \emph{ibd}; see \cref{tab:genpairprop}{b}.
-For example, if individual~1 carries the genotype $g_0$ and individual~2 carries $g_2$ at a given site in the sequence, the observation of the genotype pair $g_{02}$ has zero probability in \emph{ibd}, as the possibility to share a haplotype is precluded.
-The probability of any given genotype pair in \emph{ibd} can be expressed using the function below.
+The probability of observing genotype pair ${g_{k_1,k_2}}$ is equal to its frequency in the sample.
+In the \emph{non}~state, the expectation is given by
+\begin{equation}\label{eq:genpairnon}\onehalfspacing
+	\eta_{k_1 k_2} ~=~
+  \begin{cases}
+		~ p^4       & ~ \text{if ~~ $k_1 = 0$, $k_2 = 0$} \\
+    ~ 4 p^3 q   & ~ \text{if ~~ $k_1 = 0$, $k_2 = 1$ ~~ or ~~ $k_1 = 1$, $k_2 = 0$} \\
+    ~ 2 p^2 q^2 & ~ \text{if ~~ $k_1 = 0$, $k_2 = 2$ ~~ or ~~ $k_1 = 2$, $k_2 = 0$} \\
+    ~ 4 p^2 q^2 & ~ \text{if ~~ $k_1 = 1$, $k_2 = 1$} \\
+    ~ 4 p q^3   & ~ \text{if ~~ $k_1 = 1$, $k_2 = 2$ ~~ or ~~ $k_1 = 2$, $k_2 = 1$} \\
+    ~ q^4       & ~ \text{if ~~ $k_1 = 2$, $k_2 = 2$}
+  \end{cases}
+\end{equation}
+and likewise, for the \emph{ibd}~state, by
 \begin{equation}\label{eq:genpairibd}\onehalfspacing
 	\delta_{k_1 k_2} ~=~
   \begin{cases}
-		~ p^3           & ~ \text{if $k_1 = 0$, ~ $k_2 = 0$} \\
-    ~ 2 p^2 q       & ~ \text{if $k_1 = 0$, ~ $k_2 = 1$} \\
-    ~ 0             & ~ \text{if $k_1 = 0$, ~ $k_2 = 2$} \\
-    ~ p^2 q + p q^2 & ~ \text{if $k_1 = 1$, ~ $k_2 = 1$} \\
-    ~ 2 p q^2       & ~ \text{if $k_1 = 1$, ~ $k_2 = 2$} \\
-    ~ q^3           & ~ \text{if $k_1 = 2$, ~ $k_2 = 2$}
+		~ p^3           & ~ \text{if ~~ $k_1 = 0$, $k_2 = 0$} \\
+    ~ 2 p^2 q       & ~ \text{if ~~ $k_1 = 0$, $k_2 = 1$ ~~ or ~~ $k_1 = 1$, $k_2 = 0$} \\
+    ~ 0             & ~ \text{if ~~ $k_1 = 0$, $k_2 = 2$ ~~ or ~~ $k_1 = 2$, $k_2 = 0$} \\
+    ~ p^2 q + p q^2 & ~ \text{if ~~ $k_1 = 1$, $k_2 = 1$} \\
+    ~ 2 p q^2       & ~ \text{if ~~ $k_1 = 1$, $k_2 = 2$ ~~ or ~~ $k_1 = 2$, $k_2 = 1$} \\
+    ~ q^3           & ~ \text{if ~~ $k_1 = 2$, $k_2 = 2$} \text{.}
   \end{cases}
 \end{equation}
+However, note that \cref{eq:genpairibd} above implicitly assumes that no mutations have occurred on either lineage after co-inheritance of the shared haplotype.
+While this assumption may hold for a haplotype co-inherited only a few generations ago, it is easily violated and therefore unrealistic for the general case.
 
-\null
-
-In summary, the resulting probability distribution of emission of each possible genotype pair is shown in \cpref{fig:exp_genpair_frq}, under both \emph{non} and \emph{ibd}.
+The expected emission probability distributions for each possible genotype pair in \emph{non} and \emph{ibd} is shown in \cpref{fig:exp_genpair_frq}.
 
 %
 \input{chapter4/fig/exp_genpair_frq}
 %
 
 
+
+%
+% Replaced by above (simplified)
+%
+% First, the \emph{non} state is considered.
+% Then, the formulations are extended to derive expectations in the \emph{ibd} state.
+%
+% \paragraph{Emission probabilities in the \emph{non} state.}
+% Consider $m=2$ genotypes observed in a pair of individuals at a single locus.
+% Each genotype can be observed in one of \n{3} possible states, which are again indexed by ${k \in \lbrace 0,1,2 \rbrace}$, where $k$ counts the alternate alleles that compose a genotype.
+% Similarly, let $\alpha_{k}$ count the genotypes, $g_{k}$, that compose a genotype pair, ${g_{k_{1} k_{2}}}$.
+% For example, the pair ${g_{0 0}}$ carries \n{2} $g_0$ genotypes, such that ${\alpha_{0} = 2}$, ${\alpha_{1} = 0}$, and ${\alpha_{2} = 0}$, the pair ${g_{0 1}}$ carries \n{1} $g_0$ and \n{1} $g_1$ genotype, such that ${\alpha_{0} = 1}$, ${\alpha_{1} = 1}$, and ${\alpha_{2} = 0}$, and so on.
+% Expected pairwise frequencies follow a multinomial distribution.
+% Recall that ${f_{g}(k) = {{n}\choose{k}}~p^{n-k}~q^{k}}$ where ${n=2}$, as given in \ctref{eq:genpropk}.
+% In the general case, that is in a randomly mating population, genotypes in both individuals are assumed to be independent.
+% It follows that the expected frequency of a given genotype pair is the joint probability of the expected genotype frequencies involved; expressed below.
+% \begin{equation}\label{eq:genpairalpha}
+% 	f_\textit{pair}(\alpha_{0}, \alpha_{1}, \alpha_{2}) = {{m}\choose{\alpha_{0}, \alpha_{1}, \alpha_{2}}}~\prod_{k=0}^{m} f_{g}(k)^{\alpha_{k}}
+% \end{equation}
+% The order of genotypes in a pair is ignored; \eg the pairs ${g_{01}}$ and ${g_{10}}$ are identical.
+% In the following, the order ${k_1 \leq k_2}$ is preferred in notation.
+% Note that the expected frequency for a pair of diploid genotypes cannot be represented by assuming a ploidy level of ${n=4}$ in \cref{eq:genpropk}.
+% For example, the frequency of genotype pair ${g_{02}}$ is different to the frequency of ${g_{11}}$, despite the same number of allelic types that compose the genotypes in the pair, but which would be equal if \cref{eq:genpropk} is used.
+% It is therefore necessary to distinguish genotypes by individual.
+%
+% The probability of observing a given genotype pair in \emph{non} can now be modelled using \cref{eq:genpairalpha}.
+% However, for convenience, the following function is used, which dependents only on $k_1$~and~$k_2$;
+% \begin{equation}\label{eq:genpairnon}\onehalfspacing
+% 	\eta_{k_1 k_2} ~=~
+%   \begin{cases}
+% 		~ p^4       & ~ \text{if $k_1 = 0$, ~ $k_2 = 0$} \\
+%     ~ 4 p^3 q   & ~ \text{if $k_1 = 0$, ~ $k_2 = 1$} \\
+%     ~ 2 p^2 q^2 & ~ \text{if $k_1 = 0$, ~ $k_2 = 2$} \\
+%     ~ 4 p^2 q^2 & ~ \text{if $k_1 = 1$, ~ $k_2 = 1$} \\
+%     ~ 4 p q^3   & ~ \text{if $k_1 = 1$, ~ $k_2 = 2$} \\
+%     ~ q^4       & ~ \text{if $k_1 = 2$, ~ $k_2 = 2$}
+%   \end{cases}
+% \end{equation}
+% where $p$ and ${q=1-p}$ correspond to the frequency of the reference and alternate allele, respectively, in the sample at the current site in the sequence.
+%
+%
+% \paragraph{Emission probabilities in the \emph{ibd} state.}
+% The formulations derived in the previous paragraph assume a pair of unrelated individuals; that is if alleles are independently distributed in the population and haplotype occurrence in individuals is random.
+% This assumption does not hold if the \n{2} individuals share a haplotype identical by descent.
+% Because it is not straightforward to arrive at a similarly simple expression as given in \cref{eq:genpairalpha}, it is more convenient to construct a function similar to \cref{eq:genpairnon}.
+% For this purpose see \cpref{tab:genpairprop}, which provides a more intuitive representation of the composition of haplotypes in each genotype pair, where the allelic contribution in each pair is illustrated for both \emph{non} and \emph{ibd}.
+%
+% If a haplotype is shared by both individuals, some combinations of alleles cannot be observed under \emph{ibd}; see \cref{tab:genpairprop}{b}.
+% For example, if individual~1 carries the genotype $g_0$ and individual~2 carries $g_2$ at a given site in the sequence, the observation of the genotype pair $g_{02}$ has zero probability in \emph{ibd}, as the possibility to share a haplotype is precluded.
+% The probability of any given genotype pair in \emph{ibd} can be expressed using the function below.
+% \begin{equation}\label{eq:genpairibd}\onehalfspacing
+% 	\delta_{k_1 k_2} ~=~
+%   \begin{cases}
+% 		~ p^3           & ~ \text{if $k_1 = 0$, ~ $k_2 = 0$} \\
+%     ~ 2 p^2 q       & ~ \text{if $k_1 = 0$, ~ $k_2 = 1$} \\
+%     ~ 0             & ~ \text{if $k_1 = 0$, ~ $k_2 = 2$} \\
+%     ~ p^2 q + p q^2 & ~ \text{if $k_1 = 1$, ~ $k_2 = 1$} \\
+%     ~ 2 p q^2       & ~ \text{if $k_1 = 1$, ~ $k_2 = 2$} \\
+%     ~ q^3           & ~ \text{if $k_1 = 2$, ~ $k_2 = 2$}
+%   \end{cases}
+% \end{equation}
+%
 
 
 
@@ -887,8 +932,10 @@ The model parameter $\pi$ stores the probabilities of being in either state at t
 Since the focal allele is used to identify the shared haplotype in a pair of individuals, the probability of being in \emph{ibd} is assumed to be ${\pi_\textit{ibd} = 1}$, such that ${\pi_\textit{non} = 0}$.
 
 
+
+
 %
-\subsection{Integration of empirically determined genotype error rates}
+\subsection{Integration of empirically determined error rates}
 \label{sec:HMMError}
 %
 
@@ -1090,12 +1137,12 @@ In boundary cases, when each site until the end of the chromosome was inferred a
 
 The \gls{hmm}-based method for IBD inference was evaluated on the same error-treated dataset as used in \cpref{sec:ibd_results_err}.
 Because the HMM does not require haplotype information, the analysis was conducted on genotype data only, both before and after the inclusion of error.
-Recall the there are multiple focal alleles that may sit on the same underlying shared haplotype, such that the resulting set of segments inferred from all selected target sites may result in duplicate segments.
+Recall \Correct{that} there are multiple focal alleles that may sit on the same underlying shared haplotype, such that the resulting set of segments inferred from all selected target sites may result in duplicate segments.
 As these do not add to the analysis below, duplicate segments were removed to retain a set of unique segments.
 The number of unique segments inferred was
 \dec{3.179340}~million and \dec{3.236198}~million before and after error, which corresponds to \SI{32.25035}{\percent} and \SI{32.82710}{\percent} of the reported set of IBD segments, respectively.
-In comparison, the number of unique segments in the set of \emph{true} IBD segments, those determined from simulation records on the same targets, was \dec{2.720789}~million (\SI{27.59894}{\percent}).
-The proportion of breakpoints overestimated was similar in for both datasets; \SI{55.71575}{\percent} before error and \SI{54.09442}{\percent} after error.
+In comparison, the number of unique segments in the set of true IBD segments, those determined from simulation records on the same targets, was \dec{2.720789}~million (\SI{27.59894}{\percent}).
+The proportion of breakpoints overestimated was similar \Correct{for} both datasets; \SI{55.71575}{\percent} before error and \SI{54.09442}{\percent} after error.
 Likewise, \SI{55.71575}{\percent} and \SI{54.09442}{\percent} were underestimated, respectively, and \SI{4.328293}{\percent} and \SI{4.280887}{\percent} coincided with true breakpoints, respectively.
 Overall accuracy was ${r^2=\dec{0.6340087}}$ before error and ${r^2=\dec{0.6381827}}$ after error, and \gls{rmsle} was \dec{0.7812424} and \dec{0.7911286}, respectively.
 While it appears from these results that accuracy was comparatively low, consider the results by allele frequency; see \cpref{tab:stat_hmm_accuracy}, which also includes the same results obtained using the \gls{fgt} on true haplotypes as well as phased haplotypes, and the \gls{dgt} on genotype data.
@@ -1108,15 +1155,15 @@ As can be seen from the table, the HMM-based approach reached highest accuracy a
 Median length was assessed after removal of boundary cases, discarding \SI{1.24133}{\percent} the data before inclusion of error and \SI{1.21611}{\percent} after error.
 This proportion was similar in true IBD segments (\SI{1.37743}{\percent}).
 Before error, overall median length was \SI{0.525714}{\mega\basepair} (\SI{0.8837688}{\centi\morgan}), and \SI{0.503856}{\mega\basepair} (\SI{0.8837688}{\centi\morgan}) after error; this is compared to the shorter median length found for the true dataset; \SI{0.343451}{\mega\basepair} (\SI{0.5903069}{\centi\morgan}).
-The distribution of IBD length is shown in \cpref{fig:length_hmm}, which for comparison also includes the results obtained for the \gls{fgt} and \gls{dgt} after error.
+The distribution of IBD length is shown in \cpref{fig:length_hmm}\Delete{, which for comparison also includes the results obtained for the FGT and DGT after error}.
 
 %
 \input{chapter4/fig/length_hmm}
 %
 
 
-Lastly, I applied the HMM-based method on data from the \glsentryfull{1kg} Phase~\rom{3} (chromosome 20).
-These results are shown in \cpref{fig:1KG_chr20_length_hmm}, which also includes previous results obtained for the \gls{fgt} and \gls{dgt}, on the same set of retained target sites (duplicate segments were again removed).
+Lastly, I applied the HMM-based method on data from the \glsentryfull{1kg} Phase~\rom{3}, chromosome~20.
+These results are shown in \cpref{fig:1KG_chr20_length_hmm}, which for comparison also includes the previous results obtained for the \gls{fgt} and \gls{dgt} on the same set of retained target sites (duplicate segments were again removed).
 The figure shows that only the HMM is able to infer longer IBD segments that are more consistent with expectations.
 In direct comparison to the length distribution seen in simulated data, shown in \cpref{fig:length_hmm}, median length was consistently shorter in \gls{1kg}.
 Such a direct comparison, however, may not be applicable, as there are considerable differences between this and the simulated dataset.

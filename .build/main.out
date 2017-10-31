@@ -12,9 +12,9 @@
 \BOOKMARK [1][-]{section.4.4}{A Hidden Markov Model for IBD inference}{chapter.4}% 58
 \BOOKMARK [2][-]{subsection.4.4.1}{The algorithm for probabilistic IBD inference}{section.4.4}% 59
 \BOOKMARK [2][-]{subsection.4.4.2}{Description of the model}{section.4.4}% 60
-\BOOKMARK [2][-]{subsection.4.4.3}{Integration of empirically determined genotype error rates}{section.4.4}% 61
+\BOOKMARK [2][-]{subsection.4.4.3}{Integration of empirically determined error rates}{section.4.4}% 61
 \BOOKMARK [2][-]{subsection.4.4.4}{Inference of IBD segments}{section.4.4}% 62
 \BOOKMARK [2][-]{subsection.4.4.5}{Results}{section.4.4}% 63
 \BOOKMARK [2][-]{subsection.4.4.6}{Discussion}{section.4.4}% 64
-\BOOKMARK [0][-]{section*.43}{Abbreviations}{}% 90
-\BOOKMARK [0][-]{chapter*.45}{Bibliography}{}% 91
+\BOOKMARK [0][-]{section*.41}{Abbreviations}{}% 90
+\BOOKMARK [0][-]{chapter*.43}{Bibliography}{}% 91
