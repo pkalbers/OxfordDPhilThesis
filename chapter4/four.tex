@@ -111,19 +111,19 @@ where $i=j$ indicates correct classification and $i \neq j$ misclassification of
 The intuition behind this model is based on technical error in the \gls{pcr} amplification process, which is used in both genotyping and sequencing methods for the replication of DNA fragments.
 However, note that observed genotypes $\tilde{g}_0$ and $\tilde{g}_2$ both have equal probability to arise from misclassification of $g_1$, and the probability that a homozygous genotype appears as the opposite homozygote, $g_0$ as $\tilde{g}_2$ or $g_2$ as $\tilde{g}_0$, is zero.
 
-As an alternative, misclassification of genotypes can be modelled as a consequence of errors that occur at random and independently in each of the \n{2} alleles.
-An explicit formulation of an allele-based model was proposed by \citet{Gordon:2001im}, where $\epsilon_0$ was defined as the probability that allele~0 ($h_0$) was observed as allele~1 ($h_1$), and $\epsilon_1$ the probability that $h_1$ was observed as $h_0$.
-
 %
 \input{chapter4/tab/errormodel}
 %
+
+As an alternative, misclassification of genotypes can be modelled as a consequence of errors that occur at random and independently in each of the \n{2} alleles.
+An explicit formulation of an allele-based model was proposed by \citet{Gordon:2001im}, where $\epsilon_0$ was defined as the probability that allele~0 ($h_0$) was observed as allele~1 ($h_1$), and $\epsilon_1$ the probability that $h_1$ was observed as $h_0$.
 
 %
 \input{chapter4/fig/error_models}
 %
 
 \Correct{Error} functions for both models are given in \cpref{tab:errormodel}; note that these are arranged as in error matrix $\mathcal{E}$ in \cref{eq:errormatrix}.
-\Addition{To illustrate the expectations arising from these models, \cpref{fig:error_models} shows the expected proportions of true genotypes that make up a given observed genotype, at different, nominal error rates, for both the genotype and allele-based models.}
+\Addition{To illustrate the expectations arising from these models, \cpref{fig:error_models} shows the expected proportion of a true genotype observed as the same or another genotype, at different, nominal error rates, for both the genotype and allele-based models.}
 \Addition{It should be noted that the error parameters specified in each model may not apply equally to each variant in genomic data, due to differences arising from technical bias in the sequencing or genotyping process and variations in the accessibility of DNA along the genome (\eg chromatin structure variations near telomeric or centromeric regions).}
 
 In the following section, I estimated genotype \Correct{error rates} in different datasets.
@@ -152,7 +152,7 @@ The analysis was based on data from the \gls{ipg},\footnote{Illumina Platinum Ge
 This dataset has been generated using recent state-of-the-art sequencing technologies and methods for variant calling, where a total of 5.43~million variants were identified genome-wide \citep{Eberle:2016ki}; this included 4.73~million \glspl{snp}.
 Individuals had been sequenced to a depth of 50x on Illumina HiSeq~2000, and variants were called in concordance to several variant calling methods.
 Notably, due to the availability of pedigree information, artefacts such as genotype errors had been excluded based on deviations from Mendelian inheritance.
-The dataset comprises \n{11} children from \n{2} parents, who themselves are the children of the \n{4} founders of the pedigree; see \cref{fig:ceph1463}.
+The dataset comprises \n{11} children from \n{2} parents, who themselves are the children of the \n{4} founders of the pedigree; see \cpref{fig:ceph1463}.
 Thus, inheritance constraints were most informative for the \n{2} parents, labelled \textsf{NA12877} and \textsf{NA12878} (Coriell~ID), which were additionally sequenced to 200x depth, and for which high-confidence variant calls were made available.
 
 %
@@ -487,27 +487,54 @@ This difference was not seen towards higher frequencies, \eg at \fk{2}~variants,
 \ref{A4:fgt_h}, \ref{A4:fgt_p}, and \ref{A4:dgt}, respectively, compared to
 \SI{0.2275384}{\mega\basepair} (\SI{0.4081054}{\centi\morgan}) in true segments.
 
-%
-\input{chapter4/fig/full_ibd_error}
-%
-
 The length distribution of true and detected IBD segments is shown in \cpref{fig:naive_length_err}.
 Note the similarity to \ctref{fig:1kg20_lengths}, which was conducted using the \gls{fgt} and \gls{dgt} on data from \gls{1kg} (chromosome~20).
 This result suggests that the non-probabilistic IBD detection method implemented in \texttt{tidy} is likely to be biased in presence of genotype error.
-To illustrate the problem, consider the example given in \cpref{fig:full_ibd_error}, which highlights the effect of misclassified genotypes when seen in pairs of genotypes.
+To illustrate the problem, consider the example given in \cpref{fig:full_ibd_error}, which highlights the effect of \Correct{error for breakpoint detection using the \gls{fgt} and \gls{dgt}}.
 The figure shows the underlying IBD structure for each pair of chromosomes in \n{2} individuals sharing a randomly picked rare allele.
 In \cref{fig:full_ibd_error}{a}, the positions of breakpoints detected using the \gls{fgt} and \gls{dgt} are indicated as found along the whole chromosome before the inclusion of error.
 In contrast, \cref{fig:full_ibd_error}{b} shows the same analysis but after genotype error was included.
 Since the innermost breakpoint interval delimits the inferred IBD segment, it can be expected that even small amounts of genotype error are likely to result in underestimation of IBD length.
+
+%
+\input{chapter4/fig/full_ibd_error}
+%
 
 
 %
 \subsubsection{IBD detection using \emph{Refined\,IBD} in \emph{Beagle\,4.1}}
 %
 
-The probabilistic \texttt{Refined\,IBD} method for IBD detection was applied to the data after the inclusion of error.
-Because the method requires haplotype data, the analysis was performed on the generated (true) haplotypes and the set of phased haplotypes; \Correct{in the following referred to as \cref{A4:fgt_h,,A4:fgt_p}.}
-The analysis returned \dec{12.194909}~million and \Correct{\dec{12.397767}~million} segments, respectively.
+\CorrectNote{Section re-written to follow the changes made in \cpref{sec:ibd_beagle_tru}}
+
+The probabilistic \texttt{Refined\,IBD} method implemented in \texttt{Beagle} version~4.1 \citep{Browning:2013eh}\footnote{Beagle 4.1: \url{https://faculty.washington.edu/browning/beagle/beagle.html} \accessed{2016}{11}{22}} was used for IBD detection in data after the inclusion of error.
+Because the method requires haplotype data, the analysis was performed on the generated (``true'') haplotypes and the set of phased haplotypes; in the following referred to as \cref{A4:fgt_h,,A4:fgt_p}.
+The purpose of this analysis was to determine the impact of genotype error on the detection of contiguous shared haplotype intervals.
+Because \texttt{Refined\,IBD} attempts to infer IBD for any haplotype pair without reference to a specific target allele, it was necessary to match the set of reported IBD segments to the true shared haplotype intervals that were previously determined from simulation records (\ie all segments around shared \fk{[2,25]} alleles).
+The analysis followed the procedure described in \cpref{sec:ibd_beagle_tru}.
+
+\Cref{A4:fgt_h} returned \dec{12.194909}~million segments at \dec{5.807497}~million haplotype pairs.
+In \cref{A4:fgt_p}, \dec{12.397767}~million segments at \dec{5.937559}~million haplotype pairs were detected.
+In the latter, \n{1382} pairs were removed from the results obtained on phased haplotype data, to enable the analysis to match segments based on the pair of individuals for which IBD was inferred; otherwise the true haplotype pair could not be identified correctly due to the phasing process (as described in \cref{sec:ibd_beagle_tru}).
+
+The total base overlap between inferred and true shared haplotype intervals was measured, for which all segments inferred in \ref{A4:fgt_h} and \ref{A4:fgt_p} were aligned to the set of true intervals, after removing duplicate segments in the latter.
+The proportion of overlap was measured only at segments at which at least \n{1} base overlapped.
+On average, an overlap of \Percent{98.85546} and \Percent{98.5524} was measured relative to an inferred IBD segment in \ref{A4:fgt_h} and \ref{A4:fgt_p}, respectively, but \Percent{18.7064} and \Percent{19.00517} on average when measured relative to a true segment, respectively.
+This suggested that the inferred IBD intervals were likely to be found within the region spanned by the underlying shared haplotype, but such that the region was only partially covered on average.
+For comparison, before error, average overlap relative to true IBD segments was \Percent{44.29831} and \Percent{42.25553} in \ref{A4:fgt_h} and \ref{A4:fgt_p}, respectively.
+The example shown in \cpref{fig:full_ibd_error} highlights the difference in coverage for IBD segments inferred using \texttt{Refined\,IBD} on data before and after the integration of error.
+
+%
+\input{chapter4/fig/beagle_overlap_err}
+%
+
+
+
+
+As a result, \dec{2.089489}~million segments in \ref{A4:fgt_h} and \dec{1.841095}~million segments in \ref{A4:fgt_p} were matched to the set of true intervals after removing duplicate segments in the latter.
+
+
+
 Because IBD is not reported in reference to a particular target site, as is done in \texttt{tidy}, the set of true IBD segments available was matched to inferred IBD segments if target positions fell within detected intervals of reported segments; see \cpref{sec:ibd_beagle_tru}.
 As a result, only \dec{1.496065}~million segments were matched in \ref{A4:fgt_h} and \dec{0.373604}~million in \ref{A4:fgt_p}, of which \SI{76.74319}{\percent} and \SI{76.51203}{\percent} were unique, respectively.
 Data were not intersected due to the small number of segments retained in each approach.
