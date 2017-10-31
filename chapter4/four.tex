@@ -517,66 +517,107 @@ The analysis followed the procedure described in \cpref{sec:ibd_beagle_tru}.
 In \cref{A4:fgt_p}, \dec{12.397767}~million segments at \dec{5.937559}~million haplotype pairs were detected.
 In the latter, \n{1382} pairs were removed from the results obtained on phased haplotype data, to enable the analysis to match segments based on the pair of individuals for which IBD was inferred; otherwise the true haplotype pair could not be identified correctly due to the phasing process (as described in \cref{sec:ibd_beagle_tru}).
 
-The total base overlap between inferred and true shared haplotype intervals was measured, for which all segments inferred in \ref{A4:fgt_h} and \ref{A4:fgt_p} were aligned to the set of true intervals, after removing duplicate segments in the latter.
-The proportion of overlap was measured only at segments at which at least \n{1} base overlapped.
-On average, an overlap of \Percent{98.85546} and \Percent{98.5524} was measured relative to an inferred IBD segment in \ref{A4:fgt_h} and \ref{A4:fgt_p}, respectively, but \Percent{18.7064} and \Percent{19.00517} on average when measured relative to a true segment, respectively.
-This suggested that the inferred IBD intervals were likely to be found within the region spanned by the underlying shared haplotype, but such that the region was only partially covered on average.
-For comparison, before error, average overlap relative to true IBD segments was \Percent{44.29831} and \Percent{42.25553} in \ref{A4:fgt_h} and \ref{A4:fgt_p}, respectively.
-The example shown in \cpref{fig:full_ibd_error} highlights the difference in coverage for IBD segments inferred using \texttt{Refined\,IBD} on data before and after the integration of error.
-
 %
 \input{chapter4/fig/beagle_overlap_err}
 %
 
+The total base overlap between inferred and true shared haplotype intervals was measured, for which all segments inferred in \ref{A4:fgt_h} and \ref{A4:fgt_p} were aligned to the set of true intervals, after removing duplicate segments in the latter.
+The proportion of overlap was measured only at segments at which at least \n{1} base overlapped.
+On average, an overlap of \Percent{98.85546} and \Percent{98.5524} was measured relative to inferred IBD in \ref{A4:fgt_h} and \ref{A4:fgt_p}, respectively, but \Percent{18.7064} and \Percent{19.00517} on average when measured relative to true IBD, respectively.
+This suggested that the inferred IBD intervals were likely to be found within the region spanned by the underlying shared haplotype, but such that the region was only partially covered on average.
+For comparison, before error, average overlap relative to true IBD segments was \Percent{44.29831} and \Percent{42.25553} in \ref{A4:fgt_h} and \ref{A4:fgt_p}, respectively.
+The density of overlap measured relative to both the inferred and true segments, before and after error, is shown in \cpref{fig:beagle_overlap_err}.
+Also, the example shown in \cpref{fig:full_ibd_error} highlights the difference in coverage for IBD segments inferred using \texttt{Refined\,IBD} on data before and after the integration of error.
 
 
+Next, inferred IBD segments returned in \cref{A4:fgt_h,A4:fgt_p} were matched to true intervals based on finding a given target site within the inferred interval.
+This was done to facilitate measures of accuracy based on the physical distance between a given target site and the position of an inferred breakpoint.
+To enable the analysis to measure breakpoint accuracy conditional on the frequency of the target allele, the full set of matched segments was further reduced by removing duplicate segment matches per pair, where the segment tagged by the lowest-frequency allele was retained; again, as described in \cref{sec:ibd_beagle_tru}.
+As a result, \dec{1.504609}~million segments and \dec{1.516095}~million segments were retained, respectively, after removing duplicate segment matches per pair.
 
-As a result, \dec{2.089489}~million segments in \ref{A4:fgt_h} and \dec{1.841095}~million segments in \ref{A4:fgt_p} were matched to the set of true intervals after removing duplicate segments in the latter.
-
-
-
-Because IBD is not reported in reference to a particular target site, as is done in \texttt{tidy}, the set of true IBD segments available was matched to inferred IBD segments if target positions fell within detected intervals of reported segments; see \cpref{sec:ibd_beagle_tru}.
-As a result, only \dec{1.496065}~million segments were matched in \ref{A4:fgt_h} and \dec{0.373604}~million in \ref{A4:fgt_p}, of which \SI{76.74319}{\percent} and \SI{76.51203}{\percent} were unique, respectively.
-Data were not intersected due to the small number of segments retained in each approach.
 
 %
 \input{chapter4/fig/beagle_break_err}
 %
 
-In \cref{A4:fgt_h}, \SI{20.36206}{\percent} of the breakpoints detected were underestimated, \SI{79.52689}{\percent} overestimated, and \SI{0.111050}{\percent} coincided with true IBD breakpoints.
-This distribution was similar in \cref{A4:fgt_p}, yielding \SI{20.26241}{\percent}, \SI{79.64156}{\percent}, and \SI{0.096028}{\percent}, respectively.
-This is also seen in \cpref{fig:beagle_break_err}, where IBD breakpoints tend to be underestimated
-In comparison to IBD detected using \texttt{tidy}, overall accuracy was lower, with ${r^2=0.017126}$ in \ref{A4:fgt_h} and ${r^2=0.017756}$ in \ref{A4:fgt_p}, and the magnitude of error more elevated, at ${\rmsle=0.8496714}$ and ${\rmsle=0.8441583}$, respectively.
+
+In \cref{A4:fgt_h}, \SI{80.10294}{\percent} of the breakpoints detected were underestimated relative to the matched target position.
+This was similar in \cref{A4:fgt_p}, where \Percent{80.22851} were underestimated.
+A difference between low and high frequency alleles was seen; \Percent{93.73282} and \Percent{95.19862} of segments matched to \fk{2} alleles were underestimated, respectively, while \Percent{75.96449} and \Percent{75.82247} were underestimated at \fk{25} alleles, respectively.
+The density of inferred by true breakpoint distance per match segment, as well as the \gls{cdf} of the relative distance per \fk{}~category is shown in \cpref{fig:beagle_break_err}.
+
+The overall accuracy of the breakpoints detected was relatively low;
+${r^2=\dec{0.02002049}}$ ($\rmsle=\dec{0.8689641}$) in \ref{A4:fgt_h} and
+${r^2=\dec{0.02134879}}$ ($\rmsle=\dec{0.8640695}$) in \ref{A4:fgt_p}, measured by the physical distance between a given target site and the breakpoint on either the left or right-hand side.
+Again, accuracy decreased towards lower frequencies; for example, at \fk{2} alleles,
+${r^2=\dec{0.005844105}}$ (${\rmsle=\dec{1.4768689}}$) and
+${r^2=\dec{0.005439204}}$ (${\rmsle=\dec{1.4941836}}$), respectively, compared to
+${r^2=\dec{0.030571264}}$ (${\rmsle=\dec{0.7530622}}$) and
+${r^2=\dec{0.032509924}}$ (${\rmsle=\dec{0.7466905}}$) at \fk{25} alleles, respectively.
+
 
 %
 \input{chapter4/fig/beagle_length_err}
 %
 
-After removing boundary cases,
-\SI{0.2707015}{\percent} and \SI{0.2865119}{\percent} in \ref{A4:fgt_h} and \ref{A4:fgt_p} respectively, median length was further reduced in comparison to \texttt{tidy}, which was observed at \SI{0.1291382}{\mega\basepair} (\SI{0.2527802}{\centi\morgan}) in \ref{A4:fgt_h} and
-\SI{0.1313005}{\mega\basepair} (\SI{0.2561401}{\centi\morgan}) in \ref{A4:fgt_p};
-true length was noticeably longer with \SI{0.4959440}{\mega\basepair} (\SI{0.8832682}{\centi\morgan}); note that this was the median length found for the same set of segments as matched in \ref{A4:fgt_h}.
-The distribution of true and detected IBD length is given in \cpref{fig:beagle_length_err}.
 
+The physical (genetic) lengths of inferred segments were measured after removing boundary cases;
+\n{26856} in \ref{A4:fgt_h} and
+\n{26939} in \ref{A4:fgt_p}.
+Overall median length was
+\SI{0.129056}{\mega\basepair} (\SI{0.2418396}{\centi\morgan}) in \ref{A4:fgt_h} and
+\SI{0.130546}{\mega\basepair} (\SI{0.2436294}{\centi\morgan}) in \ref{A4:fgt_p}, which was considerably shorter compared to the set of matched true shared haplotype segments at
+\SI{0.518782}{\mega\basepair} (\SI{0.8780738}{\centi\morgan}).
+The median length of segments matched to \fk{2} alleles was marginally longer compared to higher-frequency alleles;
+\SI{0.1546400}{\mega\basepair} (\SI{0.2722529}{\centi\morgan}) in \ref{A4:fgt_h} and
+\SI{0.1583120}{\mega\basepair} (\SI{0.2707016}{\centi\morgan}) in \ref{A4:fgt_p}, where the matched true segments were found at
+\SI{2.6124460}{\mega\basepair} (\SI{4.4754927}{\centi\morgan}).
+For \fk{25} alleles, median length was
+\SI{0.1233630}{\mega\basepair} (\SI{0.2291572}{\centi\morgan}) and
+\SI{0.1251330}{\mega\basepair} (\SI{0.2309485}{\centi\morgan}), respectively, compared to
+\SI{0.3965520}{\mega\basepair} (\SI{0.6371054}{\centi\morgan}) for the matched true segments.
+The distribution of segment length inferred in \cref{A4:fgt_h,,A4:fgt_p} is shown in \cpref{fig:beagle_length_err}.
+
+
+
+%
+%%% Replaced with above
+%
+% , \SI{79.52689}{\percent} overestimated, and \SI{0.111050}{\percent} coincided with true IBD breakpoints.
+% This distribution was similar in \cref{A4:fgt_p}, yielding \SI{20.26241}{\percent}, \SI{79.64156}{\percent}, and \SI{0.096028}{\percent}, respectively.
+% This is also seen in \cpref{fig:beagle_break_err}, where IBD breakpoints tend to be underestimated
+% In comparison to IBD detected using \texttt{tidy}, overall accuracy was lower, with ${r^2=0.017126}$ in \ref{A4:fgt_h} and ${r^2=0.017756}$ in \ref{A4:fgt_p}, and the magnitude of error more elevated, at ${\rmsle=0.8496714}$ and ${\rmsle=0.8441583}$, respectively.
+%
+% After removing boundary cases,
+% \SI{0.2707015}{\percent} and \SI{0.2865119}{\percent} in \ref{A4:fgt_h} and \ref{A4:fgt_p} respectively, median length was further reduced in comparison to \texttt{tidy}, which was observed at \SI{0.1291382}{\mega\basepair} (\SI{0.2527802}{\centi\morgan}) in \ref{A4:fgt_h} and
+% \SI{0.1313005}{\mega\basepair} (\SI{0.2561401}{\centi\morgan}) in \ref{A4:fgt_p};
+% true length was noticeably longer with \SI{0.4959440}{\mega\basepair} (\SI{0.8832682}{\centi\morgan}); note that this was the median length found for the same set of segments as matched in \ref{A4:fgt_h}.
+% The distribution of true and detected IBD length is given in \cpref{fig:beagle_length_err}.
+%
 
 
 %
 \subsection{Discussion}
 %
 
+Two conclusions can be drawn from the analysis of simulated data after the integration of (realistic) error rates.
+First, the distribution of shared alleles is altered in presence of error such that a given shared allele may not correctly identify genomic regions of recent shared ancestry between pairs of haplotypes.
+In cased where a rare allele was missed (or removed through quality control), the underlying shared haplotype segment may still be retrieved from other, nearby rare variants that identify the same shared haplotype in a given haplotype pair.
+\Addition{Conversely, in cases where a rare allele was falsely called or typed, it can be expected the the actual relationship between the haplotypes at that position is relatively old, such that the interval detected is likely to be relatively short.}
 
-While it cannot be avoided that some rare variants are irretrievably missed, because of genotype error resulting in false negatives.
-%(Type~\rom{2} error)
-The underlying IBD segment may still be retrieved from other, nearby rare variants that identify the same shared haplotype in a given pair of individuals.
-However, due to false positive genotypes, the assumption that haplotype sharing by descent can be identified from rare variants may turn out to be problematic in practise.
-For exaple, strict quality control may exclude certain candidate target sites, but which requires further consideration in future work.
+Second, the main insight gained from the analyses using the \gls{fgt}, \gls{dgt}, and \texttt{Refined\,IBD} is that the impact of error on the detection of shared haplotype segments is dramatic.
+As highlighted by the example shown in \cpref{fig:full_ibd_error}, neither method was able to infer contiguous intervals that accurately reflect the actual shared haplotype segment.
+When the \gls{fgt} or \gls{dgt} were used, it was suggested that even low rates of error may lead to the observation of false positive breakpoints, because even one false positive would suffice to disrupt the rule-based detection process as it is currently implemented.
 
-The general insight gained from this analysis is that the impact of genotype error on the detection of IBD segments is not negligible.
-Given the example in shown \cpref{fig:full_ibd_error}, it is suggested that even small amounts of misclassified genotypes may disrupt the IBD detection process and is likely to result in a general underestimation of the underlying IBD length.
-Therefore, the analysis has provided sufficient evidence to justify the development of a more extensive method for IBD detection.
-In particular, I used the the estimated proportions of genotype \Correct{error} to extend the targeted IBD detection approach such that the distribution of genotype pairs can be modelled for inference under IBD and non-IBD; this is presented in the following section.
+% disrupt the IBD detection process and is likely to result in a general underestimation of the underlying IBD length.
+% Therefore, the analysis has provided sufficient evidence to justify the development of a more extensive method for IBD detection.
+% In particular, I used the the estimated proportions of genotype \Correct{error} to extend the targeted IBD detection approach such that the distribution of genotype pairs can be modelled for inference under IBD and non-IBD.
 % From this, a novel, fully probabilistic approach was developed using a \gls{hmm}.
 
+\Addition{However, when using \texttt{Refined\,IBD}, the low overall accuracy measured may not be surprising given that the inferred segments were likely to be scattered along the full length of the underlying shared haplotype region.
+The matching process was therefore not straightforward, as only the segment covering a given target site was retained.
+For example, an additional method could be implemented to concatenate neighbouring segments inferred per pair to approximate the interval of the underlying shared haplotype.
+This was not attempted here, as it appeared more feasible to extend the targeted IBD detection approach implemented in \texttt{tidy}, which was done in the following section.}
 
 
 
