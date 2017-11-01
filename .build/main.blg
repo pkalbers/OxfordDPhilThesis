@@ -37,7 +37,7 @@ Warning--empty journal in Marchini:2010cga
 Warning--can't use both volume and number fields in moskvina2005minor
 You've used 223 entries,
             2378 wiz_defined-function locations,
-            1867 strings with 73596 characters,
+            1867 strings with 73598 characters,
 and the built_in function-call counts, 151255 in all, are:
 = -- 10787
 > -- 15340

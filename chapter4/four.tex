@@ -761,7 +761,7 @@ ${\mathbb{E}\left[t_m\right]=\dec{0.02398986}}$ using \cref{eq:intro_griffiths_t
 Here, \cref{eq:intro_kimura_ohta} was used for computation of $\tau_k$ due to its simplicity.
 
 \Addition{It should be noted that the expectation of allele age as used here implies the assumption of a constant population size, which is rarely observed in nature and also not the case for the simulated dataset on which the presented method was evaluated (as presented further below).
-The value of the expected age is nonetheless useful to arrive at approximate transition probabilities in this \gls{hmm}.}
+The value of the expected age is nonetheless useful to arrive at approximate transition probabilities that are assumed to be suitable for the current \gls{hmm}.}
 
 The distance to a recombination event follows the geometrical distribution if measured in discrete generations.
 However, it can be approximated on a continuous time scale using the exponential distribution in the limit as $\Ne$ tends to infinity; that is, generally, if population size is sufficiently large \citep[see][]{hein2004gene}.
@@ -851,7 +851,7 @@ and likewise, for the \emph{ibd}~state, by
 However, note that \cref{eq:genpairibd} above implicitly assumes that no mutations have occurred on either lineage after co-inheritance of the shared haplotype.
 While this assumption may hold for a haplotype co-inherited only a few generations ago, it is easily violated and therefore unrealistic for the general case.
 
-The expected emission probability distributions for each possible genotype pair in \emph{non} and \emph{ibd} is shown in \cpref{fig:exp_genpair_frq}.
+The expected emission probability distributions for each possible genotype pair in \emph{non} and \emph{ibd} are shown in \cpref{fig:exp_genpair_frq}.
 
 %
 \input{chapter4/fig/exp_genpair_frq}
@@ -1062,7 +1062,7 @@ where $\lambda$ denotes the model; see \ctref{eq:hmm_model}.
 % \end{equation*}
 The procedure to retrieve the actual state sequence is summarised as follows.
 
-\begin{enumerate}[label=\textbf{\arabic*.}]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*]
 	\item \textbf{Initialisation.} %
 	% \begin{equation}
 	% 	u_0(x) ~=~ 0 \quad \forall \quad x \in S
@@ -1131,13 +1131,21 @@ In boundary cases, when each site until the end of the chromosome was inferred a
 \subsection{Results}
 %
 
+
+
+
+
+%
+\subsubsection{Simulated data after integration of error}
+%
+
 %
 \input{chapter4/tab/stat_hmm_accuracy}
 %
 
 The \gls{hmm}-based method for IBD inference was evaluated on the same error-treated dataset as used in \cpref{sec:ibd_results_err}.
 Because the HMM does not require haplotype information, the analysis was conducted on genotype data only, both before and after the inclusion of error.
-Recall \Correct{that} there are multiple focal alleles that may sit on the same underlying shared haplotype, such that the resulting set of segments inferred from all selected target sites may result in duplicate segments.
+Recall \Correct{that} there are multiple focal alleles that may sit on the same underlying shared haplotype, such that the resulting set of segments inferred from all selected target sites may contain in duplicate segments.
 As these do not add to the analysis below, duplicate segments were removed to retain a set of unique segments.
 The number of unique segments inferred was
 \dec{3.179340}~million and \dec{3.236198}~million before and after error, which corresponds to \SI{32.25035}{\percent} and \SI{32.82710}{\percent} of the reported set of IBD segments, respectively.
@@ -1162,7 +1170,12 @@ The distribution of IBD length is shown in \cpref{fig:length_hmm}\Delete{, which
 %
 
 
-Lastly, I applied the HMM-based method on data from the \glsentryfull{1kg} Phase~\rom{3}, chromosome~20.
+
+%
+\subsubsection{1000 Genomes data, chromosome 20}
+%
+
+I applied the HMM-based method on data from the \glsentryfull{1kg} Phase~\rom{3}, chromosome~20.
 These results are shown in \cpref{fig:1KG_chr20_length_hmm}, which for comparison also includes the previous results obtained for the \gls{fgt} and \gls{dgt} on the same set of retained target sites (duplicate segments were again removed).
 The figure shows that only the HMM is able to infer longer IBD segments that are more consistent with expectations.
 In direct comparison to the length distribution seen in simulated data, shown in \cpref{fig:length_hmm}, median length was consistently shorter in \gls{1kg}.
