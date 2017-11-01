@@ -1314,6 +1314,11 @@ INPUT chapter4/fig/1KG_chr20_length_hmm.tex
 INPUT ./img/ch4/1KG_chr20_length_hmm.pdf
 INPUT ./img/ch4/1KG_chr20_length_hmm.pdf
 INPUT ./img/ch4/1KG_chr20_length_hmm.pdf
+INPUT chapter4/fig/1KG_chr20_pop_len.tex
+INPUT chapter4/fig/1KG_chr20_pop_len.tex
+INPUT ./img/ch4/1KG_chr20_pop_len.pdf
+INPUT ./img/ch4/1KG_chr20_pop_len.pdf
+INPUT ./img/ch4/1KG_chr20_pop_len.pdf
 INPUT chapter4/fig/emission_tmrca.tex
 INPUT chapter4/fig/emission_tmrca.tex
 INPUT ./img/ch4/emission_tmrca_reduced_new.jpg

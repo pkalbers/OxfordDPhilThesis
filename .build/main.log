@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  31 OCT 2017 18:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  1 NOV 2017 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2011,11 +2011,11 @@ File: english.mld 2006/01/13
 ))
 Package minitoc Info: I0052
 (minitoc)             \mtcsetoffset redefines 
-(minitoc)             "mtcoffset" as "-1ex" on input line 369.
+(minitoc)             "mtcoffset" as "-1ex" on input line 381.
 Package minitoc Info: I0014
 (minitoc)             \mtcsetfeature redefines the macro 
 (minitoc)             "openminitoc" as 
-(minitoc)             "\vspace {0.5ex}" on input line 372.
+(minitoc)             "\vspace {0.5ex}" on input line 384.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2014/10/28 v1.5a package for extended references (FMi)
 \c@vrcnt=\count272
@@ -2107,7 +2107,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip89
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 610.
+Package hyperref Info: Option `colorlinks' set `true' on input line 622.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2230.
@@ -2242,11 +2242,11 @@ Package: glossary-tree 2015/02/03 v4.13 (NLCT)
 \glo@main@file=\write8
 \openout8 = `main.glo'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 631.
+Package glossaries Info: Writing glossary file main.glo on input line 643.
 \glo@acronym@file=\write9
 \openout9 = `main.acn'.
 
-Package glossaries Info: Writing glossary file main.acn on input line 631.
+Package glossaries Info: Writing glossary file main.acn on input line 643.
  (./macros.sty
 \c@approachi=\count303
 \enitdp@approach=\count304
@@ -2808,12 +2808,22 @@ File: ./img/ch4/1KG_chr20_length_hmm.pdf Graphic file (type pdf)
  <use ./img/ch4/1KG_chr20_length_hmm.pdf>
 Package pdftex.def Info: ./img/ch4/1KG_chr20_length_hmm.pdf used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 331.9586pt.
-) (./chapter4/fig/emission_tmrca.tex <./img/ch4/emission_tmrca_reduced_new.jpg, id=1524, 1445.4pt x 975.645pt>
+) (./chapter4/fig/1KG_chr20_pop_len.tex <./img/ch4/1KG_chr20_pop_len.pdf, id=1524, 755.81572pt x 884.66411pt>
+File: ./img/ch4/1KG_chr20_pop_len.pdf Graphic file (type pdf)
+ <use ./img/ch4/1KG_chr20_pop_len.pdf>
+Package pdftex.def Info: ./img/ch4/1KG_chr20_pop_len.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 499.53918pt.
+
+Underfull \hbox (badness 3333) in paragraph at lines 8--8
+[]\T1/jkp/b/n/10 Figure 4.21: |In-ferred shared hap-lo-type lengths by pop-u-la-tion in 1000 Gen-omes,
+ []
+
+) (./chapter4/fig/emission_tmrca.tex <./img/ch4/emission_tmrca_reduced_new.jpg, id=1525, 1445.4pt x 975.645pt>
 File: ./img/ch4/emission_tmrca_reduced_new.jpg Graphic file (type jpg)
  <use ./img/ch4/emission_tmrca_reduced_new.jpg>
 Package pdftex.def Info: ./img/ch4/emission_tmrca_reduced_new.jpg used on input line 5.
 (pdftex.def)             Requested size: 426.79137pt x 288.08075pt.
-) [167 <./img/ch4/length_hmm.pdf>] [168 <./img/ch4/1KG_chr20_length_hmm.pdf>]) [169 <./img/ch4/emission_tmrca_reduced_new.jpg>] [170] (.build/main.acr) [237
+) [167 <./img/ch4/length_hmm.pdf>] [168 <./img/ch4/1KG_chr20_length_hmm.pdf>] [169 <./img/ch4/1KG_chr20_pop_len.pdf>]) [170 <./img/ch4/emission_tmrca_reduced_new.jpg>] (.build/main.acr) [237
 
 
 
@@ -2860,17 +2870,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 155.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 155.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6C9FD6FDC0A9F2FB3223C7C1FA684C40;1696.
+(rerunfilecheck)             Checksum: 400DC81FB88A59B14A56568724BF3A41;1696.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 49797 strings out of 493089
- 949169 string characters out of 6134842
- 1168929 words of memory out of 5000000
- 50656 multiletter control sequences out of 15000+600000
+ 49808 strings out of 493089
+ 949483 string characters out of 6134842
+ 1169160 words of memory out of 5000000
+ 50663 multiletter control sequences out of 15000+600000
  419835 words of font info for 1051 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,18n,73p,10436b,1357s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2902,10 +2912,10 @@ pdfTeX warning (dest): name{subsection.3.4.1} has been referenced but does not e
 
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on .build/main.pdf (67 pages, 2059819 bytes).
+Output written on .build/main.pdf (67 pages, 2127574 bytes).
 PDF statistics:
- 1989 PDF objects out of 2073 (max. 8388607)
- 1682 compressed objects within 17 object streams
- 420 named destinations out of 1000 (max. 500000)
- 125206 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 2019 PDF objects out of 2073 (max. 8388607)
+ 1705 compressed objects within 18 object streams
+ 421 named destinations out of 1000 (max. 500000)
+ 125211 words of extra memory for PDF output out of 128383 (max. 10000000)
 

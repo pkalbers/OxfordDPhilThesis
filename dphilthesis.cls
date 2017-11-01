@@ -287,7 +287,7 @@ list-final-separator={, and }%
 \footnotesize\texttt{
 \fcolorbox{YellowOrange}{white}{%
 \colorbox{yellow}{%
-\textcolor{black}{CORRECTED}%
+\textcolor{black}{CORRECTION}%
 } %
 \quad #1 \quad%
 }%
@@ -297,7 +297,19 @@ list-final-separator={, and }%
 
 % addition
 \newcommand{\Addition}[1]{{\hl{#1}}}
-\def\AdditionLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{ADDED}}}\xspace}
+\newcommand{\AdditionNote}[1]{%
+\vspace{2.5mm}%
+\noindent{%
+\footnotesize\texttt{
+\fcolorbox{YellowOrange}{white}{%
+\colorbox{yellow}{%
+\textcolor{black}{ADDITION}%
+} %
+\quad #1 \quad%
+}%
+\vspace{2.5mm}%
+}}}
+\def\AdditionLabel{\quad\mbox{\colorbox{yellow}{\footnotesize\texttt{ADDITION}}}\xspace}
 
 % deletion
 \newcommand{\Delete}[1]{\textcolor{gray}{\st{#1}}}
