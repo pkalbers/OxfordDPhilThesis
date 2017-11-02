@@ -1132,38 +1132,59 @@ In boundary cases, when each site until the end of the chromosome was inferred a
 %
 
 
-
+The \gls{hmm}-based method for IBD inference was evaluated on the same error-treated dataset as used in \cpref{sec:ibd_results_err}, as well as the corresponding dataset before the integration of (realistic) error rates.
+\Addition{As was done in the previous analyses, if multiple identical breakpoint intervals were inferred for a given pair, only the one detected around the allele of the lowest frequency within that interval was retained (or one was sampled if multiple shared alleles occurred at the same frequency).
+The retained (\emph{unique}) segments were thereby tagged by the presumably youngest shared allele within a given interval, such that breakpoint accuracy could be measured conditional on the frequency of the target allele.}
 
 
 %
-\subsubsection{Simulated data after integration of error}
+\subsubsection{Shared haplotype inference in simulated data before and after error}
 %
+
+The number of unique segments inferred was
+\dec{3.179340}~million and
+\dec{3.236198}~million before and after error, which corresponds to
+\SI{32.25035}{\percent} and
+\SI{32.82710}{\percent} of the reported set of IBD segments, respectively.
+In comparison, the number of unique segments in the set of true IBD segments, those determined from simulation records on the same targets, was
+\dec{2.720789}~million (\SI{27.59894}{\percent}).
+The proportion of breakpoints overestimated \Addition{(relative to the corresponding true breakpoint position)} was similar \Correct{for} both datasets;
+\SI{55.71575}{\percent} before error and
+\SI{54.09442}{\percent} after error.
 
 %
 \input{chapter4/tab/stat_hmm_accuracy}
 %
 
-The \gls{hmm}-based method for IBD inference was evaluated on the same error-treated dataset as used in \cpref{sec:ibd_results_err}.
-Because the HMM does not require haplotype information, the analysis was conducted on genotype data only, both before and after the inclusion of error.
-Recall \Correct{that} there are multiple focal alleles that may sit on the same underlying shared haplotype, such that the resulting set of segments inferred from all selected target sites may contain in duplicate segments.
-As these do not add to the analysis below, duplicate segments were removed to retain a set of unique segments.
-The number of unique segments inferred was
-\dec{3.179340}~million and \dec{3.236198}~million before and after error, which corresponds to \SI{32.25035}{\percent} and \SI{32.82710}{\percent} of the reported set of IBD segments, respectively.
-In comparison, the number of unique segments in the set of true IBD segments, those determined from simulation records on the same targets, was \dec{2.720789}~million (\SI{27.59894}{\percent}).
-The proportion of breakpoints overestimated was similar \Correct{for} both datasets; \SI{55.71575}{\percent} before error and \SI{54.09442}{\percent} after error.
-Likewise, \SI{55.71575}{\percent} and \SI{54.09442}{\percent} were underestimated, respectively, and \SI{4.328293}{\percent} and \SI{4.280887}{\percent} coincided with true breakpoints, respectively.
-Overall accuracy was ${r^2=\dec{0.6340087}}$ before error and ${r^2=\dec{0.6381827}}$ after error, and \gls{rmsle} was \dec{0.7812424} and \dec{0.7911286}, respectively.
-While it appears from these results that accuracy was comparatively low, consider the results by allele frequency; see \cpref{tab:stat_hmm_accuracy}, which also includes the same results obtained using the \gls{fgt} on true haplotypes as well as phased haplotypes, and the \gls{dgt} on genotype data.
-As can be seen from the table, the HMM-based approach reached highest accuracy at lower allele frequencies, but which then rapidly decreased towards higher frequencies.
+Overall accuracy, \Addition{measured as the physical distance between breakpoint and target site,} was
+${r^2=\dec{0.6340087}}$ (${\rmsle=\dec{0.7812424}}$) before error and
+${r^2=\dec{0.6381827}}$ (${\rmsle=\dec{0.7911286}}$) after error.
+While it appears from these results that accuracy was relatively low, consider accuracy measured per focal allele frequency.
+\Cpref{tab:stat_hmm_accuracy} shows $r^2$ and $\rmsle$ measured per \fk{}~category, where the \gls{hmm} is compared to corresponding results obtained on the same set of target sites using the \gls{fgt} on true (simulated) haplotypes as well as phased haplotypes, and the \gls{dgt} on genotype data; \Addition{shown for analyses conducted after the integration of error.}
+The HMM-based IBD detection approach outperformed each of the rule-based methods (in terms of $r^2$).
+However, for each method, accuracy decreases rapidly towards higher frequencies.
 
 %
 \input{chapter4/fig/break_hmm}
 %
 
-Median length was assessed after removal of boundary cases, discarding \SI{1.24133}{\percent} the data before inclusion of error and \SI{1.21611}{\percent} after error.
-This proportion was similar in true IBD segments (\SI{1.37743}{\percent}).
-Before error, overall median length was \SI{0.525714}{\mega\basepair} (\SI{0.8837688}{\centi\morgan}), and \SI{0.503856}{\mega\basepair} (\SI{0.8837688}{\centi\morgan}) after error; this is compared to the shorter median length found for the true dataset; \SI{0.343451}{\mega\basepair} (\SI{0.5903069}{\centi\morgan}).
-The distribution of IBD length is shown in \cpref{fig:length_hmm}\Delete{, which for comparison also includes the results obtained for the FGT and DGT after error}.
+Median length was assessed after removal of boundary cases;
+\SI{1.24133}{\percent} of segments were removed in the analysis conducted on data before the integration of error and \SI{1.21611}{\percent} after error.
+This proportion was similar for the set of true IBD segments (\SI{1.37743}{\percent}).
+Before error, overall median length was
+\SI{0.525714}{\mega\basepair} (\SI{0.8837688}{\centi\morgan}), and
+\SI{0.503856}{\mega\basepair} (\Correct{{\SI{0.8450367}{\centi\morgan}}}) after error; this is compared to the shorter median length found for the true dataset;
+\SI{0.343451}{\mega\basepair} (\SI{0.5903069}{\centi\morgan}).
+\Addition{At \fk{2} alleles, median length was
+{\SI{2.208884}{\mega\basepair}} ({\SI{3.690252}{\centi\morgan}}) for the set of true shared haplotype segments, which is shorter compared to the inferred length of
+{\SI{2.498538}{\mega\basepair}} ({\SI{4.207228}{\centi\morgan}}) before error and
+{\SI{2.458135}{\mega\basepair}} ({\SI{4.129179}{\centi\morgan}}) after error.
+Lengths decreased towards higher focal allele frequencies, but where inferred lengths still remained overestimated; \eg at \fk{25} alleles, median length for true segments was
+{\SI{0.230837}{\mega\basepair}} ({\SI{0.406926}{\centi\morgan}}), compared to
+{\SI{0.378793}{\mega\basepair}} ({\SI{0.626378}{\centi\morgan}}) before error and
+{\SI{0.360072}{\mega\basepair}} ({\SI{0.593404}{\centi\morgan}}) after error.}
+The distribution of IBD length by focal allele frequency is shown in \cpref{fig:length_hmm}\Delete{, which for comparison also includes the results obtained for the FGT and DGT after error}.
+
 
 %
 \input{chapter4/fig/length_hmm}
@@ -1172,20 +1193,84 @@ The distribution of IBD length is shown in \cpref{fig:length_hmm}\Delete{, which
 
 
 %
-\subsubsection{1000 Genomes data, chromosome 20}
+\subsubsection{Analysis of 1000 Genomes data, chromosome 20}
 %
 
-I applied the HMM-based method on data from the \glsentryfull{1kg} Phase~\rom{3}, chromosome~20.
-These results are shown in \cpref{fig:1KG_chr20_length_hmm}, which for comparison also includes the previous results obtained for the \gls{fgt} and \gls{dgt} on the same set of retained target sites (duplicate segments were again removed).
-The figure shows that only the HMM is able to infer longer IBD segments that are more consistent with expectations.
-In direct comparison to the length distribution seen in simulated data, shown in \cpref{fig:length_hmm}, median length was consistently shorter in \gls{1kg}.
-Such a direct comparison, however, may not be applicable, as there are considerable differences between this and the simulated dataset.
-For example, the simulated dataset was generated as a sample of ``European'' haplotypes only (as defined in the demographic model; see Chapter~3, \ccref{sec:sim_demo_model}).
+\AdditionNote{This section was re-written and extended to include additional results}
 
+In the previous analysis of \gls{1kg} data in \cpref{sec:fgt_dgt_1kg20}, I showed that neither the \gls{fgt} nor the \gls{dgt} were likely to detect shared haplotype segments with sufficient accuracy.
+I therefore attempted to demonstrate in this chapter (\cref{sec:impact_error_data}) that presence of error in the data can have a dramatic impact on such rule-based detection methods.
+It was suggested that even relatively small error rates (as expected in real data) may lead to the detection of false positive breakpoints and, thus, the observation of truncated breakpoint intervals in the majority of scans.
+In the section above, I demonstrated that the HMM-based approach for targeted shared haplotype inference is robust towards error, but where overall length of detected segments is likely to be overestimated.
+Nonetheless, it should be possible to re-produce similar patterns when applying this method to real data.
 
 %
 \input{chapter4/fig/1KG_chr20_length_hmm}
 %
+
+I applied the HMM-based method to data from chromosome~20 in \glsentrylong{1kg} Phase~\rom{3} and inferred {\dec{18.040053}}~million shared haplotype segments around all variants observed at \fk{[2,25]} (\ie frequency below 0.5\%) of which {\Percent{39.32543}} were unique.
+For direct comparison to corresponding results obtained using the \gls{fgt} and \gls{dgt} (see \cref{sec:fgt_dgt_1kg20}), I retained a random subset of 1~million unique segments that were inferred around the same target site and haplotype pair in each method, after also removing boundary cases.
+
+Overall median physical (genetic) length was
+\SI{0.311748}{\mega\basepair} (\SI{0.5383650}{\centi\morgan}) for the HMM-based detection method, which was longer compared to the \gls{fgt} and \gls{dgt} where median length was
+\SI{0.097541}{\mega\basepair} (\SI{0.1897540}{\centi\morgan}) and
+\SI{0.176087}{\mega\basepair} (\SI{0.3444909}{\centi\morgan}), respectively.
+The distribution of IBD length by focal allele frequency is shown in \cpref{fig:1KG_chr20_length_hmm}.
+While it is shown that only the HMM is able to infer longer IBD segments that are more consistent with expectations, such a comparison is limited due to population structure in the \gls{1kg} sample.
+For example, the simulated dataset was generated as a sample of ``European'' haplotypes only (as defined in the demographic model; see \ccref{sec:sim_demo_model}.
+
+I further subdivided the set of retained IBD segments based on the focal allele being shared between individuals from the same or different populations as recorded in \gls{1kg}.
+\Ctref{fig:1KG_chr20_pop_len} shows the distribution of median IBD length by focal allele frequency for each case, which also includes the results obtained using the FGT and DGT, where segments were detected on the same target site and haplotype pair.
+
+Since IBD is delimited by past recombination events that occurred independently along each lineage back in time, the length of a shared haplotype region is indicative for the time since a haplotype was co-inherited from a common ancestor.
+It is expected that relatively long segments have been co-inherited more recently than shorter segments.
+
+
+AFR AFR  \SI{0.111908}{\mega\basepair} (\SI{0.228511}{\centi\morgan})
+AMR AMR  \SI{0.262273}{\mega\basepair} (\SI{0.468826}{\centi\morgan})
+EAS EAS  \SI{0.272886}{\mega\basepair} (\SI{0.484657}{\centi\morgan})
+EUR EUR  \SI{0.281191}{\mega\basepair} (\SI{0.518560}{\centi\morgan})
+SAS SAS  \SI{0.222512}{\mega\basepair} (\SI{0.410684}{\centi\morgan})
+
+AFR AMR  \SI{0.082495}{\mega\basepair} (\SI{0.157364}{\centi\morgan})
+AFR EAS  \SI{0.011873}{\mega\basepair} (\SI{0.013224}{\centi\morgan})
+AFR EUR  \SI{0.058866}{\mega\basepair} (\SI{0.094987}{\centi\morgan})
+AFR SAS  \SI{0.018748}{\mega\basepair} (\SI{0.023320}{\centi\morgan})
+
+AMR EAS  \SI{0.142043}{\mega\basepair} (\SI{0.237085}{\centi\morgan})
+AMR EUR  \SI{0.245770}{\mega\basepair} (\SI{0.447070}{\centi\morgan})
+AMR SAS  \SI{0.182598}{\mega\basepair} (\SI{0.317906}{\centi\morgan})
+
+EAS EUR  \SI{0.114365}{\mega\basepair} (\SI{0.175285}{\centi\morgan})
+EAS SAS  \SI{0.162859}{\mega\basepair} (\SI{0.265078}{\centi\morgan})
+
+EUR SAS  \SI{0.210214}{\mega\basepair} (\SI{0.374079}{\centi\morgan})
+
+
+-- focal allele frequency may not be an ideal indicator for allele age
+-- different \Ne would apply to the different populations, but here the same value of \Ne was used as model parameter in the HMM, as the results shown were obtained from the analysis on the full \gls{1kg} sample
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 %
