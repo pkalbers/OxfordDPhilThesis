@@ -25,20 +25,21 @@ it's more like a big ball of... wibbily-wobbly... timey-wimey... stuff.}
 The inference of the genealogical history of a sample is of interest to a myriad of applications in genetic research, both in population and medical genetics.
 The ``age'' of an allele, which simply refers to the time since the allele was created by a mutation event, is of particular interest; for example, to observe demographic processes and events, or to better understand the effects of disease-related variants by their time of emergence in the population.
 
-In this chapter, I propose a composite likelihood method to estimate the age of an allele, which is based on a collection of statistical models that derive from coalescent theory.
-Composite likelihood methods recently have gained in popularity for various applications in genetic research.
+In this chapter, I propose a \Correct{novel} method to estimate the age of an allele, which is based on a collection of statistical models that derive from coalescent theory.
+\Correct{The method is inspired by \emph{composite likelihood} approaches, which} recently have gained in popularity for various applications in genetic research.
 The coalescent-based approach was pioneered by \citet{Hudson:2001vs} and has been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
+
 In contrast to existing methods for allele age estimation \citep[\eg, see review by][]{Slatkin:2000us}, the method I present in this chapter does not require prior knowledge about past demographic processes or events.
-Although an assumption of certain population parameters is required, such as effective population size (\Ne) or mutation rate ($\mu$), these are expected to only affect the scaling of time, such that differences between age estimates for different alleles are proportionally constant.
+Although an assumption of certain population parameters is required, such as effective population size (\Ne) or mutation rate ($\mu$), these are expected to \emph{mostly} affect the scaling of time, such that differences between age estimates for different alleles are proportionally constant.
 
 The age estimation framework presented in this chapter is based on allele sharing at a particular variant site observed in the sample, where the underlying IBD structure is inferred locally around the chromosomal position of the variant under consideration.
 The methodology for targeted IBD detection presented in Chapters~3 and 4 is therefore essential for this approach; \ie the \texttt{tidy} algorithm which includes the \gls{fgt}, \gls{dgt}, and the probabilistic IBD model for inference using a \gls{hmm}.
 I implemented the age estimation method as a computational tool written in \cpp, referred to as the \textbf{\texttt{rvage}} algorithm (for \underline{r}are \underline{v}ariant \underline{a}\underline{g}e \underline{e}stimation) which incorporates the full functionality of the previously presented \texttt{tidy} algorithm for IBD detection.\footnote{Rare variant age estimation (\texttt{rvage}): \url{https://github.com/pkalbers/rvage}}
 
 I begin this chapter by introducing the concept of the method, which is followed by a detailed description of the statistical framework.
-The method is evaluated in extensive simulation studies which consider genotype error as a source of estimation bias.
+The method is evaluated in extensive simulation studies, which also consider data error as a source of estimation bias.
 Although the method can be applied to \glspl{snp} occurring at any frequency, here, I focus on rare alleles in particular.
-Finally, I present results using real data in relation to predicted variant consequences.
+Finally, \Correct{I apply this method to data from the \gls{1kg} Phase~\rom{3}}.
 
 
 
@@ -50,7 +51,7 @@ Consider a set of haplotypes which share a given allele by descent from a common
 Suppose that the genealogical history of the sample is known such that the ancestral origin of the allele can be found by tracing back to the \gls{mrca} of the haplotypes that share the allele.
 In a finite population, however, the \gls{mrca} is unlikely to indicate the individual in which the allele arose through mutation; therefore the actual age of the allele is expected to be older than the \gls{tmrca} of the set of haplotypes which share the focal allele.
 The mutation from which the allele derived can be seen as a distinguishing event in the history of the population, immediately after which only \n{1} individual in the population carried the mutant allele.
-It follows that the allele is expected to be younger than the \gls{mrca} of that \n{1} individual and any of the other contemporary individuals.
+It follows that the allele is expected to be younger than the \gls{mrca} of that \n{1} individual and any of the \Correct{non-carrier} individuals in the contemporary population.
 This insight is of particular interest as it suggests that the actual time of the mutation event lies somewhere in between those \n{2} points in time.
 
 There are \n{2} main sources of information available from the data which relate to the \gls{tmrca}.
@@ -69,29 +70,28 @@ The third estimator combines both the number of mutations and the genetic length
 
 The presented age estimation method is based on the computation of the posterior probability of the \gls{tmrca} of a pair of haplotypes.
 It is assumed that no recombination has occurred along the sequence in the haplotype segment considered, such that the genealogical relationship between the \n{2} haplotypes does not change along the region.
-This allows analysis under a coalescent process, where the posterior probability is proportional to the prior probability of the time to coalescence multiplied by the likelihood of the time given the estimator.
-The derivation of the coalescent prior is described below.
+This facilitates the analysis under a coalescent process, where the posterior probability is proportional to the prior probability of the time to coalescence multiplied by the likelihood of the time given the estimator.
+The derivation of the coalescent prior \Correct{follows from the results given in \cpref{sec:coalescent}, but is briefly reiterated below.}
+
 
 Let $t$ be the number of discrete generations that separate \n{2} haplotypes in relation to the \gls{mrca}.
 As shown by \citet{Tajima:1983bt}, the probability that \n{2} haplotypes are derived from \n{1} common ancestral haplotype $t$~generations in the past is
-\begin{equation}
-	f(t) ~=~ \frac{1}{2\Ne} \Big( 1 - \frac{1}{2\Ne} \Big)^{t-1}
-	~\approx~ \frac{1}{2\Ne} \euler{-\frac{t}{2\Ne}}
-\end{equation}
+\begin{equation*}
+	f(t) ~\approx~ \frac{1}{2\Ne} \euler{-\frac{t}{2\Ne}} \CorrectLabel
+\end{equation*}
 where \Ne is the effective population size.
 The expression above relates to the probability distribution of the branch length in the underlying genealogical tree.
 Further, the probability that the \n{2} haplotypes do not share an ancestral haplotype more recently than $t$~generations in the past is given by
-\begin{equation}
-	P(T_c \geq t) ~=~ 1 - \sum_{i=1}^{t-1} f(i) ~\approx~ \euler{-\frac{t}{2\Ne}}
-\end{equation}
-where $T_c$ is the time of the coalescent event.
+\begin{equation*}
+	P(T_c > t \mid \Ne) ~\approx~ \euler{-\frac{t}{2\Ne}} \CorrectLabel
+\end{equation*}
+where $T_c$ is the time of the coalescent event between \n{2} lineages.
 It is convenient to use a continuous time approximation and measure time in units of ${2\Ne}$ generations, in the context of the coalescent, such that ${\tau = \sfrac{t}{2\Ne}}$
 Thus, the coalescent prior can be expressed as
-\begin{equation}
-	\pi(t) ~\propto~ \euler{-\frac{t}{2\Ne}}
-	\qquad \text{or} \qquad
-	\pi(\tau) ~\propto~ \euler{-\tau}\ .
-\end{equation}
+\begin{equation*}
+	\pi(\tau) ~\propto~ \euler{-\tau}\ \CorrectLabel
+\end{equation*}
+\Correct{which was already given in \cpref{eq:coal_2_dont}.}
 
 The sections below describe each clock model in detail.
 Recall that the \emph{breakpoints} of past recombination events are inferred for a pair of individuals, independently on the left and right-hand side of a target variant.
@@ -104,25 +104,26 @@ If no evidence of recombination was found on either the left or the right-hand s
 %
 
 Let the physical length of the shared haplotype segment be denoted by $D$, measured in basepairs.
-The sum of mutational differences observed along the segment in the pair of haplotypes is denoted by $S$.
+The number of mutational differences observed along the segment in the pair of haplotypes is denoted by $s$, which represents the sum of \gls{iid} mutation events over the region of length $D$.
 The value of $S$ refers to the number of segregating sites in a sample of ${N=2}$~haplotypes, for which the infinite sites model is assumed without recombination; \eg see \citet{Watterson:1975ur} and \citet{Tavare:1997vra}.
 Mutations are assumed to occur only once at each site in the history of the sample \citep{Kimura:1969tn}, such that $S$ reflects the total number of mutation events that have occurred along both lineages since the split from the \gls{mrca}.
 
-Given the time of the \gls{mrca}, mutation events are Poisson distributed, as each mutation represents an independent binomial trial over a large number of sites, where each site has a small probability of mutation.
-The mutation rate per site per generation is given by $\mu$.
+Given the time of the \gls{mrca}, mutation events are Poisson distributed, as each mutation represents an independent Bernoulli trial over a large number of sites, where each site has a small probability of mutation.
+The mutation rate per site per generation is given by~$\mu$.
 In the coalescent, the mutation rate is scaled by population size, which is expressed by the composite mutation parameter ${\theta = 4\Ne\mu}$.
 It follows that ${\theta \times D}$ is equal to the expected number of pairwise differences per coalescent time unit over the length of the segment.
-Thus, the probability of observing $S$ over the distance $D$ and time $\tau$ is modelled as a Poisson process, such that ${S \sim \operatorname{Pois}(\theta D \tau)}$, for which the \gls{pdf} is defined as
+Thus, the probability of observing a discrete number $S$ over distance $D$ and time $\tau$ is modelled as a Poisson process, such that ${S \sim \operatorname{Pois}(\theta D \tau)}$, for which the \Correct{\gls{pmf}} is defined as
 \begin{equation}
-	P(S \mid \theta,D,\tau) ~=~ \frac{(\theta D \tau)^S}{S!} \euler{-\theta D \tau}\ .
+	P(S = s \mid \theta,D,\tau) ~=~ \frac{(\theta D \tau)^s}{s!} \euler{-\theta D \tau}
 \end{equation}
+for ${s = 0,1,2,\ldots}$ and ${\theta,D,\tau > 0}$.
 Note that the equation above is the \emph{joint} probability of observing mutational differences at each site along the sequence.
-The likelihood function for $\tau$ is proportional to the joint \gls{pdf}, but requires only those terms that involve $\tau$ and where constant terms can be dropped, such that
-\begin{equation}
+The likelihood function for the time parameter~$\tau$ is proportional to the joint \Correct{\gls{pmf}}, but requires only those terms that involve $\tau$ and where constant terms can be dropped, such that
+\begin{equation}\label{eq:mut_like}
 	\mathcal{L}(\tau \mid \theta,D,S) ~\propto~ \tau^S \euler{-\theta D \tau}\ .
 \end{equation}
 The posterior probability of the time to coalescence can now be written as
-\begin{equation}
+\begin{equation}\label{eq:mut_post}
 \begin{split}
 	p(\tau \mid \theta,D,S)
 	&~\propto~ \pi(\tau) ~\times~ \mathcal{L}(\tau \mid \theta,D,S) \\
@@ -130,6 +131,10 @@ The posterior probability of the time to coalescence can now be written as
 \end{split}
 \end{equation}
 where $\pi(\tau)$ is the coalescent prior, reflecting the assumption that the expected time to a coalescent event grows exponentially back in time.
+
+\Addition{
+Note that both \cref{eq:mut_like,,eq:mut_post} can be expressed in terms of the
+}
 
 
 %
