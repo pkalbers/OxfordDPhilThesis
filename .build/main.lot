@@ -5,29 +5,28 @@
 \addvspace {10\p@ }
 \contentsline {xchapter}{Introduction}{1}{chapter.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Meta-imputation of reference data to increase accuracy and power in association analysis}{45}{chapter.2}
-\contentsline {table}{\numberline {2.1}{\ignorespaces Dimensions of generated reference data used for imputations}}{56}{table.caption.9}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Variants retained after quality control per meta-imputation setting}}{60}{table.caption.15}
-\contentsline {table}{\numberline {2.3}{\ignorespaces Accuracy measured for each meta-imputation setting}}{62}{table.caption.17}
-\contentsline {table}{\numberline {2.4}{\ignorespaces Effect of quality control on imputed genotype data}}{64}{table.caption.20}
-\contentsline {table}{\numberline {2.5}{\ignorespaces Accuracy of imputation strategies at rare, low-frequency, and common variants}}{67}{table.caption.22}
-\contentsline {table}{\numberline {2.6}{\ignorespaces Estimated power per imputation strategy}}{80}{table.caption.33}
+\contentsline {xchapter}{Meta-imputation of reference data to increase accuracy and power in association analysis}{39}{chapter.2}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Dimensions of generated reference data used for imputations}}{48}{table.caption.28}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Variants retained after quality control per meta-imputation setting}}{52}{table.caption.31}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Accuracy measured for each meta-imputation setting}}{55}{table.caption.33}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Effect of quality control on imputed genotype data}}{56}{table.caption.35}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Accuracy of imputation strategies at rare, low-frequency, and common variants}}{59}{table.caption.37}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Estimated power per imputation strategy}}{71}{table.caption.45}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Using rare variants to detect haplotype sharing and identity by descent}{85}{chapter.3}
-\contentsline {table}{\numberline {3.1}{\ignorespaces Accuracy of detected breakpoints per $\textbf {f}_{k}$~category}}{104}{table.caption.12}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Inferred IBD length per chromosome in 1000 Genomes}}{114}{table.caption.20}
+\contentsline {xchapter}{Using rare variants to detect haplotype sharing and identity by descent}{75}{chapter.3}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Accuracy of detected breakpoints per $\textbf {f}_{k}$~category}}{94}{table.caption.61}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Inferred IBD length per chromosome in 1000 Genomes}}{104}{table.caption.68}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Consideration of genotype error in the inference of haplotype sharing by descent}{127}{chapter.4}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Penetrance functions in genotype and allele-based error models}}{131}{table.caption.92}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Measured genotype penetrance in sequencing and genotyping data}}{139}{table.caption.99}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Punnett squares of genotype pair partitions under non-IBD and IBD}}{162}{table.caption.117}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Accuracy comparison per $\textbf {f}_{k}$~category after error}}{173}{table.caption.125}
+\contentsline {xchapter}{Consideration of genotype error in the inference of haplotype sharing by descent}{109}{chapter.4}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Penetrance functions in genotype and allele-based error models}}{112}{table.caption.72}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Measured genotype penetrance in sequencing and genotyping data}}{121}{table.caption.78}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Punnett squares of genotype pair partitions under non-IBD and IBD}}{143}{table.caption.90}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Accuracy comparison per $\textbf {f}_{k}$~category after error}}{153}{table.caption.94}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Median shared haplotype length per population in 1000 Genomes, chromosome~20}}{159}{table.caption.100}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Estimation of rare allele age}{179}{chapter.5}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Estimation accuracy under varying numbers of discordant pairs}}{202}{table.caption.142}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Estimation accuracy per IBD detection method}}{208}{table.caption.145}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Conflicted estimates in analyses before and after error}}{211}{table.caption.148}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Effect of genotype error on age estimation accuracy}}{222}{table.caption.157}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Allele age per population in the 1000 Genomes sample}}{228}{table.caption.161}
+\contentsline {xchapter}{Estimation of rare allele age}{163}{chapter.5}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Estimation accuracy under varying numbers of discordant pairs}}{182}{table.caption.107}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Estimation accuracy per IBD detection method}}{187}{table.caption.110}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Conflicted estimates in analyses before and after error}}{190}{table.caption.113}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion}{231}{chapter.6}
+\contentsline {xchapter}{Discussion}{199}{chapter.6}

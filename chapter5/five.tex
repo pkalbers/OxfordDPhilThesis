@@ -87,11 +87,11 @@ Further, the probability that the \n{2} haplotypes do not share an ancestral hap
 \end{equation*}
 where $T_c$ is the time of the coalescent event between \n{2} lineages.
 It is convenient to use a continuous time approximation and measure time in units of ${2\Ne}$ generations, in the context of the coalescent, such that ${\tau = \sfrac{t}{2\Ne}}$
-Thus, the coalescent prior can be expressed as
+Thus, the prior on the time of coalescence is ${\tau \propto \operatorname{Exp}(1)}$ and written as
 \begin{equation*}
 	\pi(\tau) ~\propto~ \euler{-\tau}\ \CorrectLabel
 \end{equation*}
-\Correct{which was already given in \cpref{eq:coal_2_dont}.}
+\Correct{which was already given in \ctref{eq:coal_2_dont}.}
 
 The sections below describe each clock model in detail.
 Recall that the \emph{breakpoints} of past recombination events are inferred for a pair of individuals, independently on the left and right-hand side of a target variant.
@@ -132,9 +132,7 @@ The posterior probability of the time to coalescence can now be written as
 \end{equation}
 where $\pi(\tau)$ is the coalescent prior, reflecting the assumption that the expected time to a coalescent event grows exponentially back in time.
 
-\Addition{
-Note that both \cref{eq:mut_like,,eq:mut_post} can be expressed in terms of the
-}
+
 
 
 %
@@ -374,18 +372,22 @@ A possible explanation is that this is particularly driven by the heterozygous s
 
 
 
-%
-\subsubsection{Anticipated limitations}
-%
+\DeleteNote{Section ``Anticipated limitations''}
 
-Since the estimation of allele age is dependent on parameters inferred from the underlying IBD structure of the sample, the accuracy of IBD detection is expected to affect the accuracy of the estimated age.
 %
-\input{chapter5/fig/info_age_bias}%
+% %
+% \subsubsection{Anticipated limitations}
+% %
 %
-Possible consequences of inaccurately inferred lengths of IBD segments are summarised in \cpref{fig:info_age_bias}, which illustrates a minimal example for the different cases possible when concordant or discordant IBD length is over or underestimated.
-For instance, in cases where IBD is overestimated in both concordant and discordant pairs (\cref{fig:info_age_bias}{a}), both the the genetic length and the number of pairwise differences, $S$, may be inflated, which affects the computation of the \gls{ccf} under the mutation and recombination clock differently.
-Notably, because the pairwise probability distributions computed by the \gls{ccf} in the set of pairs are multiplied to calculate the composite likelihood in \cref{eq:compll}, it is possible that some analyses my return invalid results, as probabilities may cancel out or become too small to be distinguishable from zero given machine limits.
-In the following, the term \emph{conflict} is used to refer to sites at which the analysis returned an invalid age estimate.
+% Since the estimation of allele age is dependent on parameters inferred from the underlying IBD structure of the sample, the accuracy of IBD detection is expected to affect the accuracy of the estimated age.
+% %
+% \input{chapter5/fig/info_age_bias}%
+% %
+% Possible consequences of inaccurately inferred lengths of IBD segments are summarised in \cpref{fig:info_age_bias}, which illustrates a minimal example for the different cases possible when concordant or discordant IBD length is over or underestimated.
+% For instance, in cases where IBD is overestimated in both concordant and discordant pairs (\cref{fig:info_age_bias}{a}), both the the genetic length and the number of pairwise differences, $S$, may be inflated, which affects the computation of the \gls{ccf} under the mutation and recombination clock differently.
+% Notably, because the pairwise probability distributions computed by the \gls{ccf} in the set of pairs are multiplied to calculate the composite likelihood in \cref{eq:compll}, it is possible that some analyses my return invalid results, as probabilities may cancel out or become too small to be distinguishable from zero given machine limits.
+% In the following, the term \emph{conflict} is used to refer to sites at which the analysis returned an invalid age estimate.
+%
 
 
 %
@@ -757,164 +759,178 @@ Although allele age was vastly underestimated, deviations appeared to be consist
 The distribution of inferred IBD segment lengths for each approach are given in \cpref{fig:africa_length_con_dis}.
 Notably, IBD segments detected using the \gls{fgt} and \gls{dgt} were overall underestimated after error; only the HMM maintained similarly accurate lengths before and after error, for both concordant and discordant pairs.
 
-%
-\subsubsection{Generation of error correction models}
-\label{sec:age_corrfactor}
-%
-
-Although the estimation showed strong tendencies to either over- or underestimate allele age, dependent on the clock model and IBD method used, some settings maintained relatively high levels of accuracy after error; in particular the \gls{hmm}-based inference in \ClockR.
-This suggested that deviations from the true age may follow a consistent pattern.
-As it is hoped that the age estimation method presented in this chapter is able to produce credible results when used on real data, I evaluated the reliability of each estimation approach by constructing error correction models specific to each setting.
-
-The deviation of the estimated age, $\hat{t}$, from the actual true age of an allele, denoted by $t^\ast$, is simply the absolute value of their difference; calculated as ${\delta = | \hat{t} - t^\ast |}$.
-Given the expectation that the time to coalescence is exponentially distributed, the logarithmic difference is calculated as
-\begin{equation}
-	\xi ~=~ \frac{t^\ast \euler{-\delta}}{\hat{t}}
-\end{equation}
-where ${\xi = 0}$ if true and estimated age are equal, ${0 < \xi < 1}$ if the age is overestimated, and ${\xi > 1}$ if age is underestimated.
-As the actual age of an allele was not known from coalescent simulations, here, the midpoint of the branch on which the mutation event occurred, $t_m$, was defined as the reference point against which the estimated age was compared.
-In reverse, a constant $\xi$ value was used as a correction factor applied to a given set of analysed alleles, considering the results obtained per clock model and IBD method, in order to minimise the mean of the difference distribution.
-The value of this correction factor was estimated by iteration through an array, denoted by $\Xi$, which is defined as a series of $l$ factor values, denoted by ${\xi_i \in \Xi}$, where ${i \in [ 1, 2, \ldots l]}$.
-The minimum factor value was found through the following operation;
-\begin{equation}\label{eq:corrfactorcalc}
-	i = \argmin_{\xi_i ~\in~ \Xi} \left( \bigg| ~ \frac{1}{n} \sum_{j=1}^n \log \big[ {t_m}_j \big] - \log \big[ \hat{t}_j ~ \xi_i \big] ~ \bigg| \right)
-\end{equation}
-which is applied to a given set of $n$ true and corresponding estimated times, ${t_m}_j$ and ${\hat{t}_j}$, respectively, where ${j \in 1, 2, \ldots, n}$.
-I applied \cref{eq:corrfactorcalc} in a recursive algorithm in which I selected $\xi_{i-1}$ and $\xi_{i+1}$ after each step to redefine the limits of $\Xi$ and to recalculate $l$ new factor values for the next step.
-This greatly improved the speed and resolution of the computation.
-
-%
-\input{chapter5/fig/generror_factor}
-%
-
-The algorithm outlined above was applied on the results obtained per set of \fk{}~variants estimated in each clock model and IBD method, as well as true IBD, before and after error.
-Computed correction factors are shown in \cref{fig:generror_factor}, which highlights that deviations followed a general trend in each analysis.
-For example, before error, allele age estimated using true IBD showed the lowest amount of deviation in \ClockM and \ClockC, but where alleles at lower frequencies showed a tendency to be overestimated on average and underestimated at higher frequencies.
-However, in \ClockR, true IBD showed larger deviations compared to the \gls{fgt} (on both true and phased haplotype data), but this may result from the assumption that $t_m$ approximates the actual age of an allele.
-After error, notably, factor deviations showed spurious patterns for most approaches, except for the \gls{hmm}-based estimation of allele age, which indicated a consistent trend.
-Note that the factor distributions of true IBD in \ClockR were identical before and after error, as genotype error did not affect the estimation under the recombination clock when IBD is known.
-
-Generated error correction factors were applied to the estimated age results, after error, at corresponding \fk{}~variants under each clock model and in each IBD method, which minimised deviations in relation to $t_m$.
-As a consequence, accuracy was overall improved in each approach; see \cpref{tab:stats_generror}.
-Notably, however, the rank correlation measured for the \gls{hmm} in \ClockR was least affected; before applying correction factors, $r_S$ was \numlist{0.737036;0.621305;0.397976} at  $t_c$, $t_m$, and $t_d$, respectively, which was marginally improved after correction, yielding \numlist{0.737611;0.624484;0.402304}, respectively.
-Nonetheless, the \gls{hmm} indicated the highest levels of accuracy at these measures in comparison to the other IBD methods.
-Hence, this result corroborates the reliability of the \gls{hmm} in \ClockR.
-
-%
-\input{chapter5/tab/stats_generror}
-%
-
-The \gls{hmm} was developed to account for genotype error in the inference of IBD segments.
-It may therefore be expected that the \gls{hmm} outperformed the \gls{fgt} and \gls{dgt} in this comparison.
-However, this had little influence on the estimation in \ClockM and \ClockC.
-This is because the \gls{hmm} was implemented such that the interval of the IBD segment is reported, but without further guiding the estimation process.
-For example, but it would be possible to calculate the posterior probabilities of the hidden states (defined as \emph{ibd} and \emph{non}; see Chapter~4) to weight observed mutational differences at each site along the sequence to determine the value of $S$.
-This was not considered in the current implementation of the \texttt{rvage} algorithm, but could be extended in future versions.
 
 
-% Note that both the \gls{dgt} and the HMM-based approach operate on genotype data along and can be applied without haplotype information.
-% However, because the mutation clock requires haplotypes to count pairwise differences, S, the current analysis considered (phased) haplotypes to evaluate the performance of both approaches.
+
+\DeleteNote{Section ``Generation of error correction models''}
+
+
+\DeleteNote{Section ``Age of alleles with predicted effects in 1000 Genomes data''}
 
 
 
 %
-\section{Age of alleles with predicted effects in 1000 Genomes data}
+% Text below was replaced to make space for new results
 %
-
-The method presented in this chapter was applied the final release dataset of the \glsentryfull{1kg} Phase~\rom{3} \citep{GenomesProjectConsortium:2012co,Auton:2015gk}, where I estimated allele age on a selected set of target sites using the \gls{hmm}-based approach under the recombination clock model, \ClockR.
-To regard inferred allele age in relation to the functional consequences of specific variants, I prioritised \glspl{snp} that have been annotated by the Ensembl \gls{vep}
-\citep{McLaren:2016gq}.\footnote{Ensemble Variant Effect Predictor (VEP): \url{http://www.ensembl.org/info/docs/tools/vep/index.html} \accessed{2017}{02}{15}}
-In particular, \gls{vep} classifies variants into \n{4} \emph{impact} categories which broadly distinguishes the severity of the consequences predicted; namely \emph{high}, \emph{moderate}, and \emph{low} impact, as well as \emph{modifiers}.
-
-
 %
-\subsection{Quality control}
+% %
+% \subsubsection{Generation of error correction models}
+% \label{sec:age_corrfactor}
+% %
 %
-
-Because genotype error was expected to be present in the data, alleles observed at selected target sites may not correctly identify haplotype sharing by descent in all individuals.
-Alleles can either be missed (\emph{false negatives}) or incorrectly observed (\emph{false positives}), such that allocation into the set of sharers, $X_c$, and the set of non-sharers, $X_d$, is biased.
-This is likely to disrupt the estimation of the composite likelihood, \ie by including \glspl{ccf} at wrong ends of \cref{eq:compll}, to the extent that the resulting posterior probabilities may become spurious or cancel out (referred to as \emph{disconformity}).
-In general, the identification of missed or falsely observed alleles is not straightforward, in particular towards lower allele frequencies.
-While it would be possible to reduce the risk of including false negatives in $\Omega_d$ by lowering the $n_d$ threshold, the inclusion of false positives would not be affected, but could be reduced by applying a threshold to $n_c$.
-However, this would not be possible for \fk{2}~variants, unless they are categorically excluded.
-
-As an alternate solution, here, I attempted to exclude target sites in a \emph{post~hoc} analysis using the following quality control measure.
-The median of the posterior probability of the \gls{ccf} in each pair was taken to calculate the geometric mean (or \emph{log-average}) across pairs contained in $\Omega_c$ and $\Omega_d$, respectively, computed as
-\begin{equation}
- 	\tilde{y}_x ~=~ {\Bigg( \prod_{i,j \in \Omega_x} {[ \Lambda_{ij} ]}_{2} \Bigg)}^{- n_x}
-\end{equation}
-where ${x \in \{c,d\}}$, referring to either set $\Omega_c$ or $\Omega_d$, and ${{[ \Lambda_{ij} ]}_{2}}$ is the median (\nth{2}~quartile) of the \gls{ccf} computed for individuals $i$ and $j$ taken from that set.
-The intuition is that $\tilde{y}_c$ and $\tilde{y}_d$ are indicators of the central tendency of the time of coalescent events found through concordant and discordant pairs, such that ${\tilde{y}_c < \tilde{y}_d}$ is expected if the estimation was not or less affected by false negatives or positives.
-By also considering ${\tilde{y}_m = \sqrt{\tilde{y}_c  \tilde{y}_d}}$ as a robust measure of allele age, here, target sites were removed if the condition ${\tilde{y}_c < \tilde{y}_m < \tilde{y}_d}$ was violated.
-
-
+% Although the estimation showed strong tendencies to either over- or underestimate allele age, dependent on the clock model and IBD method used, some settings maintained relatively high levels of accuracy after error; in particular the \gls{hmm}-based inference in \ClockR.
+% This suggested that deviations from the true age may follow a consistent pattern.
+% As it is hoped that the age estimation method presented in this chapter is able to produce credible results when used on real data, I evaluated the reliability of each estimation approach by constructing error correction models specific to each setting.
 %
-\subsection{Error correction based on allele frequency}
+% The deviation of the estimated age, $\hat{t}$, from the actual true age of an allele, denoted by $t^\ast$, is simply the absolute value of their difference; calculated as ${\delta = | \hat{t} - t^\ast |}$.
+% Given the expectation that the time to coalescence is exponentially distributed, the logarithmic difference is calculated as
+% \begin{equation}
+% 	\xi ~=~ \frac{t^\ast \euler{-\delta}}{\hat{t}}
+% \end{equation}
+% where ${\xi = 0}$ if true and estimated age are equal, ${0 < \xi < 1}$ if the age is overestimated, and ${\xi > 1}$ if age is underestimated.
+% As the actual age of an allele was not known from coalescent simulations, here, the midpoint of the branch on which the mutation event occurred, $t_m$, was defined as the reference point against which the estimated age was compared.
+% In reverse, a constant $\xi$ value was used as a correction factor applied to a given set of analysed alleles, considering the results obtained per clock model and IBD method, in order to minimise the mean of the difference distribution.
+% The value of this correction factor was estimated by iteration through an array, denoted by $\Xi$, which is defined as a series of $l$ factor values, denoted by ${\xi_i \in \Xi}$, where ${i \in [ 1, 2, \ldots l]}$.
+% The minimum factor value was found through the following operation;
+% \begin{equation}\label{eq:corrfactorcalc}
+% 	i = \argmin_{\xi_i ~\in~ \Xi} \left( \bigg| ~ \frac{1}{n} \sum_{j=1}^n \log \big[ {t_m}_j \big] - \log \big[ \hat{t}_j ~ \xi_i \big] ~ \bigg| \right)
+% \end{equation}
+% which is applied to a given set of $n$ true and corresponding estimated times, ${t_m}_j$ and ${\hat{t}_j}$, respectively, where ${j \in 1, 2, \ldots, n}$.
+% I applied \cref{eq:corrfactorcalc} in a recursive algorithm in which I selected $\xi_{i-1}$ and $\xi_{i+1}$ after each step to redefine the limits of $\Xi$ and to recalculate $l$ new factor values for the next step.
+% This greatly improved the speed and resolution of the computation.
 %
-
-The error correction model constructed in \cpref{sec:age_corrfactor} was used to correct estimated age values dependent on the allele frequency observed at a given target site.
-In particular, a simple nonlinear regression model was used to fit empirically computed factor values, such that correction factors could be predicted by the allele frequency observed in \gls{1kg} data.
-The following exponential model was used.
-\begin{equation}
-	\hat{\xi}_k ~=~ b \euler{k a}
-\end{equation}
-The fitted model parameters were ${a = \dec{-0.029203}}$ and ${b = \dec{30.97533}}$ for the the \gls{hmm} in \ClockR.
-
-
+% %
+% \input{chapter5/fig/generror_factor}
+% %
 %
-\subsection{Results}
+% The algorithm outlined above was applied on the results obtained per set of \fk{}~variants estimated in each clock model and IBD method, as well as true IBD, before and after error.
+% Computed correction factors are shown in \cref{fig:generror_factor}, which highlights that deviations followed a general trend in each analysis.
+% For example, before error, allele age estimated using true IBD showed the lowest amount of deviation in \ClockM and \ClockC, but where alleles at lower frequencies showed a tendency to be overestimated on average and underestimated at higher frequencies.
+% However, in \ClockR, true IBD showed larger deviations compared to the \gls{fgt} (on both true and phased haplotype data), but this may result from the assumption that $t_m$ approximates the actual age of an allele.
+% After error, notably, factor deviations showed spurious patterns for most approaches, except for the \gls{hmm}-based estimation of allele age, which indicated a consistent trend.
+% Note that the factor distributions of true IBD in \ClockR were identical before and after error, as genotype error did not affect the estimation under the recombination clock when IBD is known.
 %
-
-Target sites were randomly selected from the set of \glspl{snp} in available \gls{vep} results, across chromosomes~{1--22}, at shared allele frequencies below \SI{1}{\percent} observed across the whole sample of ${N = 2504}$ diploid individuals; \ie \fk{}~variants with ${k \in [2, 50]}$.
-In total, approximately \n{150000} target sites were analysed, using the following model parameters; ${\Ne = \num{10000}}$, constant mutation rate of ${\mu = \num{1.2e-8}}$ per site per generation \citep[following][]{Scally:2012fe}, recombination rates according to genetic maps per chromosome provided by \gls{hapmap} Phase~\rom{2}, Build~37 \citep{Frazer:2007kha}, and ${n_d = \num{2504}}$.
-The \gls{hmm} used the empirical emission model that was generated from genotype error identified in \gls{1kg} data (chromosome~20); see Chapter~4.
-
-The total number of pairwise analyses conducted was \dec{460.051261}~million.
-A fraction of \SI{2.613439}{\percent} was conflicting and \SI{2.899365}{\percent} were indicated in quality control; together, \SI{3.497}{\percent} of target sites were removed.
-Notably, the proportion of variants removed in both filtering steps was highest at lower allele frequencies; for example, \SI{10.76068927}{\percent} of \fk{2}~variants and only \SI{0.85212143}{\percent} of \fk{5}~variants were removed.
-
+% Generated error correction factors were applied to the estimated age results, after error, at corresponding \fk{}~variants under each clock model and in each IBD method, which minimised deviations in relation to $t_m$.
+% As a consequence, accuracy was overall improved in each approach; see \cpref{tab:stats_generror}.
+% Notably, however, the rank correlation measured for the \gls{hmm} in \ClockR was least affected; before applying correction factors, $r_S$ was \numlist{0.737036;0.621305;0.397976} at  $t_c$, $t_m$, and $t_d$, respectively, which was marginally improved after correction, yielding \numlist{0.737611;0.624484;0.402304}, respectively.
+% Nonetheless, the \gls{hmm} indicated the highest levels of accuracy at these measures in comparison to the other IBD methods.
+% Hence, this result corroborates the reliability of the \gls{hmm} in \ClockR.
 %
-\input{chapter5/fig/1kg_age_impact}
+% %
+% \input{chapter5/tab/stats_generror}
+% %
 %
-
-The number of retained estimates was \n{141069}, which included
-\n{1255}~variants of \emph{high} impact (splice acceptor and splice donor variants, and stop gained and stop lost variants),
-\n{44131}~variants with \emph{moderate} impact (missense variants only),
-\n{9990}~variants with \emph{low} impact (synonymous variants only), and
-\n{85694}~\emph{modifier} variants (non-coding variants, \eg intron and intergenic variants, and regulatory region variants).
-
-The distribution of allele age before and after correction is shown in \cpref{fig:1kg_age_impact}.
-Before correction, median ages per category were inferred at \numlist{5.6606;6.3292;7.5674;11.8284} generations in \emph{high}, \emph{moderate}, \emph{low}, and \emph{modifier}, respectively, which were corrected to
-\numlist{158.1629;174.4351;203.9523;289.5565} generations, respectively.
-The correlation between estimated age and allele frequency was measured using $r_S$, which was \numlist{0.829272;0.834355;0.850943;0.867078} in \emph{high}, \emph{moderate}, \emph{low}, and \emph{modifier}, respectively.
-Although differences were small, this suggested that the estimated allele age was less correlated with allele frequency if the severity of the presumed consequences was high.
-
+% The \gls{hmm} was developed to account for genotype error in the inference of IBD segments.
+% It may therefore be expected that the \gls{hmm} outperformed the \gls{fgt} and \gls{dgt} in this comparison.
+% However, this had little influence on the estimation in \ClockM and \ClockC.
+% This is because the \gls{hmm} was implemented such that the interval of the IBD segment is reported, but without further guiding the estimation process.
+% For example, but it would be possible to calculate the posterior probabilities of the hidden states (defined as \emph{ibd} and \emph{non}; see Chapter~4) to weight observed mutational differences at each site along the sequence to determine the value of $S$.
+% This was not considered in the current implementation of the \texttt{rvage} algorithm, but could be extended in future versions.
 %
-\input{chapter5/fig/1kg_pop_impact}
 %
-
-The \gls{1kg} dataset is composed of several continental population samples (or \emph{super-populations}) in which allele frequencies may differ.
-I applied the correction as per frequency observed in each population; variants were excluded if monomorphic per population.
-Although target sites were selected at ${\leq 1\%}$ allele frequency in the whole sample, some alleles were found at relatively high frequencies in certain populations, but which did not exceed ${5\%}$ allele frequency.
-The distribution of allele age per population is shown in \cref{fig:1kg_pop_impact}{a}.
-Variants of \emph{high} impact were overall estimated to be younger, \eg median age was \dec{276.7156} generations in AFR and \dec{113.8948} generations in EAS.
-Non-coding variants, \emph{modifiers}, were older throughout, \eg \dec{528.8116} generations in AFR, but were not notably older in EAS, where median age was \dec{135.3479} generations.
-Alleles in the AMR sample were overall more widely distributed and indicated an older median age per impact category.
-Rank correlation with allele frequency, $r_S$, was high in AFR (\dec{0.73132}), but not substantial in EAS (\dec{0.43870}), EUR (\dec{0.40936}), and SAS (\dec{0.34668}).
-In AMR, age and frequency appeared to be weakly related (\dec{0.09236}), which may be the result of population admixture, which characterises this population sample.
-
+% % Note that both the \gls{dgt} and the HMM-based approach operate on genotype data along and can be applied without haplotype information.
+% % However, because the mutation clock requires haplotypes to count pairwise differences, S, the current analysis considered (phased) haplotypes to evaluate the performance of both approaches.
 %
-\input{chapter5/tab/stats_1kg_impact}
 %
-
-Variants that appeared in more than \n{1} population were removed to focus on population-specific, presumably more recent alleles; see \cref{fig:1kg_pop_impact}{b}.
-This reduced the number of alleles to \n{77438}.
-Notably, alleles retained in AMR were youngest in all impact categories, whereas the alleles specific to the AFR sample were seen to be the oldest; \eg median age was \dec{227.2396} generations in \emph{high} and \dec{369.7328} generations in the \emph{modifier} category.
-Rank correlation between between allele frequency and inferred age showed a more consistent relationship in each population;
-AFR (\dec{0.91654}), EAS (\dec{0.89046}), EUR (\dec{0.77979}), SAS (\dec{0.92096}).
-Notably, the variants specific to AMR now showed a moderately high correlation between age and frequency (\dec{0.67690}).
-These results are summariesed in \cpref{tab:stats_1kg_impact}.
-
+%
+% %
+% \section{Age of alleles with predicted effects in 1000 Genomes data}
+% %
+%
+% The method presented in this chapter was applied the final release dataset of the \glsentryfull{1kg} Phase~\rom{3} \citep{GenomesProjectConsortium:2012co,Auton:2015gk}, where I estimated allele age on a selected set of target sites using the \gls{hmm}-based approach under the recombination clock model, \ClockR.
+% To regard inferred allele age in relation to the functional consequences of specific variants, I prioritised \glspl{snp} that have been annotated by the Ensembl \gls{vep}
+% \citep{McLaren:2016gq}.\footnote{Ensemble Variant Effect Predictor (VEP): \url{http://www.ensembl.org/info/docs/tools/vep/index.html} \accessed{2017}{02}{15}}
+% In particular, \gls{vep} classifies variants into \n{4} \emph{impact} categories which broadly distinguishes the severity of the consequences predicted; namely \emph{high}, \emph{moderate}, and \emph{low} impact, as well as \emph{modifiers}.
+%
+%
+% %
+% \subsection{Quality control}
+% %
+%
+% Because genotype error was expected to be present in the data, alleles observed at selected target sites may not correctly identify haplotype sharing by descent in all individuals.
+% Alleles can either be missed (\emph{false negatives}) or incorrectly observed (\emph{false positives}), such that allocation into the set of sharers, $X_c$, and the set of non-sharers, $X_d$, is biased.
+% This is likely to disrupt the estimation of the composite likelihood, \ie by including \glspl{ccf} at wrong ends of \cref{eq:compll}, to the extent that the resulting posterior probabilities may become spurious or cancel out (referred to as \emph{disconformity}).
+% In general, the identification of missed or falsely observed alleles is not straightforward, in particular towards lower allele frequencies.
+% While it would be possible to reduce the risk of including false negatives in $\Omega_d$ by lowering the $n_d$ threshold, the inclusion of false positives would not be affected, but could be reduced by applying a threshold to $n_c$.
+% However, this would not be possible for \fk{2}~variants, unless they are categorically excluded.
+%
+% As an alternate solution, here, I attempted to exclude target sites in a \emph{post~hoc} analysis using the following quality control measure.
+% The median of the posterior probability of the \gls{ccf} in each pair was taken to calculate the geometric mean (or \emph{log-average}) across pairs contained in $\Omega_c$ and $\Omega_d$, respectively, computed as
+% \begin{equation}
+%  	\tilde{y}_x ~=~ {\Bigg( \prod_{i,j \in \Omega_x} {[ \Lambda_{ij} ]}_{2} \Bigg)}^{- n_x}
+% \end{equation}
+% where ${x \in \{c,d\}}$, referring to either set $\Omega_c$ or $\Omega_d$, and ${{[ \Lambda_{ij} ]}_{2}}$ is the median (\nth{2}~quartile) of the \gls{ccf} computed for individuals $i$ and $j$ taken from that set.
+% The intuition is that $\tilde{y}_c$ and $\tilde{y}_d$ are indicators of the central tendency of the time of coalescent events found through concordant and discordant pairs, such that ${\tilde{y}_c < \tilde{y}_d}$ is expected if the estimation was not or less affected by false negatives or positives.
+% By also considering ${\tilde{y}_m = \sqrt{\tilde{y}_c  \tilde{y}_d}}$ as a robust measure of allele age, here, target sites were removed if the condition ${\tilde{y}_c < \tilde{y}_m < \tilde{y}_d}$ was violated.
+%
+%
+% %
+% \subsection{Error correction based on allele frequency}
+% %
+%
+% The error correction model constructed in \cpref{sec:age_corrfactor} was used to correct estimated age values dependent on the allele frequency observed at a given target site.
+% In particular, a simple nonlinear regression model was used to fit empirically computed factor values, such that correction factors could be predicted by the allele frequency observed in \gls{1kg} data.
+% The following exponential model was used.
+% \begin{equation}
+% 	\hat{\xi}_k ~=~ b \euler{k a}
+% \end{equation}
+% The fitted model parameters were ${a = \dec{-0.029203}}$ and ${b = \dec{30.97533}}$ for the the \gls{hmm} in \ClockR.
+%
+%
+% %
+% \subsection{Results}
+% %
+%
+% Target sites were randomly selected from the set of \glspl{snp} in available \gls{vep} results, across chromosomes~{1--22}, at shared allele frequencies below \SI{1}{\percent} observed across the whole sample of ${N = 2504}$ diploid individuals; \ie \fk{}~variants with ${k \in [2, 50]}$.
+% In total, approximately \n{150000} target sites were analysed, using the following model parameters; ${\Ne = \num{10000}}$, constant mutation rate of ${\mu = \num{1.2e-8}}$ per site per generation \citep[following][]{Scally:2012fe}, recombination rates according to genetic maps per chromosome provided by \gls{hapmap} Phase~\rom{2}, Build~37 \citep{Frazer:2007kha}, and ${n_d = \num{2504}}$.
+% The \gls{hmm} used the empirical emission model that was generated from genotype error identified in \gls{1kg} data (chromosome~20); see Chapter~4.
+%
+% The total number of pairwise analyses conducted was \dec{460.051261}~million.
+% A fraction of \SI{2.613439}{\percent} was conflicting and \SI{2.899365}{\percent} were indicated in quality control; together, \SI{3.497}{\percent} of target sites were removed.
+% Notably, the proportion of variants removed in both filtering steps was highest at lower allele frequencies; for example, \SI{10.76068927}{\percent} of \fk{2}~variants and only \SI{0.85212143}{\percent} of \fk{5}~variants were removed.
+%
+% %
+% \input{chapter5/fig/1kg_age_impact}
+% %
+%
+% The number of retained estimates was \n{141069}, which included
+% \n{1255}~variants of \emph{high} impact (splice acceptor and splice donor variants, and stop gained and stop lost variants),
+% \n{44131}~variants with \emph{moderate} impact (missense variants only),
+% \n{9990}~variants with \emph{low} impact (synonymous variants only), and
+% \n{85694}~\emph{modifier} variants (non-coding variants, \eg intron and intergenic variants, and regulatory region variants).
+%
+% The distribution of allele age before and after correction is shown in \cpref{fig:1kg_age_impact}.
+% Before correction, median ages per category were inferred at \numlist{5.6606;6.3292;7.5674;11.8284} generations in \emph{high}, \emph{moderate}, \emph{low}, and \emph{modifier}, respectively, which were corrected to
+% \numlist{158.1629;174.4351;203.9523;289.5565} generations, respectively.
+% The correlation between estimated age and allele frequency was measured using $r_S$, which was \numlist{0.829272;0.834355;0.850943;0.867078} in \emph{high}, \emph{moderate}, \emph{low}, and \emph{modifier}, respectively.
+% Although differences were small, this suggested that the estimated allele age was less correlated with allele frequency if the severity of the presumed consequences was high.
+%
+% %
+% \input{chapter5/fig/1kg_pop_impact}
+% %
+%
+% The \gls{1kg} dataset is composed of several continental population samples (or \emph{super-populations}) in which allele frequencies may differ.
+% I applied the correction as per frequency observed in each population; variants were excluded if monomorphic per population.
+% Although target sites were selected at ${\leq 1\%}$ allele frequency in the whole sample, some alleles were found at relatively high frequencies in certain populations, but which did not exceed ${5\%}$ allele frequency.
+% The distribution of allele age per population is shown in \cref{fig:1kg_pop_impact}{a}.
+% Variants of \emph{high} impact were overall estimated to be younger, \eg median age was \dec{276.7156} generations in AFR and \dec{113.8948} generations in EAS.
+% Non-coding variants, \emph{modifiers}, were older throughout, \eg \dec{528.8116} generations in AFR, but were not notably older in EAS, where median age was \dec{135.3479} generations.
+% Alleles in the AMR sample were overall more widely distributed and indicated an older median age per impact category.
+% Rank correlation with allele frequency, $r_S$, was high in AFR (\dec{0.73132}), but not substantial in EAS (\dec{0.43870}), EUR (\dec{0.40936}), and SAS (\dec{0.34668}).
+% In AMR, age and frequency appeared to be weakly related (\dec{0.09236}), which may be the result of population admixture, which characterises this population sample.
+%
+% %
+% \input{chapter5/tab/stats_1kg_impact}
+% %
+%
+% Variants that appeared in more than \n{1} population were removed to focus on population-specific, presumably more recent alleles; see \cref{fig:1kg_pop_impact}{b}.
+% This reduced the number of alleles to \n{77438}.
+% Notably, alleles retained in AMR were youngest in all impact categories, whereas the alleles specific to the AFR sample were seen to be the oldest; \eg median age was \dec{227.2396} generations in \emph{high} and \dec{369.7328} generations in the \emph{modifier} category.
+% Rank correlation between between allele frequency and inferred age showed a more consistent relationship in each population;
+% AFR (\dec{0.91654}), EAS (\dec{0.89046}), EUR (\dec{0.77979}), SAS (\dec{0.92096}).
+% Notably, the variants specific to AMR now showed a moderately high correlation between age and frequency (\dec{0.67690}).
+% These results are summariesed in \cpref{tab:stats_1kg_impact}.
+%
 
 
 
