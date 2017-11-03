@@ -364,7 +364,7 @@ The process of error integration in simulated data is described below.
 
 
 %
-\subsection{Integration of empirical error distributions in simulated data}
+\subsection{Integration of empirical error distributions in simulated data}\label{sec:create_error_data}
 %
 
 The dataset simulated in Chapter~3 was re-used for integration of genotype error, so as to enable a direct comparison to previously obtained results after applying the same methodology for IBD detection; see \ctref{sec:msprime} for a description of the simulation process.
@@ -1219,63 +1219,33 @@ The distribution of IBD length by focal allele frequency is shown in \cpref{fig:
 While it is shown that only the HMM is able to infer longer IBD segments that are more consistent with expectations, such a comparison is limited due to population structure in the \gls{1kg} sample.
 For example, the simulated dataset was generated as a sample of ``European'' haplotypes only (as defined in the demographic model; see \ccref{sec:sim_demo_model}.
 
-I further subdivided the set of retained IBD segments based on the focal allele being shared between individuals from the same or different populations as recorded in \gls{1kg}.
-\Ctref{fig:1KG_chr20_pop_len} shows the distribution of median IBD length by focal allele frequency for each case, which also includes the results obtained using the FGT and DGT, where segments were detected on the same target site and haplotype pair.
-
-Since IBD is delimited by past recombination events that occurred independently along each lineage back in time, the length of a shared haplotype region is indicative for the time since a haplotype was co-inherited from a common ancestor.
-It is expected that relatively long segments have been co-inherited more recently than shorter segments.
-
-
-AFR AFR  \SI{0.111908}{\mega\basepair} (\SI{0.228511}{\centi\morgan})
-AMR AMR  \SI{0.262273}{\mega\basepair} (\SI{0.468826}{\centi\morgan})
-EAS EAS  \SI{0.272886}{\mega\basepair} (\SI{0.484657}{\centi\morgan})
-EUR EUR  \SI{0.281191}{\mega\basepair} (\SI{0.518560}{\centi\morgan})
-SAS SAS  \SI{0.222512}{\mega\basepair} (\SI{0.410684}{\centi\morgan})
-
-AFR AMR  \SI{0.082495}{\mega\basepair} (\SI{0.157364}{\centi\morgan})
-AFR EAS  \SI{0.011873}{\mega\basepair} (\SI{0.013224}{\centi\morgan})
-AFR EUR  \SI{0.058866}{\mega\basepair} (\SI{0.094987}{\centi\morgan})
-AFR SAS  \SI{0.018748}{\mega\basepair} (\SI{0.023320}{\centi\morgan})
-
-AMR EAS  \SI{0.142043}{\mega\basepair} (\SI{0.237085}{\centi\morgan})
-AMR EUR  \SI{0.245770}{\mega\basepair} (\SI{0.447070}{\centi\morgan})
-AMR SAS  \SI{0.182598}{\mega\basepair} (\SI{0.317906}{\centi\morgan})
-
-EAS EUR  \SI{0.114365}{\mega\basepair} (\SI{0.175285}{\centi\morgan})
-EAS SAS  \SI{0.162859}{\mega\basepair} (\SI{0.265078}{\centi\morgan})
-
-EUR SAS  \SI{0.210214}{\mega\basepair} (\SI{0.374079}{\centi\morgan})
-
-
--- focal allele frequency may not be an ideal indicator for allele age
--- different \Ne would apply to the different populations, but here the same value of \Ne was used as model parameter in the HMM, as the results shown were obtained from the analysis on the full \gls{1kg} sample
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %
 \input{chapter4/fig/1KG_chr20_pop_len}
 %
+
+Since IBD is delimited by past recombination events that occurred independently along each lineage back in time, the length of a shared haplotype region is indicative for the time since a haplotype was co-inherited from a common ancestor.
+It is therefore expected that IBD segments are longer within a given population than segments shared between individuals from different populations.
+I further subdivided the set of IBD segments based on the focal allele being shared between individuals from the same or different populations, as recorded in \gls{1kg}.
+\Ctref{fig:1KG_chr20_pop_len} shows the distribution of median physical and genetic IBD length by focal allele frequency for each case, which also includes the results obtained using the \gls{fgt} and \gls{dgt}, where segments were detected on the same target site and haplotype pair.
+\Ctref{tab:1kg20_pop_len} gives the overall median lengths for each comparison (sharing within and between populations).
+
+%
+\input{chapter4/tab/1kg20_pop_len}
+%
+
+The length of segments inferred around alleles shared within the same population decreased towards higher allele frequencies and were generally longer compared to haplotypes shared between a given population and any of the others.
+Such expected differences were more pronounced for results obtained using the HMM.
+While the \gls{fgt} and \gls{dgt} overall resulted in shorter detected haplotype segments, the HMM was able to infer even shorter segments;
+for example, see haplotype sharing between African~(AFR) and East~Asian~(EAS) individuals in \cref{fig:1KG_chr20_pop_len}.
+Further, note that the effect of error on the \gls{fgt} and \gls{dgt} would be reduced at shorter IBD segments, as it becomes less likely to encounter false positive breakpoints.
+
+
+It should be noted that different values of \Ne would apply to the different populations.
+The results shown here were obtained from the analysis on the full \gls{1kg} sample, where $\Ne=\n{10000}$ was used as model parameter in the HMM.
+The effect of using different values of \Ne, which is one of the parameters in the computation of transition probabilities, would need further evaluation.
+Also, recall that the emission probabilities used here were derived from data simulated using $\Ne=\n{7300}$, which may further impact the accuracy of inference.
+Such possible variations, however, were treated as negligible here, as it appeared more relevant to first demonstrate the general feasibility of the proposed method.
+
 
 
 
@@ -1283,28 +1253,60 @@ EUR SAS  \SI{0.210214}{\mega\basepair} (\SI{0.374079}{\centi\morgan})
 \subsection{Discussion}
 %
 
+The analysis on simulated data has shown that the HMM-based approach to infer IBD around target sites is able to operate equally well in both absence and presence of error.
+In particular, I showed that IBD segments detected using the HMM maintained high levels of accuracy when genotype error was present.
+However, a notable caveat is seen in the decreasing accuracy towards higher frequencies of the focal allele; for example, IBD segments identified by \fk{2} variants were overall higher in accuracy compared to \fk{15} or higher
+
+A possible explanation could be that the emission model was generated under the assumption of recent IBD, where the empirical distributions closely followed the expected genotype pair frequencies \Addition{where it was assumed that no further mutations occur on a co-inherited haplotype.}
+\Addition{For example, as given in \ctref{eq:genpairibd}, the expected probability to observe genotype pair $g_{02}$ or $g_{20}$ in \emph{ibd} would be equal to zero.
+While this assumption may hold true for very recent co-inheritance, and perhaps under the convenient conditions of simulation, it is easily violated in reality.
+The empirical model provided a more realistic approximation to observing genotype pairs in real data (as well as simulated data), but was still limited to observations made under recent co-inheritance.}
+
+To have a more complete picture of the differences in the probability of observing each possible genotype pair, I again used the simulation records to sample IBD segments that were co-inherited at varying points in time.
+The resulting empirical probability distributions are dependent on the allele frequency at the site of a given genotype pair and the \gls{tmrca} of the underlying shared haplotype, which is shown in \cpref{fig:emission_tmrca}, both before and after error.
+For example, at \gls{tmrca}$\leq1$, the rate at which genotype pair $g_{02}$ or $g_{20}$ was observed was zero throughout before error, but non-zero after error.
+But, notably, differences due to error were subdued at older relationships.
 
 %
 \input{chapter4/fig/emission_tmrca}
 %
 
 
-The analysis on simulated data has shown that the HMM-based approach to infer IBD around target sites is able to operate equally well in both absence and presence of genotype error.
-In particular, I showed that IBD detected using the HMM maintained high levels of accuracy when genotype error is present.
-However, a notable caveat is seen in the decreasing accuracy towards higher frequencies of the focal allele; for example, IBD segments identified by \fk{2} variants were overall higher in accuracy compared to \fk{15} or higher.
-The emission model was generated under the assumption of recent IBD, and empirical distributions closely followed the expected genotype pair frequencies.
-Besides genotype error, the accumulation of mutations over time are expected to lead to further deviations from expectations under IBD.
+\Addition{One caveat of the HMM-based method is its reliance on genotype data.
+It is possible that there may be several, similar recently co-inherited shared haplotypes involved, whose combined effects on the observed genotype frequency distribution is not straightforward to distinguish based on observations from genotype data alone.
+The analysis of the simulated dataset and its tree structure has suggested that there was little overlap of recently co-inherited IBD segments on average for a pair of diploid individuals.
+However, this observation cannot be generalised as it would be expected that the underlying shared haplotype structure is affected by population stratification and other demographic parameters such as inbreeding and geographic isolation of a population.}
 
-The difference between recent and older relationships of IBD is exemplified in \cpref{fig:emission_tmrca}, where I used the same methodology I applied as in \cpref{sec:HMMError}, using the error-free dataset ($D$), but where I distinguished IBD segments by \gls{tmrca}.
-The difference is shown between IBD haplotypes that were very recently co-inherited (\gls{tmrca}$<10$ generations) and those denoting older relationships (\gls{tmrca}$\geq \num{10000}$ generations).
-The resulting proportions of genotype pairs, \ie their observation probability dependent on age,
-show an interesting pattern, but one that may be difficult to model.
-For example, $g_{0 0}$ and $g_{2 2}$ genotype pairs appear to be consistent and less variable most of the time, but then show a distribution as expected under non-IBD at very old age ($\geq \num{10000}$ generations).
-In contrast, the $g_{0 2}$ genotype pair gradually increases from zero probability expected under IBD to a distribution expected under non-IBD.
-Interestingly, the $g_{1 1}$ genotype pair varies inconsistently with regard to either expectation at intermediate time frames (\eg between \n{1000} and \n{10000} generations).
-This result suggests that a static emission model may not provide sufficient leverage to distinguish IBD from non-IBD at older (\ie higher-frequency) alleles, or in general when IBD is not recent.
-It would therefore be advantageous to device a fully probabilistic model to compute emission probabilities; \eg conditional on mutation rate and expected allele age, similar to the transition model.
 
+\Addition{Another consideration is that focal allele frequency may not be an ideal indicator for allele age or, in particular, \gls{tmrca}.
+The HMM-based method uses the expected age of the target allele observed at a given frequency to modulate the transition probability from the focal \emph{ibd} state to the \emph{non} state.
+This approximation could be regarded as being unsuitable, because the expected length of an IBD segment is dependent in \gls{tmrca} and where the actual age of an allele within a given segment may only be informative if that allele derived from a mutation event around the time of the MRCA of the two haplotypes involved.
+For example, it would be expected that the majority of shared alleles within the interval of a recent and relatively long segment are (much) older than the time since co-inheritance of that segment.
+However, recall that I attempted to minimise such confounders in the current analysis by removing ``duplicate'' segments, where only the segment found around the target allele with the lowest frequency was retained per pair.}
+
+
+\Addition{Lastly, it must be noted that the results obtained from the analysis of \gls{1kg} data are likely to be confounded due to false allele sharing.
+In presence of data error, not all observed shared alleles correctly identify a recently co-inherited shared haplotype, which is particularly problematic towards lower allele frequencies; for example, see }\cpref{fig:fk_error}\Addition{.
+Future analyses may therefore consider to only analyse focal alleles that were called or typed with high confidence.}
+
+
+
+
+%
+%%% Replaced with above
+%
+% Besides data error, the accumulation of mutations over time are expected to lead to further deviations from expectations under IBD.
+%
+% The difference between recent and older relationships of IBD is exemplified in \cpref{fig:emission_tmrca}, where I used the same methodology I applied as in \cpref{sec:HMMError}, using the error-free dataset ($D$), but where I distinguished IBD segments by \gls{tmrca}.
+% The difference is shown between IBD haplotypes that were very recently co-inherited (\gls{tmrca}$<10$ generations) and those denoting older relationships (\gls{tmrca}$\geq \num{10000}$ generations).
+% The resulting proportions of genotype pairs, \ie their observation probability dependent on age,
+% show an interesting pattern, but one that may be difficult to model.
+% For example, $g_{0 0}$ and $g_{2 2}$ genotype pairs appear to be consistent and less variable most of the time, but then show a distribution as expected under non-IBD at very old age ($\geq \num{10000}$ generations).
+% In contrast, the $g_{0 2}$ genotype pair gradually increases from zero probability expected under IBD to a distribution expected under non-IBD.
+% Interestingly, the $g_{1 1}$ genotype pair varies inconsistently with regard to either expectation at intermediate time frames (\eg between \n{1000} and \n{10000} generations).
+% This result suggests that a static emission model may not provide sufficient leverage to distinguish IBD from non-IBD at older (\ie higher-frequency) alleles, or in general when IBD is not recent.
+% It would therefore be advantageous to device a fully probabilistic model to compute emission probabilities; \eg conditional on mutation rate and expected allele age, similar to the transition model.
+%
 
 
 

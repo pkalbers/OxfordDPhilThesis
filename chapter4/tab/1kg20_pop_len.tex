@@ -1,0 +1,46 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Median shared haplotype length per population in 1000 Genomes, chromosome~20}
+{Shared haplotype segments found around alleles shared within and between populations, as contained within \gls{1kg}.
+The \gls{1kg} Phase~\rom{3} dataset comprises samples from \n{5} continental populations (or \emph{super-populations});
+African~(AFR), Ad-Mixed American~(AMR), East~Asian~(EAS), European~(EUR), and South~Asian~(SAS).
+The results shown compare median physical and genetic lengths of segments detected using \gls{fgt}, \gls{dgt}, and \gls{hmm}.
+Shared haplotypes inferred around alleles shared within the same population are marked ($\ast$).\AdditionLabel}
+{tab:1kg20_pop_len}
+\centering
+\begin{tabular}{cccc*3{S[table-format=1.3]}c*3{S[table-format=1.3]}}
+\toprule
+\multicolumn{3}{c}{Populations} & &
+\multicolumn{3}{c}{Physical length (Mb)} & &
+\multicolumn{3}{c}{Genetic length (cM)} \\
+\cmidrule(lr){5-7}
+\cmidrule(lr){9-11}
+ & & & &
+ \multicolumn{1}{c}{\textsc{fgt}} &
+ \multicolumn{1}{c}{\textsc{dgt}} &
+ \multicolumn{1}{c}{\textsc{hmm}} &
+ &
+ \multicolumn{1}{c}{\textsc{fgt}} &
+ \multicolumn{1}{c}{\textsc{dgt}} &
+ \multicolumn{1}{c}{\textsc{hmm}} \\
+\midrule
+AFR & $\ast$ & AFR   & &   0.0953630  &  0.1538850  &  0.2935880   & &   0.16057776  &  0.27368286  &  0.47134933 \\
+AFR &        & AMR   & &   0.0883050  &  0.1441820  &  0.1601910   & &   0.14693635  &  0.24837901  &  0.23652881 \\
+AFR &        & EAS   & &   0.0115740  &  0.0315790  &  0.0050850   & &   0.01156149  &  0.03785932  &  0.00813254 \\
+AFR &        & EUR   & &   0.0774200  &  0.1368035  &  0.1024660   & &   0.11410845  &  0.21700701  &  0.12844471 \\
+AFR &        & SAS   & &   0.0208440  &  0.0515020  &  0.0172550   & &   0.02374001  &  0.07137431  &  0.02252322 \\
+AMR & $\ast$ & AMR   & &   0.2038830  &  0.3557680  &  0.7129400   & &   0.31137054  &  0.57153883  &  1.08905972 \\
+AMR &        & EAS   & &   0.1028560  &  0.1969615  &  0.2942145   & &   0.15574224  &  0.31515857  &  0.42889480 \\
+AMR &        & EUR   & &   0.1967920  &  0.3374810  &  0.5530320   & &   0.30437058  &  0.54800974  &  0.83130167 \\
+AMR &        & SAS   & &   0.1470260  &  0.2606995  &  0.3443815   & &   0.22954635  &  0.42494642  &  0.50971107 \\
+EAS & $\ast$ & EAS   & &   0.1810310  &  0.3371910  &  1.0471060   & &   0.26898801  &  0.53432077  &  1.65876398 \\
+EAS &        & EUR   & &   0.0852165  &  0.1712245  &  0.2273470   & &   0.11975636  &  0.25972257  &  0.29546667 \\
+EAS &        & SAS   & &   0.1150430  &  0.2235760  &  0.3671295   & &   0.16811773  &  0.35266527  &  0.52353278 \\
+EUR & $\ast$ & EUR   & &   0.2208935  &  0.3799455  &  0.7222260   & &   0.34646435  &  0.61871972  &  1.13196026 \\
+EUR &        & SAS   & &   0.1640040  &  0.2876520  &  0.4199520   & &   0.25448201  &  0.46803180  &  0.61850847 \\
+SAS & $\ast$ & SAS   & &   0.1722970  &  0.3115490  &  0.5513870   & &   0.26487589  &  0.51306615  &  0.83429636 \\
+\bottomrule
+\end{tabular}
+\end{table}
