@@ -1255,11 +1255,7 @@ INPUT chapter5/tab/stats_1kg_impact.tex
 INPUT chapter5/tab/stats_1kg_impact.tex
 INPUT .build/main.acr
 INPUT .build/main.acr
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbit8t.tfm
 INPUT .build/main.acr
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpbit8t.vf
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbit8r.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbite.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpbn8t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbne.tfm
 INPUT .build/main.bbl
@@ -1300,7 +1296,6 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb

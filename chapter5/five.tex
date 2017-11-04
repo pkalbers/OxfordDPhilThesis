@@ -103,8 +103,8 @@ If no evidence of recombination was found on either the left or the right-hand s
 \subsubsection{Mutation clock model (\ClockM)}
 %
 
-Let the physical length of the shared haplotype segment be denoted by $D$, measured in basepairs.
-The number of mutational differences observed along the segment in the pair of haplotypes is denoted by $s$, which represents the sum of \gls{iid} mutation events over the region of length $D$.
+Let the physical length of a given haplotype region be denoted by $D$, measured in basepairs.
+The number of mutational differences observed along the sequence in the pair of haplotypes is denoted by $S$.
 The value of $S$ refers to the number of segregating sites in a sample of ${N=2}$~haplotypes, for which the infinite sites model is assumed without recombination; \eg see \citet{Watterson:1975ur} and \citet{Tavare:1997vra}.
 Mutations are assumed to occur only once at each site in the history of the sample \citep{Kimura:1969tn}, such that $S$ reflects the total number of mutation events that have occurred along both lineages since the split from the \gls{mrca}.
 
@@ -114,9 +114,9 @@ In the coalescent, the mutation rate is scaled by population size, which is expr
 It follows that ${\theta \times D}$ is equal to the expected number of pairwise differences per coalescent time unit over the length of the segment.
 Thus, the probability of observing a discrete number $S$ over distance $D$ and time $\tau$ is modelled as a Poisson process, such that ${S \sim \operatorname{Pois}(\theta D \tau)}$, for which the \Correct{\gls{pmf}} is defined as
 \begin{equation}
-	P(S = s \mid \theta,D,\tau) ~=~ \frac{(\theta D \tau)^s}{s!} \euler{-\theta D \tau}
+	P(S \mid \theta,D,\tau) ~=~ \frac{(\theta D \tau)^S}{S!} \euler{-\theta D \tau}
 \end{equation}
-for ${s = 0,1,2,\ldots}$ and ${\theta,D,\tau > 0}$.
+for ${S = 0,1,2,\ldots}$ and ${\theta,D,\tau > 0}$.
 Note that the equation above is the \emph{joint} probability of observing mutational differences at each site along the sequence.
 The likelihood function for the time parameter~$\tau$ is proportional to the joint \Correct{\gls{pmf}}, but requires only those terms that involve $\tau$ and where constant terms can be dropped, such that
 \begin{equation}\label{eq:mut_like}
@@ -132,9 +132,6 @@ The posterior probability of the time to coalescence can now be written as
 \end{equation}
 where $\pi(\tau)$ is the coalescent prior, reflecting the assumption that the expected time to a coalescent event grows exponentially back in time.
 
-\Addition{
-Note that both \cref{eq:mut_like,,eq:mut_post} can be expressed in terms of the
-}
 
 
 %

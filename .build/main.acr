@@ -1,8 +1,6 @@
 \glossarysection[\glossarytoctitle]{\glossarytitle}\glossarypreamble
 \begin{theglossary}\glossaryheader
 \glsgroupheading{glssymbols}\relax \glsresetentrylist %
-\glossentry{iid}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{178}}}%
 \glossentry{1kg}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{176}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{215\delimR 218}}}\glsgroupskip
