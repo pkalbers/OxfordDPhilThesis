@@ -763,6 +763,10 @@ The distribution of inferred IBD segment lengths for each approach are given in 
 Notably, IBD segments detected using the \gls{fgt} and \gls{dgt} were overall underestimated after error; only the HMM maintained similarly accurate lengths before and after error, for both concordant and discordant pairs.
 
 
+%
+\input{chapter5/tab/stats_generror}
+%
+
 
 
 \DeleteNote{Section ``Generation of error correction models''}
@@ -985,3 +989,84 @@ Yet, further work is needed to determine the feasibility of such an approach.
 % 	\item[\textbf{Type \rom{1}}] errors or \emph{false positives}
 % 	\item[\textbf{Type \rom{2}}] errors or \emph{false negatives}
 % \end{description}
+
+
+
+%
+%
+% New results below
+%
+%
+
+
+%
+\section{A haplotype-based HMM for shared haplotype inference}
+%
+
+%
+\input{chapter5/fig/info_hmm_hap}
+%
+
+
+
+%
+\subsection{Estimation of T\textsubscript{MRCA} using PSMC}
+%
+
+
+\texttt{PSMC} uses a \gls{hmm} to infer the \gls{tmrca} at a locus from the observed sequence of heterozygote genotypes (phased haplotype pairs).
+emission probabilities
+transitions represent ancestral recombination events
+The hidden states are defined as discrete time intervals
+
+
+
+using the default model parameters; in particular, the number of 64 hidden states.
+
+The boundaries of time intervals in \texttt{PSMC} are calculated as
+\begin{equation*}
+	t_i ~=~ 0.1 \times \euler{\frac{i}{n}\log(1 + 10  T_{\max})} - 0.1
+\end{equation*}
+where $T_{\max}$ is the maximum \gls{tmrca} considered (scaled in units of $2\Ne$), $n$ is the number of intervals (\ie hidden states), and ${i=0,1,\ldots,n}$.
+
+Note that I modified the \texttt{decode} algorithm implemented in the \emph{multiple sequentially Markovian coalescent} (\texttt{MSMC}) written in \texttt{D} to include the option to only return posterior probabilities computed at a specified target position.\footnote{Modified \texttt{decode} algorithm:\url{https://github.com/pkalbers/msmc2} \accessed{2017}{11}{04}}
+
+
+%
+\subsubsection{Results}
+%
+
+I randomly selected \n{1000} target sites at \fk{\geq2} and allele frequency below 50\%, so as to include alleles that could be relatively old (as opposed to only selecting rare alleles that are presumed to be relatively young in age).
+
+At each site, a maximum of \n{100} concordant and discordant pairs was selected at random, yielding \n{362661} pairwise analyses in total.
+Simulation records were scanned to obtain the true \gls{tmrca} for each target site and haplotype pair.
+
+
+
+
+%
+\input{chapter5/fig/psmc_tmrca}
+%
+
+
+
+%
+\input{chapter5/tab/stats_psmc_tmrca}
+%
+
+
+
+%
+\input{chapter5/fig/psmc_age}
+%
+
+
+%
+\input{chapter5/tab/stats_psmc_age}
+%
+
+
+
+%
+\subsubsection{Discussion}
+%

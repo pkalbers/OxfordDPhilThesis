@@ -1,0 +1,42 @@
+% !TEX root = ../../main.tex
+
+
+\begin{table}[!htb]
+\Caption{Accuracy of age inference for different methods}
+{...}
+{tab:stats_psmc_age}
+\centering
+\begin{threeparttable}
+\begin{tabular}{c
+@{\quad}c
+*3{S[table-format=1.3]}
+@{\quad}c
+*3{S[table-format=1.3]}
+@{\quad}c
+*3{S[table-format=2.1,round-precision=1]}}
+\toprule
+Method & &
+\multicolumn{3}{c}{Rank correlation ($r_S$)} & &
+\multicolumn{3}{c}{$\rmsle$} & &
+\multicolumn{3}{c}{Inside interval (\%)} \\
+\cmidrule(lr){3-5}
+\cmidrule(lr){7-9}
+\cmidrule(lr){11-13}
+ & &
+ {Set A} & {Set B} & {Set C} & &
+ {Set A} & {Set B} & {Set C} & &
+ {Set A} & {Set B} & {Set C} \\
+\otoprule
+\ClockM       & & \bfseries 0.888434 & 0.671322 & 0.791078 & & 0.477437 & 0.296484 & 0.249119 & & 23.6051 & 66.9642 & 65.1933 \\
+\ClockR       & & 0.839882 & 0.673469 & 0.802052 & & \bfseries 0.306607 & 0.272292 & \bfseries 0.238252 & & \bfseries 53.2188 & \bfseries 82.5892 & 66.8508 \\
+\ClockC       & & 0.853531 & 0.675706 & 0.800950 & & 0.332719 & \bfseries 0.262146 & 0.238445 & & 45.9227 & 81.6964 & \bfseries 67.7716 \\
+\texttt{PSMC} & & 0.817085 & \bfseries 0.747075 & \bfseries 0.828317 & & 0.525377 & 0.443703 & 0.276726 & & 30.9012 & 55.8558 & 61.5101 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+	\item Set~A: ~ ``Young'' age, $n=233$, selected at ${t_d \leq \num{1000}}$
+  \item Set~B: ~ ``Intermediate'' age, $n=222$, selected at ${t_c < \num{1000}, ~ t_d > \num{1000}}$
+  \item Set~C: ~ ``Old'' age, $n=543$, selected at ${t_c \geq \num{1000}}$
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
