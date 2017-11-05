@@ -26,15 +26,17 @@ The inference of the genealogical history of a sample is of interest to a myriad
 The ``age'' of an allele, which simply refers to the time since the allele was created by a mutation event, is of particular interest; for example, to observe demographic processes and events, or to better understand the effects of disease-related variants by their time of emergence in the population.
 
 In this chapter, I propose a \Correct{novel} method to estimate the age of an allele, which is based on a collection of statistical models that derive from coalescent theory.
-\Correct{The method is inspired by \emph{composite likelihood} approaches, which} recently have gained in popularity for various applications in genetic research.
-The coalescent-based approach was pioneered by \citet{Hudson:2001vs} and has been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
+\Correct{The approach is inspired by \emph{composite likelihood} methods, which} recently have gained in popularity for various applications in genetic research.
+\Correct{Coalescent-based composite likelihood methods were} pioneered by \citet{Hudson:2001vs} and have been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
 
 In contrast to existing methods for allele age estimation \citep[\eg, see review by][]{Slatkin:2000us}, the method I present in this chapter does not require prior knowledge about past demographic processes or events.
 Although an assumption of certain population parameters is required, such as effective population size (\Ne) or mutation rate ($\mu$), these are expected to \emph{mostly} affect the scaling of time, such that differences between age estimates for different alleles are proportionally constant.
 
 The age estimation framework presented in this chapter is based on allele sharing at a particular variant site observed in the sample, where the underlying IBD structure is inferred locally around the chromosomal position of the variant under consideration.
 The methodology for targeted IBD detection presented in Chapters~3 and 4 is therefore essential for this approach; \ie the \texttt{tidy} algorithm which includes the \gls{fgt}, \gls{dgt}, and the probabilistic IBD model for inference using a \gls{hmm}.
-I implemented the age estimation method as a computational tool written in \cpp, referred to as the \textbf{\texttt{rvage}} algorithm (for \underline{r}are \underline{v}ariant \underline{a}\underline{g}e \underline{e}stimation) which incorporates the full functionality of the previously presented \texttt{tidy} algorithm for IBD detection.\footnote{Rare variant age estimation (\texttt{rvage}): \url{https://github.com/pkalbers/rvage}}
+\Addition{Additionally, I present a novel haplotype-based \gls{hmm} method for shared haplotype inference, which can be seen as the logical conclusion of the previously developed genotype-based \gls{hmm}.}
+
+I implemented the age estimation method as a computational tool written in \cpp, referred to as the \textbf{\texttt{rvage}} algorithm (for \underline{r}are \underline{v}ariant \underline{a}\underline{g}e \underline{e}stimation) which incorporates the full functionality of the previously presented \texttt{tidy} algorithm for IBD detection, \Addition{as well as the novel haplotype-based \gls{hmm} that is presented in this chapter}.\footnote{Rare variant age estimation (\texttt{rvage}): \url{https://github.com/pkalbers/rvage}}
 
 I begin this chapter by introducing the concept of the method, which is followed by a detailed description of the statistical framework.
 The method is evaluated in extensive simulation studies, which also consider data error as a source of estimation bias.
@@ -100,105 +102,197 @@ If no evidence of recombination was found on either the left or the right-hand s
 
 
 %
-\subsubsection{Mutation clock model (\ClockM)}
+\subsubsection{Mutation clock model (\ClockM)}\label{sec:mut_clock}
 %
 
-Let the physical length of a given haplotype region be denoted by $D$, measured in basepairs.
-The number of mutational differences observed along the sequence in the pair of haplotypes is denoted by $S$.
-The value of $S$ refers to the number of segregating sites in a sample of ${N=2}$~haplotypes, for which the infinite sites model is assumed without recombination; \eg see \citet{Watterson:1975ur} and \citet{Tavare:1997vra}.
+\CorrectNote{Section partially rewritten with revised notation}
+
+Let the physical length of a shared haplotype region be denoted by $h$, measured in basepairs.
+The number of mutational differences along the sequence between a pair of haplotypes is denoted by the discrete random variable $S$, which is the number of segregating sites in a sample of ${n=2}$~haplotypes, for which the infinite sites model is assumed without recombination; \eg see \citet{Watterson:1975ur} and \citet{Tavare:1997vra}.
 Mutations are assumed to occur only once at each site in the history of the sample \citep{Kimura:1969tn}, such that $S$ reflects the total number of mutation events that have occurred along both lineages since the split from the \gls{mrca}.
 
-Given the time of the \gls{mrca}, mutation events are Poisson distributed, as each mutation represents an independent Bernoulli trial over a large number of sites, where each site has a small probability of mutation.
+Mutation events are Poisson distributed, as each mutation represents an independent Bernoulli trial over a large number of sites, where each site has a small probability of mutation.
 The mutation rate per site per generation is given by~$\mu$.
 In the coalescent, the mutation rate is scaled by population size, which is expressed by the composite mutation parameter ${\theta = 4\Ne\mu}$.
-It follows that ${\theta \times D}$ is equal to the expected number of pairwise differences per coalescent time unit over the length of the segment.
-Thus, the probability of observing a discrete number $S$ over distance $D$ and time $\tau$ is modelled as a Poisson process, such that ${S \sim \operatorname{Pois}(\theta D \tau)}$, for which the \Correct{\gls{pmf}} is defined as
-\begin{equation}
-	P(S \mid \theta,D,\tau) ~=~ \frac{(\theta D \tau)^S}{S!} \euler{-\theta D \tau}
+It follows that ${\theta h}$ is equal to the expected number of pairwise differences per coalescent time unit over the length of the segment.
+
+The number of pairwise differences therefore is modelled as ${S \sim \operatorname{Pois}(\theta h \tau)}$, for which the \gls{pmf} is defined as
+\begin{equation}\label{eq:mutprob}
+	P(S=s \mid \theta,D,\tau) ~=~ \frac{(\theta h \tau)^s}{s!} \euler{-\theta h \tau}\text{.}
 \end{equation}
-for ${S = 0,1,2,\ldots}$ and ${\theta,D,\tau > 0}$.
-Note that the equation above is the \emph{joint} probability of observing mutational differences at each site along the sequence.
-The likelihood function for the time parameter~$\tau$ is proportional to the joint \Correct{\gls{pmf}}, but requires only those terms that involve $\tau$ and where constant terms can be dropped, such that
+Note that the equation above is the \emph{joint} probability of observing $s$ as the sum of mutational differences along the length $h$.
+
+The likelihood function for the time parameter~$\tau$ is proportional to \cref{eq:mutprob}, but requires only those terms that involve $\tau$ and where constant terms can be dropped, such that
 \begin{equation}\label{eq:mut_like}
-	\mathcal{L}(\tau \mid \theta,D,S) ~\propto~ \tau^S \euler{-\theta D \tau}\ .
+	\mathcal{L}(\tau \mid \theta,h,s) ~\propto~ \tau^s \euler{-\theta h \tau}\ .
 \end{equation}
+
 The posterior probability of the time to coalescence can now be written as
 \begin{equation}\label{eq:mut_post}
 \begin{split}
-	p(\tau \mid \theta,D,S)
-	&~\propto~ \pi(\tau) ~\times~ \mathcal{L}(\tau \mid \theta,D,S) \\
-	&~\propto~ \tau^S \euler{- \tau (\theta D + 1)}
+	p(\tau \mid \theta,h,s)
+	&~\propto~ \mathcal{L}(\tau \mid \theta,h,s)~\times~\pi(\tau) \\
+	&~\propto~ \tau^s \euler{- \tau (\theta h +1)}
 \end{split}
 \end{equation}
-where $\pi(\tau)$ is the coalescent prior, reflecting the assumption that the expected time to a coalescent event grows exponentially back in time.
+where $\pi(\tau)$ is the coalescent prior, reflecting the general assumption that the expected time to a coalescent event grows exponentially back in time.
 
-<<<<<<< HEAD
-=======
+In the above, the density of the posterior probability is specified up to a missing normalising constant.
+Note that \Cref{eq:mut_post} is proportional to (has the form of) the Gamma \gls{pdf}, namely
+\begin{equation*}
+	\operatorname{Gamma}(\tau\mid\alpha,\beta)~=~\frac{\beta^\alpha}{\Gamma(\alpha)}\tau^{\alpha - 1}\,\euler{-\beta\tau}
+\end{equation*}
+where $\alpha$ is the shape and $\beta$ the rate parameter.
+Therefore, let
+\begin{equation*}
+	\tau\sim\operatorname{Gamma}(1,1) \quad \textbf{s.t.} \quad \pi(\tau)=\euler{-\tau}
+\end{equation*}
+so that the coalescent prior is conjugate with the Poisson likelihood.
+Note that the Exponential distribution, as previously defined for $\pi(\tau)$, is a special case of the Gamma distribution.
+Thus, by using ${\alpha = s+1}$ and ${\beta = \theta h+1}$, the posterior density can be computed as
+\begin{equation}
+	p(\tau \mid \theta,h,s)~=~\operatorname{Gamma}(\tau\mid s+1, \theta h+1)\text{.}
+\end{equation}
 
->>>>>>> 303bc31e94ee7d171da0cc0c783c52850e03bd04
+
 
 
 %
-\subsubsection{Recombination clock model (\ClockR)}
+\subsubsection{Recombination clock model (\ClockR)}\label{sec:rec_clock}
 %
 
-In reference to the position of a focal allele that is shared by descent in \n{2} chromosomes, the length of the shared haplotype is delimited by \n{2} recombination events between the \n{2} lineages that occurred on either side of the focal position.
-The recombination rate per site per generation is given by $\rho$;\footnote{Note that the literature often specifies $\rho$ as the population-scaled recombination rate and $r$ as the rate per site per generation.} again, the rate is rescaled by population size and the composite recombination parameter ${\psi = 4 \Ne \rho}$ is used.
-The interval on the left and right-hand side of the focal position is distinguished by defining the distance variable $D_X$, where ${X \in \{L,R\}}$.
-The genetic distance to the first recombination event is geometrically distributed along the sequence, but can be approximated by the exponential distribution if time is continuously measured and provided that \Ne is large; \eg see \citet{hein2004gene}.
-The probability of observing a recombination breakpoint can therefore be modelled such that ${D_X \sim \operatorname{Exp}(\psi \tau)}$, for which the \gls{pdf} is defined as
-\begin{equation}\label{eq:recprob}
-	P(D_X \mid \psi,\tau) ~=~ 2 \psi \tau \, \euler{-2 \psi D_X \tau}
-\end{equation}
-which is equal to the joint probability of recombination between consecutive sites along the sequence.
-The factor of $2$ is included to consider that recombination events occur independently in the \n{2} lineages.
-Note that $D_X$ may refer to the entire length of interval if recombination rate is uniform, but it is straightforward to compute a variable recombination rate over the interval (\eg by using a genetic map) to derive the genetic length expressed in ${\psi D_X}$.
+\CorrectNote{Section partially rewritten with revised notation}
 
-Considering \cref{eq:recprob}, the likelihood function for $\tau$ can be written as
-\begin{equation}\label{eq:reclike_x}
-	\mathcal{L}(\tau \mid \psi, D_X)
-	~\propto~ \tau^{\mathrm{I}_X} \, \euler{-2 \psi D_X \tau}
+The length of a shared haplotype region is delimited by \n{2} recombination events that occurred on either side.
+For either the left or right-hand side, independently, the distance to the first occurrence of a recombination breakpoint follows a Geometric distribution, but can be approximated by the Exponential distribution if time is continuously measured and provided that \Ne is large; \eg see \citet{hein2004gene}.
+The recombination rate per site per generation is given by $\rho$; again, the rate is scaled by population size and the composite recombination parameter ${\psi = 4 \Ne \rho}$ is used.\footnote{Note that the literature often specifies $\rho$ as the population-scaled recombination rate and $r$ as the rate per site per generation.}
+Because recombination may occur independently on either of the \n{2} haplotypes, distance is modelled such that ${D\sim\operatorname{Exp}(2\psi\tau)}$, where $D$ is a random variable used to denote the physical distance between a given focal position and a recombination breakpoint.
+Hence, the \gls{pdf} of a recombination breakpoint observed at distance $d$ is
+\begin{equation}\label{eq:recprob_brk}
+	P(D=d\mid\psi,\tau)~=~2\psi\tau \,\euler{-2\psi\tau d}\text{.}
 \end{equation}
-where $I_X$ is an indicator function of the detected breakpoint.
-Recall that an IBD segment may extend to the end of a chromosome if no recombination occurred on \n{1} or both sides of the focal position; \ie a boundary case.
-The indicator function is therefore defined as
-\begin{equation*}\onehalfspacing
-	\mathrm{I}_X ~=~
+However, when the end of the chromosomal sequence was reached without observing a breakpoint (boundary case), it follows from the Exponential distribution that
+\begin{equation}\label{eq:rec_prob_nobrk}
+	P(D>d\mid\psi,\tau)~=~\euler{-2\psi\tau d}\text{.}
+\end{equation}
+The above can be simplified to
+\begin{equation}\label{eq:rec_prob}
+	f_D(d)~=~(2\psi\tau)^b \,\euler{-2\psi\tau d}
+\end{equation}
+where $b$ is an indicator function of the detected breakpoint and defined as
+\begin{equation*}
+	b ~=~
 	\begin{cases}
-    ~ 0 & \text{if boundary case on side}~X \\
+    ~ 0 & \text{if boundary case} \\
     ~ 1 & \text{otherwise}\ .
   \end{cases}
 \end{equation*}
-Thus, to consider the intervals on both sides simultaneously by the length of the whole IBD segment, $D$, the following likelihood function is defined.
-\begin{equation}\label{eq:reclike}
-	\mathcal{L}(\tau \mid \psi, D)
-	~\propto~ \tau^{\mathrm{I}_L + \mathrm{I}_R} \, \euler{-2 \psi D \tau}\ .
+
+Considering \cref{eq:rec_prob}, the likelihood function for $\tau$ can be written as
+\begin{equation}\label{eq:rec_like_x}
+	\mathcal{L}(\tau \mid \psi, d)~\propto~\tau^b \,\euler{-2\psi d \tau}
 \end{equation}
-As a result, the posterior probability of the time to coalescence under the recombination clock can be written as
-\begin{equation}
+but which can be extended to consider the distances observed on the left and right-hand side relative to a given focal position.
+The observed physical length of the shared haplotype segment is now expressed as the sum of both left and right distances; \ie ${h = d_L + d_R}$.
+Hence, the likelihood function in support of $\tau$ is
+\begin{equation}\label{eq:rec_like}
+	\mathcal{L}(\tau \mid \psi, h)~\propto~\tau^{b_L + b_R} \,\euler{-2\psi h \tau}
+\end{equation}
+and the posterior probability is
+\begin{equation}\label{eq:rec_post}
 \begin{split}
-	p(\tau \mid \psi, D)
+	p(\tau \mid \psi, h)
 	&~\propto~
-	\pi(\tau) ~\times~ \mathcal{L}(\tau \mid \psi, D) \\
+	\mathcal{L}(\tau \mid \psi, h)~\times~\pi(\tau) \\
 	&~\propto~
-	\tau^{\mathrm{I}_L + \mathrm{I}_R} \euler{- \tau (2 \psi D + 1)}\ .
+	\tau^{b_L + b_R} \,\euler{-\tau(2\psi h +1)}\text{.}
 \end{split}
 \end{equation}
-Note that the inference of recombination breakpoints does not require haplotype data; thus, the recombination clock model may provide a convenient solution if only genotype data is available.
+
+As in the previous section, the form of \cref{eq:rec_post} suggests a Gamma \gls{pdf} with ${\alpha = b_L + b_R +1}$ and ${\beta = 2\psi h +1}$.
+Also, note that the conjugate prior for the Exponential distribution is the Gamma distribution.
+Thus, given ${\tau\sim\operatorname{Gamma}(1,1)}$ and ${\pi(\tau)=\euler{-\tau}}$, the posterior density can be computed as
+\begin{equation}
+	p(\tau \mid \psi, h)~=~\operatorname{Gamma}(\tau\mid b_L + b_R +1, 2\psi h +1)\text{.}
+\end{equation}
+
+Importantly, the term ${\psi h}$ refers to the genetic length of the shared haplotype region, but where $\psi$ is rarely constant along the chromosome.
+It is straightforward to compute the value of ${\psi h}$ by using a chromosome-specific recombination map from which the genetic distance between observed breakpoint positions can be derived.
 
 
 %
-\subsubsection{Combined clock model (\ClockC)}
+% In reference to the position of a focal allele that is shared by descent in \n{2} chromosomes, ...
+%
+% The probability of a recombination breakpoint at distance $D$ can therefore be modelled such that ${D_X \sim \operatorname{Exp}(\psi \tau)}$, for which the \gls{pdf} is defined as
+% \begin{equation}\label{eq:recprob}
+% 	P(D_X \mid \psi,\tau) ~=~ 2 \psi \tau \, \euler{-2 \psi D_X \tau}
+% \end{equation}
+%
+% The interval on the left and right-hand side of the focal position is distinguished by defining the distance variable $D_X$, where ${X \in \{L,R\}}$.
+% The genetic distance to the first recombination event is geometrically distributed along the sequence, but can be approximated by the exponential distribution if time is continuously measured and provided that \Ne is large; \eg see \citet{hein2004gene}.
+% The probability of observing a recombination breakpoint can therefore be modelled such that ${D_X \sim \operatorname{Exp}(\psi \tau)}$, for which the \gls{pdf} is defined as
+% \begin{equation}\label{eq:recprob}
+% 	P(D_X \mid \psi,\tau) ~=~ 2 \psi \tau \, \euler{-2 \psi D_X \tau}
+% \end{equation}
+% which is equal to the joint probability of recombination between consecutive sites along the sequence.
+% The factor of $2$ is included to consider that recombination events occur independently in the \n{2} lineages.
+% Note that $D_X$ may refer to the entire length of interval if recombination rate is uniform, but it is straightforward to compute a variable recombination rate over the interval (\eg by using a genetic map) to derive the genetic length expressed in ${\psi D_X}$.
+%
+% Considering \cref{eq:recprob}, the likelihood function for $\tau$ can be written as
+% \begin{equation}\label{eq:reclike_x}
+% 	\mathcal{L}(\tau \mid \psi, D_X)
+% 	~\propto~ \tau^{\mathrm{I}_X} \, \euler{-2 \psi D_X \tau}
+% \end{equation}
+% where $I_X$ is an indicator function of the detected breakpoint.
+% Recall that an IBD segment may extend to the end of a chromosome if no recombination occurred on \n{1} or both sides of the focal position; \ie a boundary case.
+% The indicator function is therefore defined as
+% \begin{equation*}\onehalfspacing
+% 	\mathrm{I}_X ~=~
+% 	\begin{cases}
+%     ~ 0 & \text{if boundary case on side}~X \\
+%     ~ 1 & \text{otherwise}\ .
+%   \end{cases}
+% \end{equation*}
+% Thus, to consider the intervals on both sides simultaneously by the length of the whole IBD segment, $D$, the following likelihood function is defined.
+% \begin{equation}\label{eq:reclike}
+% 	\mathcal{L}(\tau \mid \psi, D)
+% 	~\propto~ \tau^{\mathrm{I}_L + \mathrm{I}_R} \, \euler{-2 \psi D \tau}\ .
+% \end{equation}
+%
+% As a result, the posterior probability of the time to coalescence under the recombination clock can be written as
+% \begin{equation}
+% \begin{split}
+% 	p(\tau \mid \psi, D)
+% 	&~\propto~
+% 	\pi(\tau) ~\times~ \mathcal{L}(\tau \mid \psi, D) \\
+% 	&~\propto~
+% 	\tau^{\mathrm{I}_L + \mathrm{I}_R} \euler{- \tau (2 \psi D + 1)}\ .
+% \end{split}
+% \end{equation}
+% Note that the inference of recombination breakpoints does not require haplotype data; thus, the recombination clock model may provide a convenient solution if only genotype data is available.
 %
 
-Given the information available for both the mutation and the recombination clocks, the posterior probability of $\tau$ is readily calculated; see below.
-\begin{equation}\label{eq:comlike}
+
+%
+\subsubsection{Combined clock model (\ClockC)}\label{sec:com_clock}
+%
+
+\CorrectNote{Section partially rewritten with revised notation}
+
+Given the information available for both the mutation and the recombination clock models (see \cref{sec:mut_clock,,sec:rec_clock}),
+
+the likelihood function in support of $\tau$, given the observed number of pairwise differences between \n{2} haplotypes within the region
+
+
+
+it is straightforward to arrive at the posterior probability of $\tau$; see below.
+\begin{equation}\label{eq:com_post}
 \begin{split}
-	p(\tau \mid \theta,\psi,D,S)
+	p(\tau \mid \theta,\psi,h,s)
 	& ~\propto~
 	\pi(\tau) ~\times~
-	\mathcal{L}(\tau \mid \theta, D, S) ~\times~
-	\mathcal{L}(\tau \mid \psi, D) \\
+	\mathcal{L}(\tau \mid \theta, h, s) ~\times~
+	\mathcal{L}(\tau \mid \psi, h) \\
 	& ~\propto~
 	\euler{-\tau} ~\times~
 	\tau^S \euler{-\theta D \tau} ~\times~
@@ -229,7 +323,7 @@ Note that a similar derivation has been used by \citet{schroff2016}.
 
 
 %
-\subsection{Cumulative coalescent function}
+\subsection{Cumulative coalescent function}\label{sec:ccf}
 %
 
 Each clock model described above computes the posterior probability for \n{2} lineages to have coalesced at a particular point in time.
@@ -436,16 +530,23 @@ Note that this allowed overestimation of the actual genetic length of the IBD se
 \subsection{Accuracy analysis}
 %
 
-Coalescent simulators may not define the exact time point at which a mutation event occurred, because mutations are independent of the genealogical process (if simulated under neutrality) and can therefore be placed randomly along the branches of the simulated tree; \ie mutation times are not specified in \texttt{msprime}, but the times of coalescent events are recorded.
+Coalescent simulators may not define the exact time point at which a mutation event occurred, because mutations are independent of the genealogical process (if simulated under neutrality) and can therefore be placed randomly along the branches of the simulated tree.
+Mutation times are not specified in \texttt{msprime}, but the times of coalescent events are recorded.
 In simulations, the probability of placing a mutation on a particular branch is directly proportional to its length, which itself is delimited by the time of the coalescent event below (joining the lineages that derive from that branch) and the time of the coalescent event above (joining that branch with the tree back in time).
-Here, the times of coalescence below and above a particular mutation event are denoted by $t_c$ and $t_d$, respectively, against which the accuracy of the estimated allele age is measured.
+Here, the times of coalescence below and above a particular mutation event are denoted by $t_c$ and $t_d$, respectively, against which the accuracy of the estimated allele age $\hat{t}$ is measured.
 
-Although the true time of a mutation event was not known from the simulations performed, an indicative value for the age of an allele was derived from the logarithmic ``midpoint'' (or \emph{log-average}) between coalescent events, which is denoted by $t_m$ and calculated as the geometric mean of $t_c$ and $t_d$; see below.
+Although the true time of a mutation event was not known from the simulations performed, an indicative value for the age of an allele was derived from the logarithmic ``midpoint'' (or \emph{log-average}) between coalescent events, which is denoted by $t_m$ and calculated as the geometric mean of $t_c$ and $t_d$, namely
 \begin{equation}
-	t_m ~=~
-	\exp \bigg[ \log \big[ t_c \big] + \frac{1}{2} \bigg( \log \big[ t_d \big] - \log \big[t_c \big] \bigg) \bigg] ~=~
-	\sqrt{~t_c ~ t_d~}
+	t_m~=~\sqrt{~t_c ~ t_d~}\text{.}\CorrectLabel
 \end{equation}
+\Correct{However, note that the arithmetic mean, ${\frac{1}{2}(t_c + t_d)}$, would be appropriate given that mutation events can be placed uniformly between $t_c$ and $t_d$.
+The geometric mean is nonetheless useful and was chosen for practical reasons (\eg plotting on log-scale).}
+
+% \begin{equation}
+% 	t_m ~=~
+% 	\exp \bigg[ \log \big[ t_c \big] + \frac{1}{2} \bigg( \log \big[ t_d \big] - \log \big[t_c \big] \bigg) \bigg] ~=~
+% 	\sqrt{~t_c ~ t_d~}
+% \end{equation}
 
 Accuracy was measured using Spearman's rank correlation coefficient, $r_S$, which is a robust measure for the strength of the monotonic relationship between \n{2} variables; \ie the inferred allele age ($\hat{t}$) and true time proxies ($t_c$, $t_m$, or $t_d$).
 Note that the squared Pearson correlation coefficient, $r^2$, was used in previous chapters but is less suitable here, as both the inferred and true age are expected to vary on log-scale, and the Pearson coefficient measures the linear relationship between variables..
@@ -1010,11 +1111,11 @@ Yet, further work is needed to determine the feasibility of such an approach.
 
 
 %
-\subsection{Estimation of T\textsubscript{MRCA} using PSMC}
+\subsection{Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}
 %
 
 
-\texttt{PSMC} uses a \gls{hmm} to infer the \gls{tmrca} at a locus from the observed sequence of heterozygote genotypes (phased haplotype pairs).
+\Gls{psmc} uses an \gls{hmm} to infer the \gls{tmrca} at a locus from the observed sequence of genotypes; \ie (phased) haplotype pairs.
 emission probabilities
 transitions represent ancestral recombination events
 The hidden states are defined as discrete time intervals
@@ -1023,13 +1124,14 @@ The hidden states are defined as discrete time intervals
 
 using the default model parameters; in particular, the number of 64 hidden states.
 
-The boundaries of time intervals in \texttt{PSMC} are calculated as
+The boundaries of time intervals in \gls{psmc} are calculated as
 \begin{equation*}
 	t_i ~=~ 0.1 \times \euler{\frac{i}{n}\log(1 + 10  T_{\max})} - 0.1
 \end{equation*}
 where $T_{\max}$ is the maximum \gls{tmrca} considered (scaled in units of $2\Ne$), $n$ is the number of intervals (\ie hidden states), and ${i=0,1,\ldots,n}$.
 
-Note that I modified the \texttt{decode} algorithm implemented in the \emph{multiple sequentially Markovian coalescent} (\texttt{MSMC}) written in \texttt{D} to include the option to only return posterior probabilities computed at a specified target position.\footnote{Modified \texttt{decode} algorithm:\url{https://github.com/pkalbers/msmc2} \accessed{2017}{11}{04}}
+Note that I modified the \texttt{decode} algorithm implemented in software available for the \gls{msmc}, written in \texttt{D}, as it applies the \gls{psmc} method when \n{2} haplotype sequences are provided as input data.
+Modifications of \texttt{decode} were made to include the option to only return posterior probabilities computed at a specified target position.\footnote{Modified \texttt{decode} algorithm: \url{https://github.com/pkalbers/msmc2} \accessed{2017}{11}{04}}
 
 
 %
@@ -1037,11 +1139,12 @@ Note that I modified the \texttt{decode} algorithm implemented in the \emph{mult
 %
 
 I randomly selected \n{1000} target sites at \fk{\geq2} and allele frequency below 50\%, so as to include alleles that could be relatively old (as opposed to only selecting rare alleles that are presumed to be relatively young in age).
-
 At each site, a maximum of \n{100} concordant and discordant pairs was selected at random, yielding \n{362661} pairwise analyses in total.
+
+
 Simulation records were scanned to obtain the true \gls{tmrca} for each target site and haplotype pair.
-
-
+The true time was compared to a point estimate taken at the mode of the posterior distribution in \gls{psmc},
+as well as the mode of the composite posterior in each clock model.
 
 
 %
@@ -1053,6 +1156,13 @@ Simulation records were scanned to obtain the true \gls{tmrca} for each target s
 %
 \input{chapter5/tab/stats_psmc_tmrca}
 %
+
+
+Recall that the \gls{ccf} is defined as the \gls{cdf} of the posterior; see \cpref{sec:ccf}.
+% \begin{equation}
+%
+% \end{equation}
+
 
 
 
