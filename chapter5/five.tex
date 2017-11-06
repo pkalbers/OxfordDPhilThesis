@@ -26,7 +26,7 @@ The inference of the genealogical history of a sample is of interest to a myriad
 The ``age'' of an allele, which simply refers to the time since the allele was created by a mutation event, is of particular interest; for example, to observe demographic processes and events, or to better understand the effects of disease-related variants by their time of emergence in the population.
 
 In this chapter, I propose a \Correct{novel} method to estimate the age of an allele, which is based on a collection of statistical models that derive from coalescent theory.
-\Correct{The approach is inspired by \emph{composite likelihood} methods, which} recently have gained in popularity for various applications in genetic research.
+\Correct{The approach is based on \emph{composite likelihood} methods, which recently have gained in popularity for various applications in genetic research, in particular, where the full likelihood cannot be known analytically or is computationally intractable.}
 \Correct{Coalescent-based composite likelihood methods were} pioneered by \citet{Hudson:2001vs} and have been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
 
 In contrast to existing methods for allele age estimation \citep[\eg, see review by][]{Slatkin:2000us}, the method I present in this chapter does not require prior knowledge about past demographic processes or events.
@@ -51,11 +51,22 @@ Finally, \Correct{I apply this method to data from the \gls{1kg} Phase~\rom{3}}.
 
 The mutation that gave rise to a particular allele of interest can be seen as distinguishing event in the history of a population.
 Immediately after the mutation event, there was only one chromosome in the population that carried the mutant allele.
-\Correct{Given a sample of haplotypes, where more than one haplotypes carry the focal allele, it assumed that they co-inherited the allele from that one chromosome in which the mutation occurred at some point in the past.
-According to coalescent theory, any two haplotypes that share the allele have coalesced more recently than the time of the focal mutation event.
-Likewise, the time of coalescence between one haplotype carrying the allele and one haplotype not carrying the allele is expected to be further back in time.}
-This insight is of particular interest as it suggests that the actual time of the mutation event lies somewhere in between those two points in time.
-The proposed method therefore relies on the estimation of the \gls{tmrca} between pairs of haplotypes.
+\Correct{Given a sample of haplotypes, where more than one haplotypes carry the focal allele, it is assumed that they co-inherited the allele from that one chromosome in which the mutation occurred at some point in the past.
+According to coalescent theory, any two haplotypes that share the allele are expected to have coalesced more recently than the time of the focal mutation event.
+Conversely, the coalescent event between one haplotype carrying the allele and one haplotype not carrying the allele is expected to date back to a point in time before the mutation event occurred.}
+This insight is of particular interest as it suggests that the actual time of the mutation event lies somewhere in between two such points in time.
+
+Here, allele age is inferred in a Bayesian framework in which the posterior probability of the \gls{tmrca} between a pair of haplotypes is calculated
+As is central to Bayesian inference, a likelihood function
+is calculated from a likelihood function that ``updates''
+updating prior beliefs about the parameters
+
+The procedure employed here
+% From a purely operational point of view we can write down an ‘artificial’ likelihood, multiply it by a prior and get a result.
+
+``Bayesian empirical likelihood''
+
+The proposed method relies on the estimation of the \gls{tmrca} between pairs of haplotypes.
 
 % Consider a set of haplotypes which share a given allele by descent from a common ancestor who lived at some point in the past.
 % Suppose that the genealogical history of the sample is known such that the ancestral origin of the allele can be found by tracing back to the \gls{mrca} of the haplotypes that share the allele.
@@ -64,7 +75,7 @@ The proposed method therefore relies on the estimation of the \gls{tmrca} betwee
 There are \n{2} main sources of information available from sample data which relate to the \gls{tmrca}.
 First, mutation events occur independently in each lineage and mutations accumulate along the sequence as the haplotype is passed on over generations.
 Second, recombination events break down the length of the haplotype in each generation independently in each lineage.
-Thus, the number of mutations which segregate in \n{2} haplotypes, as well as the genetic length of the shared haplotype region can be used to infer the \gls{tmrca} between a given pair haplotypes.
+Thus, the \gls{tmrca} between a given pair of chromosomes can be estimated from the number of mutations which segregate in \n{2} haplotypes, as well as the genetic length of the haplotype region that is shared between \n{2} chromosomes in the sample.
 Below (\cref{sec:tmrca_clocks}), I derive the formulations for \n{3} estimators.
 \Correct{These are referred to as follows.}
 \begin{itemize}\singlespacing
@@ -73,11 +84,11 @@ Below (\cref{sec:tmrca_clocks}), I derive the formulations for \n{3} estimators.
 	\item Combined clock, denoted by \ClockC
 \end{itemize}
 
-\Addition{Each clock model is used to compute a posterior density of the \gls{tmrca} over a coalescent time prior distribution.
+\Addition{Each clock model defines a posterior probability distribution for the \gls{tmrca} over a prior distribution of the coalescent time.
 Given larger sample data, this is done for several hundreds or thousands of haplotype pairs, where pairs are formed between carrier haplotypes as well as carrier and non-carrier haplotypes with respect to a single allele, for which it is attempted to estimate the age.
-To put this approach into practise, posteriors are combined in a fashion similar to existing composite likelihood methods, which may therefore be described as a \emph{composite posterior} method.
-However, the method is more correctly described as an \emph{ad-hoc} analysis.
-This is explained in more detail in \cpref{sec:comp_post_method}.}
+To put this approach into practise, posteriors are combined in a fashion similar to existing composite likelihood methods.
+The approach may therefore be described as a \emph{composite posterior} method, but is more correctly defined as an \emph{ad-hoc} analysis.
+The procedure of the age estimation method is explained in detail in \cpref{sec:comp_post_method}.}
 
 % which are referred to as the \emph{mutation clock}, denoted by \ClockM, the \emph{recombination clock}, \ClockR, and the \emph{combined clock}, \ClockC.
 %  and the \emph{recombination clock} model and are denoted by \ClockM and \ClockR, respectively.
@@ -149,9 +160,9 @@ The mutation rate per site per generation is given by~$\mu$.
 In the coalescent, the mutation rate is scaled by population size, which is expressed by the composite mutation parameter ${\theta = 4\Ne\mu}$.
 It follows that ${\theta h}$ is equal to the expected number of pairwise differences per coalescent time unit over the length of the segment.
 
-The number of pairwise differences therefore is modelled as ${S \sim \operatorname{Pois}(\theta h \tau)}$, for which the \gls{pmf} is defined as
+The number of pairwise differences therefore is modelled as ${S \sim \operatorname{Pois}(\theta h \tau)}$, for which the \gls{pmf} is given as
 \begin{equation}\label{eq:mutprob}
-	P(S=s \mid \theta,D,\tau) ~=~ \frac{(\theta h \tau)^s}{s!} \euler{-\theta h \tau}\text{.}
+	f_S(s)~=~P(S=s \mid \theta,h,\tau) ~=~ \frac{(\theta h \tau)^s}{s!} \euler{-\theta h \tau}\text{.}
 \end{equation}
 Note that the equation above is the \emph{joint} probability of observing $s$ as the sum of mutational differences along the length $h$.
 
@@ -159,8 +170,7 @@ The likelihood function for the time parameter~$\tau$ is proportional to \cref{e
 \begin{equation}\label{eq:mut_like}
 	\mathcal{L}(\tau \mid \theta,h,s) ~\propto~ \tau^s \euler{-\theta h \tau}\ .
 \end{equation}
-
-The posterior probability of the time to coalescence can now be written as
+The posterior probability of the time to coalescence can now be obtained as
 \begin{equation}\label{eq:mut_post}
 \begin{split}
 	p(\tau \mid \theta,h,s)
@@ -173,18 +183,13 @@ where $\pi(\tau)$ is the coalescent prior, reflecting the general assumption tha
 In the above, the density of the posterior probability is specified up to a missing normalising constant.
 Note that \Cref{eq:mut_post} is proportional to (has the form of) the Gamma \gls{pdf}, namely
 \begin{equation*}
-	\operatorname{Gamma}(\tau\mid\alpha,\beta)~=~\frac{\beta^\alpha}{\Gamma(\alpha)}\tau^{\alpha - 1}\,\euler{-\beta\tau}
+	g(\tau\mid\alpha,\beta)~=~\frac{\beta^\alpha}{\Gamma(\alpha)}\tau^{\alpha - 1}\,\euler{-\beta\tau}
 \end{equation*}
 where $\alpha$ is the shape and $\beta$ the rate parameter.
-Therefore, let
-\begin{equation*}
-	\tau\sim\operatorname{Gamma}(1,1) \quad \textbf{s.t.} \quad \pi(\tau)=\euler{-\tau}
-\end{equation*}
-so that the coalescent prior is conjugate with the Poisson likelihood.
-Note that the Exponential distribution, as previously defined for $\pi(\tau)$, is a special case of the Gamma distribution.
+The coalescent prior $\pi(\tau)$ follows the Exponential distribution, which is a special case of the Gamma distribution and therefore is conjugate with the Poisson likelihood.
 Thus, by using ${\alpha = s+1}$ and ${\beta = \theta h+1}$, the posterior density can be computed as
 \begin{equation}
-	p(\tau \mid \theta,h,s)~=~\operatorname{Gamma}(\tau\mid s+1, \theta h+1)\text{.}
+	p(\tau \mid \theta,h,s)~=~g(\tau\mid s+1, \theta h+1)\text{.}
 \end{equation}
 
 
@@ -212,16 +217,16 @@ However, in boundary cases where the shared haplotype segment is delimited by th
 \begin{equation}\label{eq:rec_prob}
 	f_D(d)~=~(2\psi\tau)^b \,\euler{-2\psi\tau d}
 \end{equation}
-where $b$ is an indicator function of the detected breakpoint and defined as
+where $b$ is the result of an indicator function of the breakpoint defined as
 \begin{equation*}
-	b ~=~
+	b~:=~\mathbf{1}_d~=~
 	\begin{cases}
-    ~ 0 & \text{if boundary case} \\
-    ~ 1 & \text{otherwise}\ .
+    ~ 0 & \text{if}~D>d~\text{(\ie boundary case)} \\
+    ~ 1 & \text{otherwise}\text{.}
   \end{cases}
 \end{equation*}
 
-Considering \cref{eq:rec_prob}, the likelihood function for $\tau$ can be written as
+Considering \cref{eq:rec_prob}, the likelihood function for $\tau$ can now be written as
 \begin{equation}\label{eq:rec_like_x}
 	\mathcal{L}(\tau \mid \psi,d,b)~\propto~\tau^b \,\euler{-2\psi d \tau}
 \end{equation}
@@ -229,9 +234,10 @@ but which can be extended to consider the distances observed on the left and rig
 The observed physical length of the shared haplotype segment is now expressed as the sum of both left and right distances; \ie ${h = d_L + d_R}$.
 Hence, the likelihood function in support of $\tau$ is
 \begin{equation}\label{eq:rec_like}
-	\mathcal{L}(\tau \mid \psi, h, b_L, b_R)~\propto~\tau^{b_L + b_R} \,\euler{-2\psi h \tau}
+	\mathcal{L}(\tau \mid \psi,h,b_L,b_R)~\propto~\tau^{b_L + b_R} \,\euler{-2\psi h \tau}
 \end{equation}
-and the posterior probability is
+where ${b_L,b_R}$ indicate the breakpoint on the left and right-hand side, respectively.
+The posterior probability is obtained as
 \begin{equation}\label{eq:rec_post}
 \begin{split}
 	p(\tau \mid \psi,h,b_L,b_R)
@@ -241,16 +247,14 @@ and the posterior probability is
 	\tau^{b_L + b_R} \,\euler{-\tau(2\psi h +1)}\text{.}
 \end{split}
 \end{equation}
-
-As in the previous section, the form of \cref{eq:rec_post} suggests a Gamma \gls{pdf} with ${\alpha = b_L + b_R +1}$ and ${\beta = 2\psi h +1}$.
-Also, note that the conjugate prior for the Exponential distribution is the Gamma distribution.
-Thus, given ${\tau\sim\operatorname{Gamma}(1,1)}$ and ${\pi(\tau)=\euler{-\tau}}$, the posterior density can be computed as
+As in the previous section, the form of the posterior probability obtained above suggests a Gamma \gls{pdf} with ${\alpha = b_L + b_R +1}$ and ${\beta = 2\psi h +1}$.
+Thus, the posterior density can be computed as
 \begin{equation}
-	p(\tau \mid \psi,h,b_L,b_R)~=~\operatorname{Gamma}(\tau\mid b_L + b_R +1, 2\psi h +1)\text{.}
+	p(\tau \mid \psi,h,b_L,b_R)~=~g(\tau\mid b_L + b_R +1, 2\psi h +1)\text{.}
 \end{equation}
 
 Importantly, the term ${\psi h}$ refers to the genetic length of the shared haplotype region, but where $\psi$ is rarely constant along the chromosome.
-It is straightforward to compute the value of ${\psi h}$ by using a chromosome-specific recombination map from which the genetic distance between observed breakpoint positions can be derived.
+It is straightforward to compute the value of ${\psi h}$ by using a chromosome-specific recombination map from which the genetic distance between breakpoint positions can be derived.
 
 
 %
@@ -312,7 +316,16 @@ It is straightforward to compute the value of ${\psi h}$ by using a chromosome-s
 
 \CorrectNote{Section partially rewritten with revised notation}
 
-Given the information available for both the mutation and the recombination clock models (see \cref{sec:mut_clock,,sec:rec_clock}),
+
+The parameters defined in the mutation clock and recombination clock models given above are combined in the following way.
+
+
+
+\begin{equation}\label{eq:com_like}
+	\mathcal{L}(\tau \mid \theta,\psi,h,s,b_L,b_R)~\propto~\tau^{s+b_L+b_R} \,\euler{-\tau h (\theta+2\psi)}
+\end{equation}
+
+
 
 the likelihood function in support of $\tau$, given the observed number of pairwise differences between \n{2} haplotypes within the region
 
@@ -355,28 +368,15 @@ for which the likelihood function for $\tau$ is identical to \cref{eq:comlike}.
 Note that a similar derivation has been used by \citet{schroff2016}.
 
 
-%
-\subsection{Cumulative coalescent function}\label{sec:ccf}
-%
-
-Each clock model described above computes the posterior probability for \n{2} lineages to have coalesced at a particular point in time.
-This is extended such that the posterior distribution of coalescent times is calculated over a continuous time prior such that the \gls{tmrca} can be derived from the \gls{cdf}.
-Here, this approach is referred to as the \gls{ccf} which is defined as
-\begin{equation}
-	\Lambda_{ij}(t \mid \cdot) ~=~ \int_{0}^{t} p(\tau\mid\cdot)~d\tau
-\end{equation}
-where $t$ denotes the coalescent time prior and $i,j$ denote the \n{2} haplotypes under consideration.
-The parameterisation of the clock model used is indicated by ``$\cdot$''.
-In practise, the posterior probability ${p(\tau\mid\cdot)}$ is calculated from the Gamma (Erlang) distribution in each clock model, due to the conjugate relation described in the previous section.
 
 
 
 %
-\subsection{Inference of allele age from coalescent time posterior distributions}\label{sec:comp_post_method}
+\subsection{Inference of allele age from coalescent time posteriors}\label{sec:comp_post_method}
 %
 
 Consider a sample of haplotypes and an allele shared by some of the haplotypes.
-The time at which this allele was created by a mutation event is bound by the times of the \n{2} coalescent events that delimit the length of the branch on which the mutation occurred in the underlying coalescent tree; see the example provided in \cref{fig:info_age}.
+The time at which this allele was created by a mutation event is bound by the times of the \n{2} coalescent events that delimit the length of the branch on which the mutation occurred in the underlying coalescent tree; see the example provided in \cpref{fig:info_age}.
 The haplotypes which co-inherited the allele (\Correct{\emph{carriers}}) are distinguished from the other haplotypes which do not carry the allele (\Correct{\emph{non-carriers}}).
 Thus, the sample is divided into \n{2} disjoint subsamples; let $X_c$ denote the set of chromosomes which share a given allele, and $X_d$ the set of chromosomes which do not carry that allele.
 
@@ -386,14 +386,79 @@ Thus, the sample is divided into \n{2} disjoint subsamples; let $X_c$ denote the
 
 It follows that all lineages in the $X_c$ subsample coalesce before any of them can coalesce with a lineage in the $X_d$ subsample.
 Any coalescent event between \n{2} lineages in $X_c$ must have occurred \emph{earlier} \Correct{than} the focal mutation event (back in time).
-On the other hand, any coalescent event between \n{1} lineage in $X_c$ and \n{1} lineage in $X_d$ must have occurred \emph{later} than the focal mutation event.
-In the following, pairs of haplotypes in $X_c$ are referred to as \emph{concordant} pairs and pairs from $X_c$ and $X_d$ as \emph{discordant} pairs.
+On the other hand, any coalescent event between \n{1} lineage in $X_c$ and \n{1} lineage in $X_d$ must have occurred \emph{later} than the focal mutation event (back in time).
+In the following, pairs of haplotypes in $X_c$ are referred to as \emph{concordant} pairs, whereas pairs formed by strictly taking one haplotype from $X_c$ and another from $X_d$ are \emph{discordant} pairs.
 The sets $\Omega_c$ and $\Omega_d$ are defined to contain all concordant and discordant pairs, respectively.
 
-The time of a focal mutation event is found at the ``sweet~spot'' in between the earlier coalescent event at time $t_c$ and the later coalescent event at time $t_d$.
-The \gls{ccf} is computed for concordant pairs in $\Omega_c$ to infer the \gls{tmrca} of the $X_c$ subsample, such that the oldest \gls{mrca} indicates the lower bound in the estimation of the focal allele age.
+\Correct{In the following, to distinguish the population-scaled time $\tau$ as defined for the \gls{tmrca} from the time of the mutation event, let the latter be defined as the likewise population-scaled time $t$.}
+
+The time of a focal mutation event is found at the ``sweet~spot'' in between the earlier coalescent event at time $t_c$ and the later coalescent event at time $t_d$; see \cref{fig:info_age}.
+Posteriors are obtained for concordant pairs in $\Omega_c$ where the \emph{oldest} relation indicates the lower bound in the estimation of the focal allele age.
+Likewise, posteriors are obtained for discordant pairs in $\Omega_d$ where the \emph{youngest} relation indicates the upper bound.
+
+As eluted to earlier, ...
+
+% The likelihood is also central to Bayesian theory. Here, the likelihood function is often thought of as the means of updating prior beliefs about the parameters, in light of the data, to yield posterior inference.
+
+For simplicity, the approach by which the focal allele age is estimated is referred to as a \emph{composite posterior} method.
+
+%
+\subsubsection{Cumulative coalescent function (CCF)}\label{sec:ccf_desc}
+%
+
+At a given focal site at which the possible concordant and discordant pairs in the sample have been sorted into the sets $\Omega_c$ and $\Omega_d$, respectively, each pair is analysed in turn to obtain a posterior on their \gls{tmrca}.
+Importantly, to later arrive at the composite posterior from which the time of the focal mutation event can be estimated, it is of interest to obtain the probability distribution of the \gls{tmrca} relative to the time of the focal mutation event.
+Here, this task is accomplished by introducing the \gls{ccf} which is defined as the posterior \gls{cdf} with respect to a given pair of haplotypes, denoted by ${i,j}$.
+In simple terms, the \gls{ccf} is expressed as
+\begin{equation}\label{eq:cumcoalfunc}
+	\Lambda_{ij}(t)~=~
+	\begin{cases}
+    ~ P(\tau \leq t)                  & \text{if}~{\{i,j\} \subseteq \Omega_c}\quad\text{(\ie concordant pairs)} \\
+    ~ P(\tau >    t)=1-P(\tau \leq t) & \text{if}~{\{i,j\} \subseteq \Omega_d}\quad\text{(\ie discordant pairs)}\text{.}
+  \end{cases}
+\end{equation}
+
+Since each clock model defines the posterior density using the Gamma distribution, it is straightforward to obtain the \gls{ccf} from the Gamma~\gls{cdf}; formally given as
+\begin{equation}
+	G(t)~=~P(\tau \leq t \mid\alpha,\beta)~=~\int_{0}^{t}g(u\mid\alpha,\beta)~du
+\end{equation}
+where $\alpha,\beta$ are defined according to the clock model used, with parameter values obtained from the analysis of a given haplotype pair at a focal site in the genome.
+Notably, because $\alpha$ is a positive integer in each of the clock models considered, the Gamma distribution simplifies to the Erlang distribution, such that the above becomes equal to \citep{papoulis2002probability}
+\begin{equation}
+	F(t)~=~P(\tau \leq t \mid\alpha,\beta)~=~1-\euler{-\beta t}\sum_{i=0}^{\alpha-1}\frac{(\beta t)^i}{i!}\text{.}
+\end{equation}
+
+Further, to obtain point estimates from the posterior of the \gls{tmrca},
+it follows from the Gamma (Erlang) distribution that the mean is $\frac{\alpha}{\beta}$ and the mode is $\frac{\alpha-1}{\beta}$.
+Note that no simple closed form exists for the median, but which in practise is straightforward to approximate by scanning the \gls{ccf} to find, for example, the times of the \nth{1}, \nth{2} (\ie median), and \nth{3} quartiles.
+
+
+% Each clock model described above computes the posterior probability for \n{2} lineages to have coalesced at a particular point in time.
+% This is extended such that the posterior distribution of coalescent times is calculated over a continuous time prior such that the \gls{tmrca} can be derived from the \gls{cdf}.
+% Here, this approach is referred to as the \gls{ccf} which is defined as
+%
+% where $t$ denotes the coalescent time prior and $i,j$ denote the \n{2} haplotypes under consideration.
+% The parameterisation of the clock model used is indicated by ``$\cdot$''.
+% In practise, the posterior probability ${p(\tau\mid\cdot)}$ is calculated from the Gamma (Erlang) distribution in each clock model, due to the conjugate relation described in the previous section.
+
+
+%
+\subsubsection{Allele age estimation from the composite posterior distribution}\label{sec:comp_post_detail}
+%
+
+
+
+Briefly, the general form of the composite likelihood is defined as the weighted product of the likelihood function for a set of events ${\{A_k;k \in K\}}$; \ie
+\begin{equation}
+	\mathcal{C\!L}(\lambda\mid x)~=~\prod_{k\in K} \mathcal{L}_k(\lambda\mid x)^{w_k}
+\end{equation}
+where
+$w_k$ is taken from a set of weights
+
 The upper bound is found by computing the \gls{ccf} for discordant pairs in $\Omega_d$, where the youngest \gls{mrca} is closest in time to the focal mutation event.
 The information provided from these pairwise \gls{ccf} analyses are used in the calculation of the composite likelihood, which is defined below.
+
+
 
 \begin{equation}\label{eq:compll}
 	\Phi(\tau)
@@ -1172,12 +1237,19 @@ Modifications of \texttt{decode} were made to include the option to only return 
 %
 
 I randomly selected \n{1000} target sites at \fk{\geq2} and allele frequency below 50\%, so as to include alleles that could be relatively old (as opposed to only selecting rare alleles that are presumed to be relatively young in age).
-At each site, a maximum of \n{100} concordant and discordant pairs was selected at random, yielding \n{362661} pairwise analyses in total.
+At each site, a maximum of \n{100} concordant and \n{100} discordant pairs was selected, yielding \n{187420} pairwise analyses in total.
+Pair selection was done randomly, so as to facilitate \gls{tmrca} estimation at older genealogical relationships in discordant pairs.
 
 
 Simulation records were scanned to obtain the true \gls{tmrca} for each target site and haplotype pair.
 The true time was compared to a point estimate taken at the mode of the posterior distribution in \gls{psmc},
 as well as the mode of the composite posterior in each clock model.
+
+
+The median was taken as a point estimate from the posterior obtained for a given pair.
+
+
+
 
 
 %

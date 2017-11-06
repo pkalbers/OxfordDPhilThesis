@@ -3,9 +3,9 @@
 
 \begin{table}[!htb]
 \Caption{Accuracy of T\textsubscript{MRCA} estimation for different methods}
-{The \gls{tmrca} estimation conducted using \texttt{PSMC} is compared to estimates obtained using the mutation clock (\ClockM), recombination clock (\ClockR), and combined clock (\ClockC), where estimates were obtained on identical target sites and haplotype pairs.
+{The \gls{tmrca} estimation conducted using \texttt{PSMC} is compared to estimates obtained using the mutation clock (\ClockM), recombination clock (\ClockR), and combined clock (\ClockC), where estimates were obtained on identical target sites and haplotype pairs; the median was taken as a point estimate from each posterior.
 Accuracy was measured using Spearman's rank correlation coefficient ($r_S$) and root mean squared $\log_{10}$ error ($\rmsle$) at discrete time intervals defined on the true \gls{tmrca} ($t$) of a given pair at a target site, as determined from simulation records.
-The number of estimates at a given time interval is indicated ($n$).}
+The number of estimates compared per method at a given time interval is indicated ($n$).}
 {tab:stats_psmc_tmrca}
 \centering
 \begin{tabular}{c
@@ -26,19 +26,19 @@ True T\textsubscript{MRCA} & $n$ & &
 \otoprule
 \multicolumn{12}{@{}l}{\,Concordant pairs} \\
 \midrule
- \smaller $t\leq\num{100}$                & \n{21384} & &  \bfseries 0.7523226 & 0.6508665 & 0.7285282 & 0.2985932  & &  \bfseries 0.2887397 & 0.4868986 & 0.3874829 & 0.6122015 \\
- \smaller $\num{100}<t\leq\num{1000}$     & \n{69903} & &  0.6933208 & 0.6279257 & 0.7068744 & \bfseries 0.7228590  & &  \bfseries 0.2787932 & 0.4446835 & 0.3338086 & 0.3457944 \\
- \smaller $\num{1000}<t\leq\num{10000}$   & \n{64779} & &  0.5535656 & 0.5813404 & 0.6393111 & \bfseries 0.6643521  & &  0.3555674 & 0.4474132 & 0.3561629 & \bfseries 0.3380173 \\
- \smaller $\num{10000}<t\leq\num{100000}$ &  \n{7322} & &  0.2852226 & 0.2695854 & 0.3372834 & \bfseries 0.5284954  & &  0.4043726 & 0.6017576 & 0.4577933 & \bfseries 0.2412933 \\
+ \smaller $t\leq\num{100}$                & \n{13854} & &  0.7242026 & 0.6635671 & \bfseries 0.7403644 & 0.2267515  & &  0.3926178 & 0.4346368 & \bfseries 0.3627831 & 0.6119347 \\
+ \smaller $\num{100}<t\leq\num{1000}$     & \n{37505} & &  0.6554285 & 0.6327785 & \bfseries 0.7141018 & 0.7127705  & &  0.3282440 & 0.4081205 & \bfseries 0.3203908 & 0.3902357 \\
+ \smaller $\num{1000}<t\leq\num{10000}$   & \n{32563} & &  0.5469112 & 0.5813370 & 0.6452584 & \bfseries 0.6563911  & &  0.3301644 & 0.4259934 & \bfseries 0.3227437 & 0.3406878 \\
+ \smaller $\num{10000}<t\leq\num{100000}$ &  \n{3698} & &  0.2774761 & 0.2691894 & 0.3265923 & \bfseries 0.5249213  & &  0.4908064 & 0.5485206 & 0.3894970 & \bfseries 0.2196251 \\
  \smaller $t>\num{100000}$                &         0 & &       {--} &      {--} &      {--} &      {--}  & &       {--} &      {--} &      {--} &      {--} \\
 \otoprule
 \multicolumn{12}{@{}l}{\,Discordant pairs} \\
 \midrule
- \smaller $t\leq\num{100}$                & \n{163}    & &  0.0030162 &-0.0050964 & 0.0026681 & \bfseries 0.3281581  & & 1.4952399 & 1.5684122 & 1.5933532 & \bfseries 0.2319879 \\
- \smaller $\num{100}<t\leq\num{1000}$     & \n{2877}   & &  0.2187866 & 0.1950644 & 0.2093315 & \bfseries 0.7086547  & & 0.9202619 & 1.0154081 & 1.0172096 & \bfseries 0.4507880 \\
- \smaller $\num{1000}<t\leq\num{10000}$   & \n{43243}  & &  0.2891992 & 0.2420041 & 0.2930032 & \bfseries 0.5340098  & & 0.4168119 & 0.6868658 & 0.5192949 & \bfseries 0.4065983 \\
- \smaller $\num{10000}<t\leq\num{100000}$ & \n{149683} & &  0.2513271 & 0.2024518 & 0.2614567 & \bfseries 0.5971780  & & 0.4942267 & 0.8817960 & 0.4959336 & \bfseries 0.2271959 \\
- \smaller $t>\num{100000}$                & \n{33070}  & &  0.2417831 & 0.2673083 & \bfseries 0.3145942 & 0.2444100  & & 0.8711090 & 1.1889489 & 0.7198778 & \bfseries 0.3136247 \\
+ \smaller $t\leq\num{100}$                & \n{16}    & &  0.1588751 & 0.2446338 & 0.2143976 & \bfseries 0.4727847  & & 1.4146798 & 1.4005012 & 1.3995503 & \bfseries 0.2250614 \\
+ \smaller $\num{100}<t\leq\num{1000}$     & \n{944}   & &  0.2035343 & 0.1770240 & 0.1968015 & \bfseries 0.5178022  & & 1.0171742 & 1.0208876 & 1.0293910 & \bfseries 0.5766334 \\
+ \smaller $\num{1000}<t\leq\num{10000}$   & \n{21469} & &  0.3136659 & 0.2804580 & 0.3080643 & \bfseries 0.5470309  & & 0.4879082 & 0.5233266 & 0.5293337 & \bfseries 0.3995435 \\
+ \smaller $\num{10000}<t\leq\num{100000}$ & \n{75713} & &  0.2978834 & 0.2721087 & 0.3007315 & \bfseries 0.6054944  & & 0.2905723 & 0.4023812 & 0.3255052 & \bfseries 0.2107977 \\
+ \smaller $t>\num{100000}$                & \n{1658}  & &  0.3685676 & 0.3198037 & \bfseries 0.3823899 & 0.3291193  & & 0.6239022 & 0.6249004 & 0.4640739 & \bfseries 0.3366681 \\
 \bottomrule
 \end{tabular}
 \end{table}

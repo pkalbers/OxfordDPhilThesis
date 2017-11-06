@@ -2,18 +2,17 @@
 \BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 66
 \BOOKMARK [1][-]{section.5.2}{Approach}{chapter.5}% 67
 \BOOKMARK [2][-]{subsection.5.2.1}{Coalescent time estimators}{section.5.2}% 68
-\BOOKMARK [2][-]{subsection.5.2.2}{Cumulative coalescent function}{section.5.2}% 69
-\BOOKMARK [2][-]{subsection.5.2.3}{Inference of allele age from coalescent time posterior distributions}{section.5.2}% 70
-\BOOKMARK [2][-]{subsection.5.2.4}{Inference of IBD around shared and unshared alleles}{section.5.2}% 71
-\BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 72
-\BOOKMARK [2][-]{subsection.5.3.1}{Data generation}{section.5.3}% 73
-\BOOKMARK [2][-]{subsection.5.3.2}{Accuracy analysis}{section.5.3}% 74
-\BOOKMARK [1][-]{section.5.4}{Results}{chapter.5}% 75
-\BOOKMARK [2][-]{subsection.5.4.1}{Validation of the method under different thresholds}{section.5.4}% 76
-\BOOKMARK [2][-]{subsection.5.4.2}{Comparison of IBD detection methods}{section.5.4}% 77
-\BOOKMARK [2][-]{subsection.5.4.3}{Impact of genotype error on allele age estimation}{section.5.4}% 78
-\BOOKMARK [1][-]{section.5.5}{Discussion}{chapter.5}% 79
-\BOOKMARK [1][-]{section.5.6}{A haplotype-based HMM for shared haplotype inference}{chapter.5}% 80
-\BOOKMARK [2][-]{subsection.5.6.1}{Comparison to the Pairwise Sequentially Markovian Coalescent \(PSMC\)}{section.5.6}% 81
+\BOOKMARK [2][-]{subsection.5.2.2}{Inference of allele age from coalescent time posteriors}{section.5.2}% 69
+\BOOKMARK [2][-]{subsection.5.2.3}{Inference of IBD around shared and unshared alleles}{section.5.2}% 70
+\BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 71
+\BOOKMARK [2][-]{subsection.5.3.1}{Data generation}{section.5.3}% 72
+\BOOKMARK [2][-]{subsection.5.3.2}{Accuracy analysis}{section.5.3}% 73
+\BOOKMARK [1][-]{section.5.4}{Results}{chapter.5}% 74
+\BOOKMARK [2][-]{subsection.5.4.1}{Validation of the method under different thresholds}{section.5.4}% 75
+\BOOKMARK [2][-]{subsection.5.4.2}{Comparison of IBD detection methods}{section.5.4}% 76
+\BOOKMARK [2][-]{subsection.5.4.3}{Impact of genotype error on allele age estimation}{section.5.4}% 77
+\BOOKMARK [1][-]{section.5.5}{Discussion}{chapter.5}% 78
+\BOOKMARK [1][-]{section.5.6}{A haplotype-based HMM for shared haplotype inference}{chapter.5}% 79
+\BOOKMARK [2][-]{subsection.5.6.1}{Comparison to the Pairwise Sequentially Markovian Coalescent \(PSMC\)}{section.5.6}% 80
 \BOOKMARK [0][-]{section*.27}{Abbreviations}{}% 84
 \BOOKMARK [0][-]{chapter*.29}{Bibliography}{}% 85
