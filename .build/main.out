@@ -3,7 +3,7 @@
 \BOOKMARK [1][-]{section.5.2}{Approach}{chapter.5}% 67
 \BOOKMARK [2][-]{subsection.5.2.1}{Coalescent time estimators}{section.5.2}% 68
 \BOOKMARK [2][-]{subsection.5.2.2}{Cumulative coalescent function}{section.5.2}% 69
-\BOOKMARK [2][-]{subsection.5.2.3}{Composite likelihood estimation of mutation time}{section.5.2}% 70
+\BOOKMARK [2][-]{subsection.5.2.3}{Inference of allele age from coalescent time posterior distributions}{section.5.2}% 70
 \BOOKMARK [2][-]{subsection.5.2.4}{Inference of IBD around shared and unshared alleles}{section.5.2}% 71
 \BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 72
 \BOOKMARK [2][-]{subsection.5.3.1}{Data generation}{section.5.3}% 73

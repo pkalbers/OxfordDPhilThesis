@@ -30,7 +30,7 @@ In this chapter, I propose a \Correct{novel} method to estimate the age of an al
 \Correct{Coalescent-based composite likelihood methods were} pioneered by \citet{Hudson:2001vs} and have been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
 
 In contrast to existing methods for allele age estimation \citep[\eg, see review by][]{Slatkin:2000us}, the method I present in this chapter does not require prior knowledge about past demographic processes or events.
-Although an assumption of certain population parameters is required, such as effective population size (\Ne) or mutation rate ($\mu$), these are expected to \emph{mostly} affect the scaling of time, such that differences between age estimates for different alleles are proportionally constant.
+Although an assumption of certain population parameters is required, such as effective population size (\Ne), as well as mutation and recombination rates, these are expected to affect the scaling of time, such that differences between age estimates for different alleles are proportionally constant.
 
 The age estimation framework presented in this chapter is based on allele sharing at a particular variant site observed in the sample, where the underlying IBD structure is inferred locally around the chromosomal position of the variant under consideration.
 The methodology for targeted IBD detection presented in Chapters~3 and 4 is therefore essential for this approach; \ie the \texttt{tidy} algorithm which includes the \gls{fgt}, \gls{dgt}, and the probabilistic IBD model for inference using a \gls{hmm}.
@@ -49,32 +49,69 @@ Finally, \Correct{I apply this method to data from the \gls{1kg} Phase~\rom{3}}.
 \section{Approach}
 %
 
-Consider a set of haplotypes which share a given allele by descent from a common ancestor who lived at some point in the past.
-Suppose that the genealogical history of the sample is known such that the ancestral origin of the allele can be found by tracing back to the \gls{mrca} of the haplotypes that share the allele.
-In a finite population, however, the \gls{mrca} is unlikely to indicate the individual in which the allele arose through mutation; therefore the actual age of the allele is expected to be older than the \gls{tmrca} of the set of haplotypes which share the focal allele.
-The mutation from which the allele derived can be seen as a distinguishing event in the history of the population, immediately after which only \n{1} individual in the population carried the mutant allele.
-It follows that the allele is expected to be younger than the \gls{mrca} of that \n{1} individual and any of the \Correct{non-carrier} individuals in the contemporary population.
-This insight is of particular interest as it suggests that the actual time of the mutation event lies somewhere in between those \n{2} points in time.
+The mutation that gave rise to a particular allele of interest can be seen as distinguishing event in the history of a population.
+Immediately after the mutation event, there was only one chromosome in the population that carried the mutant allele.
+\Correct{Given a sample of haplotypes, where more than one haplotypes carry the focal allele, it assumed that they co-inherited the allele from that one chromosome in which the mutation occurred at some point in the past.
+According to coalescent theory, any two haplotypes that share the allele have coalesced more recently than the time of the focal mutation event.
+Likewise, the time of coalescence between one haplotype carrying the allele and one haplotype not carrying the allele is expected to be further back in time.}
+This insight is of particular interest as it suggests that the actual time of the mutation event lies somewhere in between those two points in time.
+The proposed method therefore relies on the estimation of the \gls{tmrca} between pairs of haplotypes.
 
-There are \n{2} main sources of information available from the data which relate to the \gls{tmrca}.
-First, mutation events occur independently in each lineage and mutations accumulate along the sequence as the chromosome is passed on over generations.
-Second, recombination events break down the length of the shared haplotype in each generation independently in each lineage.
-The number of mutations which segregate in the \n{2} haplotypes as well as the genetic length of the pairwise shared haplotype segment can be used to infer the \gls{tmrca} of \n{2} chromosomes; \ie the time of the coalescent event at which the \n{2} lineages join.
+% Consider a set of haplotypes which share a given allele by descent from a common ancestor who lived at some point in the past.
+% Suppose that the genealogical history of the sample is known such that the ancestral origin of the allele can be found by tracing back to the \gls{mrca} of the haplotypes that share the allele.
+% In a finite population, however, the \gls{mrca} is unlikely to indicate the individual in which the allele arose through mutation; therefore the actual age of the allele is expected to be older than the \gls{tmrca} of the set of haplotypes which share the focal allele.
 
-In the following section, I derive the formulations for \n{3} estimators of the \gls{tmrca} of a pair of chromosomes, \n{2} of which are the \emph{mutation clock} and the \emph{recombination clock} model and are denoted by \ClockM and \ClockR, respectively.
-The third estimator combines both the number of mutations and the genetic length of the segment; referred to as the \emph{combined clock} model, denoted by \ClockC.
+There are \n{2} main sources of information available from sample data which relate to the \gls{tmrca}.
+First, mutation events occur independently in each lineage and mutations accumulate along the sequence as the haplotype is passed on over generations.
+Second, recombination events break down the length of the haplotype in each generation independently in each lineage.
+Thus, the number of mutations which segregate in \n{2} haplotypes, as well as the genetic length of the shared haplotype region can be used to infer the \gls{tmrca} between a given pair haplotypes.
+Below (\cref{sec:tmrca_clocks}), I derive the formulations for \n{3} estimators.
+\Correct{These are referred to as follows.}
+\begin{itemize}\singlespacing
+  \item Mutation clock, denoted by \ClockM
+  \item Recombination clock, denoted by \ClockR
+	\item Combined clock, denoted by \ClockC
+\end{itemize}
+
+\Addition{Each clock model is used to compute a posterior density of the \gls{tmrca} over a coalescent time prior distribution.
+Given larger sample data, this is done for several hundreds or thousands of haplotype pairs, where pairs are formed between carrier haplotypes as well as carrier and non-carrier haplotypes with respect to a single allele, for which it is attempted to estimate the age.
+To put this approach into practise, posteriors are combined in a fashion similar to existing composite likelihood methods, which may therefore be described as a \emph{composite posterior} method.
+However, the method is more correctly described as an \emph{ad-hoc} analysis.
+This is explained in more detail in \cpref{sec:comp_post_method}.}
+
+% which are referred to as the \emph{mutation clock}, denoted by \ClockM, the \emph{recombination clock}, \ClockR, and the \emph{combined clock}, \ClockC.
+%  and the \emph{recombination clock} model and are denoted by \ClockM and \ClockR, respectively.
+% The third estimator combines both the number of mutations and the genetic length of the haplotype; referred to as the \emph{combined clock} model, denoted by \ClockC.
 
 
 %
-\subsection{Coalescent time estimators}
+\subsection{Coalescent time estimators}\label{sec:tmrca_clocks}
 %
 
 
-The presented age estimation method is based on the computation of the posterior probability of the \gls{tmrca} of a pair of haplotypes.
-It is assumed that no recombination has occurred along the sequence in the haplotype segment considered, such that the genealogical relationship between the \n{2} haplotypes does not change along the region.
-This facilitates the analysis under a coalescent process, where the posterior probability is proportional to the prior probability of the time to coalescence multiplied by the likelihood of the time given the estimator.
-The derivation of the coalescent prior \Correct{follows from the results given in \cpref{sec:coalescent}, but is briefly reiterated below.}
+Any pair of chromosomes can be seen as a mosaic of haplotype segments that derived from different ancestors who lived at different points in time.
 
+At a given position in the genome, it is assumed that the \emph{breakpoints} of the recombination events that delimit the shared haplotype region around that position are known, such that no recombination has occurred along the sequence in the two haplotypes considered.
+it is assumed that the length of the shared haplotype region around
+over which they share a haplotype by descent
+
+Relative to the genealogy seen at a given focal site, a \emph{breakpoint} is defined as the location at which the genealogical relationship between \n{2} haplotypes changes due to recombination.
+
+The haplotype region that is shared by descent between a pair of chromosomes is therefore delimited by \n{2} breakpoints on the left and right-hand side of the focal position.
+
+A \emph{boundary~case} is
+If no recombination occurred on either the left or the right-hand side
+such that
+is recorded where the chromosomal end position is taken as a breakpoint to delimit the length of the interval.
+
+
+In the following, it is assumed that no recombination has occurred along the sequence in the haplotype segment considered, such that the genealogical relationship between the \n{2} haplotypes does not change along the region.
+This facilitates the analysis under a coalescent process.
+
+
+The presented age estimation method is based on the computation of the posterior probability of the \gls{tmrca} in pairs of haplotypes.
+The posterior probability is proportional to the prior probability of the time to coalescence multiplied by the likelihood of the time \Correct{conditional on the observed parameter values defined for a given estimator}.
+The derivation of the prior distribution on the coalescent time \Correct{follows from the results given in \cpref{sec:coalescent}, but is briefly described below.}
 
 Let $t$ be the number of discrete generations that separate \n{2} haplotypes in relation to the \gls{mrca}.
 As shown by \citet{Tajima:1983bt}, the probability that \n{2} haplotypes are derived from \n{1} common ancestral haplotype $t$~generations in the past is
@@ -89,16 +126,12 @@ Further, the probability that the \n{2} haplotypes do not share an ancestral hap
 \end{equation*}
 where $T_c$ is the time of the coalescent event between \n{2} lineages.
 It is convenient to use a continuous time approximation and measure time in units of ${2\Ne}$ generations, in the context of the coalescent, such that ${\tau = \sfrac{t}{2\Ne}}$
-Thus, the prior on the time of coalescence is ${\tau \propto \operatorname{Exp}(1)}$ and written as
+Thus, the prior distribution of the coalescent time is ${\tau\sim\operatorname{Exp}(1)}$ and written as
 \begin{equation*}
-	\pi(\tau) ~\propto~ \euler{-\tau}\ \CorrectLabel
+	\pi(\tau) ~\propto~ \euler{-\tau}\text{.}\CorrectLabel
 \end{equation*}
-\Correct{which was already given in \ctref{eq:coal_2_dont}.}
 
-The sections below describe each clock model in detail.
-Recall that the \emph{breakpoints} of past recombination events are inferred for a pair of individuals, independently on the left and right-hand side of a target variant.
-Under this \emph{variant-centric} approach, a given IBD segment is composed of \n{2} intervals, each delimited by the focal site and \n{1} distal breakpoint, where at least \n{1} recombination event was inferred to have occurred within each interval.
-If no evidence of recombination was found on either the left or the right-hand side, a \emph{boundary~case} is recorded where the chromosomal end position is taken as a breakpoint to delimit the length of the interval.
+
 
 
 %
@@ -167,15 +200,15 @@ The length of a shared haplotype region is delimited by \n{2} recombination even
 For either the left or right-hand side, independently, the distance to the first occurrence of a recombination breakpoint follows a Geometric distribution, but can be approximated by the Exponential distribution if time is continuously measured and provided that \Ne is large; \eg see \citet{hein2004gene}.
 The recombination rate per site per generation is given by $\rho$; again, the rate is scaled by population size and the composite recombination parameter ${\psi = 4 \Ne \rho}$ is used.\footnote{Note that the literature often specifies $\rho$ as the population-scaled recombination rate and $r$ as the rate per site per generation.}
 Because recombination may occur independently on either of the \n{2} haplotypes, distance is modelled such that ${D\sim\operatorname{Exp}(2\psi\tau)}$, where $D$ is a random variable used to denote the physical distance between a given focal position and a recombination breakpoint.
-Hence, the \gls{pdf} of a recombination breakpoint observed at distance $d$ is
-\begin{equation}\label{eq:recprob_brk}
+Hence, the \gls{pdf} of the distance until a recombination breakpoint is
+\begin{equation}\label{eq:rec_prob_brk}
 	P(D=d\mid\psi,\tau)~=~2\psi\tau \,\euler{-2\psi\tau d}\text{.}
 \end{equation}
-However, when the end of the chromosomal sequence was reached without observing a breakpoint (boundary case), it follows from the Exponential distribution that
+However, in boundary cases where the shared haplotype segment is delimited by the chromosomal end, it follows from the Exponential distribution that
 \begin{equation}\label{eq:rec_prob_nobrk}
 	P(D>d\mid\psi,\tau)~=~\euler{-2\psi\tau d}\text{.}
 \end{equation}
-The above can be simplified to
+\Cref{eq:rec_prob_brk,,eq:rec_prob_nobrk} above can be simplified to
 \begin{equation}\label{eq:rec_prob}
 	f_D(d)~=~(2\psi\tau)^b \,\euler{-2\psi\tau d}
 \end{equation}
@@ -190,20 +223,20 @@ where $b$ is an indicator function of the detected breakpoint and defined as
 
 Considering \cref{eq:rec_prob}, the likelihood function for $\tau$ can be written as
 \begin{equation}\label{eq:rec_like_x}
-	\mathcal{L}(\tau \mid \psi, d)~\propto~\tau^b \,\euler{-2\psi d \tau}
+	\mathcal{L}(\tau \mid \psi,d,b)~\propto~\tau^b \,\euler{-2\psi d \tau}
 \end{equation}
 but which can be extended to consider the distances observed on the left and right-hand side relative to a given focal position.
 The observed physical length of the shared haplotype segment is now expressed as the sum of both left and right distances; \ie ${h = d_L + d_R}$.
 Hence, the likelihood function in support of $\tau$ is
 \begin{equation}\label{eq:rec_like}
-	\mathcal{L}(\tau \mid \psi, h)~\propto~\tau^{b_L + b_R} \,\euler{-2\psi h \tau}
+	\mathcal{L}(\tau \mid \psi, h, b_L, b_R)~\propto~\tau^{b_L + b_R} \,\euler{-2\psi h \tau}
 \end{equation}
 and the posterior probability is
 \begin{equation}\label{eq:rec_post}
 \begin{split}
-	p(\tau \mid \psi, h)
+	p(\tau \mid \psi,h,b_L,b_R)
 	&~\propto~
-	\mathcal{L}(\tau \mid \psi, h)~\times~\pi(\tau) \\
+	\mathcal{L}(\tau \mid \psi, h, b_L, b_R)~\times~\pi(\tau) \\
 	&~\propto~
 	\tau^{b_L + b_R} \,\euler{-\tau(2\psi h +1)}\text{.}
 \end{split}
@@ -213,7 +246,7 @@ As in the previous section, the form of \cref{eq:rec_post} suggests a Gamma \gls
 Also, note that the conjugate prior for the Exponential distribution is the Gamma distribution.
 Thus, given ${\tau\sim\operatorname{Gamma}(1,1)}$ and ${\pi(\tau)=\euler{-\tau}}$, the posterior density can be computed as
 \begin{equation}
-	p(\tau \mid \psi, h)~=~\operatorname{Gamma}(\tau\mid b_L + b_R +1, 2\psi h +1)\text{.}
+	p(\tau \mid \psi,h,b_L,b_R)~=~\operatorname{Gamma}(\tau\mid b_L + b_R +1, 2\psi h +1)\text{.}
 \end{equation}
 
 Importantly, the term ${\psi h}$ refers to the genetic length of the shared haplotype region, but where $\psi$ is rarely constant along the chromosome.
@@ -339,20 +372,20 @@ In practise, the posterior probability ${p(\tau\mid\cdot)}$ is calculated from t
 
 
 %
-\subsection{Composite likelihood estimation of mutation time}
+\subsection{Inference of allele age from coalescent time posterior distributions}\label{sec:comp_post_method}
 %
 
 Consider a sample of haplotypes and an allele shared by some of the haplotypes.
 The time at which this allele was created by a mutation event is bound by the times of the \n{2} coalescent events that delimit the length of the branch on which the mutation occurred in the underlying coalescent tree; see the example provided in \cref{fig:info_age}.
-The haplotypes which co-inherited the allele (\emph{sharers}) are distinguished from the other haplotypes which do not carry the allele (\emph{non-sharers}).
-Thus, the sample is divided into \n{2} disjoint subsamples; let $X_c$ denote the set of chromosomes which share a given allele and $X_d$ the set of chromosomes which do not share that allele.
-Importantly, all lineages in the $X_c$ subsample coalesce before any of them can coalesce with a lineage in the $X_d$ subsample.
+The haplotypes which co-inherited the allele (\Correct{\emph{carriers}}) are distinguished from the other haplotypes which do not carry the allele (\Correct{\emph{non-carriers}}).
+Thus, the sample is divided into \n{2} disjoint subsamples; let $X_c$ denote the set of chromosomes which share a given allele, and $X_d$ the set of chromosomes which do not carry that allele.
 
 %
 \input{chapter5/fig/info_age}
 %
 
-It follows that any coalescent event between \n{2} lineages in $X_c$ must have occurred \emph{earlier} that the focal mutation event (back in time).
+It follows that all lineages in the $X_c$ subsample coalesce before any of them can coalesce with a lineage in the $X_d$ subsample.
+Any coalescent event between \n{2} lineages in $X_c$ must have occurred \emph{earlier} \Correct{than} the focal mutation event (back in time).
 On the other hand, any coalescent event between \n{1} lineage in $X_c$ and \n{1} lineage in $X_d$ must have occurred \emph{later} than the focal mutation event.
 In the following, pairs of haplotypes in $X_c$ are referred to as \emph{concordant} pairs and pairs from $X_c$ and $X_d$ as \emph{discordant} pairs.
 The sets $\Omega_c$ and $\Omega_d$ are defined to contain all concordant and discordant pairs, respectively.
