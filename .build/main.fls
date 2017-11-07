@@ -1347,6 +1347,9 @@ INPUT ./img/ch5/psmc_age.pdf
 INPUT ./img/ch5/psmc_age.pdf
 INPUT chapter5/tab/stats_psmc_age.tex
 INPUT chapter5/tab/stats_psmc_age.tex
+INPUT chapter5/tab/stats_hhmm_age.tex
+INPUT chapter5/tab/stats_hhmm_age.tex
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmsc8t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpbn8t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpbne.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmn8t.vf
@@ -1360,6 +1363,9 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmn8r.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmn7t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpsyw.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpsy.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/kpfonts/jkpmsc8t.vf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmsc8r.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmsce.tfm
 INPUT .build/main.acr
 INPUT .build/main.acr
 INPUT .build/main.acr
@@ -1416,6 +1422,7 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmsc8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
