@@ -1,79 +1,84 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
-A level-1 auxiliary file: frontmatter.aux
-A level-1 auxiliary file: chapter1/one.aux
-A level-1 auxiliary file: chapter2/two.aux
-A level-1 auxiliary file: chapter3/three.aux
-A level-1 auxiliary file: chapter4/four.aux
+I couldn't open auxiliary file frontmatter.aux
+---line 19 of file main.aux
+ : \@input{frontmatter.aux
+ :                        }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter1/one.aux
+---line 20 of file main.aux
+ : \@input{chapter1/one.aux
+ :                         }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter2/two.aux
+---line 21 of file main.aux
+ : \@input{chapter2/two.aux
+ :                         }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter3/three.aux
+---line 22 of file main.aux
+ : \@input{chapter3/three.aux
+ :                           }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter4/four.aux
+---line 23 of file main.aux
+ : \@input{chapter4/four.aux
+ :                          }
+I'm skipping whatever remains of this command
 A level-1 auxiliary file: chapter5/five.aux
-A level-1 auxiliary file: chapter6/six.aux
+I couldn't open auxiliary file chapter6/six.aux
+---line 48 of file main.aux
+ : \@input{chapter6/six.aux
+ :                         }
+I'm skipping whatever remains of this command
 The style file: biblio.bst
-Reallocated field_info (elt_size=4) to 10129 items from 5000.
 Database file #1: library.bib
-Repeated entry---line 8756 of file library.bib
- : @article{malecot1948mathematics
- :                                ,
-I'm skipping whatever remains of this entry
-Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Database file #2: manual.bib
-Repeated entry---line 2 of file manual.bib
- : @article{malecot1948mathematics
- :                                ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 10 of file manual.bib
- : @phdthesis{cotterman1940calculus
- :                                 ,
-I'm skipping whatever remains of this entry
 Repeated entry---line 107 of file manual.bib
  : @book{hein2004gene
  :                   ,
 I'm skipping whatever remains of this entry
 Warning--empty journal in Delaneau:2008dk
-Warning--empty journal in fisher1930genetical
-Warning--empty journal in griffiths1997
-Warning--empty institution in Loh:2016bl
-Warning--empty journal in Marchini:2010cga
-Warning--can't use both volume and number fields in moskvina2005minor
-You've used 223 entries,
+You've used 19 entries,
             2378 wiz_defined-function locations,
-            1866 strings with 73519 characters,
-and the built_in function-call counts, 150974 in all, are:
-= -- 10770
-> -- 15304
-< -- 138
-+ -- 4886
-- -- 4861
-* -- 16646
-:= -- 28481
-add.period$ -- 989
-call.type$ -- 223
-change.case$ -- 1366
-chr.to.int$ -- 214
-cite$ -- 229
-duplicate$ -- 4277
-empty$ -- 7241
-format.name$ -- 5162
-if$ -- 27902
-int.to.chr$ -- 10
+            665 strings with 13350 characters,
+and the built_in function-call counts, 16965 in all, are:
+= -- 907
+> -- 2272
+< -- 9
++ -- 736
+- -- 736
+* -- 2053
+:= -- 3386
+add.period$ -- 86
+call.type$ -- 19
+change.case$ -- 113
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 366
+empty$ -- 604
+format.name$ -- 759
+if$ -- 3002
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 230
-newline$ -- 1116
-num.names$ -- 894
-pop$ -- 1266
+missing$ -- 20
+newline$ -- 98
+num.names$ -- 76
+pop$ -- 119
 preamble$ -- 1
-purify$ -- 1377
+purify$ -- 116
 quote$ -- 0
-skip$ -- 2847
+skip$ -- 242
 stack$ -- 0
-substring$ -- 7797
-swap$ -- 818
-text.length$ -- 13
+substring$ -- 635
+swap$ -- 71
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1977
-warning$ -- 6
-while$ -- 1053
+type$ -- 165
+warning$ -- 1
+while$ -- 87
 width$ -- 0
-write$ -- 2880
-(There were 4 error messages)
+write$ -- 245
+(There were 7 error messages)
