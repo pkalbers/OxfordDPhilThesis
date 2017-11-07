@@ -1,0 +1,149 @@
+\contentsline {chapter}{List of Figures}{xi}{chapter*.4}
+\contentsline {xchapter}{}{xii}{chapter*.4}
+\contentsline {chapter}{List of Tables}{xiii}{chapter*.5}
+\contentsline {xchapter}{}{xiii}{chapter*.5}
+\select@language {UKenglish}
+\select@language {UKenglish}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Aims and structure of this thesis}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Basic concepts and terminology}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Mutation}{8}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Recombination}{9}{subsection.1.2.2}
+\contentsline {subsubsection}{\numberline {1.2.2.1}Genetic linkage}{9}{subsubsection.1.2.2.1}
+\contentsline {section}{\numberline {1.3}Models in population genetics}{11}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Wright-Fisher model}{11}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Coalescent theory}{14}{subsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.2.1}Effective population size}{19}{subsubsection.1.3.2.1}
+\contentsline {subsubsection}{\numberline {1.3.2.2}The coalescent with mutation}{20}{subsubsection.1.3.2.2}
+\contentsline {subsubsection}{\numberline {1.3.2.3}The coalescent with recombination}{22}{subsubsection.1.3.2.3}
+\contentsline {section}{\numberline {1.4}Advances in high-throughput genomic technologies}{25}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Next-generation sequencing}{25}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Exploration of the human genome}{27}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}Genome-wide association studies}{30}{section.1.5}
+\contentsline {section}{\numberline {1.6}Identity by descent}{32}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Single-locus concept}{33}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Genealogical concept}{33}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.7}Allele age estimation}{35}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Theoretical results}{35}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}Application in human disease research}{37}{subsection.1.7.2}
+\contentsline {chapter}{\numberline {2}Meta-imputation of reference data to increase accuracy and power in association analysis}{39}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{39}{section.2.1}
+\contentsline {section}{\numberline {2.2}Approach}{42}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Description of the method}{42}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Score metrics}{44}{subsection.2.2.2}
+\contentsline {paragraph}{Maximum probability (\texttt {MP}).}{44}{paragraph*.21}
+\contentsline {paragraph}{\texttt {IMPUTE2} information score (\texttt {IS}).}{44}{paragraph*.22}
+\contentsline {paragraph}{Sample certainty (\texttt {SC}).}{45}{paragraph*.23}
+\contentsline {paragraph}{Random score (\texttt {RS}).}{45}{paragraph*.24}
+\contentsline {subsection}{\numberline {2.2.3}Merge operations}{46}{subsection.2.2.3}
+\contentsline {paragraph}{Maximum score selection (\texttt {MSS}).}{46}{paragraph*.25}
+\contentsline {paragraph}{Weighted linear combination (\texttt {WLS}).}{46}{paragraph*.26}
+\contentsline {section}{\numberline {2.3}Generation of reference datasets}{46}{section.2.3}
+\contentsline {section}{\numberline {2.4}Accuracy of estimated genotypes}{48}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Methods}{49}{subsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.1.1}Generation of genotype scaffold data (study sample)}{49}{subsubsection.2.4.1.1}
+\contentsline {subsubsection}{\numberline {2.4.1.2}Imputation and quality control}{49}{subsubsection.2.4.1.2}
+\contentsline {subsubsection}{\numberline {2.4.1.3}Calculation of genotype accuracy}{50}{subsubsection.2.4.1.3}
+\contentsline {subsection}{\numberline {2.4.2}Results}{51}{subsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.2.1}Comparison of meta-imputation settings}{52}{subsubsection.2.4.2.1}
+\contentsline {subsubsection}{\numberline {2.4.2.2}Improvements of accuracy in comparison to direct imputations}{55}{subsubsection.2.4.2.2}
+\contentsline {section}{\numberline {2.5}Power to detect significant risk signals}{62}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Methods}{62}{subsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.1.1}Simulation of study sample data}{63}{subsubsection.2.5.1.1}
+\contentsline {subsubsection}{\numberline {2.5.1.2}Association analysis in imputed genotype data}{65}{subsubsection.2.5.1.2}
+\contentsline {subsubsection}{\numberline {2.5.1.3}Calculation of power in replicate simulation experiments}{65}{subsubsection.2.5.1.3}
+\contentsline {subsection}{\numberline {2.5.2}Results}{66}{subsection.2.5.2}
+\contentsline {section}{\numberline {2.6}Discussion}{70}{section.2.6}
+\contentsline {chapter}{\numberline {3}Using rare variants to detect haplotype sharing and identity by descent}{75}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{75}{section.3.1}
+\contentsline {section}{\numberline {3.2}Rare variants as indicators of haplotype sharing by descent}{78}{section.3.2}
+\contentsline {section}{\numberline {3.3}IBD detection around rare variants}{81}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Inference of historical recombination events}{81}{subsection.3.3.1}
+\contentsline {paragraph}{\Gls {fgt}.}{81}{paragraph*.53}
+\contentsline {paragraph}{\Gls {dgt}.}{82}{paragraph*.55}
+\contentsline {subsection}{\numberline {3.3.2}Description of the algorithm}{84}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Anticipated limitations}{86}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Evaluation}{88}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Data generation}{89}{subsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.1.1}Demographic model}{90}{subsubsection.3.4.1.1}
+\contentsline {subsubsection}{\numberline {3.4.1.2}Simulated dataset}{91}{subsubsection.3.4.1.2}
+\contentsline {subsection}{\numberline {3.4.2}Accuracy analysis}{91}{subsection.3.4.2}
+\contentsline {section}{\numberline {3.5}Results}{92}{section.3.5}
+\contentsline {subsubsection}{\numberline {3.5.0.1}IBD detection using the \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} method}{98}{subsubsection.3.5.0.1}
+\contentsline {subsubsection}{\numberline {3.5.0.2}IBD detection in real data: 1000 Genomes, chromosome 20}{103}{subsubsection.3.5.0.2}
+\contentsline {section}{\numberline {3.6}Discussion}{107}{section.3.6}
+\contentsline {chapter}{\numberline {4}Consideration of genotype error in the inference of haplotype sharing by descent}{109}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{109}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Probability of genotype error}{111}{subsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.1}Genotype error models}{112}{subsubsection.4.1.1.1}
+\contentsline {section}{\numberline {4.2}Generation of platform-specific genotype error profiles}{114}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}High-confidence genome data as benchmark for comparisons}{114}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Selection and preparation of datasets from different platforms}{116}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Rate of genotype error in sequencing and genotyping data}{118}{subsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3.1}Genotype accuracy by chromosomal region}{119}{subsubsection.4.2.3.1}
+\contentsline {subsubsection}{\numberline {4.2.3.2}Empirical estimation of genotype error rate}{120}{subsubsection.4.2.3.2}
+\contentsline {subsubsection}{\numberline {4.2.3.3}Frequency-dependent genotype error distribution}{122}{subsubsection.4.2.3.3}
+\contentsline {section}{\numberline {4.3}Impact of genotype error on IBD detection}{124}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Integration of empirical error distributions in simulated data}{124}{subsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.1.1}Accuracy analysis}{125}{subsubsection.4.3.1.1}
+\contentsline {subsection}{\numberline {4.3.2}Results}{126}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}IBD detection using \emph {tidy}}{127}{subsubsection.4.3.2.1}
+\contentsline {subsubsection}{\numberline {4.3.2.2}IBD detection using \emph {Refined\tmspace +\thinmuskip {.1667em}IBD} in \emph {Beagle\tmspace +\thinmuskip {.1667em}4.1}}{132}{subsubsection.4.3.2.2}
+\contentsline {subsection}{\numberline {4.3.3}Discussion}{135}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}A Hidden Markov Model for IBD inference}{136}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}The algorithm for probabilistic IBD inference}{138}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Description of the model}{139}{subsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}Transition probabilities}{140}{subsubsection.4.4.2.1}
+\contentsline {subsubsection}{\numberline {4.4.2.2}Emission probabilities}{143}{subsubsection.4.4.2.2}
+\contentsline {subsubsection}{\numberline {4.4.2.3}Initial state probabilities}{144}{subsubsection.4.4.2.3}
+\contentsline {subsection}{\numberline {4.4.3}Integration of empirically determined error rates}{145}{subsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.3.1}Empirical emission probabilities}{146}{subsubsection.4.4.3.1}
+\contentsline {subsubsection}{\numberline {4.4.3.2}Empirical initial state probabilities}{148}{subsubsection.4.4.3.2}
+\contentsline {subsection}{\numberline {4.4.4}Inference of IBD segments}{150}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Results}{152}{subsection.4.4.5}
+\contentsline {subsubsection}{\numberline {4.4.5.1}Shared haplotype inference in simulated data before and after error}{153}{subsubsection.4.4.5.1}
+\contentsline {subsubsection}{\numberline {4.4.5.2}Analysis of 1000 Genomes data, chromosome 20}{156}{subsubsection.4.4.5.2}
+\contentsline {subsection}{\numberline {4.4.6}Discussion}{159}{subsection.4.4.6}
+\contentsline {chapter}{\numberline {5}Estimation of rare allele age}{163}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{163}{section.5.1}
+\contentsline {section}{\numberline {5.2}Approach}{165}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Coalescent time estimators}{166}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}Mutation clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}\tmspace -\thinmuskip {.1667em}M}}}\xspace )}{166}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}Recombination clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}R}}}\xspace )}{168}{subsubsection.5.2.1.2}
+\contentsline {subsubsection}{\numberline {5.2.1.3}Combined clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}\tmspace -\thinmuskip {.1667em}M\tmspace -\thinmuskip {.1667em}R}}}\xspace )}{169}{subsubsection.5.2.1.3}
+\contentsline {subsection}{\numberline {5.2.2}Inference of allele age from coalescent time posteriors}{170}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}Cumulative coalescent function (CCF)}{171}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}Allele age estimation from the composite posterior distribution}{172}{subsubsection.5.2.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.3}Note on composite likelihood methods}{173}{subsubsection.5.2.2.3}
+\contentsline {subsubsection}{\numberline {5.2.2.4}Note on the computational burden}{174}{subsubsection.5.2.2.4}
+\contentsline {subsection}{\numberline {5.2.3}Allele age estimation given complete knowledge of the shared haplotype structure}{175}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Validation of the method under different thresholds}{175}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Inference of IBD around shared and unshared alleles}{181}{subsection.5.2.5}
+\contentsline {section}{\numberline {5.3}Evaluation}{184}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Data generation}{184}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Accuracy analysis}{185}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Results}{187}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Comparison of IBD detection methods}{187}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Impact of genotype error on allele age estimation}{192}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Discussion}{198}{section.5.5}
+\contentsline {section}{\numberline {5.6}A haplotype-based HMM for shared haplotype inference}{201}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Description of the model}{201}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Impact of error on allele age estimation}{201}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}Shared haplotype inference}{202}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}Allele age estimation}{202}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}Discussion}{202}{subsubsection.5.6.2.3}
+\contentsline {subsection}{\numberline {5.6.3}Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}{202}{subsection.5.6.3}
+\contentsline {subsubsection}{\numberline {5.6.3.1}Implementation to estimate allele age}{202}{subsubsection.5.6.3.1}
+\contentsline {subsubsection}{\numberline {5.6.3.2}Results for the T\textsubscript {MRCA}}{203}{subsubsection.5.6.3.2}
+\contentsline {subsubsection}{\numberline {5.6.3.3}Results for allele age}{203}{subsubsection.5.6.3.3}
+\contentsline {subsubsection}{\numberline {5.6.3.4}Discussion}{203}{subsubsection.5.6.3.4}
+\contentsline {subsection}{\numberline {5.6.4}Allele age estimation in 1000 Genomes}{203}{subsection.5.6.4}
+\contentsline {subsubsection}{\numberline {5.6.4.1}Inferred allele age distribution by population}{203}{subsubsection.5.6.4.1}
+\contentsline {subsubsection}{\numberline {5.6.4.2}Comparison to PSMC}{203}{subsubsection.5.6.4.2}
+\contentsline {section}{\numberline {5.7}Discussion}{203}{section.5.7}
+\contentsline {chapter}{\numberline {6}Discussion}{209}{chapter.6}
+\contentsline {section}{\numberline {6.1}Implications for genome-wide association studies}{209}{section.6.1}
+\contentsline {section}{\numberline {6.2}The importance of haplotype sharing by descent}{210}{section.6.2}
+\contentsline {section}{\numberline {6.3}The potential of estimating the age of alleles}{212}{section.6.3}
+\contentsline {chapter}{Abbreviations}{215}{section*.130}
+\contentsline {chapter}{Bibliography}{217}{chapter*.132}

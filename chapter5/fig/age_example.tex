@@ -3,12 +3,12 @@
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=\textwidth]{./img/ch5/age_example}
-\Caption{Example of the age estimation result for a focal variant}%
+\includegraphics[width=\textwidth]{./img/ch5/age_example_new}
+\Caption{Example of concordant and discordant posterior distributions and the resulting composite posterior}%
 {A target variant was randomly selected from simulated data.
-Each of the possible concordant pairs was formed and analysed using the \gls{ccf}.
-A subset of ${n_d = \num{100}}$ discordant pairs was randomly selected and analysed using the \gls{ccf}.
-Vertical lines indicate the mode, median, and mean of the composite likelihood distribution.
-The \emph{blue} line marks the true age of the mutation, as determined from simulation records.}%
+The \gls{ccf} was obtained for the set of possible concordant pairs and a subset of concordant pairs, which were randomly selected.
+The thicker \emph{dotted} line shows the distribution of the maximised composite posterior.
+The \emph{blue} lines mark the times of coalescent events below and above the focal mutation event; \ie $t_c$ (\emph{left}) and $t_d$ (\emph{right}), determined from simulation records.
+Their distance corresponds to the length of the branch on which the focal mutation event occurred.}%
 {fig:age_example}
 \end{figure}

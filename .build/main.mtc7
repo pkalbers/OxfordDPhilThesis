@@ -1,18 +1,36 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Introduction}{\reset@font\mtcSfont 163}{section.5.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Approach}{\reset@font\mtcSfont 164}{section.5.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.1}Coalescent time estimators}{\reset@font\mtcSSfont 165}{subsection.5.2.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Approach}{\reset@font\mtcSfont 165}{section.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.1}Coalescent time estimators}{\reset@font\mtcSSfont 166}{subsection.5.2.1}}
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.1.1}Mutation clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}\tmspace -\thinmuskip {.1667em}M}}}\xspace )}{\reset@font\mtcSSSfont 166}{subsubsection.5.2.1.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.1.2}Recombination clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}R}}}\xspace )}{\reset@font\mtcSSSfont 167}{subsubsection.5.2.1.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.1.2}Recombination clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}R}}}\xspace )}{\reset@font\mtcSSSfont 168}{subsubsection.5.2.1.2}}
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.1.3}Combined clock model (\ensuremath {\mathcal {T_{\tmspace -\thinmuskip {.1667em}\tmspace -\thinmuskip {.1667em}M\tmspace -\thinmuskip {.1667em}R}}}\xspace )}{\reset@font\mtcSSSfont 169}{subsubsection.5.2.1.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.2}Cumulative coalescent function}{\reset@font\mtcSSfont 169}{subsection.5.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.3}Composite likelihood estimation of mutation time}{\reset@font\mtcSSfont 170}{subsection.5.2.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.3.1}Reduction of the computational burden}{\reset@font\mtcSSSfont 171}{subsubsection.5.2.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.4}Inference of IBD around shared and unshared alleles}{\reset@font\mtcSSfont 173}{subsection.5.2.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Evaluation}{\reset@font\mtcSfont 176}{section.5.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Data generation}{\reset@font\mtcSSfont 176}{subsection.5.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Accuracy analysis}{\reset@font\mtcSSfont 177}{subsection.5.3.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Results}{\reset@font\mtcSfont 178}{section.5.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Validation of the method under different thresholds}{\reset@font\mtcSSfont 178}{subsection.5.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Comparison of IBD detection methods}{\reset@font\mtcSSfont 184}{subsection.5.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.3}Impact of genotype error on allele age estimation}{\reset@font\mtcSSfont 189}{subsection.5.4.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.5}Discussion}{\reset@font\mtcSfont 197}{section.5.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.2}Inference of allele age from coalescent time posteriors}{\reset@font\mtcSSfont 170}{subsection.5.2.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.2.1}Cumulative coalescent function (CCF)}{\reset@font\mtcSSSfont 171}{subsubsection.5.2.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.2.2}Allele age estimation from the composite posterior distribution}{\reset@font\mtcSSSfont 172}{subsubsection.5.2.2.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.2.3}Note on composite likelihood methods}{\reset@font\mtcSSSfont 173}{subsubsection.5.2.2.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.2.4}Note on the computational burden}{\reset@font\mtcSSSfont 174}{subsubsection.5.2.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.3}Allele age estimation given complete knowledge of the shared haplotype structure}{\reset@font\mtcSSfont 175}{subsection.5.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.4}Validation of the method under different thresholds}{\reset@font\mtcSSfont 175}{subsection.5.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.5}Inference of IBD around shared and unshared alleles}{\reset@font\mtcSSfont 181}{subsection.5.2.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Evaluation}{\reset@font\mtcSfont 184}{section.5.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Data generation}{\reset@font\mtcSSfont 184}{subsection.5.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Accuracy analysis}{\reset@font\mtcSSfont 185}{subsection.5.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Results}{\reset@font\mtcSfont 187}{section.5.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Comparison of IBD detection methods}{\reset@font\mtcSSfont 187}{subsection.5.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Impact of genotype error on allele age estimation}{\reset@font\mtcSSfont 192}{subsection.5.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.5}Discussion}{\reset@font\mtcSfont 198}{section.5.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.6}A haplotype-based HMM for shared haplotype inference}{\reset@font\mtcSfont 201}{section.5.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.6.1}Description of the model}{\reset@font\mtcSSfont 201}{subsection.5.6.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.6.2}Impact of error on allele age estimation}{\reset@font\mtcSSfont 201}{subsection.5.6.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.2.1}Shared haplotype inference}{\reset@font\mtcSSSfont 202}{subsubsection.5.6.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.2.2}Allele age estimation}{\reset@font\mtcSSSfont 202}{subsubsection.5.6.2.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.2.3}Discussion}{\reset@font\mtcSSSfont 202}{subsubsection.5.6.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.6.3}Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}{\reset@font\mtcSSfont 202}{subsection.5.6.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.3.1}Implementation to estimate allele age}{\reset@font\mtcSSSfont 202}{subsubsection.5.6.3.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.3.2}Results for the T\textsubscript {MRCA}}{\reset@font\mtcSSSfont 203}{subsubsection.5.6.3.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.3.3}Results for allele age}{\reset@font\mtcSSSfont 203}{subsubsection.5.6.3.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.3.4}Discussion}{\reset@font\mtcSSSfont 203}{subsubsection.5.6.3.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.6.4}Allele age estimation in 1000 Genomes}{\reset@font\mtcSSfont 203}{subsection.5.6.4}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.4.1}Inferred allele age distribution by population}{\reset@font\mtcSSSfont 203}{subsubsection.5.6.4.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.6.4.2}Comparison to PSMC}{\reset@font\mtcSSSfont 203}{subsubsection.5.6.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.7}Discussion}{\reset@font\mtcSfont 203}{section.5.7}}
