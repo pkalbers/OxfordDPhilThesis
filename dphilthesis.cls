@@ -264,6 +264,7 @@ list-final-separator={, and }%
 \soulregister\ref7
 \soulregister\cref7
 \soulregister\ctref7
+\soulregister\ccref7
 \soulregister\cpref7
 \soulregister\Cpref7
 \soulregister\pref7

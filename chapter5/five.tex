@@ -569,7 +569,7 @@ Therefore, in practise, the computational burden is reduced by employing a sampl
 %
 
 
-\Correct{The following sections describe the general evaluation analysis applied the the results obtained in this Chapter.}
+\Correct{The following sections describe the data used in this chapter, as well as the metrics used to evaluate age estimation results.}
 
 
 
@@ -593,7 +593,7 @@ This facilitated the assessment of the impact of phasing error on the age estima
 
 Third, the dataset described above was retrofitted in Chapter~4 to include realistic proportions of empirically estimated error, which was equally distributed in the derived genotype and haplotype datasets \Correct{(\ie ``true'' and phased haplotype data)}.
 Here, data \emph{before} and \emph{after} the inclusion of error are distinguished by referring to dataset $\mathcal{D}_B$ and dataset $\mathcal{D}_B^{\ast}$, respectively.
-Note that in the following the term \emph{genotype error} is used, even in analyses that operate on haplotype data, as error proportions were estimated from misclassified genotypes \Correct{in \gls{1kg} data (``1000G.A'' in Chapter~4).}
+Note that in the following the term \emph{genotype error} is used, even in analyses that operate on haplotype data, as error proportions were estimated from misclassified genotypes \Correct{in \gls{1kg} data (``1000G.A'' in Chapter~4, \ccref{sec:err_test_data}).}
 
 
 In each dataset, simulation records were queried to determine the underlying IBD structure of each pair of individuals analysed in this work.
@@ -641,7 +641,8 @@ To better illustrate the distribution of age estimates obtained in an analysis, 
 As a result, the times of coalescent events at $t_c$ and $t_d$ are mapped to 0 and 1, respectively.
 It follows that that ${\hat{t}_\textit{rel} < 0}$ indicates underestimation and ${\hat{t}_\textit{rel} > 1}$ overestimation in relation to the true interval in which the mutation event could have occurred.
 
-Further, an age estimate is counted as being ``correct'' if ${t_c \leq \hat{t} \leq t_d}$, which is equal to the condition ${0 \leq \hat{t}_\textit{rel} \leq 1}$.
+Further, an age estimate was counted as being ``correct'' if ${t_c \leq \hat{t} \leq t_d}$, which is equal to the condition ${0 \leq \hat{t}_\textit{rel} \leq 1}$.
+The proportion of age estimates that fall within this interval is reported.
 
 
 
@@ -660,8 +661,8 @@ Further, an age estimate is counted as being ``correct'' if ${t_c \leq \hat{t} \
 
 The allele age estimation method relies on \Correct{an (ideally) correct} inference of the haplotype region shared by descent between \n{2} chromosomes relative to a target site.
 \Correct{Several approaches for targeted, pairwise inference of the shared haplotype have been developed in the previous chapters, which are applied further below.
-However, to first establish \emph{proof of concept} of the age estimation method, its performance was evaluated given complete knowledge of the underlying shared haplotype structure.
-That is, the ``true'' shared haplotype segments were determined from simulation records and analysed using the  haplotypes in dataset $\mathcal{D}_A$.}
+To first establish \emph{proof of concept} of the age estimation method, its performance was evaluated given complete knowledge of the underlying shared haplotype structure.
+That is, the ``true'' shared haplotype segments were determined from simulation records and analysed using haplotype data in dataset $\mathcal{D}_A$.}
 
 \Correct{Further,} because an exhaustive analysis of all possible haplotype pairs becomes computationally intractable, it is convenient to reduce the number of pairwise analyses that are conducted per target allele.
 % For example, although the sample size of dataset $\mathcal{D}_A$ was modest (${N = \num{1000}}$), the total number of possible pairwise analyses for the set of \n{10000} selected rare variants would have been \dec{145.724783}~million.
@@ -690,7 +691,7 @@ However, note that because discordant pairs were chosen at random, these differe
 %This resulted in a total of \dec{276.1326}~million pairwise analyses in this section alone.
 % None of the analyses returned conflicting results; recall that \emph{conflicts} were defined as invalid estimates resulting from erroneous patterns of coalescent times as computed through the \gls{ccf} for the set of pairs considered.
 %Note that discordant pairs were formed randomly and therefore differed in each analysis.
-The parameters required by the \texttt{rvage} algorithm were specified accordingly with simulation parameters (${\Ne = \num{10000}}$; ${\mu = \num{1e-08}}$ per site per generation; ${\rho = \num{1e-08}}$ per site per generation).
+The parameters required by the \texttt{rvage} algorithm were specified according to parameters used for the simulation of $\mathcal{D}_A$ (${\Ne = \num{10000}}$; ${\mu = \num{1e-08}}$ per site per generation; ${\rho = \num{1e-08}}$ per site per generation).
 
 
 %
@@ -804,8 +805,8 @@ The \texttt{tidy} algorithm for targeted IBD detection (see Chapters~3 and 4) wa
 namely the \gls{fgt}, \gls{dgt}, and the \Correct{genotype-based} \gls{hmm}.
 
 In this section, \n{2} main analyses were conducted.
-First, dataset $\mathcal{D}_A$ was analysed to provide a comparison to \cpref{sec:age_validation_analysis}, where true shared haplotype information was used to validate the age estimation method.
-Second, an extensive analysis was performed on datasets $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$ to assess the impact of data error on age estimation.
+First (\cref{sec:compare_ibd_methods}), dataset $\mathcal{D}_A$ was analysed to provide a comparison to \cpref{sec:age_validation_analysis}, where true shared haplotype information was used to validate the age estimation method.
+Second (\cref{sec:age_generror}), an extensive analysis was performed on datasets $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$ to assess the impact of data error on age estimation.
 \Addition{Note that the impact of phasing error was also evaluated in the latter, but which affected only the \gls{fgt}.}
 
 The IBD detection methods used here were originally designed to infer shared haplotype segments in individuals sharing a focal allele.
@@ -880,74 +881,70 @@ Since haplotype data are required to determine pairwise differences, $S$, along 
 
 
 %
-\subsection{Comparison of IBD detection methods}
+\subsection{Comparison of IBD detection methods}\label{sec:compare_ibd_methods}
 %
 
-Dataset $\mathcal{D}_A$ was used in this section to compare the different IBD detection methods.
-
-where \n{10000}~rare variants were randomly selected as target sites for estimation of allele age.
-These were selected at shared allele frequency~${\leq \SI{1}{\percent}}$, \ie \fk{[2,20]}~variants, in $\mathcal{D}_A$.
-
-
-
-
-
-
+Dataset $\mathcal{D}_A$ was used to compare the different IBD detection methods.
+Age was estimated for each of the \n{3} clock models, using a threshold of ${n_d=\num{1000}}$.
+The results presented in this section were obtained on the previously selected \n{10000} rare allele target sites; see \cpref{sec:age_validation_analysis}.
+Again, the parameters of the age estimation method were specified according to simulation parameters (${\Ne = \num{10000}}$; ${\mu = \num{1e-08}}$ per site per generation; ${\rho = \num{1e-08}}$ per site per generation).
 
 
 
 % Note that genotype data are sufficient for IBD detection using the \gls{dgt} and \gls{hmm}, but haplotypes are required for estimation under the mutation clock model; \ie to count pairwise differences, $S$, along haplotype sequences.
 % Thus, analyses were conducted on the simulated haplotype dataset ($\mathcal{D}_A$), but haplotype phase was ignored during IBD detection in the \gls{dgt} and \gls{hmm}.
-The parameters required by the \texttt{rvage} algorithm were specified accordingly with simulation parameters (${\Ne = \num{10000}}$; ${\mu = \num{1e-08}}$ per site per generation; ${\rho = \num{1e-08}}$ per site per generation).
-Here, because simulated data did not include genotype error, theoretical emission model was used in the \gls{hmm}.
+% Here, because simulated data did not include genotype error, theoretical emission model was used in the \gls{hmm}.
 
-The results presented in this section were obtained on the previously selected \n{10000} rare allele target sites, which were analysed using each of the \n{3} IBD detection methods and under each clock model, resulting in a total of \dec{93.295215}~million pairwise analyses.
-The fraction of conflicting age estimates differed by clock model as well as IBD detection method; no conflicting estimates were returned when true IBD was used.
-Under the mutation clock, \ClockM, analyses using the \gls{fgt} returned \SI{1.808575}{\percent} conflicts.
-This fraction was higher using the \gls{dgt} and \gls{hmm}, with \SIlist{2.601097;2.326762}{\percent}, respectively.
-Conflicts were seen less under the recombination clock, \ClockR, where none were returned using the \gls{fgt}, but \SIlist{0.010160;0.030481}{\percent} using the \gls{dgt} and \gls{hmm}.
-The fraction under the combined clock, \ClockC, was smaller compared to \ClockM, with
-\SIlist{1.097337;2.265799;1.818736}{\percent} of conflicted sites using the \gls{fgt}, \gls{dgt}, and \gls{hmm}, respectively.
-The remaining sites were intersected to compare clock models and IBD methods on the same set of target sites, retaining \n{9434} variants.
+
+
+% , which were analysed using each of the \n{3} IBD detection methods and under each clock model, resulting in a total of \dec{93.295215}~million pairwise analyses.
+
+% The fraction of conflicting age estimates differed by clock model as well as IBD detection method; no conflicting estimates were returned when true IBD was used.
+% Under the mutation clock, \ClockM, analyses using the \gls{fgt} returned \SI{1.808575}{\percent} conflicts.
+% This fraction was higher using the \gls{dgt} and \gls{hmm}, with \SIlist{2.601097;2.326762}{\percent}, respectively.
+% Conflicts were seen less under the recombination clock, \ClockR, where none were returned using the \gls{fgt}, but \SIlist{0.010160;0.030481}{\percent} using the \gls{dgt} and \gls{hmm}.
+% The fraction under the combined clock, \ClockC, was smaller compared to \ClockM, with
+% \SIlist{1.097337;2.265799;1.818736}{\percent} of conflicted sites using the \gls{fgt}, \gls{dgt}, and \gls{hmm}, respectively.
+% The remaining sites were intersected to compare clock models and IBD methods on the same set of target sites, retaining \n{9434} variants.
 
 %
 \input{chapter5/fig/vanilla_scat}
 %
 
-The density distribution of true and inferred allele age is given in \cpref{fig:vanilla_scat}.
+The density of true and inferred allele age is given in \cpref{fig:vanilla_scat}.
 In all \n{3} methods, a tendency to overestimate allele age was seen, in particular under the mutation clock, \ClockM.
 This overestimation was elevated when the \gls{dgt} was used, and less prominent for the \gls{fgt} or \gls{hmm}.
-The latter methods showed similar age distributions in \ClockM and under the combined clock model, \ClockC, in which alleles appeared to be less overestimated.
+The latter methods showed similar distributions in \ClockM and under the combined clock model, \ClockC, in which age appeared to be less overestimated.
 Under the recombination clock, \ClockR, alleles were underestimated in each method, but more severely in both the \gls{dgt} and \gls{hmm}.
 
-Specifically, the method with the highest proportion of correctly estimated alleles was the \gls{fgt} in all \n{3} clock models, where accuracy was highest under the recombination clock, \ClockR, at \SI{72.609710}{\percent}, and lowest under the mutation clock, \ClockM, with \SI{34.46046}{\percent}; under the combined clock, \ClockC, \SI{55.39538}{\percent} of alleles were correctly estimated when the \gls{fgt} was used.
-The \gls{hmm} achieved similar levels of accuracy, but the accuracy in \ClockR was noticeably reduced
-(\SI{10.949756}{\percent}) compared to \ClockC (\SI{51.87619}{\percent}) and \ClockM \SI{32.41467}{\percent}.
-Throughout, the lowest proportions of correctly inferred alleles were found for the \gls{dgt}, which also showed the lowest accuracy in \ClockR (\SIlist{8.225567}{\percent}) and comparatively low levels of accuracy in \ClockM and \ClockC (\SIlist{14.55374;29.65868}{\percent}, respectively).
-Overestimation of allele age was highest in \ClockM, where \SIlist{65.08374;85.27666;66.95993}{\percent} of alleles were underestimated by the \gls{fgt}, \gls{dgt}, and \gls{hmm}, respectively.
-Conversely, the proportion of underestimated alleles was lowest in \ClockM, at ${\leq 1\%}$ in each method, and similarly low in \ClockC with ${\leq 2\%}$ in each method.
-In contrast, alleles were markedly underestimated in \ClockR; the \gls{fgt} resulted in \SI{20.13992}{\percent} of underestimated alleles, whereas \SIlist{91.75323;88.93364}{\percent} of alleles were underestimated when the \gls{dgt} and the \gls{hmm} were used for IBD inference, respectively.
+Specifically, the method with the highest proportion of correctly estimated alleles was the \gls{fgt} in all \n{3} clock models, where accuracy was highest under \ClockR (\Percent{72.609710}), followed by \ClockC (\Percent{55.39538}) and \ClockM (\Percent{34.46046}).
+The \gls{hmm} achieved similar proportions, but which was low in \ClockR (\SI{10.949756}{\percent}) compared to \ClockC (\SI{51.87619}{\percent}) and \ClockM (\SI{32.41467}{\percent}).
+Throughout, the lowest proportions were found for the \gls{dgt} (\SIlist{14.55374;8.225567;29.65868}{\percent} for \ClockM, \ClockR, and \ClockC, respectively).
+% , which also showed the lowest proportion in \ClockR (\SI{8.225567}{\percent}) and comparatively low levels of accuracy in \ClockM and \ClockC (\SIlist{14.55374;8.225567;29.65868}{\percent}, respectively).
+% Overestimation of allele age was highest in \ClockM, where \SIlist{65.08374;85.27666;66.95993}{\percent} of alleles were underestimated by the \gls{fgt}, \gls{dgt}, and \gls{hmm}, respectively.
+% Conversely, the proportion of underestimated alleles was lowest in \ClockM, at ${\leq 1\%}$ in each method, and similarly low in \ClockC with ${\leq 2\%}$ in each method.
+% In contrast, alleles were markedly underestimated in \ClockR; the \gls{fgt} resulted in \SI{20.13992}{\percent} of underestimated alleles, whereas \SIlist{91.75323;88.93364}{\percent} of alleles were underestimated when the \gls{dgt} and the \gls{hmm} were used for IBD inference, respectively.
 
 %
 \input{chapter5/tab/stats_vanilla}
 %
 
-The accuracy measured for each analysis is summarised in \cpref{tab:stats_vanilla}.
-The \gls{fgt} under the recombination clock model, \ClockR, showed a higher correlation and slightly reduced error with regard to $t_d$.
-There, rank correlation was ${r_S = \dec{0.898918}}$ for the \gls{fgt} and ${r_S = \dec{0.888794}}$ for true IBD; likewise the magnitude of error (\gls{rmsle}) was \dec{0.338500} and \dec{0.345374} for \gls{fgt} and true IBD, respectively.
-However, note that a higher accuracy at $t_c$ does not necessarily reflect an improvement in the estimation of actual allele age.
-For example, the accuracy with regard to $t_m$ or $t_d$ was lower for the \gls{fgt} compared to true IBD.
-In comparison to the other detection methods, the \gls{fgt} outperformed both the \gls{dgt} and \gls{hmm} with regard to each time measure.
-The \gls{hmm} showed slightly higher levels of accuracy than the \gls{dgt} in \ClockR, where $r_S$ was higher and \gls{rmsle} lower in terms of each time measure for the \gls{hmm}.
-Similarly, in both \ClockM and \ClockC, \gls{rmsle} scores were lower for the \gls{hmm} compared to the \gls{dgt}, whereas $r_S$ measures were similar.
+Summary metrics for each analysis are given in \cpref{tab:stats_vanilla}.
+Throughout, the \gls{fgt} showed a higher accuracy compared to the other IBD detection methods under each clock model.
+% under the recombination clock model, \ClockR, showed a higher correlation and slightly reduced error with regard to $t_d$.
+% There, rank correlation was ${r_S = \dec{0.898918}}$ for the \gls{fgt} and ${r_S = \dec{0.888794}}$ for true IBD; likewise the magnitude of error (\gls{rmsle}) was \dec{0.338500} and \dec{0.345374} for \gls{fgt} and true IBD, respectively.
+% However, note that a higher accuracy at $t_c$ does not necessarily reflect an improvement in the estimation of actual allele age.
+% For example, the accuracy with regard to $t_m$ or $t_d$ was lower for the \gls{fgt} compared to true IBD.
+% In comparison to the other detection methods, the \gls{fgt} outperformed both the \gls{dgt} and \gls{hmm} with regard to each time measure.
+% The \gls{hmm} showed slightly higher levels of accuracy than the \gls{dgt} in \ClockR, where $r_S$ was higher and \gls{rmsle} lower in terms of each time measure for the \gls{hmm}.
+% Similarly, in both \ClockM and \ClockC, \gls{rmsle} scores were lower for the \gls{hmm} compared to the \gls{dgt}, whereas $r_S$ measures were similar.
+Relative age estimates are shown for distinct \fk{}~ranges in \cpref{fig:vanilla_hist}, where the relative age for corresponding results obtained by using true IBD information is given for comparison per clock model; see \cpref{fig:discords_hist}.
+Analyses under \ClockM and \ClockC showed a substantial difference between alleles at lower and higher frequencies; \eg overall accuracy of \fk{[2,5]} variants was increased compared to \fk{}~variants at higher frequencies in each method.
+This difference was reduced under \ClockR, but the \gls{dgt} showed an accuracy decrease for \fk{[2,5]} variants.
 
 %
 \input{chapter5/fig/vanilla_hist}
 %
-
-Relative age estimates are shown for distinct \fk{}~ranges in \cpref{fig:vanilla_hist}, where the relative age of true IBD is indicated for comparison per clock model (calculated on the full \fk{}~range).
-Analyses under the mutation clock and the combined clock models, \ClockM and \ClockC, showed a substantial difference between alleles at lower and higher frequencies; \eg overall accuracy of \fk{[2,5]} variants was increased compared to \fk{}~variants at higher frequencies in each method.
-This difference was reduced under the recombination clock model, \ClockR, but the \gls{dgt} showed an accuracy decrease for \fk{[2,5]} variants.
 
 
 % %
@@ -961,11 +958,16 @@ This difference was reduced under the recombination clock model, \ClockR, but th
 
 
 
-In summary, these results suggest that the accuracy of estimated allele age is crucially dependent on correct inference of the underlying IBD structure.
-The overestimation of IBD lengths, which is generally expected for each method, affected each clock model differently.
-While \ClockM overall resulted in an overestimation of allele age when IBD is overestimated, this pattern was reversed in \ClockR.
-Although both models are combined in \ClockC, the impact of mutational differences, seen at the overestimated regions of detected IBD segments, was substantial and could not be mitigated by considering recombinational length.
-Further, I confirmed that the \gls{fgt} was the best performing method for the targeted detection of IBD segments, in that the estimation of allele age was similar to the expectations defined by true IBD information.
+These results suggested that the accuracy of estimated allele age is crucially dependent on correct inference of the underlying IBD structure.
+\Correct{The clock models behave differently when the length of an IBD segment is over or underestimated.}
+It can be expected that \ClockM may indicate an older allele age if IBD length is overestimated, due to potentially including a larger number of mutational differences which suggests an older \gls{tmrca}.
+Conversely, \ClockR may indicate a younger age, because a more recent \gls{tmrca} is suggested when IBD length is relatively long.
+
+% The overestimation of IBD lengths, which is generally expected for each method, affected each clock model differently.
+% While \ClockM overall resulted in an overestimation of allele age when IBD is overestimated, this pattern was reversed in \ClockR.
+% Although both models are combined in \ClockC, the impact of mutational differences, seen at the overestimated regions of detected IBD segments, was substantial and could not be mitigated by considering recombinational length.
+
+I found that the \gls{fgt} was the best performing method for the targeted detection of IBD segments, as the accuracy of estimated age was similar to the expectations defined by true IBD information in \cref{sec:age_validation_analysis}.
 However, the estimation was more accurate for target sites at lower allele frequencies.
 The \gls{dgt} was least accurate in terms of estimated allele age in this comparison.
 
@@ -980,107 +982,134 @@ This was explored in the section below.
 \label{sec:age_generror}
 %
 
+Allele age was estimated using datasets $\mathcal{D}_B$~and~$\mathcal{D}_B^{\ast}$, to compare the accuracy of the estimation method before and after error.
+\Addition{Shared haplotype inference was performed using the \gls{fgt}, \gls{dgt}, and the genotype-based \gls{hmm}.
+In addition, age was estimated using true IBD information as determined from simulation records.}
 
-Identical sets of target sites were randomly selected in $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$, at shared allele frequency ${\leq 0.5\%}$ (\fk{[2,25]}~variants).
-Note that these were sampled from the subset of variants unaffected by error, to ensure that alleles correctly identified haplotype sharing.
+In total, \n{5000} target sites were randomly selected at allele frequency ${\leq 0.5\%}$ (\fk{[2,25]}).
+Note that these were sampled from the subset of variants unaffected by error in $\mathcal{D}_B^{\ast}$, to ensure that alleles correctly identified haplotype sharing.
+A threshold of ${n_d = \num{2500}}$ was applied to randomly select concordant pairs at a given target site.
+\Correct{Note that statistically phased data was available for both $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$, which were included here to assess the impact of phasing error, but which can only affect the \gls{fgt}.}
 
+% The allele age estimation method was evaluated under each clock model and each method for IBD detection, on data before and after the inclusion of genotype error; \ie using datasets ${\mathcal{D}_B}$ and ${\mathcal{D}_B^{\ast}}$, respectively.
+% A set of \n{10000} target sites selected at \fk{[2,25]} in a sample of ${N = \num{2500}}$ diploid individuals, using a threshold of ${n_d = \num{2500}}$, which amounted to \dec{25.281233}~million pairwise analyses per comparison.
+% The \gls{fgt} was applied to both the simulated (\emph{true}) haplotypes as well as phased haplotype data.
+% The \gls{hmm} used theoretical emission model in analyses on ${\mathcal{D}_B}$ and the empirical error model in analyses on ${\mathcal{D}_B^{\ast}}$.
+% To measure accuracy, true IBD segments were determined from simulation records and separately analysed on the same number of concordant and discordant pairs in data before and after error.
+% In total, for the results presented in this section, \dec{758.43699}~million pairwise analyses were conducted.
 
-The allele age estimation method was evaluated under each clock model and each method for IBD detection, on data before and after the inclusion of genotype error; \ie using datasets ${\mathcal{D}_B}$ and ${\mathcal{D}_B^{\ast}}$, respectively.
-Each analysis was performed on the same set of \n{10000} target sites selected at \fk{[2,25]} in a sample of ${N = \num{2500}}$ diploid individuals, using a threshold of ${n_d = \num{2500}}$, which amounted to \dec{25.281233}~million pairwise analyses per comparison.
-The \gls{fgt} was applied to both the simulated (\emph{true}) haplotypes as well as phased haplotype data.
-The \gls{hmm} used theoretical emission model in analyses on ${\mathcal{D}_B}$ and the empirical error model in analyses on ${\mathcal{D}_B^{\ast}}$.
-To enable direct comparisons, true IBD segments were determined from simulation records and separately analysed on the same number of concordant and discordant pairs in data before and after error.
-In total, for the results presented in this section, \dec{758.43699}~million pairwise analyses were conducted.
+% %
+% \input{chapter5/tab/stats_conflicts}
+% %
+% As in the previous section, some of the analyses returned conflicting estimates; see \cref{tab:stats_conflicts}.
+% Again, no conflicts were seen when true IBD information was used.
+% However, this changed after the inclusion of genotype error; the fraction of conflicting estimates was high in \ClockM, zero in \ClockR, and small in \ClockC.
+% Before error, the largest fraction of conflicts was seen for the \gls{dgt} in \ClockM.
+% Data from analyses before and after error were intersected across results obtained under each clock model and for each IBD method, which retained a set of \n{5015} identical target sites.
+% A complete summary of the accuracy per analysis is given below in \cpref{tab:stats_generror}.
 
 %
-\input{chapter5/tab/stats_conflicts}
+\subsubsection{Age estimation using true shared haplotype information}
 %
-
-As in the previous section, some of the analyses returned conflicting estimates; see \cref{tab:stats_conflicts}.
-Again, no conflicts were seen when true IBD information was used.
-However, this changed after the inclusion of genotype error; the fraction of conflicting estimates was high in \ClockM, zero in \ClockR, and small in \ClockC.
-Before error, the largest fraction of conflicts was seen for the \gls{dgt} in \ClockM.
-Data from analyses before and after error were intersected across results obtained under each clock model and for each IBD method, which retained a set of \n{5015} identical target sites.
-A complete summary of the accuracy per analysis is given below in \cpref{tab:stats_generror}.
 
 %
 \input{chapter5/fig/generror_scat_tru}
 %
 
-Estimation based on the true IBD structure of the sample is compared before and after error in \cref{fig:generror_scat_tru}{a} (\pref{fig:generror_scat_tru}).
+First, estimation based on the true IBD structure of the sample is compared before and after error.
+\Correct{Results are shown} in \cref{fig:generror_scat_tru}{a} (\pref{fig:generror_scat_tru}).
 The most striking discovery is the extent of overestimation after error under the mutation clock model, \ClockM, which was similarly high in the combined clock, \ClockC.
-Alleles were overestimated because the presence of misclassified alleles substantially increased the number of observed mutational differences, $S$, along the sequence.
-For example, accuracy decreased in \ClockM from ${r_S = \dec{0.869553}}$ to ${r_S = \dec{0.517705}}$ with regard to $t_c$, before and after error respectively, similarly in \ClockC, where $r_S$ at $t_c$ decreased from \dec{0.884482} to \dec{0.592839}, respectively.
-The proportion of correctly estimated alleles (${t_c < \hat{t} < t_d}$) in \ClockM was \SI{75.39382}{\percent} before and \SI{24.06780}{\percent} after error, which was similar in \ClockC, where \SI{80.51844}{\percent} of alleles were correct before but only \SI{39.40179}{\percent} after error.
-The proportion of overestimated alleles was
-\SI{18.04586}{\percent} in \ClockM and \SI{9.212363}{\percent} in \ClockC before error, but \SI{74.39681}{\percent} and \SI{57.92622}{\percent}, respectively, after error.
-Note that this did not vary noticeably by focal allele frequency; for example, the proportion of overestimated alleles in \ClockM was \SI{75.65938}{\percent} at lower frequencies (\fk{[2,5]}) and \SI{79.37500}{\percent} at higher frequencies (\fk{[20,25]}), which was also the case in \ClockC, where \SIlist{61.83120;1.25000}{\percent} of alleles were overestimated at \fk{[2,5]} and \fk{[20,25]}, respectively.
+\Correct{It is suggested that} age was overestimated due to misclassified alleles which may have substantially increased the number of observed mutational differences observed within the shared haplotype interval.
 
-In contrast, the estimation under the recombination clock model, \ClockR, was not affected by genotype error, due to using true IBD information to derive recombinational segment lengths.
+\Correct{Rank correlation} decreased in \ClockM from ${r_S = \dec{0.869553}}$ to ${r_S = \dec{0.517705}}$ with regard to $t_c$, before and after error.
+This was similar in \ClockC, where $r_S$ at $t_c$ decreased from \dec{0.884482} to \dec{0.592839}, respectively.
+The proportion of correctly estimated alleles (${t_c < \hat{t} < t_d}$) in \ClockM was \Percent{75.39382} before and
+\Percent{24.06780} after error, which was similar in \ClockC, where
+\Percent{80.51844} of alleles were correct before but only
+\Percent{39.40179} after error.
+% The proportion of overestimated alleles was
+% \Percent{18.04586} in \ClockM and
+% \Percent{9.212363} in \ClockC before error, but
+% \Percent{74.39681} and
+% \Percent{57.92622} after error, respectively.
+% Note that this did not vary noticeably by focal allele frequency; for example, the proportion of overestimated alleles in \ClockM was \Percent{75.65938} at lower frequencies (\fk{[2,5]}) and \Percent{79.37500} at higher frequencies (\fk{[20,25]}), which was also the case in \ClockC, where \SIlist{61.83120;1.25000}{\percent} of alleles were overestimated at \fk{[2,5]} and \fk{[20,25]}, respectively.
+
+The estimation under the recombination clock model, \ClockR, was not affected by genotype error, due to using true IBD information to derive segment lengths.
 Note that analyses were performed on the same sets of concordant and discordant pairs, which is why the results in \ClockR are identical before and after error.
-As in the previous analysis, alleles showed a tendency to be underestimated in \ClockR.
-The average distance between consecutive \glspl{snp} was \SI{1.609087e-04}{\centi\morgan} (\dec{93.55677} basepairs) in ${\mathcal{D}_B}$ and ${\mathcal{D}_B^{\ast}}$; \ie the density of variant sites is higher compared to ${\mathcal{D}_A}$, such that a potential bias resulting from overestimation of true IBD lengths is expected to be reduced.
-Overall, \SI{42.89132}{\percent} of alleles were correctly inferred, but this was higher for at \fk{[2,5]} and lower at \fk{[20,25]}; \SIlist{48.68124;39.37500}{\percent}, respectively.
-The proportion of underestimated alleles was \SI{55.55334}{\percent}, where \SIlist{50.52751;52.50000}{\percent} were underestimated at \fk{[2,5]} and \fk{[20,25]}, respectively.
-The correlation between inferred and true age was generally high
-($r_S$: \numlist{0.818219;0.842606;0.665742} at $t_c$, $t_m$, and $t_d$, respectively)
-but nonetheless slightly lower compared to corresponding results from dataset ${\mathcal{D}_A}$
-(\numlist{0.888794;0.895266;0.739364}, respectively); although, note that these results are not directly comparable as the underlying demographies were different and only half the number of target sites was analysed here.
+Allele age showed a tendency to be underestimated in \ClockR.
+% The average distance between consecutive \glspl{snp} was \SI{1.609087e-04}{\centi\morgan} (\dec{93.55677} basepairs) in ${\mathcal{D}_B}$ and ${\mathcal{D}_B^{\ast}}$; \ie the density of variant sites is higher compared to ${\mathcal{D}_A}$, such that a potential bias resulting from overestimation of true IBD lengths is expected to be reduced.
+Overall, \SI{42.89132}{\percent} of alleles were correctly inferred,
+% , but this was higher for at \fk{[2,5]} and lower at \fk{[20,25]}; \SIlist{48.68124;39.37500}{\percent}, respectively.
+% The proportion of underestimated alleles was \SI{55.55334}{\percent}, where \SIlist{50.52751;52.50000}{\percent} were underestimated at \fk{[2,5]} and \fk{[20,25]}, respectively.
+and rank correlation was relatively high
+($r_S$: \numlist{0.818219;0.842606;0.665742} at $t_c$, $t_m$, and $t_d$, respectively).
+% but nonetheless slightly lower compared to corresponding results from dataset ${\mathcal{D}_A}$
+% (\numlist{0.888794;0.895266;0.739364}, respectively); although, note that these results are not directly comparable as the underlying demographies were different and only half the number of target sites was analysed here.
+
+
+%
+\subsubsection{Age estimation based on inferred shared haplotypes}
+%
+
+The different IBD detection methods are compared below.
+Results based on the \gls{fgt} are shown in
+\cref{fig:generror_scat_fgt}{b} and \ref{fig:generror_scat_fgt}{c} (\pref{fig:generror_scat_fgt}), which show age estimates based on IBD detected in true (simulated) and phased haplotype data, respectively, both before and after error.
 
 %
 \input{chapter5/fig/generror_scat_fgt}
 %
 
-When IBD was inferred, the accuracy of the estimation analysis was differently affected dependent on the IBD detection method used.
-Results based on the \gls{fgt} are shown in
-\cref{fig:generror_scat_fgt}{b} and \ref{fig:generror_scat_fgt}{c} (\pref{fig:generror_scat_fgt}), which compare age estimates obtained on the same set of target sites based on IBD detected in true and phased haplotypes, respectively, both before and after error.
-Without genotype error, \SIlist{53.02094;50.84745;60.03988}{\percent} of alleles were correctly inferred from true haplotype data in \ClockM, \ClockR, and \ClockC, respectively.
-When phased data were used, this changed only slightly; \SIlist{50.82752;51.365902;59.18245}{\percent} of correct alleles in \ClockM, \ClockR, and \ClockC, respectively.
-Note that the proportion of correctly inferred alleles increased in \ClockR due to phasing error.
-This is because the underestimation that was generally seen under the recombination clock model may have been mitigated by further reduction of IBD segment lengths resulting from flip or switch errors in phased data.
-The small difference between true and phased data was further reflected in the accuracy of each analysis, where $r_S$ changed from \numrange{0.679635}{0.660366} in \ClockM, \numrange{0.779995}{0.764215} in \ClockR, and \numrange{0.741871}{0.731383} in \ClockC, with regards to $t_d$.
+Before error, \SIlist{53.02094;50.84745;60.03988}{\percent} of alleles were correctly inferred from true haplotype data in \ClockM, \ClockR, and \ClockC, respectively.
+When phased data were used, this changed only slightly; \SIlist{50.82752;51.365902;59.18245}{\percent} in \ClockM, \ClockR, and \ClockC, respectively.
+Notably, the proportion of correctly inferred alleles increased in \ClockR due to phasing error.
+\Correct{It is suggested that} the tendency for underestimation that was generally seen in \ClockR may have been mitigated by further reduction of IBD segment lengths resulting from phasing error.
+The small difference between true and phased data was further reflected in $r_S$, which changed from \numrange{0.679635}{0.660366} in \ClockM, \numrange{0.779995}{0.764215} in \ClockR, and \numrange{0.741871}{0.731383} in \ClockC, with regards to $t_d$.
 
-When analyses were performed on data with genotype error, the overall proportion of correct alleles was reduced, but again the differences seen from true and phased data were small.
-On true haplotypes, the proportion of correct alleles was \SIlist{44.26720;45.024925;42.03390}{\percent} in \ClockM, \ClockR, and \ClockC, respectively, whereas \SIlist{43.54935;46.001994;41.63509}{\percent} of alleles were correct using phased haplotypes in \ClockM, \ClockR, and \ClockC, respectively.
-Likewise, accuracy was overall reduced but $r_S$ and \gls{rmsle} scores did not suggest notable differences between estimation results from true and phased haplotypes; see \cpref{tab:stats_generror}.
-Notably, the analysis on true IBD suggested that genotype error induces an overall overestimation of allele age in \ClockM and \ClockC.
-However, this effect was mitigated by underestimating IBD lengths in the \gls{fgt}, such that the number of pairwise differences, $S$, may not be elevated as genotype errors that would increase the value of $S$ may also lead to the premature detection of interval breakpoints.
+\Correct{After error}, the overall proportion of correct alleles was reduced, but again the differences between true and phased data were small.
+On true haplotypes, the proportion of correct alleles was \SIlist{44.26720;45.024925;42.03390}{\percent} in \ClockM, \ClockR, and \ClockC, respectively, whereas \SIlist{43.54935;46.001994;41.63509}{\percent} of alleles were correct using phased haplotypes.
+Likewise, $r_S$ and \gls{rmsle} scores did not suggest notable differences between estimation results from true and phased haplotypes; see \cpref{tab:stats_generror}.
+
+\Correct{In the previous analysis using true IBD, it was suggested} that genotype error may induce an overestimation of allele age in \ClockM and \ClockC.
+However, this was reduced here,
+\Correct{possibly because phasing error may result in truncated shared haplotype intervals, such that shorter intervals may mitigate the effects of data error on observed pairwise differences in a pair haplotypes.}
 
 %
 \input{chapter5/fig/generror_scat_dgt}
 %
 
-Estimation results based on the \gls{dgt} for IBD detection are shown in \cref{fig:generror_scat_dgt}{d} (\pref{fig:generror_scat_dgt}).
-Before error, the proportions of correctly inferred allele age were the lowest in the present comparison in each clock model.
-Under both the mutation and combined clocks, \ClockM and \ClockC, \gls{dgt}-based age estimation resulted in \SIlist{26.34098;36.94915}{\percent} of correct alleles, respectively, whereas only \SI{2.412762}{\percent} were correct in \ClockR.
-While the majority of alleles in \ClockM and \ClockC were overestimated, \SIlist{70.04985;57.84646}{\percent} respectively, \SI{97.58724}{\percent} were underestimated in \ClockR (none were overestimated).
-The tendency to overestimate allele age was increased after error; the proportions of alleles overestimated were \SIlist{77.30808;67.85643}{\percent} in \ClockM and \ClockC, respectively.
-As this was also the case in \ClockR, the proportion of correctly inferred alleles increased to \SI{15.692921}{\percent}, but this was an artefact resulting from an overall underestimation of IBD lengths.
-However, the loss in accuracy was reflected in the correlation between true and inferred allele age; $r_S$ at $t_c$, $t_m$, and $t_d$ was \numlist{0.746385;0.627943;0.406151} before error, and \numlist{0.588234;0.504469;0.328094} after error.
-Note that rank correlations at $t_m$ and $t_d$ were higher in \ClockM and \ClockC, both before and after error.
-However, the same measures taken after error actually suggested that the accuracy increased in \ClockM and \ClockC; see \cpref{tab:stats_generror}.
-Regardless, rank correlation measured at $t_c$ was decreased after error under each clock model.
+Estimation results based on the \gls{dgt} are shown in \cref{fig:generror_scat_dgt}{d} (\pref{fig:generror_scat_dgt}).
+Before error, the proportions of correctly inferred alleles were the lowest in the present comparison in each clock model.
+For \ClockM and \ClockC, the estimation resulted in \SIlist{26.34098;36.94915}{\percent} of correct alleles, respectively, whereas only \SI{2.412762}{\percent} were correct for \ClockR.
+% While the majority of alleles in \ClockM and \ClockC were overestimated, \SIlist{70.04985;57.84646}{\percent} respectively, \SI{97.58724}{\percent} were underestimated in \ClockR (none were overestimated).
+The tendency to overestimate allele age was increased after error.
+% The proportions of alleles overestimated were \SIlist{77.30808;67.85643}{\percent} in \ClockM and \ClockC, respectively.
+This was also seen for \ClockR, where the proportion of correctly inferred alleles increased to \SI{15.692921}{\percent}, \Correct{but at a loss of accuracy.}
+Rank correlation, $r_S$, was \numlist{0.746385;0.627943;0.406151} at $t_c$, $t_m$, and $t_d$ before error, and \numlist{0.588234;0.504469;0.328094} after error; see \cpref{tab:stats_generror}.
+% Note that rank correlation at $t_m$ and $t_d$ was higher in \ClockM and \ClockC, both before and after error.
+% However, the same measures taken after error actually suggested that the accuracy increased in \ClockM and \ClockC; see .
+% Regardless, rank correlation measured at $t_c$ was decreased after error under each clock model.
 
 %
 \input{chapter5/fig/generror_scat_hmm}
 %
 
-The accuracy of age estimation based on IBD inference using the \gls{hmm}-based approach was overall highly accurate before error; more accurate in comparison to the \gls{fgt} in \ClockM, similar in accuracy to the \gls{dgt} in \ClockR, and similar to the \gls{fgt} in \ClockC.
-The density distribution for results obtained using the \gls{hmm} is given in \cref{fig:generror_scat_hmm}{e} (\pref{fig:generror_scat_hmm}).
+The accuracy of age estimation using the \Correct{genotype-based} \gls{hmm} was relatively high before error; that is, more accurate in comparison to the \gls{fgt} in \ClockM, similar in accuracy to the \gls{dgt} in \ClockR, and similar to the \gls{fgt} in \ClockC.
+The density of inferred allele age based on the \gls{hmm} is given in \cref{fig:generror_scat_hmm}{e} (\pref{fig:generror_scat_hmm}).
+
 Before error, the proportion of correct alleles was \SI{47.53739}{\percent} in \ClockM, \SI{3.629113}{\percent} in \ClockR, and \SI{57.82652}{\percent} in \ClockC.
-The majority of alleles was underestimated in \ClockR (\SI{96.35095}{\percent}).
-This was increased after error, \ie \SI{98.30508}{\percent} in \ClockR, as the proportion of correct alleles was overall reduced; \SIlist{16.65005;27.65703}{\percent} in \ClockM and \ClockC, respectively.
-For example, \gls{rmsle} scores were lowest for the \gls{hmm} under each clock model after error; see \cpref{tab:stats_generror}.
-The accuracy before and after error, measured as $r_S$ at $t_c$, decreased from \dec{0.702418} to \dec{0.534920} in \ClockM, and from \dec{0.733298} to \dec{0.569244} in \ClockC.
+Allele age was generally underestimated in \ClockR (\SI{96.35095}{\percent}).
+This was increased after error, resulting in an underestimated proportion of \SI{98.30508}{\percent} in \ClockR, as the proportion of correct alleles was overall reduced; \SIlist{16.65005;27.65703}{\percent} in \ClockM and \ClockC, respectively.
+Also, \gls{rmsle} scores were lowest for the \gls{hmm} under each clock model after error; see \cpref{tab:stats_generror}.
+\Correct{Rank correlation} before and after error, for $r_S$ at $t_c$, decreased from \dec{0.702418} to \dec{0.534920} in \ClockM, and from \dec{0.733298} to \dec{0.569244} in \ClockC.
 However, importantly, the \gls{hmm}-based estimation showed the highest levels of accuracy in \ClockR compared to the other methods, \ie $r_S$ at $t_c$ was \dec{0.751100} before and \dec{0.737036} after error.
-Although allele age was vastly underestimated, deviations appeared to be consistent.
+% Although allele age was vastly underestimated, deviations appeared to be consistent.
 
+% %
+% \input{chapter5/fig/africa_length_con_dis}
+% %
 %
-\input{chapter5/fig/africa_length_con_dis}
-%
-
-The distribution of inferred IBD segment lengths for each approach are given in \cpref{fig:africa_length_con_dis}.
-Notably, IBD segments detected using the \gls{fgt} and \gls{dgt} were overall underestimated after error; only the HMM maintained similarly accurate lengths before and after error, for both concordant and discordant pairs.
+% The distribution of inferred IBD segment lengths for each approach are given in \cpref{fig:africa_length_con_dis}.
+% Notably, IBD segments detected using the \gls{fgt} and \gls{dgt} were overall underestimated after error; only the HMM maintained similarly accurate lengths before and after error, for both concordant and discordant pairs.
 
 
 %
@@ -1105,19 +1134,21 @@ The impact of phasing error is small in comparison to genotypic (or allelic) mis
 
 Generally, imperfect data may affect the estimation of allele age in \n{2} ways.
 First, the method was shown to be highly susceptible to inaccurate IBD inference, where each clock model behaves differently to the over or underestimation of IBD length.
-In this regard, the \gls{hmm}-based approach for IBD inference was shown to maintain consistency even if genotype error is present.
-However, second, even if IBD is detected with high accuracy, the alleles observed at a focal variant in the sample may wrongly identify haplotype sharing by descent.
-To account for the possibility that some concordant pairs may actually be discordant pairs, for example, a separate filtering method would be needed to exclude pairs before or after the computation of the \gls{ccf}, to reduce the chance that the calculation of the composite likelihood is biased.
-However, because such a method would effectively predict missed alleles in the data, a solution to this problem may not be straightforward.
-Yet it would be possible, for example, to exclude pairs on basis of patterns of allele sharing or consistency of the inferred IBD structure.
-Alternatively, instead of excluding pairs, the target site itself would need to be excluded from the analysis if bias is likely.
-A simple solution was presented in the previous section, where sites are excluded if the lower and upper bounds indicate a reverse order, but further evaluation is required to determine the effectiveness of this filtering criterion.
+% In this regard, the \gls{hmm}-based approach for IBD inference was shown to maintain consistency even if genotype error is present.
+However, second, \Correct{even for a method that can infer shared haplotype segments} with high accuracy, the alleles observed at a focal site in the sample may wrongly identify haplotype sharing.
+To account for the possibility that some concordant pairs may actually be discordant pairs (or \emph{vice versa}), for example, a separate filtering method would be needed to exclude pairs based on patterns of the inferred haplotype structure.
+But because such a method would effectively predict falsely called or typed alleles in the data, a solution to this problem may not be straightforward.
+% Yet it would be possible, for example, to exclude pairs on basis of patterns of allele sharing or consistency of the inferred IBD structure.
+% Alternatively, instead of excluding pairs, the target site itself would need to be excluded from the analysis if bias is likely.
+% A simple solution was presented in the previous section, where sites are excluded if the lower and upper bounds indicate a reverse order, but further evaluation is required to determine the effectiveness of this filtering criterion.
 
-Lastly, note that both the \gls{dgt} and the \gls{hmm}-based approach operate on genotype data to detect IBD, but because the mutation clock model, \ClockM, requires haplotypes, it would be desirable to estimate pairwise differences, $S$, in genotype data, so as to make these methods fully compatible with \ClockM and \ClockC.
-A possible solution is presented in Chapter~3, where haplotype phase was determined from genotype pairs in detected IBD segments, based on the genealogical constrains that arise under haplotype sharing by descent.
-Yet, further work is needed to determine the feasibility of such an approach.
+% Lastly, note that both the \gls{dgt} and the \gls{hmm}-based approach operate on genotype data to detect IBD, but because the mutation clock model, \ClockM, requires haplotypes, it would be desirable to estimate pairwise differences in genotype data, so as to make these methods fully compatible with \ClockM and \ClockC.
+% A possible solution is presented in Chapter~3, where haplotype phase was determined from genotype pairs in detected IBD segments, based on the genealogical constrains that arise under haplotype sharing by descent.
+% Yet, further work is needed to determine the feasibility of such an approach.
 
-
+\Addition{In conclusion, a substantial amount of estimation bias was seen for any of the evaluated methods used to infer shared haplotype intervals.
+The allele age estimation method may therefore not be regarded as reliable in applications to real data.
+However, a solution is attempted in the following section, where I present a novel haplotype-based \gls{hmm} as an advancement over of the current genotype-based method.}
 
 
 \DeleteNote{Section ``Generation of error correction models''}
@@ -1129,7 +1160,16 @@ Yet, further work is needed to determine the feasibility of such an approach.
 
 
 
+
+
+
+
 \newpage
+
+
+
+
+
 
 
 %
@@ -1328,7 +1368,7 @@ Yet, further work is needed to determine the feasibility of such an approach.
 
 
 %
-\section{A haplotype-based HMM for shared haplotype inference}
+\section{A haplotype-based HMM for targeted shared haplotype inference}
 %
 
 
@@ -1345,7 +1385,7 @@ Yet, further work is needed to determine the feasibility of such an approach.
 
 
 %
-\subsection{Impact of error on allele age estimation}
+\subsection{Impact of data error}
 %
 
 
@@ -1368,6 +1408,17 @@ A maximum of \n{100} concordant and \n{100} discordant pairs was selected per ta
 %
 \subsubsection{Allele age estimation}
 %
+
+
+%
+\input{chapter5/fig/hhmm_age}
+%
+
+
+%
+\input{chapter5/tab/stats_hhmm_age}
+%
+
 
 
 %
@@ -1462,15 +1513,13 @@ Recall that the \gls{ccf} is defined as the \gls{cdf} of the posterior; see \cpr
 
 
 
-%
-\input{chapter5/tab/stats_hhmm_age}
-%
-
-
 
 %
 \subsubsection{Discussion}
 %
+
+
+
 
 
 
@@ -1487,6 +1536,11 @@ Recall that the \gls{ccf} is defined as the \gls{cdf} of the posterior; see \cpr
 %
 \subsubsection{Comparison to PSMC}
 %
+
+
+
+
+
 
 
 %
