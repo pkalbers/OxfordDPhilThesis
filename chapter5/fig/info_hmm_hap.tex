@@ -22,8 +22,8 @@ obs/.style={diamond,draw=black,fill=white,fill opacity=0.5,text opacity=1,thick,
 \draw[->,draw=DodgerBlue4,densely dotted] (#1) -- (#2) node [pos=#4,anchor=center,fill=white,font=\small,inner sep=2pt] {#3};
 }
 
-\node[txt] at (-1, 4) {Hidden\\states, $S$};
-\node[txt] at (-1, 0) {Observation\\states, $H$};
+\node[txt] at (0, 4) {Hidden\\states};
+\node[txt] at (0, 0) {Observation\\states};
 
 \node[sub] (I) at (3.5,4) {};
 \node[sub] (N) at (8.5,4) {};
@@ -108,13 +108,13 @@ obs/.style={diamond,draw=black,fill=white,fill opacity=0.5,text opacity=1,thick,
 
 \vspace{5pt}
 
-\Caption{Illustration of the Hidden Markov Model for IBD inference}%
+\Caption{Illustration of the haplotype-based HMM for shared haplotype inference}%
 {\N{2} hidden states are assumed to generate the observations in a Markov process; \emph{ibd} and \emph{non}.
 Transitions from each state into any state are indicated by \emph{solid} lines.
-The probability of transition from \emph{ibd} to \emph{non} is denoted by $\varphi$, and from \emph{non} to \emph{ibd} is set to zero; hence, once the Markov chain proceeds into the \emph{non} state it cannot transition back into \emph{ibd}.
-This is because the IBD process is modelled such that only the innermost IBD segment is inferred, relative to the focal position which sits at the start of the sequence.
-The input sequence consists of genotype data from a pair of individuals, resulting in \n{6} possible observation states; denoted by $g_{k_1 k_2}$, where ${k_1,k_2 \in \lbrace 0,1,2 \rbrace}$.
-The probabilities of emitting each possible genotype pair given each hidden state are denoted by $\delta_{k_1 k_2}$ and $\delta_{k_1 k_2}$ for \emph{ibd} and \emph{non}, respectively; indicated by the \emph{dotted} lines.
+The probability of transition from \emph{ibd} to \emph{non} is denoted by $\varphi$, and from \emph{non} to \emph{ibd} is set to zero; hence, once the chain proceeds into the \emph{non} state it cannot go back into \emph{ibd}.
+This is because the process is modelled such that only the innermost segment is inferred, relative to the focal position which sits at the start of the sequence.
+The input sequence consists of sequence data from a pair of haplotypes, resulting in \n{3} possible observation states; denoted by $h_{h_A h_B}$, where ${h_A,h_B \in \lbrace 0,1,\rbrace}$.
+The probabilities of emitting each possible haplotype pair given each hidden state are denoted by $\delta_{h_A h_B}$ and $\delta_{h_A h_B}$ for \emph{ibd} and \emph{non}, respectively; indicated by the \emph{dotted} lines.
 The direction of arrows indicates conditional dependence; \ie the transition from one hidden state into another state, or emission of a genotype pair while being in \emph{ibd} or \emph{non}.}%
-{fig:info_hmm}
+{fig:info_hmm_hap}
 \end{figure}

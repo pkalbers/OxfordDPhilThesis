@@ -14,11 +14,12 @@
 \BOOKMARK [2][-]{subsection.5.5.2}{Comparison of IBD detection methods}{section.5.5}% 78
 \BOOKMARK [2][-]{subsection.5.5.3}{Impact of genotype error on allele age estimation}{section.5.5}% 79
 \BOOKMARK [2][-]{subsection.5.5.4}{Discussion}{section.5.5}% 80
-\BOOKMARK [1][-]{section.5.6}{A haplotype-based HMM for targeted shared haplotype inference}{chapter.5}% 81
+\BOOKMARK [1][-]{section.5.6}{A haplotype-based HMM for shared haplotype inference}{chapter.5}% 81
 \BOOKMARK [2][-]{subsection.5.6.1}{Description of the model}{section.5.6}% 82
-\BOOKMARK [2][-]{subsection.5.6.2}{Impact of data error}{section.5.6}% 83
-\BOOKMARK [2][-]{subsection.5.6.3}{Comparison to the Pairwise Sequentially Markovian Coalescent \(PSMC\)}{section.5.6}% 84
-\BOOKMARK [2][-]{subsection.5.6.4}{Allele age estimation in 1000 Genomes}{section.5.6}% 85
-\BOOKMARK [1][-]{section.5.7}{Discussion}{chapter.5}% 86
-\BOOKMARK [0][-]{section*.29}{Abbreviations}{}% 90
-\BOOKMARK [0][-]{chapter*.31}{Bibliography}{}% 91
+\BOOKMARK [2][-]{subsection.5.6.2}{Modifications of the age estimation method}{section.5.6}% 83
+\BOOKMARK [2][-]{subsection.5.6.3}{Impact of data error}{section.5.6}% 84
+\BOOKMARK [2][-]{subsection.5.6.4}{Comparison to the Pairwise Sequentially Markovian Coalescent \(PSMC\)}{section.5.6}% 85
+\BOOKMARK [2][-]{subsection.5.6.5}{Allele age estimation in 1000 Genomes}{section.5.6}% 86
+\BOOKMARK [1][-]{section.5.7}{Discussion}{chapter.5}% 87
+\BOOKMARK [0][-]{section*.39}{Abbreviations}{}% 92
+\BOOKMARK [0][-]{chapter*.41}{Bibliography}{}% 93

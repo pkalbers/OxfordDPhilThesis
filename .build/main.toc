@@ -1,7 +1,7 @@
 \contentsline {chapter}{List of Figures}{xi}{chapter*.4}
-\contentsline {xchapter}{}{xii}{chapter*.4}
-\contentsline {chapter}{List of Tables}{xiii}{chapter*.5}
-\contentsline {xchapter}{}{xiii}{chapter*.5}
+\contentsline {xchapter}{}{xiii}{chapter*.4}
+\contentsline {chapter}{List of Tables}{xv}{chapter*.5}
+\contentsline {xchapter}{}{xv}{chapter*.5}
 \select@language {UKenglish}
 \select@language {UKenglish}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
@@ -116,34 +116,46 @@
 \contentsline {subsubsection}{\numberline {5.2.2.2}Allele age estimation from the composite posterior distribution}{172}{subsubsection.5.2.2.2}
 \contentsline {subsubsection}{\numberline {5.2.2.3}Note on composite likelihood methods}{173}{subsubsection.5.2.2.3}
 \contentsline {subsubsection}{\numberline {5.2.2.4}Note on the computational burden}{174}{subsubsection.5.2.2.4}
-\contentsline {subsection}{\numberline {5.2.3}Allele age estimation given complete knowledge of the shared haplotype structure}{175}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Validation of the method under different thresholds}{175}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}Inference of IBD around shared and unshared alleles}{181}{subsection.5.2.5}
-\contentsline {section}{\numberline {5.3}Evaluation}{184}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Data generation}{184}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Accuracy analysis}{185}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Results}{187}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Comparison of IBD detection methods}{187}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Impact of genotype error on allele age estimation}{192}{subsection.5.4.2}
-\contentsline {section}{\numberline {5.5}Discussion}{198}{section.5.5}
-\contentsline {section}{\numberline {5.6}A haplotype-based HMM for shared haplotype inference}{201}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Description of the model}{201}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Impact of error on allele age estimation}{201}{subsection.5.6.2}
-\contentsline {subsubsection}{\numberline {5.6.2.1}Shared haplotype inference}{202}{subsubsection.5.6.2.1}
-\contentsline {subsubsection}{\numberline {5.6.2.2}Allele age estimation}{202}{subsubsection.5.6.2.2}
-\contentsline {subsubsection}{\numberline {5.6.2.3}Discussion}{202}{subsubsection.5.6.2.3}
-\contentsline {subsection}{\numberline {5.6.3}Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}{202}{subsection.5.6.3}
-\contentsline {subsubsection}{\numberline {5.6.3.1}Implementation to estimate allele age}{202}{subsubsection.5.6.3.1}
-\contentsline {subsubsection}{\numberline {5.6.3.2}Results for the T\textsubscript {MRCA}}{203}{subsubsection.5.6.3.2}
-\contentsline {subsubsection}{\numberline {5.6.3.3}Results for allele age}{203}{subsubsection.5.6.3.3}
-\contentsline {subsubsection}{\numberline {5.6.3.4}Discussion}{203}{subsubsection.5.6.3.4}
-\contentsline {subsection}{\numberline {5.6.4}Allele age estimation in 1000 Genomes}{203}{subsection.5.6.4}
-\contentsline {subsubsection}{\numberline {5.6.4.1}Inferred allele age distribution by population}{203}{subsubsection.5.6.4.1}
-\contentsline {subsubsection}{\numberline {5.6.4.2}Comparison to PSMC}{203}{subsubsection.5.6.4.2}
-\contentsline {section}{\numberline {5.7}Discussion}{203}{section.5.7}
-\contentsline {chapter}{\numberline {6}Discussion}{209}{chapter.6}
-\contentsline {section}{\numberline {6.1}Implications for genome-wide association studies}{209}{section.6.1}
-\contentsline {section}{\numberline {6.2}The importance of haplotype sharing by descent}{210}{section.6.2}
-\contentsline {section}{\numberline {6.3}The potential of estimating the age of alleles}{212}{section.6.3}
-\contentsline {chapter}{Abbreviations}{215}{section*.130}
-\contentsline {chapter}{Bibliography}{217}{chapter*.132}
+\contentsline {section}{\numberline {5.3}Evaluation}{175}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Data generation}{175}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Accuracy analysis}{176}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Validation of the method}{177}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Results}{178}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Discussion}{182}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Age estimation using inferred shared haplotype segments}{183}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Modifications of IBD detection methods}{183}{subsection.5.5.1}
+\contentsline {paragraph}{\Glsentryfull {fgt}.}{183}{paragraph*.107}
+\contentsline {paragraph}{\Glsentryfull {dgt}.}{184}{paragraph*.109}
+\contentsline {paragraph}{Genotype-based Hidden Markov Model.}{185}{paragraph*.111}
+\contentsline {subsection}{\numberline {5.5.2}Comparison of IBD detection methods}{186}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}Impact of genotype error on allele age estimation}{189}{subsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.3.1}Age estimation using true shared haplotype information}{189}{subsubsection.5.5.3.1}
+\contentsline {subsubsection}{\numberline {5.5.3.2}Age estimation based on inferred shared haplotypes}{191}{subsubsection.5.5.3.2}
+\contentsline {subsection}{\numberline {5.5.4}Discussion}{195}{subsection.5.5.4}
+\contentsline {section}{\numberline {5.6}A haplotype-based HMM for shared haplotype inference}{197}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Description of the model}{197}{subsection.5.6.1}
+\contentsline {paragraph}{Transition probabilities.}{198}{paragraph*.122}
+\contentsline {paragraph}{Emission probabilities.}{198}{paragraph*.123}
+\contentsline {paragraph}{Initial state probabilities.}{201}{paragraph*.126}
+\contentsline {subsection}{\numberline {5.6.2}Modifications of the age estimation method}{202}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}Nearest neighbour selection of discordant pairs}{202}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}Restriction of counting pairwise differences in concordant pairs}{202}{subsubsection.5.6.2.2}
+\contentsline {subsection}{\numberline {5.6.3}Impact of data error}{203}{subsection.5.6.3}
+\contentsline {subsubsection}{\numberline {5.6.3.1}Shared haplotype inference}{203}{subsubsection.5.6.3.1}
+\contentsline {subsubsection}{\numberline {5.6.3.2}Allele age estimation}{203}{subsubsection.5.6.3.2}
+\contentsline {subsubsection}{\numberline {5.6.3.3}Discussion}{203}{subsubsection.5.6.3.3}
+\contentsline {subsection}{\numberline {5.6.4}Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}{203}{subsection.5.6.4}
+\contentsline {subsubsection}{\numberline {5.6.4.1}Implementation to estimate allele age}{204}{subsubsection.5.6.4.1}
+\contentsline {subsubsection}{\numberline {5.6.4.2}Results for the T\textsubscript {MRCA}}{205}{subsubsection.5.6.4.2}
+\contentsline {subsubsection}{\numberline {5.6.4.3}Results for allele age}{206}{subsubsection.5.6.4.3}
+\contentsline {subsubsection}{\numberline {5.6.4.4}Discussion}{206}{subsubsection.5.6.4.4}
+\contentsline {subsection}{\numberline {5.6.5}Allele age estimation in 1000 Genomes}{206}{subsection.5.6.5}
+\contentsline {subsubsection}{\numberline {5.6.5.1}Inferred T\textsubscript {MRCA} by population}{206}{subsubsection.5.6.5.1}
+\contentsline {subsubsection}{\numberline {5.6.5.2}Allele age by population}{206}{subsubsection.5.6.5.2}
+\contentsline {section}{\numberline {5.7}Discussion}{206}{section.5.7}
+\contentsline {chapter}{\numberline {6}Discussion}{215}{chapter.6}
+\contentsline {section}{\numberline {6.1}Implications for genome-wide association studies}{215}{section.6.1}
+\contentsline {section}{\numberline {6.2}The importance of haplotype sharing by descent}{216}{section.6.2}
+\contentsline {section}{\numberline {6.3}The potential of estimating the age of alleles}{218}{section.6.3}
+\contentsline {chapter}{Abbreviations}{221}{section*.140}
+\contentsline {chapter}{Bibliography}{223}{chapter*.142}

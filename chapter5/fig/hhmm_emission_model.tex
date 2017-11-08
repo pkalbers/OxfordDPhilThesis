@@ -1,0 +1,13 @@
+% !TEX root = ../../main.tex
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{./img/ch5/hhmm_emission_model_lowres}
+\Caption{Empirical emission model used in the haplotype-based HMM}
+{The emission probabilities used in the haplotype-based HMM were determined empirically for each possible allelic pair, using datasets $\mathcal{D}_B$ (before error) and $\mathcal{D}_B^{\ast}$ (after error).
+To distinguish \emph{ibd} from \emph{non}, a nominal cutoff was applied to the result shown in \cpref{fig:hhmm_emission_tmrca}.
+For comparison, the resulting distributions for a \gls{tmrca} cutoff at \n{100} generations (\emph{red}) are compared to a cutoff at \n{1000} generations (\emph{blue}).
+Note that the empirical model employed here used a cutoff at \n{100} generations.}
+{fig:hhmm_emission_model}
+\end{figure}

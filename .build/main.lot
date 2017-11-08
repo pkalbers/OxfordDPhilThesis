@@ -1,5 +1,5 @@
-\contentsline {xchapter}{}{xii}{chapter*.4}
-\contentsline {xchapter}{}{xiii}{chapter*.5}
+\contentsline {xchapter}{}{xiii}{chapter*.4}
+\contentsline {xchapter}{}{xv}{chapter*.5}
 \select@language {UKenglish}
 \select@language {UKenglish}
 \addvspace {10\p@ }
@@ -25,12 +25,11 @@
 \contentsline {table}{\numberline {4.5}{\ignorespaces Median shared haplotype length per population in 1000 Genomes, chromosome~20}}{159}{table.caption.100}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Estimation of rare allele age}{163}{chapter.5}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Estimation accuracy under varying numbers of discordant pairs}}{178}{table.caption.105}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Estimation accuracy per IBD detection method}}{190}{table.caption.110}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Conflicted estimates in analyses before and after error}}{192}{table.caption.113}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Effect of genotype error on age estimation accuracy}}{200}{table.caption.120}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Accuracy of T\textsubscript {MRCA} estimation for different methods}}{204}{table.caption.125}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Accuracy of age inference for different methods}}{204}{table.caption.127}
-\contentsline {table}{\numberline {5.7}{\ignorespaces Accuracy of inferred age using the haplotype-based HMM}}{208}{table.caption.129}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Estimation accuracy under varying numbers of discordant pairs}}{180}{table.caption.105}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Estimation accuracy per IBD detection method}}{188}{table.caption.113}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Effect of genotype error on age estimation accuracy}}{194}{table.caption.119}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Accuracy of inferred age using the haplotype-based HMM}}{204}{table.caption.130}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Accuracy of T\textsubscript {MRCA} estimation for different methods}}{205}{table.caption.132}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Accuracy of age inference for different methods}}{206}{table.caption.134}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion}{209}{chapter.6}
+\contentsline {xchapter}{Discussion}{215}{chapter.6}

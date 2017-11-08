@@ -1,5 +1,5 @@
-\contentsline {xchapter}{}{xii}{chapter*.4}
-\contentsline {xchapter}{}{xiii}{chapter*.5}
+\contentsline {xchapter}{}{xiii}{chapter*.4}
+\contentsline {xchapter}{}{xv}{chapter*.5}
 \select@language {UKenglish}
 \select@language {UKenglish}
 \addvspace {10\p@ }
@@ -75,18 +75,24 @@
 \contentsline {xchapter}{Estimation of rare allele age}{163}{chapter.5}
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Allele age in relation to concordant and discordant pairs}}{171}{figure.caption.102}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Example of concordant and discordant posterior distributions and the resulting composite posterior}}{173}{figure.caption.103}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces True and inferred age under varying numbers of discordant pairs}}{177}{figure.caption.104}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Relative age under varying numbers of discordant pairs}}{179}{figure.caption.106}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Breakpoint detection in discordant pairs}}{182}{figure.caption.107}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Initial state probability of discordant pairs in the Hidden Markov Model (HMM)}}{183}{figure.caption.108}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Distribution of true and inferred age using different IBD detection methods}}{188}{figure.caption.109}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Relative age using different IBD detection methods}}{190}{figure.caption.111}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Length distribution of inferred IBD segments}}{191}{figure.caption.112}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Density distribution of allele age before and after the inclusion of genotype error in simulated data}}{193}{figure.caption.115}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Length distribution of inferred IBD segments before and after error}}{199}{figure.caption.119}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Illustration of the Hidden Markov Model for IBD inference}}{202}{figure.caption.122}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Genetic length of shared haplotype segments inferred using the haplotype-based HMM}}{205}{figure.caption.123}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces True and estimated T\textsubscript {MRCA} using different methods}}{206}{figure.caption.124}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Inferred allele age using different methods}}{207}{figure.caption.126}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces True and inferred age under varying numbers of discordant pairs}}{179}{figure.caption.104}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Relative age under varying numbers of discordant pairs}}{181}{figure.caption.106}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Breakpoint detection in discordant pairs}}{184}{figure.caption.108}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Initial state probability of discordant pairs in the Hidden Markov Model (HMM)}}{185}{figure.caption.110}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Distribution of true and inferred age using different IBD detection methods}}{187}{figure.caption.112}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Relative age using different IBD detection methods}}{188}{figure.caption.114}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Density of allele age before and after error in simulated data}}{190}{figure.caption.115}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Illustration of the haplotype-based HMM for shared haplotype inference}}{198}{figure.caption.121}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Empirical probability to observe allelic pairs dependent on T\textsubscript {MRCA}}}{199}{figure.caption.124}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Empirical emission model used in the haplotype-based HMM}}{200}{figure.caption.125}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Empirical initial state probabilities used in the haplotype-based HMM}}{201}{figure.caption.127}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Genetic length of shared haplotype segments inferred using the haplotype-based HMM}}{207}{figure.caption.128}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Allele age inferred using the haplotype-based HMM}}{208}{figure.caption.129}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces True and estimated T\textsubscript {MRCA} using different methods}}{209}{figure.caption.131}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Inferred allele age compared to PSMC}}{210}{figure.caption.133}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Shared haplotype length by population in 1000 Genomes, chromosome~20}}{211}{figure.caption.136}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Allele age estimated by population in 1000 Genomes, chromosome~20}}{212}{figure.caption.137}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Example profiles of estimated allele age in 1000 Genomes, chromosome~20}}{213}{figure.caption.138}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Example profile for comparison to PSMC in 1000 Genomes, chromosome~20}}{214}{figure.caption.139}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion}{209}{chapter.6}
+\contentsline {xchapter}{Discussion}{215}{chapter.6}

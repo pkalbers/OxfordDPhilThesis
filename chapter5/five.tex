@@ -26,9 +26,11 @@ The inference of the genealogical history of a sample is of interest to a myriad
 The ``age'' of an allele, which simply refers to the time since the allele was created by a mutation event, is of particular interest; for example, to observe demographic processes and events, or to better understand the effects of disease-related variants by their time of emergence in a population.
 
 In this chapter, I propose a \Correct{novel} method to estimate the age of an allele, which is based on a collection of statistical models that derive from coalescent theory.
-\Correct{The approach derives from concepts of the \emph{composite likelihood}, which recently have gained in popularity for various applications in genetic research.
-In particular, composite likelihood methods can be useful in situations where the full likelihood cannot be known analytically or is computationally intractable.}
-\Correct{Coalescent-based composite likelihood methods were} pioneered by \citet{Hudson:2001vs} and have been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
+\Correct{Composite likelihood methods recently have gained in popularity for various applications in genetic research.
+In particular, such methods can be useful in situations where the full likelihood cannot be known analytically or its calculation is computationally prohibitive.}
+\Correct{Applications that use the composite likelihood based on the coalescent have been} pioneered by \citet{Hudson:2001vs} and have been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
+\Correct{The age estimation method developed here operates in a Bayesian setting to obtain the posterior probability of the time of coalescent events between pairs of haplotypes.
+These are then consolidated using an approach similar to methods that use the composite likelihood.}
 
 In contrast to existing methods for allele age estimation \citep[\eg, see review by][]{Slatkin:2000us}, the method I present in this chapter does not require prior knowledge about past demographic processes or events.
 Although an assumption of certain population parameters is required, such as effective population size (\Ne), as well as mutation and recombination rates, these are expected to affect the scaling of time, such that differences between age estimates for different alleles are \Correct{expected to be} proportionally constant.
@@ -52,7 +54,7 @@ Finally, \Correct{I apply this method to data from the \gls{1kg} Phase~\rom{3}}.
 
 The mutation that gave rise to a particular allele of interest can be seen as distinguishing event in the history of a population.
 Immediately after the mutation event, there was only one chromosome in the population that carried the mutant allele.
-\Correct{Given a sample of haplotypes, where more than one chromosome carries the focal allele, it is assumed that the allele was co-inherited from that one chromosome in which the mutation occurred at some point in the past.}
+\Correct{Given a sample of haplotypes, where more than one chromosome carries the focal allele, it is assumed that all copies of the allele were co-inherited from that one chromosome in which the mutation occurred at some point in the past.}
 
 \Addition{According to coalescent theory, any two haplotypes that share the allele are expected to have coalesced more recently than the time of the focal mutation event.
 Conversely, the coalescent event between one haplotype carrying the allele and one haplotype not carrying the allele is expected to date back to a point in time before the mutation event occurred.}
@@ -62,9 +64,10 @@ This insight is of particular interest as it suggests that the actual time of th
 % Suppose that the genealogical history of the sample is known such that the ancestral origin of the allele can be found by tracing back to the \gls{mrca} of the haplotypes that share the allele.
 % In a finite population, however, the \gls{mrca} is unlikely to indicate the individual in which the allele arose through mutation; therefore the actual age of the allele is expected to be older than the \gls{tmrca} of the set of haplotypes which share the focal allele.
 
-\Correct{Here, allele age is estimated on the basis of a Bayesian analysis, where the posterior probability distribution of the \gls{tmrca} is obtained in a pairwise analysis of the haplotypes in a sample.}
-\Addition{With respect to a given focal site whose age is attempted to be estimated, the following assumes that the shared haplotype structure around that site is known for any pair of haplotypes.
-In particular, it is assumed that the \emph{breakpoints} of the recombination events that delimit the shared haplotype region are known, and that no recombination has occurred in the interval between breakpoints for the two haplotypes considered.}
+\Correct{Here, allele age is estimated on the basis of a (composite) Bayesian analysis, where the posterior probability distribution of the \gls{tmrca} is obtained in a pairwise analysis of the haplotypes in a sample.}
+\Addition{With respect to a given focal site whose age is attempted to be estimated, the following presents the theory in which it is assumed that the shared haplotype structure around that site is known for any pair of haplotypes.
+In particular, it is assumed that the \emph{breakpoints} of the recombination events that delimit the shared haplotype region are known, and that no recombination has occurred in the interval between breakpoints for the two haplotypes considered.
+Later sections in this chapter extend the theory to the case where breakpoints are inferred.}
 
 There are \n{2} main sources of information available from sample data which relate to the \gls{tmrca}.
 First, mutation events occur independently in each lineage and mutations accumulate along the sequence as the haplotype is passed on over generations.
@@ -109,22 +112,17 @@ The posterior probability is proportional to the prior probability of the time t
 The derivation of the prior distribution on the coalescent time \Correct{follows from the results given in \cpref{sec:coalescent}, but is briefly described below.}
 
 Let $t$ be the number of discrete generations that separate \n{2} haplotypes in relation to the \gls{mrca}.
-As shown by \citet{Tajima:1983bt}, the probability that \n{2} haplotypes are derived from \n{1} common ancestral haplotype $t$~generations in the past is
-\begin{equation*}
+As shown by \citet{Tajima:1983bt}, the probability that \n{2} haplotypes find a common ancestor at exactly $t$~generations in the past is
+\begin{equation}
 	f(t) ~\approx~ \frac{1}{2\Ne} \euler{-\frac{t}{2\Ne}} \CorrectLabel
-\end{equation*}
+\end{equation}
 where \Ne is the effective population size.
 The expression above relates to the probability distribution of the branch length in the underlying genealogical tree.
-Further, the probability that the \n{2} haplotypes do not share an ancestral haplotype more recently than $t$~generations in the past is given by
-\begin{equation*}
-	P(T_c > t \mid \Ne) ~\approx~ \euler{-\frac{t}{2\Ne}} \CorrectLabel
-\end{equation*}
-where $T_c$ is the time of the coalescent event between \n{2} lineages.
-It is convenient to use a continuous time approximation and measure time in units of ${2\Ne}$ generations, in the context of the coalescent, such that ${\tau = \sfrac{t}{2\Ne}}$
-Thus, the prior distribution of the coalescent time is ${\tau\sim\operatorname{Exp}(1)}$ and written as
-\begin{equation*}
+It is convenient to use a continuous time approximation and measure time in units of ${2\Ne}$ generations such that ${\tau = \sfrac{t}{2\Ne}}$.
+Hence, the prior distribution of the coalescent time is ${\tau\sim\operatorname{Exp}(1)}$, written as
+\begin{equation}
 	\pi(\tau) ~\propto~ \euler{-\tau}\text{.}\CorrectLabel
-\end{equation*}
+\end{equation}
 
 
 %
@@ -146,12 +144,13 @@ The number of pairwise differences therefore is modelled as ${S \sim \operatorna
 \begin{equation}\label{eq:mut_prob}
 	f_S(s)~=~P(S=s \mid \theta,h,\tau) ~=~ \frac{(\theta h \tau)^s}{s!} \euler{-\theta h \tau}\text{.}
 \end{equation}
-Note that the equation above is the \emph{joint} probability of $S$ as the sum of mutational differences along the length $h$.
+% Note that the equation above is the \emph{joint} probability of $S$ as the sum of mutational differences along the length $h$.
 
 The likelihood function for the time parameter~$\tau$ is proportional to \cref{eq:mut_prob}, but requires only those terms that involve $\tau$ and where constant terms can be dropped, such that
 \begin{equation}\label{eq:mut_like}
 	\mathcal{L}(\tau \mid \theta,h,s) ~\propto~ \tau^s \euler{-\theta h \tau}\ .
 \end{equation}
+
 The posterior probability of the time to coalescence can now be obtained as
 \begin{equation}\label{eq:mut_post}
 \begin{split}
@@ -160,7 +159,7 @@ The posterior probability of the time to coalescence can now be obtained as
 	&~\propto~ \tau^s \euler{- \tau (\theta h +1)}
 \end{split}
 \end{equation}
-where $\pi(\tau)$ is the coalescent prior, reflecting the general assumption that the expected time to a coalescent event grows exponentially back in time.
+where $\pi(\tau)$ is the coalescent prior, reflecting the general assumption that the expected time to a coalescent event is exponentially distributed.
 
 In the above, the density of the posterior probability is specified up to a missing normalising constant.
 Note that \Cref{eq:mut_post} is proportional to (has the form of) the Gamma \gls{pdf}, namely
@@ -184,20 +183,22 @@ Thus, by using ${\alpha = s+1}$ and ${\beta = \theta h+1}$, the posterior densit
 \CorrectNote{Section partially rewritten with revised notation}
 
 The length of a shared haplotype region is delimited by \n{2} recombination events that occurred on either side.
-For either the left or right-hand side, independently, the distance to the first occurrence of a recombination breakpoint follows a Geometric distribution, but can be approximated by the Exponential distribution if time is continuously measured and provided that \Ne is large; \eg see \citet{hein2004gene}.
+For either the left or right-hand side, independently, the distance to the first occurrence of a recombination breakpoint follows a Geometric distribution, but where the \emph{genetic} distance can be approximated by the Exponential distribution if time is continuously measured and provided that \Ne is large; \eg see \citet{hein2004gene}.
 The recombination rate per site per generation is given by $\rho$; again, the rate is scaled by population size and the composite recombination parameter ${\psi = 4 \Ne \rho}$ is used.\footnote{Note that the literature often specifies $\rho$ as the population-scaled recombination rate and $r$ as the rate per site per generation.}
-Because recombination may occur independently on either of the \n{2} haplotypes, distance is modelled such that ${D\sim\operatorname{Exp}(2\psi\tau)}$, where $D$ is a random variable used to denote the physical distance between a given focal position and a recombination breakpoint.
+Suppose, for now, that recombination is uniform.
+
+The distance is modelled such that ${D\sim\operatorname{Exp}(\psi\tau)}$, where $D$ is a random variable used to denote the physical distance between a given focal position and a recombination breakpoint.
 Hence, the \gls{pdf} of the distance until a recombination breakpoint is
 \begin{equation}\label{eq:rec_prob_brk}
-	P(D=d\mid\psi,\tau)~=~2\psi\tau \,\euler{-2\psi\tau d}\text{.}
+	P(D=d\mid\psi,\tau)~=~\psi\tau \,\euler{-\psi\tau d}\text{.}
 \end{equation}
 However, in boundary cases where the shared haplotype segment is delimited by the chromosomal end, it follows from the Exponential distribution that
 \begin{equation}\label{eq:rec_prob_nobrk}
-	P(D>d\mid\psi,\tau)~=~\euler{-2\psi\tau d}\text{.}
+	P(D>d\mid\psi,\tau)~=~\euler{-\psi\tau d}\text{.}
 \end{equation}
 \Cref{eq:rec_prob_brk,,eq:rec_prob_nobrk} above can be simplified to
 \begin{equation}\label{eq:rec_prob}
-	f_D(d)~=~(2\psi\tau)^b \,\euler{-2\psi\tau d}
+	f_D(d)~=~(\psi\tau)^b \,\euler{-\psi\tau d}
 \end{equation}
 where $b$ is the result of an indicator function of the breakpoint defined as
 \begin{equation*}
@@ -210,17 +211,17 @@ where $b$ is the result of an indicator function of the breakpoint defined as
 
 Considering \cref{eq:rec_prob}, the likelihood function for $\tau$ can now be written as
 \begin{equation}\label{eq:rec_like_x}
-	\mathcal{L}(\tau \mid \psi,d,b)~\propto~\tau^b \,\euler{-2\psi d \tau}
+	\mathcal{L}(\tau \mid \psi,d,b)~\propto~\tau^b \,\euler{-\psi d \tau}
 \end{equation}
 but which can be extended to consider the distances observed on the left and right-hand side relative to a given focal position.
 The observed physical length of the shared haplotype segment is now expressed as the sum of both left and right distances; \ie ${h = d_L + d_R}$.
 Hence, the likelihood function in support of $\tau$ is
 \begin{equation}\label{eq:rec_like}
-	\mathcal{L}(\tau \mid \psi,h,b_L,b_R)~\propto~\tau^{b_L + b_R} \,\euler{-2\psi h \tau}
+	\mathcal{L}(\tau \mid \psi,h,b_L,b_R)~\propto~\tau^{b_L + b_R} \,\euler{-\psi h \tau}
 \end{equation}
 where ${b_L,b_R}$ indicate the breakpoint on the left and right-hand side, respectively.
 
-Importantly, the term ${\psi h}$ refers to the genetic length of the shared haplotype region, but where $\psi$ is rarely constant along the chromosome.
+Importantly, the term ${\psi h}$ refers to the genetic length of the shared haplotype region, but where $\psi$ is rarely constant along a chromosome.
 It is straightforward to compute the value of ${\psi h}$ by using a chromosome-specific recombination map from which the genetic distance between breakpoint positions can be derived.
 
 The posterior probability is obtained as
@@ -230,13 +231,13 @@ The posterior probability is obtained as
 	&~\propto~
 	\mathcal{L}(\tau \mid \psi, h, b_L, b_R)~\times~\pi(\tau) \\
 	&~\propto~
-	\tau^{b_L + b_R} \,\euler{-\tau(2\psi h +1)}\text{.}
+	\tau^{b_L + b_R} \,\euler{-\tau(\psi h +1)}\text{.}
 \end{split}
 \end{equation}
-As in the previous section, the form of the posterior probability obtained above suggests a Gamma \gls{pdf} with ${\alpha = b_L + b_R +1}$ and ${\beta = 2\psi h +1}$.
+As in the previous section, the form of the posterior probability obtained above suggests a Gamma \gls{pdf} with ${\alpha = b_L + b_R +1}$ and ${\beta = \psi h +1}$.
 Thus, the posterior density can be computed as
 \begin{equation}
-	p(\tau \mid \psi,h,b_L,b_R)~=~g(\tau\mid b_L + b_R +1, 2\psi h +1)\text{.}
+	p(\tau \mid \psi,h,b_L,b_R)~=~g(\tau\mid b_L + b_R +1, \psi h +1)\text{.}
 \end{equation}
 
 
@@ -305,9 +306,9 @@ Thus, the posterior density can be computed as
 The parameters defined in the mutation clock and recombination clock models given above are combined in the following way.
 The likelihood function in support of $\tau$ considers \ctref{eq:mut_prob,,eq:rec_prob} and is given as
 \begin{equation*}
-	\mathcal{L}(\tau \mid \theta,\psi,h,s,b_L,b_R)~\propto~\tau^{s+b_L+b_R} \,\euler{-\tau h(\theta+2\psi)}\text{.}
+	\mathcal{L}(\tau \mid \theta,\psi,h,s,b_L,b_R)~\propto~\tau^{s+b_L+b_R} \,\euler{-\tau h(\theta+\psi)}\text{.}
 \end{equation*}
-However, it is more convenient to replace the term ${h(\theta+2\psi)}$ above with ${h_p + h_g}$, where $h_p=\theta h$ and ${h_g=2\psi h}$, so as to consider the physical and genetic lengths separately; \eg~when the recombination rate is not constant and ${\psi h}$ is determined from the distances given in a genetic map.
+However, it is convenient to replace the term ${h(\theta+\psi)}$ above with ${h_p + h_g}$, where $h_p=\theta h$ and ${h_g=\psi h}$, so as to consider the physical and genetic lengths separately; \eg~when recombination is not uniform and ${\psi h}$ is determined from the distances given in a genetic map.
 Therefore,
 \begin{equation}\label{eq:com_like}
 	\mathcal{L}(\tau \mid h_p,h_g,s,b_L,b_R)~\propto~\tau^{s+b_L+b_R} \,\euler{-\tau  (h_p + h_g)}
@@ -322,7 +323,7 @@ from which the posterior probability is obtained as
 		\tau^{s + b_L + b_R} \,\euler{-\tau(h_p + h_g + 1)}\text{.}
 	\end{split}
 \end{equation}
-As was done in both the mutation and recombination clock models, here, the Gamma \gls{pdf} is used with ${\alpha = s + b_L + b_R +1}$ and ${\beta = h(\theta + 2\psi) +1 = h_p + h_g + 1}$
+As was done in both the mutation and recombination clock models, here, the Gamma \gls{pdf} is used with ${\alpha = s + b_L + b_R +1}$ and ${\beta = h(\theta + \psi) +1 = h_p + h_g + 1}$
 to compute the posterior density, \ie
 \begin{equation}
 	p(\tau \mid h_p,h_g,s,b_L,b_R)~=~g(\tau\mid s + b_L + b_R +1, h_p + h_g + 1)\text{.}
@@ -378,14 +379,14 @@ Note that a similar derivation has been used by \citet{schroff2016}.
 
 Consider a focal allele of interest that is shared by some of the haplotypes in a sample.
 The time at which this allele was created by a mutation event is bound by the times of the \n{2} coalescent events that delimit the length of the branch on which the mutation occurred in the underlying coalescent tree; see the example provided in \cpref{fig:info_age}.
-The haplotypes which co-inherited the allele (\Correct{\emph{carriers}}) are distinguished from the other haplotypes which do not carry the allele (\Correct{\emph{non-carriers}}).
+The haplotypes which inherited the allele (\Correct{\emph{carriers}}) are distinguished from the haplotypes that do not carry the allele (\Correct{\emph{non-carriers}}).
 Thus, the sample is divided into \n{2} disjoint subsamples; let $X_c$ denote the set of chromosomes which share a given allele, and $X_d$ the set of chromosomes which do not carry that allele.
 
 %
 \input{chapter5/fig/info_age}
 %
 
-It follows from the coalescent that all lineages in $X_c$ coalesce before any of them can coalesce with a lineage in $X_d$.
+It follows that all lineages in $X_c$ coalesce before any of them can coalesce with a lineage in $X_d$.
 Any coalescent event between \n{2} lineages in $X_c$ must have occurred \emph{earlier} \Correct{than} the focal mutation event (back in time).
 On the other hand, any coalescent event between \n{1} lineage in $X_c$ and \n{1} lineage in $X_d$ must have occurred \emph{later} than the focal mutation event (back in time).
 Pairs of haplotypes in $X_c$ are referred to as \emph{concordant} pairs, whereas pairs formed by strictly taking one haplotype from $X_c$ and another from $X_d$ are \emph{discordant} pairs.
@@ -393,7 +394,7 @@ The sets $\Omega_c$ and $\Omega_d$ are defined to contain all concordant and dis
 
 \Correct{In the following, I describe how the posterior density of the \gls{tmrca} is obtained for concordant and discordant pairs to eventually arrive at an estimate of allele age.
 To distinguish the population-scaled time $\tau$, as defined for the \gls{tmrca}, from the time of the mutation event, let the latter be denoted by the likewise population-scaled time $t$.}
-\Correct{Informally, $t$} is found at the ``sweet~spot'' in between the earlier coalescent event at time $t_c$ and the later coalescent event at time $t_d$; see \cref{fig:info_age}.
+\Correct{Informally, the actual time of a mutation event} is found at the ``sweet~spot'' in between the earlier coalescent event at time $t_c$ and the later coalescent event at time $t_d$; see \cref{fig:info_age}.
 
 % Posteriors are obtained for concordant pairs in $\Omega_c$ where the \emph{oldest} relation may indicate the lower bound in the estimation of the focal allele age.
 % Likewise, posteriors are obtained for discordant pairs in $\Omega_d$ where the \emph{youngest} relation indicates the upper bound.
@@ -455,7 +456,7 @@ Here, the \gls{ccf} posteriors are combined in the following way.
 	\Lambda_k(t)~\propto~\prod_{i,j \in A_k} \Phi_{ij}(t\mid\alpha,\beta)
 \end{equation}
 for focal site $k$ at which haplotype pairs have been sorted into the collection ${A_k=\{\Omega_c,\Omega_d\}}$, according to allele sharing at that site.
-Again, ${\alpha,\beta}$ are defined by to the clock model used and obtained from parameter values observed for pair ${i,j}$.
+Again, ${\alpha,\beta}$ are defined by the clock model used and obtained from parameter values observed for pair ${i,j}$.
 In the following, the term \emph{composite posterior} is used to refer to the result obtained using \cref{eq:comp_post}.
 
 %
@@ -465,6 +466,7 @@ In the following, the term \emph{composite posterior} is used to refer to the re
 The composite posterior distribution can now be obtained over ${t \in (0,\infty)}$.
 However, in practise, it is unlikely that the relationship of ${i,j}$ can be traced back further than a small multiple of \Ne (\eg $\sim 10$).
 An example is given in \cpref{fig:age_example}, showing the \gls{ccf} for concordant and discordant pairs, as well as the maximised composite posterior distribution.
+Notably, the ``width'' of the distribution is expected to be determined by the underlying branch length.
 In the following, the mode of the composite posterior distribution is taken as a point estimate for the age of an allele, denoted by $\hat{t}$.
 
 
@@ -506,7 +508,7 @@ where ${\pi(\vartheta)}$ is a suitable prior on the parameter.
 The properties of the above were described by \citet{pauli2011bayesian} who, as a result, proposed an adjustment to the composite likelihood by choosing appropriate weights ($w_z$) to improve approximation of the full posterior distribution.
 
 The ``composite posterior'' given in \ctref{eq:comp_post} follows a similar approach in context of the above, but is defined proportional to the product of posteriors.
-While ${\Lambda_k(t)}$ itself cannot be regarded as a composite likelihood, it can be argued that the proposed method is an (\emph{ad hoc}) approach equivalent to using the composite likelihood in a Bayesian setting.
+While ${\Lambda_k(t)}$ itself cannot be regarded as a composite likelihood, it can be argued that the proposed method is an (\emph{ad hoc}) approach equivalent to using the composite likelihood in a Bayesian setting, yet without specifying an appropriate weighting function.
 
 
 
@@ -591,7 +593,7 @@ The simulated haplotypes were randomly paired to form a sample of ${N = \num{250
 Haplotype data were converted into genotypes and subsequently phased using \texttt{SHAPEIT\,2} \citep{Delaneau:2008dk,Delaneau:2013hi}.
 This facilitated the assessment of the impact of phasing error on the age estimation process.
 
-Third, the dataset described above was retrofitted in Chapter~4 to include realistic proportions of empirically estimated error, which was equally distributed in the derived genotype and haplotype datasets \Correct{(\ie ``true'' and phased haplotype data)}.
+Third, the dataset described above was retrofitted in Chapter~4 to include realistic proportions of empirically estimated error, which was equally distributed in the derived genotype and haplotype datasets \Correct{(both ``true'' and phased haplotype data)}.
 Here, data \emph{before} and \emph{after} the inclusion of error are distinguished by referring to dataset $\mathcal{D}_B$ and dataset $\mathcal{D}_B^{\ast}$, respectively.
 Note that in the following the term \emph{genotype error} is used, even in analyses that operate on haplotype data, as error proportions were estimated from misclassified genotypes \Correct{in \gls{1kg} data (``1000G.A'' in Chapter~4, \ccref{sec:err_test_data}).}
 
@@ -873,8 +875,8 @@ It can be expected that inference at discordant pairs is therefore less accurate
 Note that both the \gls{dgt} and the \gls{hmm}-based approach may operate on genotype data alone.
 Importantly, if haplotype information is not available, the sets $X_c$ and $X_d$ are formed by assigning all individuals that are heterozygous to $X_c$ while all others are assigned to $X_d$, but excluding individuals that are homozygous for the focal allele.
 % This may reduce the information available from the sample, but the effect is expected to be negligible if the focal allele is rare.
-Since haplotype data are required to determine pairwise differences, $S$, along haplotype sequences, \ClockM and \ClockC cannot be used with genotype data.
-\Correct{Here, to facilitate comparisons to the \gls{fgt}, analyses using the \gls{dgt} and the \gls{hmm}-based approach were performed on haplotype data.}
+Since haplotype data are required to determine pairwise differences along haplotype sequences, \ClockM and \ClockC cannot be used with genotype data.
+\Correct{Here, analyses using the \gls{dgt} and the \gls{hmm}-based approach were performed on haplotypes although genotype data alone would suffice.}
 
 
 
@@ -1101,7 +1103,7 @@ Allele age was generally underestimated in \ClockR (\SI{96.35095}{\percent}).
 This was increased after error, resulting in an underestimated proportion of \SI{98.30508}{\percent} in \ClockR, as the proportion of correct alleles was overall reduced; \SIlist{16.65005;27.65703}{\percent} in \ClockM and \ClockC, respectively.
 Also, \gls{rmsle} scores were lowest for the \gls{hmm} under each clock model after error; see \cpref{tab:stats_generror}.
 \Correct{Rank correlation} before and after error, for $r_S$ at $t_c$, decreased from \dec{0.702418} to \dec{0.534920} in \ClockM, and from \dec{0.733298} to \dec{0.569244} in \ClockC.
-However, importantly, the \gls{hmm}-based estimation showed the highest levels of accuracy in \ClockR compared to the other methods, \ie $r_S$ at $t_c$ was \dec{0.751100} before and \dec{0.737036} after error.
+Although rank correlation for the \gls{hmm} was high in \ClockR, \eg $r_S$ at $t_c$ was \dec{0.751100} before and \dec{0.737036} after error, \Correct{estimation bias was substantial both before and after error.}
 % Although allele age was vastly underestimated, deviations appeared to be consistent.
 
 % %
@@ -1130,7 +1132,7 @@ However, importantly, the \gls{hmm}-based estimation showed the highest levels o
 
 I demonstrated the validity of the age estimation framework using simulated data where I showed that age can be estimated with very high accuracy.
 However, certain problems may arise when working with real data.
-The impact of phasing error is small in comparison to genotypic (or allelic) misclassification, which is likely to bias the estimation process.
+Notably, ihe impact of phasing error is small in comparison to genotypic (or allelic) misclassification, which is likely to bias the estimation process.
 
 Generally, imperfect data may affect the estimation of allele age in \n{2} ways.
 First, the method was shown to be highly susceptible to inaccurate IBD inference, where each clock model behaves differently to the over or underestimation of IBD length.
@@ -1146,8 +1148,8 @@ But because such a method would effectively predict falsely called or typed alle
 % A possible solution is presented in Chapter~3, where haplotype phase was determined from genotype pairs in detected IBD segments, based on the genealogical constrains that arise under haplotype sharing by descent.
 % Yet, further work is needed to determine the feasibility of such an approach.
 
-\Addition{In conclusion, a substantial amount of estimation bias was seen for any of the evaluated methods used to infer shared haplotype intervals.
-The allele age estimation method may therefore not be regarded as reliable in applications to real data.
+\Addition{In conclusion, a substantial amount of estimation bias was seen for any of the evaluated methods for shared haplotype inference.
+Due to the dependency on finding genuine haplotype intervals, the allele age estimation method may therefore not be regarded as being reliable in applications to real data.
 However, a solution is attempted in the following section, where I present a novel haplotype-based \gls{hmm} as an advancement over of the current genotype-based method.}
 
 
@@ -1368,31 +1370,163 @@ However, a solution is attempted in the following section, where I present a nov
 
 
 %
-\section{A haplotype-based HMM for targeted shared haplotype inference}
+\section{A haplotype-based HMM for shared haplotype inference}
 %
+
+As shown in the previous sections, the allele age estimation method was able to infer the time of mutation events with high accuracy, but where it was suggested that this is largely dependent on (ideally) correct inference of the underlying shared haplotype structure around a given target site.
+The inference methods presented so far were either rule-based (\gls{fgt} and \gls{dgt}) and thus highly susceptible to data error, or probabilistic but genotype-based (\gls{hmm}) where accuracy may easily be influenced by the shared haplotype structure at the ``unshared'' haplotypes in the individuals considered.
+Although the latter was implicitly impervious to data error due to phasing, it was shown that such errors were less problematic on average, but where error due to misclassification of alleles may be regarded as the main source of estimation bias.
+
+In this section, I present a novel haplotype-based \gls{hmm} for the targeted and pairwise detection of shared haplotypes.
+This method can be seen as the conclusion of the previous genotype-based approach and is therefore algorithmically defined in a similar way.
+I describe the model in the section below.
+Note that I implemented additional modifications in the age estimation method, which I describe in \cpref{sec:age_method_mod}.
+
+As done previously, I evaluated the haplotype-based \gls{hmm} in terms of the resulting age estimation accuracy in data before and after error (\ccref{sec:hhmm_eval}).
+The method was further compared to the \gls{psmc} in terms of the inferred \gls{tmrca} and subsequent estimation of allele age (\ccref{sec:psmc_eval}).
+Lastly, I briefly present age estimation results from an analysis using \glsentryfull{1kg} Phase~\rom{3} data (\ccref{sec:hhmm_1kg}).
 
 
 %
 \subsection{Description of the model}
 %
 
+The general algorithm and model specifications of the \gls{hmm} presented here follow the previously described genotype-based \gls{hmm}; see \cpref{sec:ghmm_algorithm}.
+Briefly, at a given target position in the genome, the allelic sequence of \n{2} selected haplotypes is independently traversed to the left and right-hand side from that position, until the end of the chromosome is reached.
+As before, \n{2} hidden states are assumed; \emph{ibd} and \emph{non}.
+The observation states are defined as the possible allelic pairs $(0,0)$, $(0,1)$, and $(1,1)$, where the order of alleles is not relevant; \ie observing $(0,1)$ in haplotypes $A$ and $B$ is equivalent to observing $(1,0)$.
+The model is illustrated in \cpref{fig:info_hmm_hap}, where $\varphi$ denotes a transition parameter and the probabilities of emission from \emph{ibd} are denoted by $\delta_{h_A h_B}$ and from \emph{non} by $\eta_{h_A h_B}$.
+Model transitions, emissions, and initial state probabilities are described below.
+
+
 
 %
 \input{chapter5/fig/info_hmm_hap}
 %
 
+\paragraph{Transition probabilities.}
+The genetic distance to a recombination event follows the Exponential distribution when measured in population-scaled time units.
+The probability of transition from \emph{ibd} to \emph{non} is modelled as
+\begin{equation}\label{eq:hmm_trans_prob}
+	\varphi ~=~
+	1 - \euler{-2\Ne r_j \frac{\xi_k}{2}}
+\end{equation}
+where $j$ indicates the position at the current site in the sequence and $k$ indicates the the focal position.
+The value of $r_j$ is the genetic distance between the current and the Immediately previous site observed in the sequence.
+The value of $\xi_k$ is the expectation of the age of the focal allele after \citet{Kimura:1973ug}, calculated using \ctref{eq:intro_kimura_ohta}.
+The probability of remaining in \emph{ibd} is ${1-\varphi}$.
+The model employs a ``left-to-right'' architecture, where transition from \emph{non} to \emph{ibd} have zero probability; \ie once \emph{ibd} has been left the sequence stays in \emph{non} with probability equal to one.
+The intuition and shortcomings of such a transition model were discussed in \cpref{sec:HmmTrans}.
+
+
+
+\paragraph{Emission probabilities.}
+An empirical emission model was generated from simulated haplotype data, both before and after the integration of empirically determined error rates.
+In the previous genotype-based model, the empirical rate of observing possible genotype pairs was determined from haplotype segments shared between individuals who carried any allele observed at low frequency (\fk{[2,25]}).
+The same was done here, but such that the empirical probabilities were measured based on the \gls{tmrca} between haplotype pairs.
+A full representation of observation rates found by \gls{tmrca} and allele frequency is given in \cpref{fig:hhmm_emission_tmrca}.
+Note that, again, datasets $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$ were used to obtain emission models before and after error.
+
+%
+\input{chapter5/fig/hhmm_emission_tmrca}
+%
+
+However, the generation of the emission model was not straightforward as any pair of haplotypes is
+“identical by descent” at any position in the genome; according to the coalescent and the assumptions of the infinite sites model.
+The definition of the hidden states as being ``in IBD'' and ``not in IBD'' may therefore be seen as arbitrary.
+Nonetheless, to generate empirical probabilities,
+I defined a nominal ``cutoff'' for the \gls{tmrca} at \n{100} generations to calculate the mean empirical observation rates for each state.
+The average rate seen $\leq100$ generations was taken for \emph{ibd}, and
+$>100$ generations for \emph{non}, at each allele frequency bin (rates were averaged over \n{100} equally sized bins).
+Linear interpolation was used to obtain rates at sites with frequencies not captured by the model.
+The resulting model is illustrated in \cpref{fig:hhmm_emission_model}.
+
+%
+\input{chapter5/fig/hhmm_emission_model}
+%
+
+One caveat of applying such a cutoff is that the model is implicitly conditioned on observations deriving from relatively recent coalescent events.
+But, notably, when comparing cutoffs at \n{100} and \n{1000} generations, differences between averaged distributions were relatively small; as shown in \cref{fig:hhmm_emission_model}.
+
+
+
+
+\paragraph{Initial state probabilities.}
+Rate of correctly observing allele pairs (concordant: 11, discordant: 01), measured by comparing alleles before and after including empirical error rates (obtained on 1000 Genomes data), in each possible concordant/discordant pair of haplotypes, at focal alleles at a certain frequency.
+
+
+%
+\input{chapter5/fig/hhmm_initial_model}
+%
+
+
+
 
 
 
 %
-\subsection{Impact of data error}
+\subsection{Modifications of the age estimation method}\label{sec:age_method_mod}
+%
+
+%
+\subsubsection{Nearest neighbour selection of discordant pairs}
+%
+
+Discordant pairs are formed by taking one haplotype from set $X_c$ (\emph{carriers}) and one from set $X_d$ (\emph{non-carriers}).
+The intuition is that discordant pairs can be used to to indicate the time of coalescent events above the the point in time at which the focal mutation occurred (back in time), such that the ``upper limit'' of the branch can be found.
+It would be beneficial to select those haplotypes from $X_d$ that are the nearest neighbours to the sub-tree spanned by by the lineages leading to $X_c$.
+Otherwise, if selection of pairs is random, the number of discordant pairs required to include nearer neighbours may be relatively high on average, dependent on the composition of the sample.
+
+I implemented a simple approach to calculate the Hamming distance in each discordant pair in the sample, along a fixed region around the focal site.
+Discordant pairs with the lowest distance are prioritised.
+Here, the first \n{5000} sites to the left and right-hand side of the focal position were queried.
+
+Importantly, in presence of data error, it is likely that false negatives (missed focal alleles) would be selected preferentially.
+To reduce the chance of selecting false negatives, I used a ``relaxed'' nearest neighbour approach.
+Discordant pairs are first sorted by their distance (lowest to highest) and each pair is scanned in turn.
+I then identify $X_d$ haplotypes that are repeated more than once along the queue of pairs and place these at the end of the queue.
+The first $n_d$ pairs are then retained, where $n_d$ can be specified.
+
+The implementation of this algorithm substantially accuracy and computation time due to retaining a smaller number of pairs.
+The results presented below were obtained using only $n_d=100$ discordant pairs (as opposed to several hundreds or thousands of randomly selected pairs).
+Note that a nearest neighbour approach could also be applied to select concordant pairs, but which was not done here, as it is assumed that random sampling is sufficient to retain pairs that indicate coalescent events closer to the time of the focal mutation event.
+
+
+
+
+%
+\subsubsection{Restriction of counting pairwise differences in concordant pairs}
+%
+
+Misclassification of genotypes or alleles is expected to adversely affect the estimation when the mutation clock or the combined clock model is used.
+False positives (wrongly called or typed alleles) may artificially inflate the number of pairwise differences seen along the inferred shared haplotype region.
+
+I implemented a simple rule to restrict the count of pairwise differences.
+At a given site along the sequence, an observed difference is only counted if its frequency in the sample is less than or equal to the frequency of the focal allele.
+Thereby, allelic differences are restricted to the mutations that have occurred more recently than the focal mutation event, within the sub-tree deriving from that ancestral lineage.
+This rule derives from the infinite sites model, where it is assumed that no back-mutations or recurrent mutations can be observed in the data.
+
+The implementation of this rule substantially improved estimation accuracy in presence of data error,
+and did not affect accuracy when data was error-free (simulated haplotypes).
+Note that the results shown below were obtained using this restriction.
+
+A similar rule could be implemented for discordant pairs.
+However, the length of share haplotype segments is expected to be (exponentially) shorter, reducing the possibility to encounter misclassified alleles.
+Also, overestimation of coalescent time of discordant pairs (using the mutation clock or combined clock model) is less problematic for the subsequent estimation of allele age.
+
+
+
+
+
+%
+\subsection{Impact of data error}\label{sec:hhmm_eval}
 %
 
 
 \n{5000} rare variant sites at \fk{[2,50]} were selected at random from the set of sites at which data error was not seen.
 This ensured that concordant and discordant pairs were formed based on patterns of allele sharing in the sample.
 
-A maximum of \n{100} concordant and \n{100} discordant pairs was selected per target allele, resulting in \dec{0.894000}~million pairwise analyses in total.
+A maximum of \n{100} concordant and \n{100} discordant pairs was selected per target allele, resulting in \dec{0.894000}~million pairwise analyses.
 
 
 %
@@ -1429,7 +1563,7 @@ A maximum of \n{100} concordant and \n{100} discordant pairs was selected per ta
 
 
 %
-\subsection{Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}
+\subsection{Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}\label{sec:psmc_eval}
 %
 
 
@@ -1475,6 +1609,7 @@ as well as the mode of the composite posterior in each clock model.
 
 The median was taken as a point estimate from the posterior obtained for a given pair.
 
+Note that the empirical emission model obtained from data before error (dataset $\mathcal{D}_B$) was used for shared haplotype inference in \texttt{rvage}.
 
 
 
@@ -1524,19 +1659,77 @@ Recall that the \gls{ccf} is defined as the \gls{cdf} of the posterior; see \cpr
 
 
 %
-\subsection{Allele age estimation in 1000 Genomes}
+\subsection{Allele age estimation in 1000 Genomes}\label{sec:hhmm_1kg}
+%
+
+\num{50000} sites
+Note that all sites at which allele count was greater than 2 were considered.
+
+\dec{2.370018}~million concordant pairs
+\dec{5.204300}~million discordant pairs
+
+%
+\subsubsection{Inferred T\textsubscript{MRCA} by population}
+%
+
+looking at concordant pairs only
+of which \dec{2.357372}~million were retained after removing boundary cases.
+
+The average ratio of genetic and physical length was
+\SI{1.679922}{\centi\morgan\per\mega\basepair} ($\pm\dec{0.002085}$~SE).
+Also, for discordant pairs, the ratio was
+\SI{1.625225}{\centi\morgan\per\mega\basepair} ($\pm\dec{0.002149}$~SE).
+
+
+The proportion of alleles shared within and between populations is indicated.
+
+%
+\input{chapter5/fig/1KG20_pop_len_hhmm}
+%
+
+
+
+%
+\subsubsection{Allele age by population}
+%
+
+using the relaxed nearest neighbour approach to select discordant pairs
+
+alleles shared only within populations
+retained \n{31906} sites
+
+Median age:
+C         M        R
+AFR 865.0830 1276.4652 252.3746
+AMR 364.4270  639.2214  59.3160
+EAS 397.3336  712.1676  59.3160
+EUR 364.4270  653.1868  66.0850
+SAS 414.8850  743.6260  64.6720
+
+Number of sites:
+AFR 13437
+AMR  4007
+EAS  6123
+EUR  3570
+SAS  4769
+
+
+
+
+
+%
+\input{chapter5/fig/1KG20_pop_age_hhmm}
 %
 
 
 %
-\subsubsection{Inferred allele age distribution by population}
+\input{chapter5/fig/1KG20_age_example}
 %
 
 
 %
-\subsubsection{Comparison to PSMC}
+\input{chapter5/fig/1KG20_age_psmc}
 %
-
 
 
 
