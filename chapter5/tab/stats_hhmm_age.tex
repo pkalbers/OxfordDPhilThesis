@@ -3,7 +3,9 @@
 
 \begin{table}[!htb]
 \Caption{Accuracy of inferred age using the haplotype-based HMM}
-{...}
+{Age was estimated using the mutation clock (\ClockM), recombination clock (\ClockR), and combined clock (\ClockC) based on inference of breakpoint intervals using the haplotype-based \gls{hmm}.
+Analyses were conducted on dataset $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$ (\ie before and after error), as well as simulated and phased haplotype data in both.
+Note that these metrics were calculated with respect to $t_m$; \ie the geometric mean between $t_c$~and~$t_d$.}
 {tab:stats_hhmm_age}
 \newcommand{\mergerows}[2]{\multirow{#1}{*}{\begin{tabular}[c]{@{}l@{}}#2\end{tabular}}}
 \newcommand{\prform}[1]{\num[round-mode=places,round-precision=1]{#1}}

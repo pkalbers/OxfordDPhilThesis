@@ -115,6 +115,16 @@ Altshuler, D.~L., Bentley, D.~R., Chakravarti, A., Collins, F.~S., Donnelly,
 \newblock {A map of human genome variation from population-scale sequencing.}
 \newblock {\em Nature\/}, {\bf 467}(7319), 1061--1073.
 
+\bibitem[Bersaglieri {\em et~al.}(2004)Bersaglieri, Sabeti, Patterson,
+  Vanderploeg, Schaffner, Drake, Rhodes, Reich, and
+  Hirschhorn]{bersaglieri2004genetic}
+Bersaglieri, T., Sabeti, P.~C., Patterson, N., Vanderploeg, T., Schaffner,
+  S.~F., Drake, J.~A., Rhodes, M., Reich, D.~E., and Hirschhorn, J.~N. (2004).
+\newblock Genetic signatures of strong recent positive selection at the lactase
+  gene.
+\newblock {\em The American Journal of Human Genetics\/}, {\bf 74}(6),
+  1111--1120.
+
 \bibitem[Bodmer and Bonilla(2008)Bodmer and Bonilla]{Bodmer:2008ep}
 Bodmer, W. and Bonilla, C. (2008).
 \newblock {Common and rare variants in multifactorial susceptibility to common
@@ -389,6 +399,13 @@ Eberle, M.~A., Fritzilas, E., Krusche, P., Kallberg, M., Moore, B.~L.,
   by genetic inheritance from sequencing a three-generation 17-member
   pedigree.}
 \newblock {\em Genome Research\/}, {\bf 27}(1), 1--9.
+
+\bibitem[Enattah {\em et~al.}(2002)Enattah, Sahi, Savilahti, Terwilliger,
+  Peltonen, and J{\"a}rvel{\"a}]{enattah2002identification}
+Enattah, N.~S., Sahi, T., Savilahti, E., Terwilliger, J.~D., Peltonen, L., and
+  J{\"a}rvel{\"a}, I. (2002).
+\newblock Identification of a variant associated with adult-type hypolactasia.
+\newblock {\em Nature genetics\/}, {\bf 30}(2), 233--237.
 
 \bibitem[Ewens(2012a)Ewens]{ewens2012}
 Ewens, W.~J. (2012a).
@@ -955,6 +972,12 @@ Leutenegger, A.-L., Prum, B., G{\'e}nin, E., Verny, C., Lemainque, A.,
   Data}.
 \newblock {\em American journal of human genetics\/}, {\bf 73}(3), 516--523.
 
+\bibitem[Li and Durbin(2011)Li and Durbin]{Li:2011ez}
+Li, H. and Durbin, R. (2011).
+\newblock {Inference of human population history from individual whole-genome
+  sequences}.
+\newblock {\em Nature\/}, {\bf 475}(7357), 493--U84.
+
 \bibitem[Li and Stephens(2003)Li and Stephens]{Li:2003uz}
 Li, N. and Stephens, M. (2003).
 \newblock {Modeling linkage disequilibrium and identifying recombination
@@ -1076,6 +1099,11 @@ Mardis, E.~R. (2017).
 \newblock {DNA sequencing technologies: 2006{\textendash}2016}.
 \newblock {\em Nature Protocols\/}, {\bf 12}(2), 213--218.
 
+\bibitem[Marjoram and Wall(2006)Marjoram and Wall]{marjoram2006fast}
+Marjoram, P. and Wall, J.~D. (2006).
+\newblock Fast" coalescent" simulation.
+\newblock {\em BMC genetics\/}, {\bf 7}(1), 16.
+
 \bibitem[Marth {\em et~al.}(2011)Marth, Yu, Indap, Garimella, Gravel, Leong,
   Tyler-Smith, Bainbridge, Blackwell, Zheng-Bradley, Chen, Challis, Clarke,
   Ball, Cibulskis, Cooper, Fulton, Hartl, Koboldt, Muzny, Smith, Sougnez,
@@ -1195,6 +1223,12 @@ McVean, G., Awadalla, P., and Fearnhead, P. (2002).
 \newblock {A coalescent-based method for detecting and estimating recombination
   from gene sequences}.
 \newblock {\em Genetics\/}.
+
+\bibitem[McVean and Cardin(2005)McVean and Cardin]{McVean:2005ho}
+McVean, G. A.~T. and Cardin, N.~J. (2005).
+\newblock {Approximating the coalescent with recombination}.
+\newblock {\em Philosophical Transactions of the Royal Society B: Biological
+  Sciences\/}, {\bf 360}(1459), 1387--1393.
 
 \bibitem[McVean {\em et~al.}(2004)McVean, Myers, Hunt, Deloukas, Bentley, and
   Donnelly]{McVean:2004ca}
@@ -1475,6 +1509,13 @@ Scally, A. and Durbin, R. (2012).
 \newblock {Revising the human mutation rate: implications for understanding
   human evolution}.
 \newblock {\em Nature Reviews Genetics\/}, {\bf 13}(10), 745--753.
+
+\bibitem[Schiffels and Durbin(2014)Schiffels and
+  Durbin]{schiffels2014inferring}
+Schiffels, S. and Durbin, R. (2014).
+\newblock Inferring human population size and separation history from multiple
+  genome sequences.
+\newblock {\em Nature genetics\/}, {\bf 46}(8), 919--925.
 
 \bibitem[Schork {\em et~al.}(2009)Schork, Murray, Frazer, and
   Topol]{Schork:2009ke}

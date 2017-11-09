@@ -2,8 +2,8 @@
 
 
 \begin{table}[!htb]
-\Caption{Accuracy of age inference for different methods}
-{...}
+\Caption{Accuracy of allele age inferred using PSMC}
+{The true times of the delimiting coalescent events $t_c$ and $t_d$ are used to distinguish alleles of young, intermediate, and old age; see definitions provided at the bottom of the table.}
 {tab:stats_psmc_age}
 \centering
 \begin{threeparttable}
@@ -34,9 +34,9 @@ Method & &
 \bottomrule
 \end{tabular}
 \begin{tablenotes}\footnotesize
-	\item Set~A: ~ ``Young'' age, $n=233$, selected at ${t_d \leq \num{1000}}$
-  \item Set~B: ~ ``Intermediate'' age, $n=222$, selected at ${t_c < \num{1000}, ~ t_d > \num{1000}}$
-  \item Set~C: ~ ``Old'' age, $n=543$, selected at ${t_c \geq \num{1000}}$
+	\item Set~A: ~ ``Young'' age, $n=233$, defined at ${t_d \leq \num{1000}}$
+  \item Set~B: ~ ``Intermediate'' age, $n=222$, defined at ${t_c < \num{1000}, ~ t_d > \num{1000}}$
+  \item Set~C: ~ ``Old'' age, $n=543$, defined at ${t_c \geq \num{1000}}$
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

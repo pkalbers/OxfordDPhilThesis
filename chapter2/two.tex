@@ -33,7 +33,8 @@ Commonly employed imputation methods are, for example, \texttt{Beagle} \citep{Br
 
 Genotypes can be imputed with remarkably high accuracy, allowing researchers to assay only a modest number of markers in sampled individuals, which makes large-scale data collection feasible and cost-effective \citep{Li:2009kfa}.
 The accuracy of imputation is dependent on several factors.
-These include the number of genotyped markers in the study sample, \Delete{the number of individuals sampled,} the size of the reference panel, and the genetic similarity between sampled and reference individuals \citep{Howie:2009hq, Roshyara:2015gi}.
+These include the number of genotyped markers in the study sample,
+the size of the reference panel, and the genetic similarity between sampled and reference individuals \citep{Howie:2009hq, Roshyara:2015gi}.
 The coverage of the reference panel further influences the power to find significant associations.
 The availability and choice of reference data therefore becomes crucial in considerations of statistical power in study design.
 
@@ -208,7 +209,7 @@ If the highest score value is equal in more than \n{1} candidate genotypes, \n{1
 \paragraph{Weighted linear combination (\texttt{WLS}).}
 Tuple values of the meta-imputed genotype are derived from candidate genotypes as a linear combination of their posterior probability per genotypic state.
 This is calculated as the weighted average over analogue genotype probabilities, using corresponding score values as weights.
-Each candidate genotype thereby contributes to the resulting probability distribution in $\hat{g}_{ij}$\Delete{, except for genotypes with $s_{ijk}=0$}.
+Each candidate genotype thereby contributes to the resulting probability distribution in $\hat{g}_{ij}$.
 Probability values in each tuple $a_{ijk}$ are multiplied by their assigned $s_{ijk}$ after normalising scores such that values in $s_{ij}$ sum to 1.
 The tuple of the meta-imputed genotype is then constructed by calculating the sum over the weighted probabilities at each genotypic state; see below (the mathematical definition follows \citet{Stone:1961js}).
 \begin{equation}\label{metaimpute_wlc}
