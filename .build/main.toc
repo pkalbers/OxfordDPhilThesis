@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {1.4.2}Exploration of the human genome}{27}{subsection.1.4.2}
 \contentsline {section}{\numberline {1.5}Genome-wide association studies}{30}{section.1.5}
 \contentsline {section}{\numberline {1.6}Identity by descent}{32}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Single-locus concept}{33}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.1}Single-locus concept}{32}{subsection.1.6.1}
 \contentsline {subsection}{\numberline {1.6.2}Genealogical concept}{33}{subsection.1.6.2}
 \contentsline {section}{\numberline {1.7}Allele age estimation}{35}{section.1.7}
 \contentsline {subsection}{\numberline {1.7.1}Theoretical results}{35}{subsection.1.7.1}
@@ -132,30 +132,33 @@
 \contentsline {subsubsection}{\numberline {5.5.3.1}Age estimation using true shared haplotype information}{189}{subsubsection.5.5.3.1}
 \contentsline {subsubsection}{\numberline {5.5.3.2}Age estimation based on inferred shared haplotypes}{191}{subsubsection.5.5.3.2}
 \contentsline {subsection}{\numberline {5.5.4}Discussion}{195}{subsection.5.5.4}
-\contentsline {section}{\numberline {5.6}A haplotype-based HMM for shared haplotype inference}{197}{section.5.6}
+\contentsline {section}{\numberline {5.6}A haplotype-based HMM for shared haplotype inference}{196}{section.5.6}
 \contentsline {subsection}{\numberline {5.6.1}Description of the model}{197}{subsection.5.6.1}
 \contentsline {paragraph}{Transition probabilities.}{198}{paragraph*.122}
 \contentsline {paragraph}{Emission probabilities.}{198}{paragraph*.123}
-\contentsline {paragraph}{Initial state probabilities.}{201}{paragraph*.126}
-\contentsline {subsection}{\numberline {5.6.2}Modifications of the age estimation method}{202}{subsection.5.6.2}
-\contentsline {subsubsection}{\numberline {5.6.2.1}Nearest neighbour selection of discordant pairs}{202}{subsubsection.5.6.2.1}
+\contentsline {paragraph}{Initial state probabilities.}{199}{paragraph*.126}
+\contentsline {subsection}{\numberline {5.6.2}Modifications of the age estimation method}{200}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}Nearest neighbour selection of discordant pairs}{201}{subsubsection.5.6.2.1}
 \contentsline {subsubsection}{\numberline {5.6.2.2}Restriction of counting pairwise differences in concordant pairs}{202}{subsubsection.5.6.2.2}
 \contentsline {subsection}{\numberline {5.6.3}Impact of data error}{203}{subsection.5.6.3}
 \contentsline {subsubsection}{\numberline {5.6.3.1}Shared haplotype inference}{203}{subsubsection.5.6.3.1}
-\contentsline {subsubsection}{\numberline {5.6.3.2}Allele age estimation}{203}{subsubsection.5.6.3.2}
-\contentsline {subsubsection}{\numberline {5.6.3.3}Discussion}{203}{subsubsection.5.6.3.3}
-\contentsline {subsection}{\numberline {5.6.4}Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}{203}{subsection.5.6.4}
-\contentsline {subsubsection}{\numberline {5.6.4.1}Implementation to estimate allele age}{204}{subsubsection.5.6.4.1}
-\contentsline {subsubsection}{\numberline {5.6.4.2}Results for the T\textsubscript {MRCA}}{205}{subsubsection.5.6.4.2}
-\contentsline {subsubsection}{\numberline {5.6.4.3}Results for allele age}{206}{subsubsection.5.6.4.3}
-\contentsline {subsubsection}{\numberline {5.6.4.4}Discussion}{206}{subsubsection.5.6.4.4}
-\contentsline {subsection}{\numberline {5.6.5}Allele age estimation in 1000 Genomes}{206}{subsection.5.6.5}
-\contentsline {subsubsection}{\numberline {5.6.5.1}Inferred T\textsubscript {MRCA} by population}{206}{subsubsection.5.6.5.1}
-\contentsline {subsubsection}{\numberline {5.6.5.2}Allele age by population}{206}{subsubsection.5.6.5.2}
-\contentsline {section}{\numberline {5.7}Discussion}{206}{section.5.7}
-\contentsline {chapter}{\numberline {6}Discussion}{215}{chapter.6}
-\contentsline {section}{\numberline {6.1}Implications for genome-wide association studies}{215}{section.6.1}
-\contentsline {section}{\numberline {6.2}The importance of haplotype sharing by descent}{216}{section.6.2}
-\contentsline {section}{\numberline {6.3}The potential of estimating the age of alleles}{218}{section.6.3}
-\contentsline {chapter}{Abbreviations}{221}{section*.140}
-\contentsline {chapter}{Bibliography}{223}{chapter*.142}
+\contentsline {subsubsection}{\numberline {5.6.3.2}Allele age estimation}{206}{subsubsection.5.6.3.2}
+\contentsline {subsubsection}{\numberline {5.6.3.3}Discussion}{208}{subsubsection.5.6.3.3}
+\contentsline {subsection}{\numberline {5.6.4}Comparison to the Pairwise Sequentially Markovian Coalescent (PSMC)}{209}{subsection.5.6.4}
+\contentsline {subsubsection}{\numberline {5.6.4.1}Implementation to estimate allele age}{209}{subsubsection.5.6.4.1}
+\contentsline {subsubsection}{\numberline {5.6.4.2}Results for the T\textsubscript {MRCA}}{210}{subsubsection.5.6.4.2}
+\contentsline {subsubsection}{\numberline {5.6.4.3}Results for allele age}{213}{subsubsection.5.6.4.3}
+\contentsline {subsubsection}{\numberline {5.6.4.4}Discussion}{214}{subsubsection.5.6.4.4}
+\contentsline {subsection}{\numberline {5.6.5}Allele age estimation in 1000 Genomes}{215}{subsection.5.6.5}
+\contentsline {subsubsection}{\numberline {5.6.5.1}Shared haplotypes inferred by population}{215}{subsubsection.5.6.5.1}
+\contentsline {subsubsection}{\numberline {5.6.5.2}Allele age estimated by population}{217}{subsubsection.5.6.5.2}
+\contentsline {subsubsection}{\numberline {5.6.5.3}Selected allele age profiles}{218}{subsubsection.5.6.5.3}
+\contentsline {subsection}{\numberline {5.6.6}Discussion}{218}{subsection.5.6.6}
+\contentsline {chapter}{\numberline {6}Discussion}{221}{chapter.6}
+\contentsline {section}{\numberline {6.1}Summary and main conclusions}{222}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Imputation and association analysis or low-frequency alleles}{222}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Shared haplotype inference around rare variants}{224}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Allele age estimation}{226}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Future directions}{228}{section.6.2}
+\contentsline {chapter}{Abbreviations}{229}{section*.140}
+\contentsline {chapter}{Bibliography}{231}{chapter*.142}

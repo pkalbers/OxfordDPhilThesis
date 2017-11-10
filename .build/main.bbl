@@ -407,24 +407,14 @@ Enattah, N.~S., Sahi, T., Savilahti, E., Terwilliger, J.~D., Peltonen, L., and
 \newblock Identification of a variant associated with adult-type hypolactasia.
 \newblock {\em Nature genetics\/}, {\bf 30}(2), 233--237.
 
-\bibitem[Ewens(2012a)Ewens]{ewens2012}
-Ewens, W.~J. (2012a).
+\bibitem[Ewens(2012)Ewens]{ewens2012}
+Ewens, W.~J. (2012).
 \newblock {\em {Mathematical Population Genetics 1: Theoretical
   Introduction}\/}, volume~27.
 \newblock Springer Science \& Business Media.
 
-\bibitem[Ewens(2012b)Ewens]{ewens2012mathematical}
-Ewens, W.~J. (2012b).
-\newblock {\em Mathematical population genetics 1: theoretical introduction\/},
-  volume~27.
-\newblock Springer Science \& Business Media.
-
-\bibitem[Fisher(1930a)Fisher]{fisher1930genetical}
-Fisher, R. (1930a).
-\newblock The genetical theory of natural selection.
-
-\bibitem[Fisher(1930b)Fisher]{Fisher1930}
-Fisher, R.~A. (1930b).
+\bibitem[Fisher(1930)Fisher]{Fisher1930}
+Fisher, R.~A. (1930).
 \newblock {\em The genetical theory of natural selection\/}.
 \newblock Oxford University Press, Oxford.
 
@@ -694,14 +684,9 @@ Henn, B.~M., Gutenkunst, R.~N., Indap, A.~R., Marth, G.~T., Clark, A.~G., Yu,
 \newblock {\em Proceedings of the National Academy of Sciences\/}, {\bf
   108}(29), 11983--11988.
 
-\bibitem[Howie {\em et~al.}(2011a)Howie, Marchini, and Stephens]{Howie:2011ia}
-Howie, B., Marchini, J., and Stephens, M. (2011a).
+\bibitem[Howie {\em et~al.}(2011)Howie, Marchini, and Stephens]{Howie:2011ia}
+Howie, B., Marchini, J., and Stephens, M. (2011).
 \newblock {Genotype imputation with thousands of genomes.}
-\newblock {\em G3 (Bethesda, Md.)\/}, {\bf 1}(6), 457--470.
-
-\bibitem[Howie {\em et~al.}(2011b)Howie, Marchini, and Stephens]{Howie:2011ji}
-Howie, B., Marchini, J., and Stephens, M. (2011b).
-\newblock {Genotype Imputation with Thousands of Genomes}.
 \newblock {\em G3 (Bethesda, Md.)\/}, {\bf 1}(6), 457--470.
 
 \bibitem[Howie {\em et~al.}(2009)Howie, Donnelly, and Marchini]{Howie:2009hq}
@@ -1887,14 +1872,9 @@ Wright, S. (1922).
 \newblock {Coefficients of Inbreeding and Relationship}.
 \newblock {\em The American Naturalist\/}, {\bf 56}(645), 330--338.
 
-\bibitem[Wright(1931a)Wright]{Wright1931}
-Wright, S. (1931a).
+\bibitem[Wright(1931)Wright]{Wright1931}
+Wright, S. (1931).
 \newblock {Evolution in Mendelian Populations}.
-\newblock {\em Genetics\/}, {\bf 16}(2), 97--159.
-
-\bibitem[Wright(1931b)Wright]{Wright:1931ub}
-Wright, S. (1931b).
-\newblock {Evolution in Mendelian Populations.}
 \newblock {\em Genetics\/}, {\bf 16}(2), 97--159.
 
 \bibitem[Yu {\em et~al.}(2001)Yu, Zhao, Fu, Sambuughin, Ramsay, Jenkins,

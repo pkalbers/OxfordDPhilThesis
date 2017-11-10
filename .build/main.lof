@@ -15,7 +15,7 @@
 \contentsline {figure}{\numberline {1.9}{\ignorespaces Timeline of sequencing technologies and milestone projects}}{26}{figure.caption.14}
 \contentsline {figure}{\numberline {1.10}{\ignorespaces Timeline of cost reduction in DNA sequencing}}{27}{figure.caption.15}
 \contentsline {figure}{\numberline {1.11}{\ignorespaces Allele frequency spectrum in the 1000 Genomes Project}}{29}{figure.caption.16}
-\contentsline {figure}{\numberline {1.12}{\ignorespaces Significant risk-associated variants listed in the NHGRI-EBI Catalogue}}{31}{figure.caption.17}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Significant risk-associated variants listed in the NHGRI-EBI Catalogue}}{30}{figure.caption.17}
 \contentsline {figure}{\numberline {1.13}{\ignorespaces Risk-related variants by allele frequency and effect size}}{31}{figure.caption.18}
 \contentsline {figure}{\numberline {1.14}{\ignorespaces Illustration of haplotype sharing by descent}}{34}{figure.caption.19}
 \addvspace {10\p@ }
@@ -82,17 +82,17 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Distribution of true and inferred age using different IBD detection methods}}{187}{figure.caption.112}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Relative age using different IBD detection methods}}{188}{figure.caption.114}
 \contentsline {figure}{\numberline {5.9}{\ignorespaces Density of allele age before and after error in simulated data}}{190}{figure.caption.115}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Illustration of the haplotype-based HMM for shared haplotype inference}}{198}{figure.caption.121}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Illustration of the haplotype-based HMM for shared haplotype inference}}{197}{figure.caption.121}
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Empirical probability to observe allelic pairs dependent on T\textsubscript {MRCA}}}{199}{figure.caption.124}
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Empirical emission model used in the haplotype-based HMM}}{200}{figure.caption.125}
 \contentsline {figure}{\numberline {5.13}{\ignorespaces Empirical initial state probabilities used in the haplotype-based HMM}}{201}{figure.caption.127}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Genetic length of shared haplotype segments inferred using the haplotype-based HMM}}{207}{figure.caption.128}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Allele age inferred using the haplotype-based HMM}}{208}{figure.caption.129}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces True and estimated T\textsubscript {MRCA} using different methods}}{209}{figure.caption.131}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Inferred allele age compared to PSMC}}{210}{figure.caption.133}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Shared haplotype length by population in 1000 Genomes, chromosome~20}}{211}{figure.caption.136}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Allele age estimated by population in 1000 Genomes, chromosome~20}}{212}{figure.caption.137}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Example profiles of estimated allele age in 1000 Genomes, chromosome~20}}{213}{figure.caption.138}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Example profile for comparison to PSMC in 1000 Genomes, chromosome~20}}{214}{figure.caption.139}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Density of breakpoint positions inferred using the haplotype-based HMM}}{204}{figure.caption.128}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Genetic length of shared haplotype segments inferred using the haplotype-based HMM}}{205}{figure.caption.129}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Allele age inferred using the haplotype-based HMM}}{207}{figure.caption.130}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces True and estimated T\textsubscript {MRCA} using PSMC}}{211}{figure.caption.132}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Allele age inferred using PSMC}}{213}{figure.caption.134}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Shared haplotype length by population in 1000 Genomes, chromosome~20}}{216}{figure.caption.137}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Allele age estimated by population in 1000 Genomes, chromosome~20}}{217}{figure.caption.138}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Example profiles of estimated allele age in 1000 Genomes, chromosome~20}}{219}{figure.caption.139}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion}{215}{chapter.6}
+\contentsline {xchapter}{Discussion}{221}{chapter.6}

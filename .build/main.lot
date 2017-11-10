@@ -28,8 +28,8 @@
 \contentsline {table}{\numberline {5.1}{\ignorespaces Estimation accuracy under varying numbers of discordant pairs}}{180}{table.caption.105}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Estimation accuracy per IBD detection method}}{188}{table.caption.113}
 \contentsline {table}{\numberline {5.3}{\ignorespaces Effect of genotype error on age estimation accuracy}}{194}{table.caption.119}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Accuracy of inferred age using the haplotype-based HMM}}{204}{table.caption.130}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Accuracy of T\textsubscript {MRCA} estimation for different methods}}{205}{table.caption.132}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Accuracy of age inference for different methods}}{206}{table.caption.134}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Accuracy of inferred age using the haplotype-based HMM}}{208}{table.caption.131}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Accuracy of T\textsubscript {MRCA} estimation for different methods}}{212}{table.caption.133}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Accuracy of allele age inferred using PSMC}}{214}{table.caption.135}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion}{215}{chapter.6}
+\contentsline {xchapter}{Discussion}{221}{chapter.6}
