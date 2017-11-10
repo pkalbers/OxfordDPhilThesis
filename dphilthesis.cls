@@ -412,18 +412,18 @@ list-final-separator={, and }%
 		{\large \vspace*{1mm} {\includegraphics{\@unicrest} \par} \vspace*{1mm}}
 		{{\Large \bfseries {\@author}} \par}
 		{
-			\large \vspace*{1ex}
-			{{\@institute} \par}
+			\large \vspace*{1.5ex}
+			{\normalsize{\@institute} \par}
 			\vspace*{1ex}
-			{{\@college} \par}
+			{\normalsize{\@college} \par}
 			\vspace*{1ex}
 			{\Large {\@university} \par}
-			\vspace*{6ex}
+			\vspace*{5ex}
 			{{\@supervisor} \par}
-			\vspace*{6ex}
+			\vspace*{5ex}
 			{\normalsize {\@submitted} \par}
 			{\Large \textit{\@degree} \par}
-			\vspace*{6ex}
+			\vspace*{5ex}
 			{\@degreedate}
 		}
 	\end{center}

@@ -22,7 +22,7 @@
 \title{Rare and low-frequency variants and \\ predisposition to complex disease}
 \unicrest{./img/oxford-crest}
 \author{Patrick K. Albers}
-\institute{Wellcome Trust Centre for Human Genetics}
+\institute{Wellcome Trust Centre for Human Genetics \\ Big Data Institute \\ Medical Sciences Division}
 \college{Green Templeton College}
 \university{University of Oxford}
 \supervisor{Supervised by \\[0.75ex] Professor Gil McVean \\[0.5ex] Professor Mark McCarthy}
@@ -106,12 +106,21 @@ Author={Patrick K. Albers}%
 
 
 
+
 % Abbreviations
+
+\cleardoublepage
+
 \topquote[7cm]{%
 The key test for an acronym is to ask whether it helps or hurts communication.%
 }{Elon Musk}
 
-{\onehalfspacing\small\printglossary[type=\acronymtype,title=Abbreviations]}
+{%
+\onehalfspacing%
+\small%
+\printglossary[type=\acronymtype,title=Abbreviations]%
+}
+
 
 
 
@@ -132,6 +141,42 @@ can complete the following sentence:\\
 	\footnotesize%
 	\bibliography{library,manual}%
 }\label{biblio}
+
+
+
+
+
+
+\cleardoublepage
+
+\thispagestyle{empty}
+\setlength{\parindent}{0ex}
+\begin{flushleft}
+\singlespacing
+\footnotesize
+\textsl{%
+Remember kids, the only difference between \\
+screwing around and science \\
+is writing it down.} \\
+\hspace{4cm}--- Adam Savage
+\end{flushleft}
+
+\null
+
+\begin{figure}[!h]
+\includegraphics[width=\textwidth]{./img/stat_wordcount}
+\small\caption*{\textbf{Supplementary Figure 1:} Word count over time during thesis writing period. Shown for the time since I automatically generated daily backups and until the submission of this thesis.}
+\end{figure}
+
+\begin{figure}[!h]
+\includegraphics[width=\textwidth]{./img/stat_memusage}
+\small\caption*{\textbf{Supplementary Figure 2:} Computer cluster usage one month before the submission date of this thesis. Indicated by the daily maximum of computer memory used on the cluster of the Wellcome Trust Centre for Human Genetics. Note that the exact number of nodes (computer cores) used was not documented by the system.}
+\end{figure}
+
+
+
+
+
 
 
 % \cleardoublepage
