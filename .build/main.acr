@@ -14,11 +14,16 @@
 		\setentrycounter[]{page}\glsnumberformat{221\delimR 223}}}\glsgroupskip
 \glsgroupheading{H}\relax \glsresetentrylist %
 \glossentry{hmm}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{224}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{226\delimN 227}}}%
+		\setentrycounter[]{page}\glsnumberformat{224}}}%
 \glossentry{hrc}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{223}}}\glsgroupskip
+\glsgroupheading{I}\relax \glsresetentrylist %
+\glossentry{ibd}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{226}}}\glsgroupskip
+\glsgroupheading{P}\relax \glsresetentrylist %
+\glossentry{psmc}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{227}}}\glsgroupskip
 \glsgroupheading{T}\relax \glsresetentrylist %
 \glossentry{tmrca}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{225}}}%
+		\setentrycounter[]{page}\glsnumberformat{226\delimR 228}}}%
 \end{theglossary}\glossarypostamble
