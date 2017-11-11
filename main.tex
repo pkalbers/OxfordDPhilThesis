@@ -9,7 +9,7 @@
 
 
 
-% \includeonly{frontmatter}
+\includeonly{frontmatter}
 % \includeonly{chapter1/one}
 % \includeonly{chapter2/two}
 % \includeonly{chapter3/three}
@@ -150,7 +150,11 @@ can complete the following sentence:\\
 \cleardoublepage
 
 \thispagestyle{empty}
-\setlength{\parindent}{0ex}
+\null
+\newpage
+\thispagestyle{empty}
+
+\vspace*{-14ex}
 \begin{flushleft}
 \singlespacing
 \footnotesize
@@ -161,21 +165,34 @@ is writing it down.} \\
 \hspace{4cm}--- Adam Savage
 \end{flushleft}
 
-\null
+\vspace*{2ex}
 
-\begin{figure}[!h]
+\begin{flushleft}
 \includegraphics[width=\textwidth]{./img/stat_wordcount}
-\small\caption*{\textbf{Supplementary Figure 1:} Word count over time during thesis writing period. Shown for the time since I automatically generated daily backups and until the submission of this thesis.}
-\end{figure}
+\vspace*{-5ex}
+\small\singlespacing\textbf{Supplementary Figure 1:} Word count over time during thesis writing period. Shown for the time since I automatically generated daily backups and until the submission of this thesis.
+\end{flushleft}
 
-\begin{figure}[!h]
-\includegraphics[width=\textwidth]{./img/stat_memusage}
-\small\caption*{\textbf{Supplementary Figure 2:} Computer cluster usage one month before the submission date of this thesis. Indicated by the daily maximum of computer memory used on the cluster of the Wellcome Trust Centre for Human Genetics. Note that the exact number of nodes (computer cores) used was not documented by the system.}
-\end{figure}
+\vspace*{2ex}
+
+\begin{flushleft}
+\includegraphics[width=\textwidth]{./img/stat_charrate}
+\vspace*{-5ex}
+\small\singlespacing\textbf{Supplementary Figure 2:} Number of characters written per day. Note that all characters in each \LaTeX~file were counted.
+\end{flushleft}
+
+\vspace*{2ex}
+
+\begin{flushleft}
+\includegraphics[width=\textwidth]{./img/stat_clusterload}
+\vspace*{-5ex}
+\small\singlespacing\textbf{Supplementary Figure 3:} Computer cluster usage one month before the submission date of this thesis. Indicated by the \textbf{(A)} number of nodes used and \textbf{(B)} daily maximum of computer memory on the cluster of the Wellcome Trust Centre for Human Genetics.
+\end{flushleft}
 
 
 
-
+\cleardoublepage
+\thispagestyle{empty}
 
 
 

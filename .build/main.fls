@@ -912,9 +912,12 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/kpfonts/jkpmite.tfm
 INPUT ./img/stat_wordcount.pdf
 INPUT ./img/stat_wordcount.pdf
 INPUT ./img/stat_wordcount.pdf
-INPUT ./img/stat_memusage.pdf
-INPUT ./img/stat_memusage.pdf
-INPUT ./img/stat_memusage.pdf
+INPUT ./img/stat_charrate.pdf
+INPUT ./img/stat_charrate.pdf
+INPUT ./img/stat_charrate.pdf
+INPUT ./img/stat_clusterload.pdf
+INPUT ./img/stat_clusterload.pdf
+INPUT ./img/stat_clusterload.pdf
 OUTPUT .build/main.maf
 INPUT .build/main.mtc
 INPUT .build/main.mtc0

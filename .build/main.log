@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  10 NOV 2017 19:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  11 NOV 2017 02:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2598,16 +2598,24 @@ Overfull \hbox (12.02797pt too wide) in paragraph at lines 90--90
 
 ] (.build/main.bbl [231
 
-] [232] [233] [234] [235] [236] [237] [238] [239] [240] [241] [242] [243]) [244] <./img/stat_wordcount.pdf, id=999, 722.7pt x 469.755pt>
+] [232] [233] [234] [235] [236] [237] [238] [239] [240] [241] [242] [243]) [244] [245
+
+] <./img/stat_wordcount.pdf, id=1003, 668.4975pt x 361.35pt>
 File: ./img/stat_wordcount.pdf Graphic file (type pdf)
  <use ./img/stat_wordcount.pdf>
-Package pdftex.def Info: ./img/stat_wordcount.pdf used on input line 167.
-(pdftex.def)             Requested size: 426.79137pt x 277.41826pt.
- <./img/stat_memusage.pdf, id=1000, 722.7pt x 252.945pt>
-File: ./img/stat_memusage.pdf Graphic file (type pdf)
- <use ./img/stat_memusage.pdf>
-Package pdftex.def Info: ./img/stat_memusage.pdf used on input line 172.
-(pdftex.def)             Requested size: 426.79137pt x 149.37906pt.
+Package pdftex.def Info: ./img/stat_wordcount.pdf used on input line 171.
+(pdftex.def)             Requested size: 426.79137pt x 230.70631pt.
+ <./img/stat_charrate.pdf, id=1004, 668.4975pt x 216.81pt>
+File: ./img/stat_charrate.pdf Graphic file (type pdf)
+ <use ./img/stat_charrate.pdf>
+Package pdftex.def Info: ./img/stat_charrate.pdf used on input line 179.
+(pdftex.def)             Requested size: 426.79137pt x 138.42378pt.
+ <./img/stat_clusterload.pdf, id=1005, 843.5332pt x 271.37767pt>
+File: ./img/stat_clusterload.pdf Graphic file (type pdf)
+ <use ./img/stat_clusterload.pdf>
+Package pdftex.def Info: ./img/stat_clusterload.pdf used on input line 187.
+(pdftex.def)             Requested size: 426.79137pt x 137.30757pt.
+ [246 <./img/stat_wordcount.pdf> <./img/stat_charrate.pdf> <./img/stat_clusterload.pdf>]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the main.maf file.
@@ -2629,14 +2637,14 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the main.log file.
 
-[245
+[247
 
- <./img/stat_wordcount.pdf> <./img/stat_memusage.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 200.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 200.
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
  (.build/main.aux (.build/frontmatter.aux) (.build/chapter1/one.aux) (.build/chapter2/two.aux) (.build/chapter3/three.aux) (.build/chapter4/four.aux) (.build/chapter5/five.aux) (.build/chapter6/six.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 200.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 200.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CE1A8BBDD34D9270AD73BBA881017815;150.
 
@@ -2645,11 +2653,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 48315 strings out of 493089
- 923786 string characters out of 6134842
- 1142539 words of memory out of 5000000
+ 48322 strings out of 493089
+ 923921 string characters out of 6134842
+ 1142523 words of memory out of 5000000
  49753 multiletter control sequences out of 15000+600000
- 189658 words of font info for 444 fonts, out of 8000000 for 9000
+ 190082 words of font info for 447 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,73p,10436b,1357s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{table.caption.135} has been referenced but does not exist, replaced by a fixed one
@@ -2848,6 +2856,10 @@ pdfTeX warning (dest): name{figure.caption.10} has been referenced but does not 
 
 pdfTeX warning (dest): name{figure.caption.9} has been referenced but does not exist, replaced by a fixed one
 
+pdfTeX warning (dest): name{figure.caption.8} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.7} has been referenced but does not exist, replaced by a fixed one
+
 pdfTeX warning (dest): name{figure.caption.6} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{section.6.2} has been referenced but does not exist, replaced by a fixed one
@@ -3033,10 +3045,10 @@ pdfTeX warning (dest): name{section.1.1} has been referenced but does not exist,
 pdfTeX warning (dest): name{chapter.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb>
-Output written on .build/main.pdf (33 pages, 216841 bytes).
+Output written on .build/main.pdf (35 pages, 258566 bytes).
 PDF statistics:
- 1155 PDF objects out of 1200 (max. 8388607)
- 1094 compressed objects within 11 object streams
- 459 named destinations out of 1000 (max. 500000)
- 60980 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1196 PDF objects out of 1200 (max. 8388607)
+ 1124 compressed objects within 12 object streams
+ 461 named destinations out of 1000 (max. 500000)
+ 60985 words of extra memory for PDF output out of 61914 (max. 10000000)
 
