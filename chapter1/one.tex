@@ -27,16 +27,16 @@ While linkage studies have been successful in the identification of genetic fact
 \Gls{gwa} studies have become the preferred method to interrogate common variants in the context of complex traits; they have uncovered significant associations between thousands of genetic factors and major common diseases, and have been a driving force in the ongoing accumulation of more, larger, and denser genomic datasets.
 
 One major insight gained from the extensive study of the (human) genome is that the genetic variation between individuals is mostly determined by \emph{common} variants (\eg ${\geq 5\%}$ frequency), but most variant sites in the genome are \emph{rare}; that is, a particular allele is shared by only few individuals in the population (\eg 1 in \n{1000}).
-\Correct{This abundance of rare variants in the human genome can be seen as a predictable consequence of a recent, exponential growth of the human population} \citep{Fu:1995hp}.
+This abundance of rare variants in the human genome can be seen as a predictable consequence of a recent, exponential growth of the human population \citep{Fu:1995hp}.
 In general, low-frequency variants tend to be population-specific, but may also be highly differentiated between demographic groups on a finer scale \citep{Gravel:2011bgb,Bustamante:2011df,Mathieson:2014ig}.
 This is because rare variants are likely to have a relatively recent origin through mutation; \ie they are ``young'' in age and therefore have less time to spread.
-\Correct{Conversely}, genetic factors that contribute to substantial disease risk (particularly with early onset) are likely to be under purifying selection, which implies that they should be observed at relatively low frequencies, \eg despite being ``old''.
-\Correct{However, recent research has indicated that the human genome harbours an excess of rare, functional variants, which may entail deleterious consequences, due to the combined effects of recent, explosive growth and weak purifying selection} \citep[\eg, see][]{Kryukov:2007ec,Marth:2011bz, Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
+Conversely, genetic factors that contribute to substantial disease risk (particularly with early onset) are likely to be under purifying selection, which implies that they should be observed at relatively low frequencies, \eg despite being ``old''.
+However, recent research has indicated that the human genome harbours an excess of rare, functional variants, which may entail deleterious consequences, due to the combined effects of recent, explosive growth and weak purifying selection \citep[\eg, see][]{Kryukov:2007ec,Marth:2011bz, Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 
 
-Rare variants are now \Correct{considered to be potentially involved in} the predisposition to complex disease \citep{Bodmer:2008ep,Schork:2009ke,McClellan:2010ksa,Cirulli:2010cza}, though their contribution has been hypothesised for more than a decade \citep{Pritchard:2001hw}.
-\Addition{Notably, it has been hypothesised that rare variants may help understand the problem of \emph{missing heritability}, where the genetic loci detected through {\gls{gwa}} studies
-can only explain a small fraction of the genetic variance inferred for a disease trait} \citep{Manolio:2009jp,Gibson:2012kca,Zuk:2014jv}.
+Rare variants are now considered to be potentially involved in the predisposition to complex disease \citep{Bodmer:2008ep,Schork:2009ke,McClellan:2010ksa,Cirulli:2010cza}, though their contribution has been hypothesised for more than a decade \citep{Pritchard:2001hw}.
+Notably, it has been hypothesised that rare variants may help understand the problem of \emph{missing heritability}, where the genetic loci detected through \gls{gwa} studies
+can only explain a small fraction of the genetic variance inferred for a disease trait \citep{Manolio:2009jp,Gibson:2012kca,Zuk:2014jv}.
 However, the interrogation of alleles found at lower frequencies is not straightforward.
 For instance, rare variants may not exert large enough effects to be detected by family-based linkage studies.
 Conversely, rare alleles are generally too low in frequency to achieve statistical significance in association tests.
@@ -53,7 +53,7 @@ In particular, I address the problems typically associated with the analysis of 
 Thus, the aims of this work relate to the ``heads and tails'' of rare variants and can be summarised as follows.
 
 \begin{itemize}
-  \item To increase the statistical power to detect significant signals in \gls{gwa} studies by developing a method that integrates information from multiple\Addition{, independently obtained} reference datasets for imputation into a given study sample; thus attempting to optimise the ability to implicate low-frequency and rare variants as contributing factors to disease risk.
+  \item To increase the statistical power to detect significant signals in \gls{gwa} studies by developing a method that integrates information from multiple, independently obtained reference datasets for imputation into a given study sample; thus attempting to optimise the ability to implicate low-frequency and rare variants as contributing factors to disease risk.
   \item To utilise rare variants as a source of information about relatedness and haplotype sharing by descent, which aligns with \n{2} objectives; first, to develop a method for the inference of the underlying \gls{ibd} structure in which a given allele of interest is embedded, and second, from this, to develop a method to reconstruct the sequence of coalescent events such that the age of the allele can be estimated.
 \end{itemize}
 
@@ -76,7 +76,7 @@ In the remainder of this introduction (\textbf{Chapter~1}), I explain the basic 
   The results of this analysis are incorporated in a probabilistic model that is enabled for the inference of IBD tracts using a \gls{hmm}, thereby improving on the method presented in Chapter~3.
 
   \item[Chapter~5.] I propose a novel method for the estimation of (rare) allele age, \ie the time since a mutation event gave rise to a particular allele that is observed in sample data.
-  The method represents a \Correct{composite Bayesian analysis} and operates on insights gained from the inferred shared haplotype structure of the sample; thus, prior knowledge of the demographic history of the population or the genealogy of the sample is not required.
+  The method represents a composite Bayesian analysis and operates on insights gained from the inferred shared haplotype structure of the sample; thus, prior knowledge of the demographic history of the population or the genealogy of the sample is not required.
 	I apply this method to data from the \gls{1kg} Phase~\rom{3} on variants with predicted consequences.
 \end{description}
 
@@ -125,10 +125,6 @@ The expression of phenotypic traits varies among the members of a population due
 For example, traits such as blood type or eye colour are determined genetically, whereas most of the phenotypic variability seen in a population arises from interactions between genetic and environmental factors.
 Typical examples are the effects of diet or stress on complex traits such as body weight or health.
 
-%
-\input{chapter1/fig/info_types}
-%
-
 Note that the meaning of the word \emph{gene} has changed over time \citep[\eg see][]{slack2014genes}.
 Historically, before the molecular basis of DNA was discovered, a gene was informally defined as the smallest unit of heredity, referring to the determinant of a characteristic that is transmitted from parent to offspring.
 % This definition is convenient to mathematically describe the process of genetic inheritance and shall therefore be used in the remainder of this thesis.
@@ -138,6 +134,10 @@ When a set of sites on a single chromosome is considered, \ie the alleles observ
 While \n{1} \emph{maternal} and \n{1} \emph{paternal} haplotype can be distinguished in a diploid individual, its \emph{genotype} refers to the sum of the inherited genetic information at \n{1} or more loci in the \n{2} chromosomes.
 An individual can be \emph{homozygous} for a particular allele at a given site if the allele is identical in both parents, or \emph{heterozygous} if the inherited alleles differ.
 This terminology is further clarified in \cpref{fig:info_types}.
+
+%
+\input{chapter1/fig/info_types}
+%
 
 The following sections describe the main processes which generate genetic variation and, thereby, phenotypic variation in a population; namely mutation (\ccref{sec:mutation}) and recombination (\ccref{sec:recombination}).
 
@@ -175,8 +175,8 @@ Recombination refers to the reorganisation of alleles during meiosis in sexually
 	\item[\textbf{Gene conversion}] is a non-reciprocal exchange of genetic material.
 	The \gls{dna} sequence at a section in \n{1} of the chromatids is replaced by a copy of the sequence on the other chromatid, resulting in the loss of its original sequence.
 \end{description}
-\Correct{Here, chromosomal crossover is implied as the acting mechanism of recombination, whereas gene conversion is not considered in this thesis.
-In the following, the term \emph{recombination} therefore refers to crossover events between two homologous chromosomes.}
+Here, chromosomal crossover is implied as the acting mechanism of recombination, whereas gene conversion is not considered in this thesis.
+In the following, the term \emph{recombination} therefore refers to crossover events between two homologous chromosomes.
 
 %
 \input{chapter1/fig/info_meiosis}
@@ -241,7 +241,7 @@ The effects of mutation or selection are ignored, such that alleles are \emph{ne
 It follows that reproduction is considered as a random sampling process, in which the alleles that are transmitted into the next generation are drawn (with replacement) from the gene pool of the current population.
 An example is illustrated in \cpref{fig:info_wrightfisher}.
 
-Since each draw has only \n{2} possible outcomes, $A$~or~\Correct{$a$}, each generation is produced by a series of independent Bernoulli trials such that allele frequencies are binomially distributed.
+Since each draw has only \n{2} possible outcomes, $A$~or~$a$, each generation is produced by a series of independent Bernoulli trials such that allele frequencies are binomially distributed.
 Let $X_t$ denote the number of $A$ alleles in generation $t$.
 Given ${X_t=i}$ allele copies (or individuals which carry the allele),
 the probability of drawing the $A$ allele is equal to its frequency in the current generation, denoted by ${\pi_i = \rfrac{i}{N}}$.
@@ -321,7 +321,7 @@ This process is repeated until only \n{1} lineage is left, which belongs to the 
 
 The history of a sample is reflected in its genealogy and can be described in terms of the topology of the tree and the lengths of the connecting branches.
 The branch length corresponds to the time interval between \n{2} successive coalescent events, which is of central interest in describing the coalescent process.
-Let this waiting time be denoted by \Correct{$T_i$}, where \Correct{$i$} corresponds to the number of distinct lineages during the time interval, which changes from \Correct{$i$} to \Correct{${i-1}$} at coalescence.
+Let this waiting time be denoted by $T_i$, where $i$ corresponds to the number of distinct lineages during the time interval, which changes from $i$ to ${i-1}$ at coalescence.
 An example of a simple genealogical tree is shown in \cpref{fig:info_coalescent}, in which the waiting times between coalescent events are indicated.
 In the following, the concept of the standard coalescent is described by assuming a haploid population of constant size, $N$, in which the effects of mutation, selection, recombination, or other biological processes are not involved.
 
@@ -333,11 +333,11 @@ To arrive at the probability that \n{2} lineages coalesce $t>0$ generations back
 Because generations are independent, the probability that the \n{2} lineages are distinct over $t-1$~generations is
 \begin{equation}
 	P(T_2 \geq t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1}
-	\ \text{.} \CorrectLabel
+	\ \text{.}
 \end{equation}
 Therefore, the probability that \n{2} lineages coalesce $t$ generations back in time is geometrically distributed with rate $N^{-1}$, such that
 \begin{equation}\label{eq:coalprob}
-	P(T_2 = t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1} ~ \frac{1}{N} \CorrectLabel
+	P(T_2 = t \mid N) ~=~ \Big( 1 - \frac{1}{N} \Big)^{t-1} ~ \frac{1}{N}
 \end{equation}
 which arises from the number of independent Bernoulli trials needed until the same ancestor is chosen by \n{2} lineages.
 It follows from the geometric distribution that the expected number of generations up to and including the coalescent event is
@@ -366,12 +366,12 @@ The probability that a pair of lineages remains distinct during a given time int
 where ${\lfloor N \tau \rfloor}$ is the largest integer that does not exceed ${N \tau}$ \citep[\eg, see][]{nordborg2001coalescent}.
 
 
-\Correct{The above can now be extended to consider a sample of ${n\geq2}$ individuals.
+The above can now be extended to consider a sample of ${n\geq2}$ individuals.
 Let $i$ denote the number of distinct lineages in the current generation.
 In the immediately previous generation, there are $i$ ancestral lineages if no coalescent event has occurred, or ${i-1}$ otherwise.
-The probability of no coalescence in the previous generation can be derived by letting each lineage choose a different ancestor.}
+The probability of no coalescence in the previous generation can be derived by letting each lineage choose a different ancestor.
 Let the first lineage choose among $N$~ancestors with probability ${\rfrac{N}{N} = 1}$, the second lineage then chooses among the remaining ${N-1}$ ancestors with probability ${\rfrac{(N-1)}{N}}$, the third chooses among ${N-2}$ ancestors with probability ${\rfrac{(N-2)}{N}}$, and so on.
-\Correct{Given $i$~lineages in the current generation, the probability that they also have $i$~ancestors in the immediately previous generation therefore is}
+Given $i$~lineages in the current generation, the probability that they also have $i$~ancestors in the immediately previous generation therefore is
 \begin{equation}\label{eq:coal_n_dont}
 \begin{split}
   P_{i,i}(N)
@@ -379,71 +379,69 @@ Let the first lineage choose among $N$~ancestors with probability ${\rfrac{N}{N}
   & ~=~ \Big(\frac{N}{N}\Big) ~ \Big(1-\frac{1}{N}\Big) ~ \Big(1-\frac{2}{N}\Big) ~ \cdots ~ \Big(1-\frac{i-1}{N}\Big) \\
 	& ~=~ \prod_{k=1}^{i-1} \Big( 1 - \frac{k}{N} \Big) \\
   & ~=~ 1-\frac{{\sum_{k=1}^{i-1}k}}{N} ~+~ \mathcal{O}\Big( \frac{1}{N} \Big)
-	\quad = \quad 1 - {i \choose 2} \frac{1}{N} ~+~ \mathcal{O}\Big( \frac{1}{N} \Big) \CorrectLabel
+	\quad = \quad 1 - {i \choose 2} \frac{1}{N} ~+~ \mathcal{O}\Big( \frac{1}{N} \Big)
 \end{split}
 \end{equation}
-where the binomial coefficient, \Correct{${{i \choose 2} = \sum_{k=1}^{i-1}k}$}, corresponds to the number of possible pairs.
+where the binomial coefficient, ${{i \choose 2} = \sum_{k=1}^{i-1}k}$, corresponds to the number of possible pairs.
 
-\Correct{Similarly, to derive the probability of a coalescent event in the immediately previous generation, it is implied that $i$~lineages have $i-1$~ancestors.
+Similarly, to derive the probability of a coalescent event in the immediately previous generation, it is implied that $i$~lineages have $i-1$~ancestors.
 Let any two lineages choose the same ancestor with probability ${i \choose 2}\frac{1}{N}$ while the remaining lineages choose a different ancestor.
-It follows that}
+It follows that
 \begin{equation}\label{eq:coal_n_do}
 \begin{split}
 	P_{i,i-1}(N)
 	& ~=~ {i \choose 2} \frac{1}{N} ~\times~ \Big(\frac{N-1}{N}\Big) ~ \Big(\frac{N-2}{N}\Big) ~ \cdots ~ \Big(\frac{N-(i-2)}{N}\Big) \\
 	& ~=~ {i \choose 2} \frac{1}{N} ~\times~ \prod_{k=1}^{i-2} \Big( 1 - \frac{k}{N} \Big) \\
 	& ~=~ {i \choose 2} \frac{1}{N} ~+~ \mathcal{O}\Big( \frac{1}{N} \Big)
-	\ \text{.} \CorrectLabel
+	\ \text{.}
 \end{split}
 \end{equation}
 Note that the term ${\mathcal{O}(N^{-1})}$ describes the limiting behaviour of \cref{eq:coal_n_dont,eq:coal_n_do} and captures all terms that decrease more rapidly than $\rfrac{1}{N}$ as $N$ tends to infinity.
 Mathematically, ${\mathcal{O}(N^{-1})}$ corresponds to the \emph{diffusion} limit of the continuous process, which can be ignored if the population size is sufficiently large \citep[\eg, see][]{wakeley2008}.
 By doing so, it is assumed that not more than \n{2} lineages coalesce at a given time and that the resulting tree has a binary topology.
-\Correct{Hence, in the limit and if ${i \ll N}$, the probability of no coalescence ({\ref{eq:coal_n_dont}}) and the probability of coalescence ({\ref{eq:coal_n_do}}) in the immediately previous generation, respectively, can be written as}
+Hence, in the limit and if ${i \ll N}$, the probability of no coalescence ({\ref{eq:coal_n_dont}}) and the probability of coalescence ({\ref{eq:coal_n_do}}) in the immediately previous generation, respectively, can be written as
 \begin{equation*}
 	P_{i,i}(N) ~\approx~ 1 - {i \choose 2} \frac{1}{N} ~ \qquad ~
   P_{i,i-1}(N) ~\approx~ {i \choose 2} \frac{1}{N}
-  \ \text{.} \CorrectLabel
+  \ \text{.}
 \end{equation*}
 
-\Correct{Using the above result, it follows that} the waiting time until a coalescent event can again be approximated in terms of the exponential distribution as given below.
+Using the above result, it follows that the waiting time until a coalescent event can again be approximated in terms of the exponential distribution as given below.
 \begin{equation}\label{eq:coal_n_approx}
 	P(T_i > \tau \mid N)
 	~\approx~ \Bigg( 1 - {i \choose 2} \frac{1}{N} \Bigg)^{\lfloor N \tau \rfloor}
 	\quad \xrightarrow{~ N~\rightarrow~\infty ~} \quad
-	\euler{-{i \choose 2}\tau} \CorrectLabel
+	\euler{-{i \choose 2}\tau}
 \end{equation}
-Thus, in the continuous-time coalescent, the approximate waiting time between successive coalescent events, \Correct{$T_i$}, is exponentially distributed with rate \Correct{${i \choose 2}$}, from which follows that the expected value is
+Thus, in the continuous-time coalescent, the approximate waiting time between successive coalescent events, $T_i$, is exponentially distributed with rate ${i \choose 2}$, from which follows that the expected value is
 \begin{equation}\label{eq:coal_n_exp}
-	\mathbb{E}[T_i] ~=~ \frac{1}{{i \choose 2}} ~=~ \frac{2}{i(i-1)} \CorrectLabel
+	\mathbb{E}[T_i] ~=~ \frac{1}{{i \choose 2}} ~=~ \frac{2}{i(i-1)}
 \end{equation}
 and the variance is
 \begin{equation}\label{eq:coal_n_var}
 	\operatorname{Var}[T_i] ~=~ \frac{1}{{i \choose 2}^2} ~=~ \frac{4}{i^2 (i-1)^2}
-	\ . \CorrectLabel
+	\ .
 \end{equation}
 
-An important result of the coalescent is that an expectation for the \gls{tmrca} can be derived dependent on the \Correct{sample size, $n$}.
+An important result of the coalescent is that an expectation for the \gls{tmrca} can be derived dependent on the sample size, $n$.
 Given the sum of branch lengths that need to be traced back to arrive at the \gls{mrca},
 \begin{equation*}
-	T_\text{MRCA} ~=~ T_n + T_{n-1} + \dots + T_2 \CorrectLabel
+	T_\text{MRCA} ~=~ T_n + T_{n-1} + \dots + T_2
 \end{equation*}
-the \Correct{expectation} can be expressed as
+the expectation can be expressed as
 \begin{equation}\label{eq:coal_tmrca}
 	\mathbb{E}[T_\text{MRCA} \mid n]
 	~=~ \sum_{i = 2}^{n} \mathbb{E}[T_i]
 	~=~ \sum_{i = 2}^{n} \frac{2}{i(i-1)}
 	~=~ 2~\Big( 1 - \frac{1}{n} \Big)
-	\ \text{.} \CorrectLabel
+	\ \text{.}
 \end{equation}
-Therefore, \Correct{if ${n \ll N}$,} ${\mathbb{E}[T_\text{MRCA}] \approx 2}$ \Addition{in units of population-scaled time}, which implies that on average the number of generations until the entire sample has coalesced into a single ancestral lineage is equal to about twice the population size; \ie $2N$.
+Therefore, if ${n \ll N}$, ${\mathbb{E}[T_\text{MRCA}] \approx 2}$ in units of population-scaled time, which implies that on average the number of generations until the entire sample has coalesced into a single ancestral lineage is equal to about twice the population size; \ie $2N$.
 
 
 %
 \subsubsection{Effective population size}
 %
-
-\CorrectNote{Section rewritten}
 
 Natural populations rarely adhere to the assumptions made by mathematical models.
 One such example is the rather unrealistic assumption that the population size remains constant over time.
@@ -504,12 +502,12 @@ From the sum of all branch lengths, \ie
 \begin{equation*}
 	T_\text{total} ~=~ i T_i ~+~ (i-1) T_{i-1} ~+~ (i-2) T_{i-2} ~+~ \ldots ~+~ 2 T_2
 \end{equation*}
-where \Correct{$i$} is the number of distinct lineages during a given time interval,
+where $i$ is the number of distinct lineages during a given time interval,
 the expected value of the total branch length can be computed as
 \begin{equation}
 	\mathbb{E}[T_\text{total} \mid n]
 	~=~ \sum_{i=2}^{n} i ~ \mathbb{E}[T_i]
-	~=~ \sum_{i=2}^{n} i ~ \frac{2}{i(i-1)} \CorrectLabel
+	~=~ \sum_{i=2}^{n} i ~ \frac{2}{i(i-1)}
 \end{equation}
 where ${\mathbb{E}[T_i]}$ is given by \ctref{eq:coal_n_exp}.
 From the above, the expected value of $S_n$ can be derived as follows.
@@ -523,7 +521,7 @@ By rearrangement, the following equation can be obtained;
 \begin{equation}\label{eq:theta_w}
 	\hat{\theta}_W = \frac{S_n}{\sum_{i=1}^{n-1} \frac{1}{i}}
 \end{equation}
-which is an unbiased estimator of the genetic diversity in \Correct{a} sample of sequence data; also known as Watterson's $\theta$ \citep{Watterson:1975ur}.
+which is an unbiased estimator of the genetic diversity in a sample of sequence data; also known as Watterson's $\theta$ \citep{Watterson:1975ur}.
 With regard to the calculation of the effective population size as described in the previous section (\pref{ref:calceffpopsize}), it can be seen that an estimate for the value of \Ne can be obtained, for example, from \cref{eq:mutrate,eq:theta_w} given an estimate of the mutation rate.
 
 
@@ -533,7 +531,7 @@ With regard to the calculation of the effective population size as described in 
 
 Recombination is ubiquitous in nature and crucially involved in the spread of genetic variability in populations of sexually reproducing organisms.
 \Citet{Hudson:1983vs} showed that the genealogical process in the coalescent can be extended to model recombination along the sequence of a sample.
-In contrast to \Correct{neutral} mutation events, which do not affect the topology of a tree under the standard coalescent, recombination events have a considerable effect on the structure of the genealogy.
+In contrast to neutral mutation events, which do not affect the topology of a tree under the standard coalescent, recombination events have a considerable effect on the structure of the genealogy.
 
 Consider the sequence of \n{1} of the chromosomes present in a diploid individual.
 Due to recombination, different sections of the chromosome can be traced back to the ancestral material in \n{2} parents in the immediately previous generation, and further to \n{4} grandparents in the second previous generation, and so on.
@@ -563,39 +561,39 @@ The factor of 4 results from time being scaled in units of ${2 N}$ generations, 
 Note that this adjustment permeates the coalescent and implies similar changes in other equations.
 For example, the scaled mutation rate given in \ctref{eq:mutrate} needs to be written as $~{\theta = 4 N \mu}~$ if considered in a diploid population.
 
-Given a sample of $n$~chromosomes, the number of chromosomal lineages, \Correct{$i$}, may increase (due to recombination) or decrease (due to coalescence) back in time.
-First, consider the event of no recombination and no coalescence; \ie the value of \Correct{$i$} remains the same in the previous generation \citep[\eg, see][]{tavare2004}.
+Given a sample of $n$~chromosomes, the number of chromosomal lineages, $i$, may increase (due to recombination) or decrease (due to coalescence) back in time.
+First, consider the event of no recombination and no coalescence; \ie the value of $i$ remains the same in the previous generation \citep[\eg, see][]{tavare2004}.
 The probability of this event is
 \begin{equation}\label{eq:coalrec_dont1}
-	(1-\rho)^i~\times~\Big(\frac{N-1}{N} \Big)~\Big(\frac{N-2}{N}\Big)~\cdots~\Big(\frac{N-(i-1)}{N}\Big) \CorrectLabel
+	(1-\rho)^i~\times~\Big(\frac{N-1}{N} \Big)~\Big(\frac{N-2}{N}\Big)~\cdots~\Big(\frac{N-(i-1)}{N}\Big)
 \end{equation}
-where \Correct{${(1 - \rho)^i}$} corresponds to the probability that none of the lineages recombine; the other terms refer to the probability of no coalescence, which was already defined in \ctref{eq:coal_n_dont}.
+where ${(1 - \rho)^i}$ corresponds to the probability that none of the lineages recombine; the other terms refer to the probability of no coalescence, which was already defined in \ctref{eq:coal_n_dont}.
 Now, because the rate at which \n{1} lineage branches into \n{2} lineages back in time is equal to $\rfrac{\phi}{2}$, \Cref{eq:coalrec_dont1} can be written as
 \begin{equation}\label{eq:coalrec_dont2}
 	1-\frac{i\phi}{2N}~-~1-{i \choose 2}\frac{1}{N}~+~\mathcal{O}\Big(\frac{1}{N}\Big)
-	\ \text{.} \CorrectLabel
+	\ \text{.}
 \end{equation}
-For the event \Correct{${i\rightarrow i+1}$}, which can only be facilitated through recombination, it follows that the probability of a recombination event in the previous generation is given by
+For the event ${i\rightarrow i+1}$, which can only be facilitated through recombination, it follows that the probability of a recombination event in the previous generation is given by
 \begin{equation}
 	\frac{i\phi}{2N}~+~\mathcal{O}\Big(\frac{1}{N}\Big)
-	\ \text{.} \CorrectLabel
+	\ \text{.}
 \end{equation}
 The term ${\mathcal{O}(N^{-1})}$ is the diffusion limit of the function and corresponds to the probability that more than \n{1} recombination event occurs at a given unit of time, which can be ignored for larger population sizes; \ie as $N$ tends to infinity.
-Similarly, a coalescent event in the previous generation means that \Correct{${i \rightarrow i-1}$}, for which the probability has already been described in \ctref{eq:coal_n_do}.
+Similarly, a coalescent event in the previous generation means that ${i \rightarrow i-1}$, for which the probability has already been described in \ctref{eq:coal_n_do}.
 Also, as shown in \ctref{eq:coal_n_approx}, the probability of coalescent events, in the limit ${N\rightarrow\infty}$, is exponentially distributed with rate
 \begin{equation}
 	{i\choose 2}~=~\frac{i(i-1)}{2}
-	\ \text{.} \CorrectLabel
+	\ \text{.}
 \end{equation}
 Likewise, in the limit, recombination follows the same distribution in the coalescent at rate
 \begin{equation}
 	\frac{i\phi}{2}
-	\ \text{.} \CorrectLabel
+	\ \text{.}
 \end{equation}
 
 It follows that the coalescent with recombination can be described as a continuous-time Markov chain with a \emph{birth-death} process.
 Lineages are ``born'' through recombination or ``die'' due to coalescence backward in time \citep[\eg, see][]{tavare2004,wakeley2008}.
-The state space is delimited by \Correct{${i=n}$} at present and \Correct{${i=1}$} at an \gls{mrca}.
+The state space is delimited by ${i=n}$ at present and ${i=1}$ at an \gls{mrca}.
 The transition rates can be summarised as follows.
 \begin{equation}
 i ~\rightarrow~
@@ -603,7 +601,7 @@ i ~\rightarrow~
 \left\{
 \begin{array}{llll}
 	i-1  &  \text{at rate} & \frac{i(i-1)}{2} & \text{if lineages coalesce} \\
-  i+1  &  \text{at rate} & \frac{i\phi}{2}  & \text{if lineages recombine} \CorrectLabel
+  i+1  &  \text{at rate} & \frac{i\phi}{2}  & \text{if lineages recombine}
 \end{array}
 \right.
 \end{equation}
@@ -686,7 +684,7 @@ The pilot phase described approximately 15~million \glspl{snp}, most of which ha
 Several pilot projects were undertaken, including low-coverage \gls{wgs} of \n{179} individuals from \n{4} populations, high-depth sequencing of \n{2} trios (parents and child), and targeted exome-sequencing of \n{697} individuals from \n{7} different populations.
 
 The variants discovered in the pilot stage were common ($>5\%$ minor allele frequency); that is, low-frequency variants were underrepresented.
-\Correct{Although the prevalent hypothesis at that time proposed that the variants underlying common diseases will also be common in the population \citep{Lander:1996fj,Chakravarti:1999ic}, it was argued that low-frequency and rare variants may also contribute to disease susceptibility and therefore could further our understanding of complex phenotypes \citep{Pritchard:2001hw}.}
+Although the prevalent hypothesis at that time proposed that the variants underlying common diseases will also be common in the population \citep{Lander:1996fj,Chakravarti:1999ic}, it was argued that low-frequency and rare variants may also contribute to disease susceptibility and therefore could further our understanding of complex phenotypes \citep{Pritchard:2001hw}.
 But to capture variants that occur at lower frequencies per population sample, it was necessary to sequence hundreds or thousands of genomes \citep{Kaiser:2008wd}.
 
 
@@ -698,10 +696,10 @@ But to capture variants that occur at lower frequencies per population sample, i
 
 This led to Phase~\rom{1} of the \glsentrylong{1kg}, carried out on \n{1029} individuals from \n{14} populations, and comprising a combination of low-coverage \gls{wgs}, targeted exome sequencing, and genotyping by microarray.
 This resulted in the profiling of 38~million \glspl{snp} in total, with the majority being rare \citep{GenomesProjectConsortium:2012co}.
-\Addition{It must be noted that low-coverage sequencing is unlikely to capture rare variants with high accuracy, as they may not be called correctly due to inherent sequencing errors.
-However, Phase~\rom{1} represented a crucial step towards achieving complete characterisation of the genetic variation present in the human genome.}
+It must be noted that low-coverage sequencing is unlikely to capture rare variants with high accuracy, as they may not be called correctly due to inherent sequencing errors.
+However, Phase~\rom{1} represented a crucial step towards achieving complete characterisation of the genetic variation present in the human genome.
 Phase~\rom{2} of the project focussed on methods development, while increasing the sample size to \n{1700} indivudals; these methods were applied to a total of \n{2504} samples from \n{26} populations in Phase~\rom{3}, leading to a final release dataset of 84.7~million \glspl{snp} and the completion of the project \citep{Auton:2015gk}.
-\Addition{Notably, although Phase~\rom{3} conducted low-coverage whole-genome ($>4\times$) and high-coverage exome ($>50\times$) sequencing, variants were called using improved methods (\eg haplotype-aware variant callers and methods based on \emph{de~novo} assembly) to produce the final dataset.}
+Notably, although Phase~\rom{3} conducted low-coverage whole-genome ($>4\times$) and high-coverage exome ($>50\times$) sequencing, variants were called using improved methods (\eg haplotype-aware variant callers and methods based on \emph{de~novo} assembly) to produce the final dataset.
 \Cpref{fig:allelefreq_1kg} illustrates the allele frequency spectrum of all variants identified through the \glsentrylong{1kg} (final release, Phase~\rom{3}); shown per chromosome after removal of private mutations (singletons).
 
 
@@ -734,7 +732,7 @@ This disparity is illustrated in \cpref{fig:gwa_spectrum}, which outlines a seem
 The limitations of both approaches lie at the extremes (outside the band indicated in \cref{fig:gwa_spectrum}).
 
 Notably, rare variants with modest or low penetrance are difficult to detect by either linkage or \gls{gwa} analysis.
-Since it became apparent that the human genome harbours an abundance of rare and low-frequency variants, it has been suggested that \Correct{a large proportion of rare variants may also have functional implications with} low to modest effects \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
+Since it became apparent that the human genome harbours an abundance of rare and low-frequency variants, it has been suggested that a large proportion of rare variants may also have functional implications with low to modest effects \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 Using \gls{gwa} methods, the interrogation of alleles observed at very low (rare) frequencies may represent a conceptual limitation, however, it is hoped that the detection of low-frequency variants with intermediate effect can be improved.
 
 
@@ -760,7 +758,7 @@ Traditional measures of relatedness define IBD as the gametic relationship at a 
 For example, the probability that \n{2} homologous alleles are identical by descent in the same diploid individual is given by the inbreeding coefficient.
 However, such traditional approaches often assume that the relationship status of the individuals is known or can be derived from possible pedigree relationships, where ancestors are defined with respect to the founders of a pedigree.
 It has been argued that ancestry defined in reference to a founder sample is ``something arbitrary'' \citep[][p~141]{maynardsmith1989}; see \citet{Rousset:2002bz}.
-Moreover, this definition of IBD (in particular the distinction between IBD and IBS) seems to be in conflict with coalescent theory, which postulates that every allele is technically identical by descent in the individuals which carry them, because all shared mutations in the genome can be traced back to a common ancestor at different times in the past \citep{Powell:2010di}\Addition{; that is, given the assumptions of the infinite sites model \citep{Kimura:1969tn,Watterson:1975ur}.}
+Moreover, this definition of IBD (in particular the distinction between IBD and IBS) seems to be in conflict with coalescent theory, which postulates that every allele is technically identical by descent in the individuals which carry them, because all shared mutations in the genome can be traced back to a common ancestor at different times in the past \citep{Powell:2010di}; that is, given the assumptions of the infinite sites model \citep{Kimura:1969tn,Watterson:1975ur}.
 
 %
 \subsection{Genealogical concept}
@@ -812,7 +810,7 @@ Finally, the heterozygous state might have a selective advantage, meaning that t
 
 The field of population genetics has been fascinated with the possibility of estimating the time of mutation events.
 Early and often purely theoretical approaches had been conceived prior to the discovery of the coalescent.
-For example, \citet{Kimura:1973ug} found that the frequency of \Correct{an} allele can be used as an estimator for its age, which they derived in a diffusion process.
+For example, \citet{Kimura:1973ug} found that the frequency of an allele can be used as an estimator for its age, which they derived in a diffusion process.
 The expected age of a neutral allele in a constant population is given by
 \begin{equation}\label{eq:intro_kimura_ohta}
 	\mathbb{E}\left[t_m\right]~=~\frac{-2x}{1-x}~\log(x)
@@ -833,7 +831,7 @@ For example, the following formulation describes the expected age of an allele u
 \begin{equation}\label{eq:intro_griffiths_tavare}
 	\mathbb{E}\left[t_m\right]~=~2~{{n-1}\choose{b}}^{-1}~\sum_{j=2}^{n}~{{n-j}\choose{b-1}}~\frac{n-j+1}{n(j-1)}
 \end{equation}
-\Addition{where $b$ denotes the number of allele copies observed in a sample of size $n$.}
+where $b$ denotes the number of allele copies observed in a sample of size $n$.
 The above is equivalent to \cref{eq:intro_kimura_ohta} and provides conform estimates based on allele frequency alone.
 Nonetheless, a general conclusion reached by the field was that the distribution of allele age based on its frequency alone is too broad to provide reliable age estimates, which meant that there was only little practical utility \citep[see][]{Slatkin:2000bi}.
 
@@ -856,12 +854,12 @@ As a result, they estimated this mutation to have occurred \n{3000} to \n{6000} 
 
 \Citet{Risch:1995ir} examined \n{6} closely linked microsatellite markers in data from \n{59} Ashkenazi Jewish families with idiopathic torsion dystonia (ITD), a rare disorder involving involuntary and sustained muscle contractions.
 They showed that cases with early-onset ITD (Oppenheim's dystonia) are due to a single founder-mutation.
-\Addition{Based on linkage analysis and observations of strong \gls{ld} around the ITD locus, they estimated this mutation} to have emerged around \n{350} years ago \Addition{(assuming 25-year generations)}.
-\Addition{However, }\citet{labuda1996linkage}\Addition{ provided a correction to account for founder effects in the model, which suggested that the mutation originated several centuries earlier than reported by }\citet{Risch:1995ir}\Addition{, during a period when the Jewish population was founded in eastern Europe.
-This corrected result was further confirmed through re-analysis by }\citet{Slatkin:2000us}.
+Based on linkage analysis and observations of strong \gls{ld} around the ITD locus, they estimated this mutation to have emerged around \n{350} years ago (assuming 25-year generations).
+However, \citet{labuda1996linkage} provided a correction to account for founder effects in the model, which suggested that the mutation originated several centuries earlier than reported by \citet{Risch:1995ir}, during a period when the Jewish population was founded in eastern Europe.
+This corrected result was further confirmed through re-analysis by \citet{Slatkin:2000us}.
 
-\Addition{As noted by \citet{Slatkin:2000us}, the recombination and mutation rates (as well as other demographic parameters such as the exponential growth rate) used to estimate allele age represent a source of uncertainty.
-For example, the age range reported by \citet{Serre:1990uy} was estimated based on several values that were consistent with data available at the time.}
+As noted by \citet{Slatkin:2000us}, the recombination and mutation rates (as well as other demographic parameters such as the exponential growth rate) used to estimate allele age represent a source of uncertainty.
+For example, the age range reported by \citet{Serre:1990uy} was estimated based on several values that were consistent with data available at the time.
 
 In a more recent study, \citet{Fu:2012hg} used exome data from \n{6515} individuals and estimated the age of more than 1~million protein-coding \glspl{snp}, using a simulation-based approach under several established demographic models.
 In addition, they predicted whether variants were deleterious using a range of different methods, Interestingly, they found that the probability that a variant was predicted to be deleterious was strongly related to estimated allele age.
@@ -869,7 +867,7 @@ In addition, they predicted whether variants were deleterious using a range of d
 For example, several of those genes had been implicated in coronary artery atherosclerosis (\textsl{CPE}), hereditary spastic paraplegia (\textsl{KIAA0196}), premature ovarian failure (\textsl{LAMC1}), and Alzheimer's disease (\textsl{LRP1}).
 In fact, the majority of identified deleterious variants within gene-coding regions were rare in frequency, enriched for mutations of large effect size, and indicated to have emerged relatively recently, within in the last \n{5000} to \n{10000} years.
 
-In general, it has been argued that \Correct{the large number of rare variants observed} in the human genome is due to a recent, explosive population growth, following a bottleneck population size after the expansion out of Africa, \n{50000} to \n{100000} years ago, and the advent of agriculture, approximately \n{10000} years ago \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
+In general, it has been argued that the large number of rare variants observed in the human genome is due to a recent, explosive population growth, following a bottleneck population size after the expansion out of Africa, \n{50000} to \n{100000} years ago, and the advent of agriculture, approximately \n{10000} years ago \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 For example, the effects of (weak) purifying selection can be considered as being too slow to purge young alleles with disadvantageous phenotypic consequences from the population, such that there might be an unrecognised large abundance of rare variants in the human genome which could influence disease risk in yet unaccounted ways.
 An argument to the contrary, however, suggests that recent demographic changes such as population growth may have had negligible impact on the mutational load carried by an individual on average \citep{Simons:2014fj}.
 As such, the amount of ascertained rare variants may not necessarily contribute to complex disease risk unless they exert strongly deleterious effects on fitness.

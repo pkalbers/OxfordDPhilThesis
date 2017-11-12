@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  11 NOV 2017 02:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.27)  12 NOV 2017 22:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2483,25 +2483,11 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `jkptt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\openout2 = `frontmatter.aux'.
+\openout2 = `chapter1/one.aux'.
 
- (./frontmatter.tex <./img/oxford-crest.pdf, id=19, 250.9375pt x 250.9375pt>
-File: ./img/oxford-crest.pdf Graphic file (type pdf)
- <use ./img/oxford-crest.pdf>
-Package pdftex.def Info: ./img/oxford-crest.pdf used on input line 7.
-(pdftex.def)             Requested size: 250.93687pt x 250.93687pt.
- [1
-
-\openout7 = `main.ist'.
-
-
-
-
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./img/oxford-crest.pdf>] [2
-
-]
-LaTeX Font Info:    Try loading font information for T1+put on input line 22.
-
+ (./chapter1/one.tex
+Chapter 1.
+LaTeX Font Info:    Try loading font information for T1+put on input line 13.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1put.fd
 File: t1put.fd 2001/06/04 font definitions for T1/put.
 )
@@ -2509,83 +2495,180 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `put' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./abstract.tex) [3
+\openout6 = `main.mtc'.
 
-] [4
+\openout6 = `main.mtc'.
 
-] (./acknowledgements.tex) [5
+ (.build/main.mtc3)
+LaTeX Font Info:    Try loading font information for TS1+jkp on input line 20.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
+File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `jkp' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-]
-Package minitoc Info: I0024
-(minitoc)             PREPARING MINITOCS FROM main.toc on input line 37.
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc1.
-\openout6 = `main.mtc1'.
+\openout7 = `main.ist'.
 
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc2.
-\openout6 = `main.mtc2'.
 
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc3.
-\openout6 = `main.mtc3'.
 
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc4.
-\openout6 = `main.mtc4'.
 
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc5.
-\openout6 = `main.mtc5'.
+] [2] (/usr/local/texlive/2015/texmf-dist/tex/latex/fmtcount/fc-UKenglish.def
+File: fc-UKenglish.def 2013/08/17
+) [3] [4]
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 108.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.76003pt on input line 108.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `fvm' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [5] (./chapter1/fig/info_dna.tex
+LaTeX Font Info:    Try loading font information for T1+fvs on input line 288.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/bera/t1fvs.fd
+File: t1fvs.fd 2004/09/07 scalable font definitions for T1/fvs.
+)
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 4.80002pt on input line 288.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `fvs' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/fvs/m/sl' in size <6> not available
+(Font)              Font shape `T1/fvs/m/it' tried instead on input line 288.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 4.80002pt on input line 288.
+LaTeX Font Info:    Font shape `T1/fvs/b/sl' in size <6> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 288.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 4.80002pt on input line 288.
+LaTeX Font Info:    Font shape `T1/fvs/b/sl' in size <8> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 288.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 6.40002pt on input line 288.
 
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc6.
-\openout6 = `main.mtc6'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc7.
-\openout6 = `main.mtc7'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc8.
-\openout6 = `main.mtc8'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc9.
-\openout6 = `main.mtc9'.
-
- [6
-
-] (.build/main.toc [7] [8])
-\tf@toc=\write11
-\openout11 = `main.toc'.
-
- [9] [10
-
-] (.build/main.lof [11]
-Overfull \hbox (11.6913pt too wide) in paragraph at lines 72--72
- [][] [][][]\T1/jkp/m/n/10 (-20) Inferred shared haplotype lengths by population in 1000 Genomes, chromosome 
+Overfull \hbox (54.06065pt too wide) in paragraph at lines 222--289
+ []| [] 
  []
 
+) [6] (./chapter1/fig/info_types.tex <./img/ch1/info_types.pdf, id=267, 316.25513pt x 142.80171pt>
+File: ./img/ch1/info_types.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_types.pdf>
+Package pdftex.def Info: ./img/ch1/info_types.pdf used on input line 8.
+(pdftex.def)             Requested size: 384.10962pt x 173.4421pt.
+) [7] [8 <./img/ch1/info_types.pdf>] (./chapter1/fig/info_meiosis.tex <./img/ch1/info_meiosis.pdf, id=327, 486.06654pt x 282.02946pt>
+File: ./img/ch1/info_meiosis.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_meiosis.pdf>
+Package pdftex.def Info: ./img/ch1/info_meiosis.pdf used on input line 8.
+(pdftex.def)             Requested size: 426.79137pt x 247.63585pt.
 
-Overfull \hbox (12.02797pt too wide) in paragraph at lines 90--90
- [][] [][][]\T1/jkp/m/n/10 (-20) Genetic length of shared haplotype segments inferred using the haplotype-based 
+Underfull \hbox (badness 1142) in paragraph at lines 16--16
+[]\T1/jkp/b/n/10 Figure 1.3: |Il-lus-tra-tion of re-com-bin-a-tion dur-ing mei-osis. \T1/jkp/m/n/10 (+20) One pair of ho-mo-log-ous
  []
 
-[12])
-\tf@lof=\write12
-\openout12 = `main.lof'.
+) [9] [10 <./img/ch1/info_meiosis.pdf>] (./chapter1/fig/info_wrightfisher.tex <./img/ch1/info_wrightfisher.pdf, id=450, 693.43674pt x 354.92108pt>
+File: ./img/ch1/info_wrightfisher.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_wrightfisher.pdf>
+Package pdftex.def Info: ./img/ch1/info_wrightfisher.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 218.45117pt.
+)
+LaTeX Font Info:    Calculating math sizes for size <7.61896> on input line 247.
+ [11]
 
- [13] [14
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 250.
 
-] (.build/main.lot)
-\tf@lot=\write13
-\openout13 = `main.lot'.
+[12 <./img/ch1/info_wrightfisher.pdf>] (./chapter1/fig/wfsim.tex <./img/ch1/wfsim.pdf, id=503, 601.25029pt x 336.52226pt>
+File: ./img/ch1/wfsim.pdf Graphic file (type pdf)
+ <use ./img/ch1/wfsim.pdf>
+Package pdftex.def Info: ./img/ch1/wfsim.pdf used on input line 8.
+(pdftex.def)             Requested size: 426.79137pt x 238.88626pt.
+) [13 <./img/ch1/wfsim.pdf>] [14] (./chapter1/fig/info_coalescent.tex <./img/ch1/info_coalescent.pdf, id=580, 360.95723pt x 265.09721pt>
+File: ./img/ch1/info_coalescent.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_coalescent.pdf>
+Package pdftex.def Info: ./img/ch1/info_coalescent.pdf used on input line 8.
+(pdftex.def)             Requested size: 298.75264pt x 219.41982pt.
+) [15 <./img/ch1/info_coalescent.pdf>] [16] [17] [18] [19] (./chapter1/fig/info_mutation.tex <./img/ch1/info_mutation.pdf, id=693, 446.05327pt x 181.78444pt>
+File: ./img/ch1/info_mutation.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_mutation.pdf>
+Package pdftex.def Info: ./img/ch1/info_mutation.pdf used on input line 8.
+(pdftex.def)             Requested size: 426.79137pt x 173.94243pt.
+) [20 <./img/ch1/info_mutation.pdf>] [21]
 
- [15] [16
+LaTeX Warning: Reference `ref:calceffpopsize' on page 1 undefined on input line 525.
 
-]) (.build/main.acr) [229
-\FN@pp@footnotehinttrue 
+
+Package hyperref Warning: Suppressing link with empty target on input line 525.
+
+[22] (./chapter1/fig/info_arg.tex <./img/ch1/info_arg.pdf, id=960, 571.60762pt x 247.27551pt>
+File: ./img/ch1/info_arg.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_arg.pdf>
+Package pdftex.def Info: ./img/ch1/info_arg.pdf used on input line 8.
+(pdftex.def)             Requested size: 426.79137pt x 184.62985pt.
+) [23 <./img/ch1/info_arg.pdf>] [24]
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 7.20003pt on input line 634.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 6.40002pt on input line 634.
+ (./chapter1/fig/info_seqtech.tex <./img/ch1/info_seqtech.pdf, id=1121, 536.88617pt x 241.69778pt>
+File: ./img/ch1/info_seqtech.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_seqtech.pdf>
+Package pdftex.def Info: ./img/ch1/info_seqtech.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 192.13776pt.
+ [25]) (./chapter1/fig/cost_per_genome.tex <./img/ch1/cost_per_genome.pdf, id=1155, 505.89pt x 289.08pt>
+File: ./img/ch1/cost_per_genome.pdf Graphic file (type pdf)
+ <use ./img/ch1/cost_per_genome.pdf>
+Package pdftex.def Info: ./img/ch1/cost_per_genome.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 243.88417pt.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.00003pt on input line 12.
+) [26 <./img/ch1/info_seqtech.pdf>] [27 <./img/ch1/cost_per_genome.pdf>] (./chapter1/fig/allelefreq_1kg.tex <./img/ch1/allelefreq_1kg.pdf, id=1332, 650.43pt x 361.35pt>
+File: ./img/ch1/allelefreq_1kg.pdf Graphic file (type pdf)
+ <use ./img/ch1/allelefreq_1kg.pdf>
+Package pdftex.def Info: ./img/ch1/allelefreq_1kg.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 237.1133pt.
+) [28] [29 <./img/ch1/allelefreq_1kg.pdf>] (./chapter1/fig/gwascat.tex <./img/ch1/gwascat.pdf, id=1381, 578.16pt x 325.215pt>
+File: ./img/ch1/gwascat.pdf Graphic file (type pdf)
+ <use ./img/ch1/gwascat.pdf>
+Package pdftex.def Info: ./img/ch1/gwascat.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 240.06976pt.
+
+Underfull \hbox (badness 1152) in paragraph at lines 11--11
+[]\T1/jkp/b/n/10 Figure 1.12: |Sig-ni-fic-ant risk-associated vari-ants lis-ted in the NHGRI-EBI Cata-logue.
+ []
+
+) [30 <./img/ch1/gwascat.pdf>] (./chapter1/fig/gwa_spectrum.tex <./img/ch1/gwa_spectrum.pdf, id=1431, 592.95778pt x 305.85957pt>
+File: ./img/ch1/gwa_spectrum.pdf Graphic file (type pdf)
+ <use ./img/ch1/gwa_spectrum.pdf>
+Package pdftex.def Info: ./img/ch1/gwa_spectrum.pdf used on input line 5.
+(pdftex.def)             Requested size: 426.79137pt x 220.15338pt.
+) [31 <./img/ch1/gwa_spectrum.pdf>] [32] (./chapter1/fig/info_ibd.tex
+LaTeX Font Info:    Try loading font information for T1+phv on input line 5.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `phv' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ <./img/ch1/info_ibd.pdf, id=1586, 586.0505pt x 291.99991pt>
+File: ./img/ch1/info_ibd.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_ibd.pdf>
+Package pdftex.def Info: ./img/ch1/info_ibd.pdf used on input line 6.
+(pdftex.def)             Requested size: 426.79137pt x 212.65468pt.
+ <./img/ch1/info_ibd_segment.pdf, id=1587, 530.66995pt x 233.21228pt>
+File: ./img/ch1/info_ibd_segment.pdf Graphic file (type pdf)
+ <use ./img/ch1/info_ibd_segment.pdf>
+Package pdftex.def Info: ./img/ch1/info_ibd_segment.pdf used on input line 8.
+(pdftex.def)             Requested size: 426.79137pt x 187.56288pt.
+) [33] [34 <./img/ch1/info_ibd.pdf> <./img/ch1/info_ibd_segment.pdf>] [35] [36] [37]) [38] (.build/main.acr) [229
+
 
 
 
@@ -2600,17 +2683,17 @@ Overfull \hbox (12.02797pt too wide) in paragraph at lines 90--90
 
 ] [232] [233] [234] [235] [236] [237] [238] [239] [240] [241] [242] [243]) [244] [245
 
-] <./img/stat_wordcount.pdf, id=1003, 668.4975pt x 361.35pt>
+] <./img/stat_wordcount.pdf, id=1998, 668.4975pt x 361.35pt>
 File: ./img/stat_wordcount.pdf Graphic file (type pdf)
  <use ./img/stat_wordcount.pdf>
 Package pdftex.def Info: ./img/stat_wordcount.pdf used on input line 171.
 (pdftex.def)             Requested size: 426.79137pt x 230.70631pt.
- <./img/stat_charrate.pdf, id=1004, 668.4975pt x 216.81pt>
+ <./img/stat_charrate.pdf, id=1999, 668.4975pt x 216.81pt>
 File: ./img/stat_charrate.pdf Graphic file (type pdf)
  <use ./img/stat_charrate.pdf>
 Package pdftex.def Info: ./img/stat_charrate.pdf used on input line 179.
 (pdftex.def)             Requested size: 426.79137pt x 138.42378pt.
- <./img/stat_clusterload.pdf, id=1005, 843.5332pt x 271.37767pt>
+ <./img/stat_clusterload.pdf, id=2000, 843.5332pt x 271.37767pt>
 File: ./img/stat_clusterload.pdf Graphic file (type pdf)
  <use ./img/stat_clusterload.pdf>
 Package pdftex.def Info: ./img/stat_clusterload.pdf used on input line 187.
@@ -2623,9 +2706,15 @@ Package minitoc Info: I0009
 
 
 
-Package minitoc(hints) Warning: W0078
-(minitoc(hints))                You have used \dominitoc, 
-(minitoc(hints))                but not \minitoc.
+Package minitoc(hints) Warning: W0059
+(minitoc(hints))                You have used \minitoc, 
+(minitoc(hints))                but not \dominitoc.
+
+
+Package minitoc(hints) Warning: W0068
+(minitoc(hints))                You have used \minitoc but not 
+(minitoc(hints))                \tableofcontents
+(minitoc(hints))                nor \faketableofcontents.
 
 Package minitoc(hints) Info: I0053
 (minitoc(hints))             You have loaded the float package; 
@@ -2646,409 +2735,29 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CE1A8BBDD34D9270AD73BBA881017815;150.
+(rerunfilecheck)             Checksum: 70A71A85EAE7A7FF6775C7747FFCC55C;1432.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 48322 strings out of 493089
- 923921 string characters out of 6134842
- 1142523 words of memory out of 5000000
- 49753 multiletter control sequences out of 15000+600000
- 190082 words of font info for 447 fonts, out of 8000000 for 9000
+ 52694 strings out of 493089
+ 998422 string characters out of 6134842
+ 1424234 words of memory out of 5000000
+ 53663 multiletter control sequences out of 15000+600000
+ 364068 words of font info for 994 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,73p,10436b,1357s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{table.caption.135} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.133} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.131} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.119} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.113} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.105} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.100} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.94} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.90} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.78} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.72} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.68} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.61} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.45} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.37} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.35} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.33} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.31} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.28} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.139} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.138} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.137} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.134} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.132} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.130} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.129} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.128} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.127} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.125} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.124} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.121} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.115} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.114} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.112} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.110} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.108} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.106} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.104} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.103} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.102} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.101} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.99} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.98} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.97} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.96} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.93} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.92} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.91} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.89} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.88} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.87} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.86} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.85} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.84} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.83} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.82} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.81} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.80} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.77} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.76} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.75} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.74} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.71} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.70} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.67} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.66} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.65} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.64} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.63} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.60} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.59} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.58} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.57} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.56} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.54} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.52} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.51} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.42} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.41} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.40} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.39} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.36} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.32} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.30} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.29} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.27} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.20} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.19} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.18} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.17} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.16} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.15} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.14} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.13} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.12} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.11} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.10} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.9} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.8} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.7} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.6.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.1.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.1.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.1.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.6.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.6.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.6.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.6.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.6.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.6.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.6.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.5.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.5.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.5.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.5.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.4.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.4.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.3.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.3.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.2.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.2.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.4.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.4.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.4.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.4.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.4.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.4.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.3.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.3.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.3.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.2.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.2.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.2.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.1.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.3.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.3.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.4.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.4.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.3.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.3.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.3.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.3.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.3.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.3.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.3.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.5.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.5.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.4.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.4.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.2.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.2.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.2.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.7.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.7.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.7} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.6.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.6.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.4.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.4.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.3.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.3.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.2.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.2.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.1} has been referenced but does not exist, replaced by a fixed one
-
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb>
-Output written on .build/main.pdf (35 pages, 258566 bytes).
+ 62i,19n,86p,10436b,2036s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/bera/fvsbo8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbnc.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpssmn8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on .build/main.pdf (57 pages, 1735691 bytes).
 PDF statistics:
- 1196 PDF objects out of 1200 (max. 8388607)
- 1124 compressed objects within 12 object streams
- 461 named destinations out of 1000 (max. 500000)
- 60985 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 2205 PDF objects out of 2487 (max. 8388607)
+ 1799 compressed objects within 18 object streams
+ 384 named destinations out of 1000 (max. 500000)
+ 120066 words of extra memory for PDF output out of 128383 (max. 10000000)
 
