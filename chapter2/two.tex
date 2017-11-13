@@ -53,7 +53,7 @@ Conversely, retaining the intersection of variants that are present in all panel
 One solution would be to re-process raw sequence or genotype data from multiple studies together, where variants are jointly called and phased over a combined set of samples.
 For example, in a large-scale collaborative effort, the \gls{hrc} has recently created a reference panel from study data of \n{20} participating cohorts, which included a total of \n{64976} human haplotypes in its first release \citep{McCarthy:2016gs}.
 This dataset currently represents the largest single resource of human genetic variation, but currently only includes samples of European ancestry.
-Although data are not accessible publicly, an online service has been provided for imputation and phasing from the internally stored reference dataset\footnote{Haplotype Reference Consortium: \url{http://www.haplotype-reference-consortium.org} \accessed{2017}{02}{05}}.
+Although data are not accessible publicly, an online service has been provided for imputation and phasing from the internally stored reference dataset\footnote{HRC: \url{http://www.haplotype-reference-consortium.org} \accessed{2017}{02}{05}}.
 
 Here, I propose an alternate solution in which multiple reference panels are separately imputed into a given study sample after which the genotype datasets produced are merged.
 Because imputed data may only differ in variant coverage, while the sample set is identical, it is feasible to merge data and integrate genotype information at overlapping sites.
@@ -227,14 +227,14 @@ But note that tuple values may not be regarded as posterior probabilities when c
 \label{metaimpute_data}
 %
 
-Multiple reference panels were derived from the \glsentryfull{1kg} Phase~\rom{1} dataset, which comprises both low-coverage \glsentrylong{wgs} and \glsentrylong{wes} data of \n{1092} individuals from \n{14}~populations of European, East-Asian, African, and admixed American ancestries.\footnote{Note that I completed work on the \emph{meta-imputation} project prior to the release of \gls{1kg} Phase~\rom{3} \citep{Auton:2015gk}.}
+Multiple reference panels were derived from the \glsentryfull{1kg} Phase~\rom{1} dataset, which comprises both low-coverage \glsentrylong{wgs} and \glsentrylong{wes} data of \n{1092} individuals from \n{14}~populations of European, East-Asian, African, and admixed American ancestries.\footnote{Note that I completed work on the \emph{meta-imputation} project prior to the release of \gls{1kg} Phase~\rom{3} \mbox{\citep{Auton:2015gk}}.}
 This original dataset was split into non-overlapping subsets in \n{2} scenarios, A and B, reflecting situations when reference data of similar or distinct ethnic backgrounds would be available for imputation into a given study sample; see details below.
 \begin{description}
 	\item[\textbf{Scenario A}] included \n{4} panels composed of individuals belonging to European sub-populations (CEU, FIN, GBR, and TSI) as an example use case when different reference data of similar ethnic background are available.
 	\item[\textbf{Scenario B}] included \n{4} panels from different continental populations (AFR, AMR, ASN, and EUR) as an example use case when panels of distinct-ancestry samples are available.
 \end{description}
 Because sample sizes of the population groups considered in Scenario~B differed in \gls{1kg} (more than in Scenario~A), extracted individuals were randomly drawn from each group to create panels of equal size.
-\Addition{Note that this was done to be able to better compare imputation accuracy among the generated panels, but which is not a requirement when using the meta-imputation method.}
+Note that this was done to be able to better compare imputation accuracy among the generated panels, but which is not a requirement when using the meta-imputation method.
 Monomorphic sites and singletons were removed in each generated panel to more closely resemble data from independently conducted studies, where singleton or monomorphic variant calls are likely to be removed in the final dataset.
 In the following, the term \emph{split panel} is used to denote subset reference data from \gls{1kg}.
 Throughout, analyses were limited to data from \n{1} chromosome, namely chromosome~20.
@@ -287,7 +287,7 @@ The generation of the genotype scaffold is described below, followed by details 
 %
 
 The study sample used for imputations was extracted as a scaffold from data of the \gls{got2d}, consisting of \n{2657} individuals of Central and Northern European descent \citep{Fuchsberger:2016df}.\footnote{GoT2D Consortium: \url{http://www.type2diabetesgenetics.org/projects/got2d} \accessed{2016}{12}{02}}
-The dataset is composed of data obtained on several platforms; \Addition{low-coverage} \glsentrylong{wgs} \Addition{($\sim5\times$)}, \Addition{high-coverage} \glsentrylong{wes} \Addition{($\sim82\times$)}, and genotyping data using the \emph{Illumina Omni2.5 Array}.
+The dataset is composed of data obtained on several platforms; low-coverage \glsentrylong{wgs} ($\sim5\times$), high-coverage \glsentrylong{wes} ($\sim82\times$), and genotyping data using the \emph{Illumina Omni2.5 Array}.
 To maintain a congruent set of markers in the genotype scaffold, variants typed on the latter were extracted from the larger \gls{got2d} dataset, yielding \n{40255} variants of in total \n{387499} \glspl{snp} on chromosome~20 in \gls{got2d}, after removing monomorphic sites and singletons.
 Remaining sites were masked for comparison after imputation, where imputed variants were matched to their corresponding sites in the masked dataset to calculate genotype accuracy.
 
@@ -295,9 +295,9 @@ Remaining sites were masked for comparison after imputation, where imputed varia
 \input{chapter2/fig/sfs_got2d}
 %
 
-\Addition{\Cpref{fig:sfs_got2d} shows the \gls{sfs} of variants captured in the \gls{got2d} dataset, highlighting the discrepancy between the frequency distribution observed at all captured variants and those obtained through genotyping only.
+\Cpref{fig:sfs_got2d} shows the \gls{sfs} of variants captured in the \gls{got2d} dataset, highlighting the discrepancy between the frequency distribution observed at all captured variants and those obtained through genotyping only.
 Rare variants (\eg at allele frequency $\leq1\%$) are underrepresented in the genotyped set of SNPs and, thus, in the extracted genotype scaffold.
-Imputation from a reference panel into the scaffold attempts to fill these gaps, including sites with alleles occurring at lower frequencies.}
+Imputation from a reference panel into the scaffold attempts to fill these gaps, including sites with alleles occurring at lower frequencies.
 
 
 %
@@ -315,9 +315,9 @@ This was done to minimise potential biases in comparisons between meta-imputed a
 %
 
 Imputed and meta-imputed genotype data were filtered in \gls{qc}, removing variants at \texttt{IMPUTE2} ${\mbox{info-score}<0.4}$ and at deviations from \gls{hwe} at ${\pvalue<\num{1e-4}}$.
-\Addition{These metrics were computed using \texttt{QCTOOL},\footnote{\texttt{QCTOOL}: \url{http://www.well.ox.ac.uk/~gav/qctool} \accessed{2016}{12}{02}} which was performed on both directly imputed and meta-imputed datasets.}
+These metrics were computed using \texttt{QCTOOL},\footnote{\texttt{QCTOOL}: \url{http://www.well.ox.ac.uk/~gav/qctool} \accessed{2016}{12}{02}} which was performed on both directly imputed and meta-imputed datasets.
 Imputed data were filtered before the assessment of imputation accuracy, but not before integration through meta-imputation.
-The proportion of variants retained after \gls{qc} was used as an indicator for data quality in comparisons between imputed and meta-imputed data, \Addition{as well as to characterise the quality achieved though using different meta-imputation settings.}
+The proportion of variants retained after \gls{qc} was used as an indicator for data quality in comparisons between imputed and meta-imputed data, as well as to characterise the quality achieved though using different meta-imputation settings.
 Hence, \gls{qc} results were separately reported for each part of the analysis.
 A summary of the described analysis is illustrated in \cpref{fig:info_design_accuracy}.
 
@@ -350,9 +350,9 @@ Meta-imputed datasets were further reduced to the set of variants that matched t
 Variants contained in the genotype scaffold were removed, as these were not imputed.
 This retained \num{181561} and \num{196300} variants in Scenarios~A and B, respectively.
 
-\Addition{First, I report the impact of \glsentryfull{qc} to characterise the different meta-imputation settings by the number of retained sites.
+First, I report the impact of \glsentryfull{qc} to characterise the different meta-imputation settings by the number of retained sites.
 Briefly, recall that \gls{qc} was carried out to remove variant sites at \texttt{IMPUTE2} ${\mbox{info-score}<0.4}$ and at deviations from \gls{hwe} at ${\pvalue<\num{1e-4}}$.
-I then report genotype accuracy measured on sites retained after \gls{qc} for each setting.}
+I then report genotype accuracy measured on sites retained after \gls{qc} for each setting.
 
 
 %
@@ -549,7 +549,7 @@ Data are identical in coverage as the template dataset.
 
 Here, simulations were performed using \gls{got2d} data (chromosome~20) to serve as the template dataset.
 The size of simulated case and control samples was fixed to \n{2500} individuals each.
-Although a larger sample would have been beneficial in terms of signal detection through association testing, exceeding the size of the template dataset (${N=\num{2657}}$) was expected to result in \Correct{systematically biased} allele frequency changes.
+Although a larger sample would have been beneficial in terms of signal detection through association testing, exceeding the size of the template dataset (${N=\num{2657}}$) was expected to result in systematically biased allele frequency changes.
 For example, an iterative re-sampling strategy could be applied to introduce new low-frequency variants \citep[\eg following][]{Moutsianas:2015jm}.
 However, this was not done here because the effect size of risk variants (as defined during simulation) would likely be affected by such a sampling process.
 
@@ -629,13 +629,13 @@ All analyses were performed on whole-chromosome data (chromosome~20).
 %
 
 Association results were inspected with regard to inflation before and after \gls{qc}; the difference is shown in \cpref{fig:power_lgc} where $\lambda_\text{GC}$ is shown as the average per \gls{maf} interval.
-Inflation was slightly increased at higher \Addition{risk variant} frequencies.
+Inflation was slightly increased at higher risk variant frequencies.
 The difference of $\lambda_\text{GC}$ before and after \gls{qc} was small in Scenarios A~and~C, but noticeable in Scenario~B, where association results of meta-imputed data were deflated (${\lambda_\text{GC} < 1}$) before \gls{qc}.
 After \gls{qc}, $\lambda_\text{GC}$ values of all imputed and meta-imputed datasets were approximately equal to inflation measured for the non-imputed simulation dataset in each scenario.
 
-\Addition{Association results were at ${\lambda_\text{GC} \approx 1}$ on average in each scenario when the simulated risk variant was very low in frequency (${\text{MAF} \in [0.5, 1]\,\%}$), but increased to ${\lambda_\text{GC} \approx 1.05}$ for risk variants at higher frequencies (${\text{MAF} \in [5, 50]\,\%}$).
+Association results were at ${\lambda_\text{GC} \approx 1}$ on average in each scenario when the simulated risk variant was very low in frequency (${\text{MAF} \in [0.5, 1]\,\%}$), but increased to ${\lambda_\text{GC} \approx 1.05}$ for risk variants at higher frequencies (${\text{MAF} \in [5, 50]\,\%}$).
 Although these results suggested no major inflation, higher values of $\lambda_\text{GC}$ are generally expected in presence of population sub-structure, including cryptic relationships among individuals in the sample.
-One explanation why $\lambda_\text{GC}$ increased at higher risk variant frequencies is that individuals in the case sample appeared to be more related to each other than the individuals in the control sample.}
+One explanation why $\lambda_\text{GC}$ increased at higher risk variant frequencies is that individuals in the case sample appeared to be more related to each other than the individuals in the control sample.
 
 %
 \input{chapter2/fig/gwas_power}
