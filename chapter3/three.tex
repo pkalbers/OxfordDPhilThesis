@@ -69,13 +69,15 @@ Lastly, I apply the method presented in this chapter to data from the \glsentryf
 \label{sec:rarevars}
 %
 
-One of the properties of rare variants is their presumed young age, as a low frequency is indicative of a recent origin through mutation; \ie the frequency of an allele is assumed to be a proxy to its age \citep{Kimura:1973ug,Griffiths:2013ec}.
-Individuals that share a rare allele are therefore likely to have a relatively long chromosomal segment co-inherited from a common ancestor.
+One of the properties of rare variants is their presumed young age, as a low frequency is indicative of a recent origin through mutation
+%; \ie the frequency of an allele is assumed to be a proxy to its age
+\citep{Kimura:1973ug,Griffiths:2013ec}.
+Chromosomes sharing a rare allele are therefore likely to have inherited a relatively long haplotype segment from a common ancestor.
 For example, genetic markers tend to be in high \gls{ld} with alleles at lower frequencies, because the alleles near a rare variant site are likely to segregate together on the same haplotype \citep{Kruglyak:1999dp,Slatkin:2008ks}.
 
-To explain the relation between IBD length and age, consider a focal site at which \n{2} haplotypes are shared by descent.
-The length of the IBD segment is defined by the nearest ancestral recombination events that have occurred to either side of the focal position; \ie haplotype sharing is broken down by recombination on both sides independently.
-The expected length of the IBD segment is determined by the number of meioses that separate \n{2} haplotypes in relation to the \gls{mrca} who lived $t$~generations in the past; hence, the pair is separated by ${2 t}$~meioses.
+Consider a focal site at which \n{2} haplotypes are shared by descent.
+The length of the IBD segment is defined by the nearest ancestral recombination events that occurred to either side of the focal position; \ie haplotype sharing is broken down by recombination on both sides independently.
+The expected length of a haplotype segment is determined by the number of meioses that separate \n{2} haplotypes in relation to the \gls{mrca} who lived $t$~generations in the past; hence, the pair is separated by ${2 t}$~meioses.
 In each meiosis, recombination is modelled as a Poisson process with rate of~1 per unit of genetic distance (\emph{Morgan}).
 It follows that the recombination process over ${2 t}$~meioses is Poisson distributed with rate equal to ${2 t}$.
 The expected length can be expressed as the sum of \n{2} independent random variables that are exponentially distributed, and which describes the distance to either side of the focal position \citep[see][]{Wakeley2016book}; \ie the length, $L$, is gamma-distributed with shape~$2$ and rate~${2 t}$, namely ${L \propto \Gamma(2, 2 t)}$.
@@ -93,7 +95,7 @@ Using coalescent simulations, a sample of ${N = \num{5000}}$ chromosomes was gen
 A rare variant was randomly selected (frequency $\leq 0.5\%$), as well as \n{2} of the chromosomes which share the focal allele.
 The underlying IBD structure for the given pair of chromosomes was determined from simulation records and shown in \cref{fig:pair_ibd_example}{a}.
 IBD segments are distinguished by the \glsentryfull{tmrca} at each position along the sequence.
-To illustrate pairwise allele sharing, \Correct{the} frequency of each allele shared by the \n{2} haplotypes is shown by chromosomal position in alignment with the IBD structure above; see \cref{fig:pair_ibd_example}{b}.
+To illustrate pairwise allele sharing, the frequency of each allele shared by the \n{2} haplotypes is shown by chromosomal position in alignment with the IBD structure above; see \cref{fig:pair_ibd_example}{b}.
 As suggested in the figure, the majority of low-frequency variants align with IBD segments that are more recent.
 
 %
@@ -123,8 +125,8 @@ Lastly, I conclude this section by highlighting certain caveats of the implement
 
 \N{2} approaches for a non-probabilistic inference of recombination events are described below; these are the \emph{\acrlong{fgt}} \citep{Hudson:1985wh}, which requires haplotype information, and the criterion of \emph{inconsistent homozygote genotypes} \citep[see][]{Mathieson:2014ig}, which requires genotype data; henceforth referred to as the \emph{\acrlong{dgt}}.
 
-\Addition{Note that the aim of this implementation is to detect recombination in pairs of diploid individuals, relative to a given target position in the genome, where it is attempted to delimit the shared haplotype segment of the two haplotypes sharing the target allele.
-This is further explained in \cpref{sec:ibd_detect_alg}, with examples provided in \cpref{sec:ibd_detect_lim}.}
+Note that the aim of this implementation is to detect recombination in pairs of diploid individuals, relative to a given target position in the genome, where it is attempted to delimit the shared haplotype segment of the two haplotypes sharing the target allele.
+This is further explained in \cpref{sec:ibd_detect_alg}, with examples provided in \cpref{sec:ibd_detect_lim}.
 
 
 \paragraph{\Gls{fgt}.}
@@ -142,7 +144,7 @@ An example configuration is shown in \cpref{fig:info_fgt}.
 
 Notably, private or \emph{de~novo} mutations appearing as singletons in the sample cannot lead to the observation of the \n{4} required configurations.
 Although the exact location of recombination (\ie chromosomal crossover) cannot be retrieved from the data, the \gls{fgt} can be used to find the smallest interval in which at least \n{1} recombination event occurred.
-\Addition{However, it is important to note that this test cannot determine which of the four haplotypes recombined, and where it is also possible that there have been multiple recombination events pertaining to different haplotypes within the detected interval.}
+However, it is important to note that this test cannot determine which of the four haplotypes recombined, and where it is also possible that there have been multiple recombination events pertaining to different haplotypes within the detected interval.
 
 
 \paragraph{\Gls{dgt}.}
@@ -160,7 +162,7 @@ As a consequence, it can be expected that the \gls{dgt} is more restrictive than
 \input{chapter3/fig/info_dgt}
 %
 
-\Addition{The \gls{dgt} thereby simplifies the breakpoint condition to observing opposite homozygote genotypes in two diploid individuals, but where allele sharing at a given target site (that is heterozygous in both individuals) is required such that the conditions of the \gls{fgt} would be satisfied.}
+The \gls{dgt} thereby simplifies the breakpoint condition to observing opposite homozygote genotypes in two diploid individuals, but where allele sharing at a given target site (that is heterozygous in both individuals) is required such that the conditions of the \gls{fgt} would be satisfied.
 This is further exemplified in \cpref{fig:info_dgt}, which highlights the difference to the \gls{fgt} by comparison to the example shown in \cpref{fig:info_fgt}.
 
 
@@ -208,8 +210,8 @@ While the underlying IBD segment is enclosed in the interval, it can be expected
 The extent of overestimation is dependent on the number and density of observed variant sites in the sample.
 Because the rate of mutation is directly proportional to the expected number of segregating sites \citep{Watterson:1975ur}, a higher mutation rate can generally be expected to decrease the overestimation of segment length.
 
-\Correct{When using \gls{wgs} data, strategies for variant calling and filtering may affect the accuracy of detecting recombination events as not all variant sites might be captured correctly.
-It cannot be expected that genotyping arrays provide sufficient marker density to infer breakpoints with high accuracy (with regard to the true length of the underlying shared haplotype segment).}
+When using \gls{wgs} data, strategies for variant calling and filtering may affect the accuracy of detecting recombination events as not all variant sites might be captured correctly.
+It cannot be expected that genotyping arrays provide sufficient marker density to infer breakpoints with high accuracy (with regard to the true length of the underlying shared haplotype segment).
 
 
 %
@@ -217,13 +219,13 @@ It cannot be expected that genotyping arrays provide sufficient marker density t
 %
 
 Conversely, it is also possible that segment length is underestimated.
-\Correct{A recombination event can occur with chromosomes outside the sub-tree of the lineages deriving from the focal mutation, such that a detected breakpoint may pertain to recombination occurring on either of the ``unshared'' haplotypes.}
+A recombination event can occur with chromosomes outside the sub-tree of the lineages deriving from the focal mutation, such that a detected breakpoint may pertain to recombination occurring on either of the ``unshared'' haplotypes.
 Given the \n{4} chromosomes required, there are ${{{4}\choose{2}}=6}$ possible pairs of chromosomes which may share extended haplotype regions by descent.
-\Correct{A segment that was more recently co-inherited by one of the two other haplotypes that do not share the focal allele may result in detection of an ``unwanted'' breakpoint, where recombination did not break the genealogical relationship between the haplotypes sharing the allele.
-The \gls{fgt} or \gls{dgt} may correctly infer a recombination event, but which would result in an underestimation of the length of the focal IBD segment.}
+A segment that was more recently co-inherited by one of the two other haplotypes that do not share the focal allele may result in detection of an ``unwanted'' breakpoint, where recombination did not break the genealogical relationship between the haplotypes sharing the allele.
+The \gls{fgt} or \gls{dgt} may correctly infer a recombination event, but which would result in an underestimation of the length of the focal IBD segment.
 This is illustrated in \cpref{fig:full_ibd_example}, which shows \n{2} examples generated using coalescent simulations.
 
-In Example~1 (\ref{fig:full_ibd_example}{a}), a rare allele target site was randomly selected, as well as the \n{2} individuals sharing the \Correct{focal} allele.
+In Example~1 (\ref{fig:full_ibd_example}{a}), a rare allele target site was randomly selected, as well as the \n{2} individuals sharing the focal allele.
 The true IBD structure was determined from simulation records for each pair of the \n{4} chromosomes in the \n{2} individuals.
 Each pair is represented by a mosaic of IBD segments along the sequence, where each segment is distinguished by \gls{tmrca}.
 Both the \gls{fgt} and \gls{dgt} were applied, but where all consecutive breakpoints after the first detection were also recorded along the sequence on both sides of the focal variant.
@@ -235,14 +237,14 @@ Example~1 illustrates the case in which a rare allele identifies the underlying 
 %
 
 The same was done in Example~2 (\ref{fig:full_ibd_example}{b}), but here the target site and the pair of individuals was chosen because it was found that the length of the detected IBD segment was underestimated.
-As can be seen, this underestimation is due to \Correct{a recombination event on an ``unshared'' haplotype (which does not carry the focal allele), which occurred more recently than the mutation event giving rise to the focal allele.
-\Cpref{fig:info_testfail_example} shows a possible genealogy that could give rise to a variation pattern where the focal shared haplotype segment is underestimated.}
+As can be seen, this underestimation is due to a recombination event on an ``unshared'' haplotype (which does not carry the focal allele), which occurred more recently than the mutation event giving rise to the focal allele.
+\Cpref{fig:info_testfail_example} shows a possible genealogy that could give rise to a variation pattern where the focal shared haplotype segment is underestimated.
 Such a result may be expected in cases of inbreeding, where the maternal and paternal chromosomes in an individual are more closely related to each other than to other chromosomes in the population.
 Note that in the simulations conducted, the generated haplotypes were randomly paired to form diploid individuals.
 
 
 
-\DeleteNote{Section ``Genotype phasing by inference of the shared haplotype''}
+% \DeleteNote{Section ``Genotype phasing by inference of the shared haplotype''}
 %
 % %
 % \section{Genotype phasing by inference of the shared haplotype}
@@ -332,7 +334,7 @@ A demographic model was defined following \citet{Gutenkunst:2009gs}, who used in
 Accordingly, here, data were simulated with an ancestral population size of ${\Ne = \num{7300}}$ (denoted by $N_A$ in the model) and under the assumption of a generation time of 25 years.
 The mutation rate was set to a constant ${\mu = \num[round-precision=2]{2.35e-8}}$ per site per generation, which was estimated from the human-chimp divergence in \citet{Gutenkunst:2009gs}.
 Note that recent studies have estimated the human mutation rate to be slightly lower; for example, \citet{Scally:2012fe} have estimated ${\mu \approx \num[round-precision=1]{1.2e-8}}$ from analyses of genome-wide \emph{de~novo} mutations using recent sequencing technologies.
-\Correct{The mutation rate used here is two-fold higher, but still in the same order.}
+The mutation rate used here is two-fold higher, but still in the same order.
 
 %
 \input{chapter3/fig/demo_model}
@@ -350,7 +352,7 @@ Population sizes of EU and AS were calculated as ${N = \rfrac{N_0}{\euler{-r t}}
 
 A sample of \n{5000} haplotypes was simulated, where the set of generated chromosomes represented a sample taken from the EU population.
 To reproduce realistic distributions of recombination variability along the simulated sequence, the simulation was performed using recombination rates from human chromosome~20, as provided in Build~37 of the \gls{hapmap} Phase~\rom{2} \citep{Frazer:2007kha, InternationalHapMapConsortium:2010en}.\footnote{HapMap recombination map: \url{ftp://ftp.ncbi.nlm.nih.gov//hapmap/recombination/2011-01_phaseII_B37/genetic_map_HapMapII_GRCh37.tar.gz} \accessed{2016}{11}{12}}
-\Addition{Note that the ratio between genetic and physical length on human chromosome~20 is $\approx\SI[per-mode=fraction,round-precision=1]{1.7}{\centi\morgan\per\mega\basepair}$, which differs from the average observed for the human genome at $\approx\SI[per-mode=fraction,round-precision=1]{1.2}{\centi\morgan\per\mega\basepair}$.}
+Note that the ratio between genetic and physical length on human chromosome~20 is $\approx\SI[per-mode=fraction,round-precision=1]{1.7}{\centi\morgan\per\mega\basepair}$, which differs from the average observed for the human genome at $\approx\SI[per-mode=fraction,round-precision=1]{1.2}{\centi\morgan\per\mega\basepair}$.
 The resulting dataset consisted of \dec{0.672847}~million segregating sites observed over a chromosomal length of \SI{62.949301}{\mega\basepair} (\SI{108.26675653}{\centi\morgan}).
 The history of the simulated sample was stored separately to derive genealogical information in subsequent analyses.
 
@@ -372,7 +374,7 @@ Given a target site and the \n{2} haplotypes sharing the focal allele, the genea
 The \gls{mrca} of the pair was identified at each variant site and a breakpoint was defined as the first site at which a different \gls{mrca} was found.
 This returned the smallest interval detectable from available data around the nearest recombination events that delimit an IBD segment.
 
-Accuracy was measured in terms of the \Correct{physical} distance between a given breakpoint site and the focal position of the segment.
+Accuracy was measured in terms of the physical distance between a given breakpoint site and the focal position of the segment.
 \N{2} measurements were considered; the squared Pearson correlation coefficient, $r^2$, which measures the strength of the linear relation between detected and true distance, and the \gls{rmsle};
 \begin{equation}\label{eq:rmsle}
 	\rmsle = \sqrt{ \frac{1}{n} \sum_{i=1}^n \Big[\log_{10}\Big(\frac{\hat{d}_i + 1}{d_i + 1}\Big)\Big]^2 }
@@ -384,7 +386,11 @@ Here, this is useful because larger departures from the actual values are penali
 A lower score value indicates a lower magnitude of error, where ${\rmsle = 0}$ indicates that true and inferred values are identical.
 Also, note that the \gls{rmsle} is usually defined using the natural logarithm; here, $\log_{10}$ was used as a more intuitive representation of error magnitude.
 
-
+Note that the same breakpoint interval may be inferred from multiple shared alleles in a given haplotype pair.
+Below, the number of detected segments was reduced to the set of ``uniquely'' detected segments per pair in each approach.
+The remaining ``duplicate'' segments were removed by sorting identical intervals by the frequency of target alleles, where only the segment detected around the allele of the lowest frequency was retained (and randomly sampled if multiple focal alleles occurred at the same frequency).
+Detected segments were thereby tagged by the presumably youngest shared allele within a given interval.
+This enabled the analysis to measure breakpoint accuracy conditional on the frequency of the target allele, which otherwise may have produced biased results due to sharing of higher-frequency alleles that are presumed to be older than the \gls{tmrca} of the underlying shared haplotype.
 
 The performance of the proposed IBD detection method was assessed for the described haplotype and genotype-based tests on the \n{3} datasets derived from coalescent simulations.
 The following approaches were distinguished:
@@ -404,10 +410,6 @@ This threshold was chosen arbitrarily, but such that the considered frequency ra
 The set of target sites comprised \dec{0.317020}~million \glspl{snp} that were heterozygous in the individuals sharing a focal allele.
 This resulted in \dec{11.597968}~million pairwise analyses and an equal number of IBD segments detected using the \gls{fgt} on the true and phased haplotypes in \cref{app:fgt_h,,app:fgt_p}, respectively, and the \gls{dgt} on genotype data in \cref{app:dgt}.
 
-Because the same IBD interval may be inferred from multiple shared alleles in a given haplotype pair, the analysis was reduced to the set of uniquely detected segments per pair in each approach.
-Duplicate segments were removed by sorting identical intervals by the frequency of target alleles, where only the segment detected around the allele of the lowest frequency was retained (and sampled if multiple shared alleles occurred at the same frequency).
-Detected segments were thereby tagged by the presumably youngest shared allele within a given interval.
-\Correct{This enabled the analysis to measure breakpoint accuracy conditional on the frequency of the target allele, which otherwise may have produced biased results due to sharing of higher-frequency alleles that are presumed to be older than the \gls{tmrca} of the underlying shared haplotype.}
 
 The number of uniquely identified segments differed slightly in \cref{app:fgt_h,,app:fgt_p,,app:dgt};
 \dec{2.983342}~million (\SI{25.72297}{\percent}),
@@ -423,22 +425,23 @@ The results obtained from these data are summarised in \cpref{tab:stat_breakpoin
 
 The proportion of breakpoints that were overestimated (in relation to the corresponding true IBD breakpoints) was noticeably high overall; using the \gls{fgt}, \SI{97.3903}{\percent} and \SI{95.66553}{\percent} were overestimated in \cref{app:fgt_h,,app:fgt_p}, respectively.
 However, overestimation was highest when the \gls{dgt} was used (\SI{98.36191}{\percent}) in \cref{app:dgt}.
-Conversely, the proportion of underestimated breakpoints was lowest in \ref{app:dgt}, \SI{1.543153}{\percent}, and highest when haplotypes were phased in \ref{app:fgt_p}, \SI{4.146739}{\percent}; in \ref{app:fgt_h}, \SI{2.41782}{\percent} of breakpoints were underestimated.
+Conversely, the proportion of underestimated breakpoints was lowest in \ref{app:dgt}, \SI{1.543153}{\percent}, and highest when haplotypes were phased in \ref{app:fgt_p}, \SI{4.146739}{\percent}.
+In \ref{app:fgt_h}, \SI{2.41782}{\percent} of breakpoints were underestimated.
 The proportion of detected breakpoints that coincided with the corresponding true breakpoints was \SI{0.19180}{\percent}, \SI{0.187729}{\percent}, and \SI{0.094939}{\percent} in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively.
 
 % Accuracy was measured in terms of the distance between breakpoint site and the corresponding focal position per detected and true IBD segments.
 The highest overall accuracy was found for the \gls{fgt} on true haplotypes, followed by the analysis on phased haplotypes, which had ${r^2 = \dec{0.9262482}}$ and ${r^2 = \dec{0.8922048}}$ in \cref{app:fgt_h,,app:fgt_p}, respectively.
 The accuracy achieved by the \gls{dgt} was lower, but still considerably high with ${r^2 = \dec{0.8474036}}$ in \cref{app:dgt}.
-This was also reflected in the \Correct{measured} magnitude of error (\gls{rmsle}), which was \dec{0.39983}, \dec{0.43407}, and \dec{0.56940} in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively.
+This was also reflected in the measured magnitude of error (\gls{rmsle}), which was \dec{0.39983}, \dec{0.43407}, and \dec{0.56940} in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively.
 The measurement of accuracy was further broken down by the allele frequency of target variants (\fk{}~category); results are shown in \cpref{tab:stat_breakpoints}.
 Accuracy decreased towards higher allele frequency in each approach.
-For example, for \fk{2}~variants, $r^2$ was \dec{0.998}, \Correct{\dec{0.895}}, and \dec{0.995} in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively,
+For example, for \fk{2}~variants, $r^2$ was \dec{0.998}, \dec{0.895}, and \dec{0.995} in \ref{app:fgt_h}, \ref{app:fgt_p}, and \ref{app:dgt}, respectively,
 which was reduced for \fk{25}~variants where ${r^2 = \dec{0.701}}$ in~\ref{app:fgt_h} and ${r^2 = \dec{0.730}}$ in~\ref{app:fgt_p}, but where \ref{app:dgt} was seen to decrease more rapidly by comparison (${r^2 = \dec{0.560}}$).
 
 Notably, when haplotype data were phased in \cref{app:fgt_p}, accuracy was highest at \fk{5}~variants (${r^2 = \dec{0.963}}$), indicating that accuracy was decreased at lower frequencies.
 Similarly, \gls{rmsle} scores reflected the same general pattern, but where the magnitude of error in \ref{app:fgt_p} was at a maximum at \fk{2}~variants.
-\Correct{One explanation is that relatively long haplotype regions are more likely to be affected by phasing errors, in particular switch errors, to which the \gls{fgt} but not the \gls{dgt} is susceptible.
-Hence, because \fk{2} haplotypes are likely to be longer compared to haplotypes tagged by higher-frequency alleles (as a higher frequency is indicative for an older age), phasing errors are more likely to fall within longer shared haplotype regions and thereby may facilitate an underestimation of shared haplotype lengths.}
+One explanation is that relatively long haplotype regions are more likely to be affected by phasing errors, in particular switch errors, to which the \gls{fgt} but not the \gls{dgt} is susceptible.
+Hence, because \fk{2} haplotypes are likely to be longer compared to haplotypes tagged by higher-frequency alleles (as a higher frequency is indicative for an older age), phasing errors are more likely to fall within longer shared haplotype regions and thereby may facilitate an underestimation of shared haplotype lengths.
 
 %
 \input{chapter3/fig/naive_break_tru}
@@ -504,7 +507,7 @@ However, the larger proportion of overestimated IBD breakpoints may result in ad
 \subsubsection{IBD detection using the \emph{Refined\,IBD} method}\label{sec:ibd_beagle_tru}
 %
 
-\CorrectNote{Section rewritten to include multiple corrections and additional results.}
+% \CorrectNote{Section rewritten to include multiple corrections and additional results.}
 
 Simulated data were additionally analysed using the \texttt{Refined\,IBD} algorithm implemented in \texttt{Beagle} version~4.1 \citep{Browning:2013eh}.\footnote{Beagle 4.1: \url{https://faculty.washington.edu/browning/beagle/beagle.html} \accessed{2016}{11}{22}}
 The method is based on the non-probabilistic \texttt{GERMLINE} algorithm \citep{Gusev:2009hd}, which identifies putative IBD segments from short exact matches between haplotype pairs.
@@ -561,9 +564,9 @@ Next, the sets of inferred IBD segments returned in \cref{app:fgt_h,app:fgt_p} w
 The matching process resulted in \dec{9.173353}~million segments in \ref{app:fgt_h}, but which were reduced to \dec{2.107930}~million by removing duplicate intervals per pair.
 Likewise, \dec{8.958549}~million segments were matched in \ref{app:fgt_p}, which was reduced to \dec{2.083768}~million.
 
-Recall that the set of true haplotypes contained all segments found around a given target site, but where multiple shared alleles may sit on the same shared haplotype.
-To reduce such duplicates, identical intervals per pair were sorted by the frequency of target alleles, where only the segment around the shared allele with the lowest frequency was retained (and randomly sampled if multiple shared alleles occurred at the same frequency).
-This enabled the analysis to measure breakpoint accuracy conditional on the frequency of the target allele.
+% Recall that the set of true haplotypes contained all segments found around a given target site, but where multiple shared alleles may sit on the same shared haplotype.
+% To reduce such duplicates, identical intervals per pair were sorted by the frequency of target alleles, where only the segment around the shared allele with the lowest frequency was retained (and randomly sampled if multiple shared alleles occurred at the same frequency).
+% This enabled the analysis to measure breakpoint accuracy conditional on the frequency of the target allele.
 
 
 %
@@ -696,9 +699,9 @@ However, by also evaluating the relative proportion of total base overlap betwee
 \subsubsection{IBD detection in real data: 1000 Genomes, chromosome 20}\label{sec:fgt_dgt_1kg20}
 %
 
-The IBD detection \Correct{methodology developed in this chapter (\gls{fgt} and \gls{dgt})} was applied to the final release dataset of the \glsentrylong{1kg} Phase~\rom{3} \citep{GenomesProjectConsortium:2012co,Auton:2015gk}, which included ${N=\num{2504}}$ individuals.
+The IBD detection methodology developed in this chapter (\gls{fgt} and \gls{dgt}) was applied to the final release dataset of the \glsentrylong{1kg} Phase~\rom{3} \citep{GenomesProjectConsortium:2012co,Auton:2015gk}, which included ${N=\num{2504}}$ individuals.
 IBD detection was performed for each autosome (chromosomes \mbox{1--22}), where selected target sites comprised all variants found at allele frequency ${\leq 0.5\%}$; \ie \fk{} where ${k \in \{2, \ldots, 25\}}$.
-However, to facilitate a closer comparison to the results obtained on the simulated dataset, \Correct{which used a variable recombination rate as provided by the Built~37 \gls{hapmap} Phase~\rom{2} genetic map for chromosome~20} (see \ccref{sec:simdata}), the following results focus on chromosome~20 only.
+However, to facilitate a closer comparison to the results obtained on the simulated dataset, which used a variable recombination rate as provided by the Built~37 \gls{hapmap} Phase~\rom{2} genetic map for chromosome~20 (see \ccref{sec:simdata}), the following results focus on chromosome~20 only.
 A summary of the IBD detection results for chromosomes \mbox{1--22} is given in \cpref{tab:stat_ibd_1kg}.
 
 %
@@ -733,18 +736,18 @@ However, the IBD lengths were highest at \fk{[3,5]} when the \gls{fgt} was used,
 \input{chapter3/fig/ibd_example_1000G}
 %
 
-\Correct{The main observation from applying the \gls{fgt} and \gls{dgt} to real data is that the detected shared haplotype segments appear to be shorter than suggested by the previous analysis on simulated data.
+The main observation from applying the \gls{fgt} and \gls{dgt} to real data is that the detected shared haplotype segments appear to be shorter than suggested by the previous analysis on simulated data.
 It is possible that a large number of segments were underestimated due to the detection of false positive breakpoints; \eg through violations of the infinite sites model or other sources of error, which can be expected to be present in real data such as \gls{1kg}.
 The example shown in \cpref{fig:ibd_example_1000G} may support this notion.
 One of the selected target sites was chosen at random and each pair of individuals sharing the focal allele were re-analysed to record all positions at which the a breakpoint was found relative to the focal allele.
 In each pair, it can be seen that a few, isolated breakpoints appear within longer, unbroken regions, followed by a quick succession of detected breakpoints.
 This pattern can be compared to \cref{fig:full_ibd_example}{a} (\pref{fig:full_ibd_example}), which showed a similar example from the simulated dataset.
 Clusters of breakpoints were (generally) detected at some distance away from the true, underlying recombination breakpoint, whereas single, isolated breakpoints were rarely observed in simulated data.
-It is therefore possible that the detection of short shared haplotype intervals in \gls{1kg} data may indeed be due to false positive breakpoints.}
+It is therefore possible that the detection of short shared haplotype intervals in \gls{1kg} data may indeed be due to false positive breakpoints.
 
 
 
-\DeleteNote{Section ``Inference of the shared haplotype sequence''}
+% \DeleteNote{Section ``Inference of the shared haplotype sequence''}
 %
 % %
 % \subsubsection{Inference of the shared haplotype sequence}
@@ -800,7 +803,7 @@ It is therefore possible that the detection of short shared haplotype intervals 
 %
 
 
-\DeleteNote{Section ``Phasing coverage of pairwise shared haplotypes per individual''}
+% \DeleteNote{Section ``Phasing coverage of pairwise shared haplotypes per individual''}
 %
 % %
 % \subsubsection{Phasing coverage of pairwise shared haplotypes per individual}
@@ -862,11 +865,11 @@ For instance, recurrent mutations can produce patterns of variation that would o
 Thus, false positive breakpoints may be inferred, such that IBD length is underestimated.
 Nonetheless, the infinite sites model is usually seen as a reasonable approximation to reality, as the number of variant sites in a sample is typically much smaller than the number of nucleotides in the chromosomal sequence \citep{hein2004gene}.
 
-The presence of error in real data cannot be ruled out; \Correct{in particular, given the known error rates in current sequencing and genotyping technologies,
+The presence of error in real data cannot be ruled out; in particular, given the known error rates in current sequencing and genotyping technologies,
 imperfect statistical methods used in different pipelines for data generation, such as genome assembly, variant calling, and filtering strategies, as well as human error in data processing.
 Hence, error in \gls{1kg} data is practically guaranteed to be present and likely to have had an impact on the accuracy of the IBD detection methodology presented in this chapter.
 It is therefore unlikely that the rule-based approach presented here could be used reliably when working with biological datasets.
-In the following chapter, I focus on the analysis of error in different datasets, and I use this information to develop a novel, probabilistic method for shared haplotype detection around target sites.}
+In the following chapter, I focus on the analysis of error in different datasets, and I use this information to develop a novel, probabilistic method for shared haplotype detection around target sites.
 
 
 %
