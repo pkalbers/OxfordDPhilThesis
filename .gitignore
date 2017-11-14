@@ -1,5 +1,4 @@
 /.build/*
-<<<<<<< HEAD
 
 ## Build tool auxiliary files:
 *.fdb_latexmk
@@ -8,6 +7,3 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
-
-=======
->>>>>>> d0ab8b0bc8728b88820168e907069d6e0c8f93be
