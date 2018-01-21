@@ -77,7 +77,7 @@ In the remainder of this introduction (\textbf{Chapter~1}), I explain the basic 
 
   \item[Chapter~5.] I propose a novel method for the estimation of (rare) allele age, \ie the time since a mutation event gave rise to a particular allele that is observed in sample data.
   The method represents a composite Bayesian analysis and operates on insights gained from the inferred shared haplotype structure of the sample; thus, prior knowledge of the demographic history of the population or the genealogy of the sample is not required.
-	I apply this method to data from the \gls{1kg} Phase~\rom{3} on variants with predicted consequences.
+	I apply this method to rare variants in the \gls{1kg} Phase~\rom{3}.
 \end{description}
 
 Lastly, I conclude this thesis by providing a summary of the relevant results and by highlighting the implications of the presented methodology for future research (\textbf{Chapter~6}).
@@ -441,6 +441,7 @@ Therefore, if ${n \ll N}$, ${\mathbb{E}[T_\text{MRCA}] \approx 2}$ in units of p
 
 %
 \subsubsection{Effective population size}
+\label{sec:effpopsize}
 %
 
 Natural populations rarely adhere to the assumptions made by mathematical models.
@@ -522,7 +523,7 @@ By rearrangement, the following equation can be obtained;
 	\hat{\theta}_W = \frac{S_n}{\sum_{i=1}^{n-1} \frac{1}{i}}
 \end{equation}
 which is an unbiased estimator of the genetic diversity in a sample of sequence data; also known as Watterson's $\theta$ \citep{Watterson:1975ur}.
-With regard to the calculation of the effective population size as described in the previous section (\pref{ref:calceffpopsize}), it can be seen that an estimate for the value of \Ne can be obtained, for example, from \cref{eq:mutrate,eq:theta_w} given an estimate of the mutation rate.
+With regard to the calculation of the effective population size as described in the previous section (\pref{sec:effpopsize}), it can be seen that an estimate for the value of \Ne can be obtained, for example, from \cref{eq:mutrate,eq:theta_w} given an estimate of the mutation rate.
 
 
 %
@@ -865,9 +866,9 @@ In a more recent study, \citet{Fu:2012hg} used exome data from \n{6515} individu
 In addition, they predicted whether variants were deleterious using a range of different methods, Interestingly, they found that the probability that a variant was predicted to be deleterious was strongly related to estimated allele age.
 \Citet{Fu:2012hg} found that some of the genes surveyed, among those which had been associated with human diseases, showed a significant excess of putative deleterious variants which were estimated to have a relatively recent origin through mutation.
 For example, several of those genes had been implicated in coronary artery atherosclerosis (\textsl{CPE}), hereditary spastic paraplegia (\textsl{KIAA0196}), premature ovarian failure (\textsl{LAMC1}), and Alzheimer's disease (\textsl{LRP1}).
-In fact, the majority of identified deleterious variants within gene-coding regions were rare in frequency, enriched for mutations of large effect size, and indicated to have emerged relatively recently, within in the last \n{5000} to \n{10000} years.
+In fact, the majority of identified deleterious variants within gene-coding regions were rare in frequency, enriched for mutations of large effect size, and indicated to have emerged relatively recently, within the last \n{5000}--\n{10000} years.
 
-In general, it has been argued that the large number of rare variants observed in the human genome is due to a recent, explosive population growth, following a bottleneck population size after the expansion out of Africa, \n{50000} to \n{100000} years ago, and the advent of agriculture, approximately \n{10000} years ago \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
+In general, it has been argued that the large number of rare variants observed in the human genome is due to a recent, explosive population growth, following a bottleneck population size after the expansion out of Africa \n{50000}--\n{100000} years ago, and the advent of agriculture, approximately \n{10000} years ago \citep{Coventry:2010cqa,Keinan:2012kl,Tennessen:2012ck}.
 For example, the effects of (weak) purifying selection can be considered as being too slow to purge young alleles with disadvantageous phenotypic consequences from the population, such that there might be an unrecognised large abundance of rare variants in the human genome which could influence disease risk in yet unaccounted ways.
 An argument to the contrary, however, suggests that recent demographic changes such as population growth may have had negligible impact on the mutational load carried by an individual on average \citep{Simons:2014fj}.
 As such, the amount of ascertained rare variants may not necessarily contribute to complex disease risk unless they exert strongly deleterious effects on fitness.
