@@ -25,26 +25,26 @@ it's more like a big ball of... wibbily-wobbly... timey-wimey... stuff.}
 The inference of the genealogical history of a sample is of interest to a myriad of applications in genetic research, both in population and medical genetics.
 The ``age'' of an allele, which simply refers to the time since the allele was created by a mutation event, is of particular interest; for example, to observe demographic processes and events, or to better understand the effects of disease-related variants by their time of emergence in a population.
 
-In this chapter, I propose a \Correct{novel} method to estimate the age of an allele, which is based on a collection of statistical models that derive from coalescent theory.
-\Correct{Composite likelihood methods recently have gained in popularity for various applications in genetic research.
-In particular, such methods can be useful in situations where the full likelihood cannot be known analytically or its calculation is computationally prohibitive.}
-\Correct{Applications that use the composite likelihood based on the coalescent have been} pioneered by \citet{Hudson:2001vs} and have been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
-\Correct{The age estimation method developed here operates in a Bayesian setting to obtain the posterior probability of the time of coalescent events between pairs of haplotypes.
-These are then consolidated using an approach similar to methods that use the composite likelihood.}
+In this chapter, I propose a novel method to estimate the age of an allele, which is based on a collection of statistical models that derive from coalescent theory.
+Composite likelihood methods recently have gained in popularity for various applications in genetic research.
+In particular, such methods can be useful in situations where the full likelihood cannot be known analytically or its calculation is computationally prohibitive.
+Applications that use the composite likelihood based on the coalescent have been pioneered by \citet{Hudson:2001vs} and have been used successfully, for example, for the fine-scale estimation of recombination rates \citep{McVean:2004ca,Myers:2005vi}.
+The age estimation method developed here operates in a Bayesian setting to obtain the posterior probability of the time of coalescent events between pairs of haplotypes.
+These are then consolidated using an approach similar to methods that use the composite likelihood.
 
 In contrast to existing methods for allele age estimation \citep[\eg, see review by][]{Slatkin:2000us}, the method I present in this chapter does not require prior knowledge about past demographic processes or events.
-Although an assumption of certain population parameters is required, such as effective population size (\Ne), as well as mutation and recombination rates, these are expected to affect the scaling of time, such that differences between age estimates for different alleles are \Correct{expected to be} proportionally constant.
+Although an assumption of certain population parameters is required, such as effective population size (\Ne), as well as mutation and recombination rates, these are expected to affect the scaling of time, such that differences between age estimates for different alleles are expected to be proportionally constant.
 
 The age estimation framework presented in this chapter is based on allele sharing at a particular variant site observed in the sample, where the underlying IBD structure is inferred locally around the chromosomal position of the variant under consideration.
 The methodology for targeted IBD detection presented in Chapters~3 and 4 is therefore essential for this approach; \ie the \texttt{tidy} algorithm which includes the \gls{fgt}, \gls{dgt}, and the probabilistic IBD model for inference using a \gls{hmm}.
-\Addition{Additionally, I present a novel haplotype-based \gls{hmm} method for shared haplotype inference, which can be seen as the logical conclusion of the previously developed genotype-based \gls{hmm}.}
+Additionally, I present a novel haplotype-based \gls{hmm} method for shared haplotype inference, which can be seen as the logical conclusion of the previously developed genotype-based \gls{hmm}.
 
-I implemented the age estimation method as a computational tool written in \cpp, referred to as the \textbf{\texttt{rvage}} algorithm (for \underline{r}are \underline{v}ariant \underline{a}\underline{g}e \underline{e}stimation) which incorporates the full functionality of the previously presented \texttt{tidy} algorithm for IBD detection, \Addition{as well as the novel haplotype-based \gls{hmm} that is presented in this chapter}.\footnote{Rare variant age estimation (\texttt{rvage}): \url{https://github.com/pkalbers/rvage}}
+I implemented the age estimation method as a computational tool written in \cpp, referred to as the \textbf{\texttt{rvage}} algorithm (for \underline{r}are \underline{v}ariant \underline{a}\underline{g}e \underline{e}stimation) which incorporates the full functionality of the previously presented \texttt{tidy} algorithm for IBD detection, as well as the novel haplotype-based \gls{hmm} that is presented in this chapter.\footnote{Rare variant age estimation (\texttt{rvage}): \url{https://github.com/pkalbers/rvage}}
 
 I begin this chapter by introducing the concept of the method, which is followed by a detailed description of the statistical framework.
 The method is evaluated in extensive simulation studies, which also consider data error as a source of estimation bias.
 Although the method can be applied to \glspl{snp} occurring at any frequency, here, I focus on rare alleles in particular.
-Finally, \Correct{I apply this method to data from the \gls{1kg} Phase~\rom{3}}.
+Finally, I apply this method to data from the \gls{1kg} Phase~\rom{3}.
 
 
 
@@ -54,33 +54,33 @@ Finally, \Correct{I apply this method to data from the \gls{1kg} Phase~\rom{3}}.
 
 The mutation that gave rise to a particular allele of interest can be seen as distinguishing event in the history of a population.
 Immediately after the mutation event, there was only one chromosome in the population that carried the mutant allele.
-\Correct{Given a sample of haplotypes, where more than one chromosome carries the focal allele, it is assumed that all copies of the allele were co-inherited from that one chromosome in which the mutation occurred at some point in the past.}
+Given a sample of haplotypes, where more than one chromosome carries the focal allele, it is assumed that all copies of the allele were co-inherited from that one chromosome in which the mutation occurred at some point in the past.
 
-\Addition{According to coalescent theory, any two haplotypes that share the allele are expected to have coalesced more recently than the time of the focal mutation event.
-Conversely, the coalescent event between one haplotype carrying the allele and one haplotype not carrying the allele is expected to date back to a point in time before the mutation event occurred.}
+According to coalescent theory, any two haplotypes that share the allele are expected to have coalesced more recently than the time of the focal mutation event.
+Conversely, the coalescent event between one haplotype carrying the allele and one haplotype not carrying the allele is expected to date back to a point in time before the mutation event occurred.
 This insight is of particular interest as it suggests that the actual time of the mutation event lies somewhere in between two such points in time.
 
 % Consider a set of haplotypes which share a given allele by descent from a common ancestor who lived at some point in the past.
 % Suppose that the genealogical history of the sample is known such that the ancestral origin of the allele can be found by tracing back to the \gls{mrca} of the haplotypes that share the allele.
 % In a finite population, however, the \gls{mrca} is unlikely to indicate the individual in which the allele arose through mutation; therefore the actual age of the allele is expected to be older than the \gls{tmrca} of the set of haplotypes which share the focal allele.
 
-\Correct{Here, allele age is estimated on the basis of a (composite) Bayesian analysis, where the posterior probability distribution of the \gls{tmrca} is obtained in a pairwise analysis of the haplotypes in a sample.}
-\Addition{With respect to a given focal site whose age is attempted to be estimated, the following presents the theory in which it is assumed that the shared haplotype structure around that site is known for any pair of haplotypes.
+Here, allele age is estimated on the basis of a (composite) Bayesian analysis, where the posterior probability distribution of the \gls{tmrca} is obtained in a pairwise analysis of the haplotypes in a sample.
+With respect to a given focal site whose age is attempted to be estimated, the following presents the theory in which it is assumed that the shared haplotype structure around that site is known for any pair of haplotypes.
 In particular, it is assumed that the \emph{breakpoints} of the recombination events that delimit the shared haplotype region are known, and that no recombination has occurred in the interval between breakpoints for the two haplotypes considered.
-Later sections in this chapter extend the theory to the case where breakpoints are inferred.}
+Later sections in this chapter extend the theory to the case where breakpoints are inferred.
 
 There are \n{2} main sources of information available from sample data which relate to the \gls{tmrca}.
 First, mutation events occur independently in each lineage and mutations accumulate along the sequence as the haplotype is passed on over generations.
 Second, recombination events break down the length of the haplotype in each generation independently in each lineage.
 Thus, the \gls{tmrca} between a given pair of chromosomes can be estimated from the number of mutations which segregate in \n{2} haplotypes, as well as the genetic length of the haplotype region that is shared between \n{2} chromosomes in the sample.
 In the following (\cref{sec:tmrca_clocks}), I derive the formulations for \n{3} \gls{tmrca} estimators.
-\Correct{These are referred to as follows.}
+These are referred to as follows.
 \begin{itemize}\singlespacing
   \item Mutation clock, denoted by \ClockM
   \item Recombination clock, denoted by \ClockR
 	\item Combined clock, denoted by \ClockC
 \end{itemize}
-\Addition{I then explain the age estimation method in detail in \cpref{sec:comp_post_method}.}
+I then explain the age estimation method in detail in \cpref{sec:comp_post_method}.
 
 % which are referred to as the \emph{mutation clock}, denoted by \ClockM, the \emph{recombination clock}, \ClockR, and the \emph{combined clock}, \ClockC.
 %  and the \emph{recombination clock} model and are denoted by \ClockM and \ClockR, respectively.
@@ -109,19 +109,19 @@ In the following (\cref{sec:tmrca_clocks}), I derive the formulations for \n{3} 
 
 
 The posterior probability is proportional to the prior probability of the time to coalescence multiplied by the likelihood of the time.
-The derivation of the prior distribution on the coalescent time \Correct{follows from the results given in \cpref{sec:coalescent}, but is briefly described below.}
+follows from the results given in \cpref{sec:coalescent}, but is briefly described below.
 
 Let $t$ be the number of discrete generations that separate \n{2} haplotypes in relation to the \gls{mrca}.
 As shown by \citet{Tajima:1983bt}, the probability that \n{2} haplotypes find a common ancestor at exactly $t$~generations in the past is
 \begin{equation}
-	f(t) ~\approx~ \frac{1}{2\Ne} \euler{-\frac{t}{2\Ne}} \CorrectLabel
+	f(t) ~\approx~ \frac{1}{2\Ne} \euler{-\frac{t}{2\Ne}}
 \end{equation}
 where \Ne is the effective population size.
 The expression above relates to the probability distribution of the branch length in the underlying genealogical tree.
 It is convenient to use a continuous time approximation and measure time in units of ${2\Ne}$ generations such that ${\tau = \sfrac{t}{2\Ne}}$.
 Hence, the prior distribution of the coalescent time is ${\tau\sim\operatorname{Exp}(1)}$, written as
 \begin{equation}
-	\pi(\tau) ~\propto~ \euler{-\tau}\text{.}\CorrectLabel
+	\pi(\tau) ~\propto~ \euler{-\tau}\text{.}
 \end{equation}
 
 
@@ -129,7 +129,6 @@ Hence, the prior distribution of the coalescent time is ${\tau\sim\operatorname{
 \subsubsection{Mutation clock model (\ClockM)}\label{sec:mut_clock}
 %
 
-\CorrectNote{Section partially rewritten with revised notation}
 
 Let the physical length of a shared haplotype region be denoted by $h$, measured in basepairs.
 The number of mutational differences along the sequence between a pair of haplotypes is denoted by the discrete random variable $S$, which is the number of segregating sites in a sample of ${n=2}$~haplotypes, for which the infinite sites model is assumed without recombination; \eg see \citet{Watterson:1975ur} and \citet{Tavare:1997vra}.
@@ -180,7 +179,6 @@ Thus, by using ${\alpha = s+1}$ and ${\beta = \theta h+1}$, the posterior densit
 \subsubsection{Recombination clock model (\ClockR)}\label{sec:rec_clock}
 %
 
-\CorrectNote{Section partially rewritten with revised notation}
 
 The length of a shared haplotype region is delimited by \n{2} recombination events that occurred on either side.
 For either the left or right-hand side, independently, the distance to the first occurrence of a recombination breakpoint follows a Geometric distribution, but where the \emph{genetic} distance can be approximated by the Exponential distribution if time is continuously measured and provided that \Ne is large; \eg see \citet{hein2004gene}.
@@ -300,8 +298,6 @@ Thus, the posterior density can be computed as
 \subsubsection{Combined clock model (\ClockC)}\label{sec:com_clock}
 %
 
-\CorrectNote{Section partially rewritten with revised notation}
-
 
 The parameters defined in the mutation clock and recombination clock models given above are combined in the following way.
 The likelihood function in support of $\tau$ considers \ctref{eq:mut_prob,,eq:rec_prob} and is given as
@@ -379,7 +375,7 @@ Note that a similar derivation has been used by \citet{schroff2016}.
 
 Consider a focal allele of interest that is shared by some of the haplotypes in a sample.
 The time at which this allele was created by a mutation event is bound by the times of the \n{2} coalescent events that delimit the length of the branch on which the mutation occurred in the underlying coalescent tree; see the example provided in \cpref{fig:info_age}.
-The haplotypes which inherited the allele (\Correct{\emph{carriers}}) are distinguished from the haplotypes that do not carry the allele (\Correct{\emph{non-carriers}}).
+The haplotypes which inherited the allele (\emph{carriers}) are distinguished from the haplotypes that do not carry the allele (\emph{non-carriers}).
 Thus, the sample is divided into \n{2} disjoint subsamples; let $X_c$ denote the set of chromosomes which share a given allele, and $X_d$ the set of chromosomes which do not carry that allele.
 
 %
@@ -387,14 +383,14 @@ Thus, the sample is divided into \n{2} disjoint subsamples; let $X_c$ denote the
 %
 
 It follows that all lineages in $X_c$ coalesce before any of them can coalesce with a lineage in $X_d$.
-Any coalescent event between \n{2} lineages in $X_c$ must have occurred \emph{earlier} \Correct{than} the focal mutation event (back in time).
+Any coalescent event between \n{2} lineages in $X_c$ must have occurred \emph{earlier} than the focal mutation event (back in time).
 On the other hand, any coalescent event between \n{1} lineage in $X_c$ and \n{1} lineage in $X_d$ must have occurred \emph{later} than the focal mutation event (back in time).
 Pairs of haplotypes in $X_c$ are referred to as \emph{concordant} pairs, whereas pairs formed by strictly taking one haplotype from $X_c$ and another from $X_d$ are \emph{discordant} pairs.
 The sets $\Omega_c$ and $\Omega_d$ are defined to contain all concordant and discordant pairs, respectively.
 
-\Correct{In the following, I describe how the posterior density of the \gls{tmrca} is obtained for concordant and discordant pairs to eventually arrive at an estimate of allele age.
-To distinguish the population-scaled time $\tau$, as defined for the \gls{tmrca}, from the time of the mutation event, let the latter be denoted by the likewise population-scaled time $t$.}
-\Correct{Informally, the actual time of a mutation event} is found at the ``sweet~spot'' in between the earlier coalescent event at time $t_c$ and the later coalescent event at time $t_d$; see \cref{fig:info_age}.
+In the following, I describe how the posterior density of the \gls{tmrca} is obtained for concordant and discordant pairs to eventually arrive at an estimate of allele age.
+To distinguish the population-scaled time $\tau$, as defined for the \gls{tmrca}, from the time of the mutation event, let the latter be denoted by the likewise population-scaled time $t$.
+Informally, the actual time of a mutation event is found at the ``sweet~spot'' in between the earlier coalescent event at time $t_c$ and the later coalescent event at time $t_d$; see \cref{fig:info_age}.
 
 % Posteriors are obtained for concordant pairs in $\Omega_c$ where the \emph{oldest} relation may indicate the lower bound in the estimation of the focal allele age.
 % Likewise, posteriors are obtained for discordant pairs in $\Omega_d$ where the \emph{youngest} relation indicates the upper bound.
@@ -404,7 +400,6 @@ To distinguish the population-scaled time $\tau$, as defined for the \gls{tmrca}
 \subsubsection{Cumulative coalescent function (CCF)}\label{sec:ccf_desc}
 %
 
-\CorrectNote{Section partially rewritten with revised notation}
 
 At a given focal site at which the possible concordant and discordant pairs in the sample have been sorted into the sets $\Omega_c$ and $\Omega_d$, respectively, each pair is analysed in turn to obtain a posterior on their \gls{tmrca}.
 Importantly, to find the time of the focal mutation event, it is of interest to obtain the probability distribution of the \gls{tmrca} relative to $t$.
@@ -447,7 +442,6 @@ Note that no simple closed form exists for the median, but which in practise is 
 \subsubsection{Allele age estimation from the composite posterior distribution}\label{sec:comp_post_detail}
 %
 
-\CorrectNote{Section partially rewritten with revised notation}
 
 A at given focal site, the \gls{ccf} is obtained for concordant and discordant pairs.
 Because the \gls{tmrca} of concordant pairs would extend to a point below the focal mutation event and the \gls{tmrca} of discordant pairs above that point in time, ideally, it would be expected that the age of an allele can be derived from the structure of posteriors.
@@ -491,7 +485,6 @@ In the following, the mode of the composite posterior distribution is taken as a
 \subsubsection{Note on composite likelihood methods}
 %
 
-\AdditionNote{Section included}
 
 There is extensive literature on the topic of composite likelihood methods and their application to problems where the full likelihood function cannot be known or is intractable.
 In its general form, the composite likelihood is defined as the weighted product of the likelihoods associated with a set of events ${\{X_1,\ldots,X_z\}}$; \ie \citep{lindsay1988composite}
@@ -540,7 +533,7 @@ Therefore, in practise, the computational burden is reduced by employing a sampl
 % Hence, the method specifies a sampling threshold as the upper limit of $n_d$.
 
 
-\DeleteNote{Section ``Anticipated limitations''}
+
 
 %
 % %
@@ -571,7 +564,7 @@ Therefore, in practise, the computational burden is reduced by employing a sampl
 %
 
 
-\Correct{The following sections describe the data used in this chapter, as well as the metrics used to evaluate age estimation results.}
+The following sections describe the data used in this chapter, as well as the metrics used to evaluate age estimation results.
 
 
 
@@ -579,7 +572,7 @@ Therefore, in practise, the computational burden is reduced by employing a sampl
 \subsection{Data generation}
 %
 
-\Correct{The following simulated datasets were available.}
+The following simulated datasets were available.
 First, sample data were simulated under a simple demographic model of constant population size (${\Ne = \num{10000}}$) with mutation rate ${\mu=\num[round-precision=1]{1e-08}}$ per site per generation and constant recombination rate ${\rho=\num[round-precision=1]{1e-08}}$ per site per generation, using \texttt{msprime} \citep{Kelleher:2016fn}.
 Note that by setting the mutation and recombination rates to constant and equal values, the physical and genetic lengths are identical when measured in \gls{Mb} and \gls{cM}, respectively.
 The size of the simulated dataset was \n{2000} haplotypes, which were randomly paired to form a sample of ${N=\num{1000}}$ diploid individuals.
@@ -593,9 +586,9 @@ The simulated haplotypes were randomly paired to form a sample of ${N=\num{2500}
 Haplotype data were converted into genotypes and subsequently phased using \texttt{SHAPEIT\,2} \citep{Delaneau:2008dk,Delaneau:2013hi}.
 This facilitated the assessment of the impact of phasing error on the age estimation process.
 
-Third, the dataset described above was retrofitted in Chapter~4 to include realistic proportions of empirically estimated error, which was equally distributed in the derived genotype and haplotype datasets \Correct{(both ``true'' and phased haplotype data)}.
+Third, the dataset described above was retrofitted in Chapter~4 to include realistic proportions of empirically estimated error, which was equally distributed in the derived genotype and haplotype datasets (both ``true'' and phased haplotype data).
 Here, data \emph{before} and \emph{after} the inclusion of error are distinguished by referring to dataset $\mathcal{D}_B$ and dataset $\mathcal{D}_B^{\ast}$, respectively.
-Note that in the following the term \emph{genotype error} is used, even in analyses that operate on haplotype data, as error proportions were estimated from misclassified genotypes \Correct{in \gls{1kg} data (``1000G.A'' in Chapter~4, \ccref{sec:err_test_data}).}
+Note that in the following the term \emph{genotype error} is used, even in analyses that operate on haplotype data, as error proportions were estimated from misclassified genotypes in \gls{1kg} data (``1000G.A'' in Chapter~4, \ccref{sec:err_test_data}).
 
 
 In each dataset, simulation records were queried to determine the underlying IBD structure of each pair of individuals analysed in this work.
@@ -619,10 +612,10 @@ Here, the times of coalescence below and above a particular mutation event are d
 
 Although the true time of a mutation event was not known from the simulations performed, an indicative value for the age of an allele was derived from the logarithmic ``midpoint'' (or \emph{log-average}) between coalescent events, which is denoted by $t_m$ and calculated as the geometric mean of $t_c$ and $t_d$, namely
 \begin{equation}
-	t_m~=~\sqrt{~t_c ~ t_d~}\text{.}\CorrectLabel
+	t_m~=~\sqrt{~t_c ~ t_d~}\text{.}
 \end{equation}
-\Correct{However, note that the arithmetic mean, ${\frac{1}{2}(t_c + t_d)}$, would be appropriate given that mutation events can be placed uniformly between $t_c$ and $t_d$.
-The geometric mean is nonetheless useful and was chosen for practical reasons (\eg representation on log-scale).}
+However, note that the arithmetic mean, ${\frac{1}{2}(t_c + t_d)}$, would be appropriate given that mutation events can be placed uniformly between $t_c$ and $t_d$.
+The geometric mean is nonetheless useful and was chosen for practical reasons (\eg representation on log-scale).
 
 % \begin{equation}
 % 	t_m ~=~
@@ -631,9 +624,9 @@ The geometric mean is nonetheless useful and was chosen for practical reasons (\
 % \end{equation}
 
 Accuracy was measured using Spearman's rank correlation coefficient, $r_S$, which is a robust measure for the strength of the monotonic relationship between \n{2} variables; \ie the inferred allele age ($\hat{t}$) and true time proxies ($t_c$, $t_m$, or $t_d$).
-Note that the squared Pearson correlation coefficient, $r^2$, was used in previous chapters but \Correct{was regarded as being} less suitable here, as both the inferred and true age are expected to vary on log-scale, and the Pearson coefficient measures the linear relationship between variables.
-\Correct{However, for example, $r^2$ of log-transformed age could have been used, but which was not additionally considered here, in order to keep the analysis brief.}
-Also, \Correct{to indicate bias}, the \gls{rmsle} was calculated as a descriptive score for the magnitude of error (here defined on $\log_{10}$).
+Note that the squared Pearson correlation coefficient, $r^2$, was used in previous chapters but was regarded as being less suitable here, as both the inferred and true age are expected to vary on log-scale, and the Pearson coefficient measures the linear relationship between variables.
+However, for example, $r^2$ of log-transformed age could have been used, but which was not additionally considered here, in order to keep the analysis brief.
+Also, to indicate bias, the \gls{rmsle} was calculated as a descriptive score for the magnitude of error (here defined on $\log_{10}$).
 
 To better illustrate the distribution of age estimates obtained in an analysis, the \emph{relative age} was computed, $\hat{t}_\textit{rel}$, for each allele by normalising the time scale conditional on the time interval between the coalescent events at $t_c$ and $t_d$, such that age estimates were ``mapped'' on the same scale relative to the branch length spanned between $t_c$ and $t_d$; this was calculated as below.
 \begin{equation}\label{eq:age_relative}
@@ -661,15 +654,15 @@ The proportion of age estimates that fall within this interval is reported.
 %
 
 
-The allele age estimation method relies on \Correct{an (ideally) correct} inference of the haplotype region shared by descent between \n{2} chromosomes relative to a target site.
-\Correct{Several approaches for targeted, pairwise inference of the shared haplotype have been developed in the previous chapters, which are applied further below.
+The allele age estimation method relies on an (ideally) correct inference of the haplotype region shared by descent between \n{2} chromosomes relative to a target site.
+Several approaches for targeted, pairwise inference of the shared haplotype have been developed in the previous chapters, which are applied further below.
 To first establish \emph{proof of concept} of the age estimation method, its performance was evaluated given complete knowledge of the underlying shared haplotype structure.
-That is, the ``true'' shared haplotype segments were determined from simulation records and analysed using haplotype data in dataset $\mathcal{D}_A$.}
+That is, the ``true'' shared haplotype segments were determined from simulation records and analysed using haplotype data in dataset $\mathcal{D}_A$.
 
-\Correct{Further,} because an exhaustive analysis of all possible haplotype pairs becomes computationally intractable, it is convenient to reduce the number of pairwise analyses that are conducted per target allele.
+Further, because an exhaustive analysis of all possible haplotype pairs becomes computationally intractable, it is convenient to reduce the number of pairwise analyses that are conducted per target allele.
 % For example, although the sample size of dataset $\mathcal{D}_A$ was modest (${N = \num{1000}}$), the total number of possible pairwise analyses for the set of \n{10000} selected rare variants would have been \dec{145.724783}~million.
 %For realistic applications of the method, it is therefore essential to reduce the number of pairs.
-\Correct{In particular, because the current analysis focused on rare alleles,} the number of discordant pairs, $n_d$, was reduced such that ${\Omega_d}$ consisted of a substantially smaller set of randomly retained pairs.
+In particular, because the current analysis focused on rare alleles, the number of discordant pairs, $n_d$, was reduced such that ${\Omega_d}$ consisted of a substantially smaller set of randomly retained pairs.
 Here, the impact on estimation accuracy was assessed under different nominal thresholds applied to $n_d$ (listed below).
 % Importantly, to focus on the impact resulting from different $n_d$ thresholds, the analysis was conducted using true IBD segments as determined from simulation records.
 % Thus, this section provides a general validation analysis of the age estimation method.
@@ -702,7 +695,7 @@ Model parameters in \texttt{rvage} were specified according to parameters used f
 
 
 An overview is illustrated in \cpref{fig:discords_scat}, which shows the density of true and estimated age under each clock model; results are shown for ${n_d=\num{10}}$, ${n_d=\num{100}}$, and ${n_d=\num{1000}}$, to better distinguish differences visually.
-\Correct{Note that, here, true age was set to $t_m$ (the geometric mean of $t_c$ and $t_d$).}
+Note that, here, true age was set to $t_m$ (the geometric mean of $t_c$ and $t_d$).
 
 
 %
@@ -718,7 +711,7 @@ At lower thresholds, each model showed a tendency to overestimate allele age, wh
 % Note that allele age is generally expected to be underestimated if genetic lengths in concordant or discordant pairs are overestimated, as a longer IBD segment is indicative for more recent haplotype sharing (\ie recombination had less time the break down the length of a shared haplotype).
 % The average distance between consecutive variant sites in ${\mathcal{D}_A}$ was \SI{3.064307e-04}{\centi\morgan} (\dec{306.4307} basepairs), showing that even small inaccuracies in IBD can affect the estimation of allele age (under the recombination clock).
 
-The proportion of target alleles for which age was correctly estimated \Correct{(${t_c \leq \hat{t} \leq t_d}$)} increased with higher $n_d$ thresholds under each clock model.
+The proportion of target alleles for which age was correctly estimated (${t_c \leq \hat{t} \leq t_d}$) increased with higher $n_d$ thresholds under each clock model.
 This was lowest in \ClockM, where \SIlist{36.61;51.11;66.28}{\percent} were correctly inferred for $n_d$ at \numlist{10;100;1000}, respectively, and relatively high in \ClockR, where \SIlist{55.79;70.60;70.51}{\percent} were correct, respectively.
 The highest proportion of correct alleles was \SI{79.93}{\percent} in \ClockC and ${n_d = \num{1000}}$.
 The proportion of overestimated alleles (${\hat{t} > t_d}$) decreased in all clock models at higher $n_d$ thresholds, showing a modest decrease in \ClockM (\SIrange{63.38}{32.66}{\percent} for $n_d$ at \num{10} and \num{1000}, respectively), a substantial decrease in \ClockR (\SIrange{43.45}{6.45}{\percent}, respectively), and a notable decrease in \ClockC (\SIrange{46.78}{15.64}{\percent}, respectively).
@@ -769,19 +762,19 @@ Since true IBD was determined conditional on the observed variation in the data,
 
 The implemented sampling regime for discordant pairs sought to find a compromise between computational tractability and the chance of randomly selecting haplotypes that are informative for the estimation.
 However, ideally, to minimise the computational burden while simultaneously improving estimation accuracy, it would be desirable to consider the nearest neighbours to the focal shared haplotypes in the local genealogy.
-If the nearest neighbours are found among the haplotypes in $X_d$ and paired with the focal haplotypes in $X_c$ they are likely to coalesce \Correct{more closely} to $t_d$ and would therefore be more informative for the estimation of focal allele age.
+If the nearest neighbours are found among the haplotypes in $X_d$ and paired with the focal haplotypes in $X_c$ they are likely to coalesce more closely to $t_d$ and would therefore be more informative for the estimation of focal allele age.
 
 For instance, a simple approach would be to compute the Hamming distance between haplotypes in $X_c$ and $X_d$ within a short region around the position of a given target site, such that a subset of presumed nearest neighbours can be selected based on a distance ranking.
-In practice, however, there are \Correct{two} caveats to such an approach.
+In practice, however, there are two caveats to such an approach.
 First, it would be computationally expensive to conduct an additional pairwise analysis for the (whole) sample at each target site, which may not outweigh the improvement gained through the reduction of $n_d$.
-\Correct{Second,} a dilemma arises in presence of data error, as the identification of nearest neighbours is likely to give preference to haplotypes in which the focal allele has been missed.
+Second, a dilemma arises in presence of data error, as the identification of nearest neighbours is likely to give preference to haplotypes in which the focal allele has been missed.
 \label{p:falseneg}%
 Such \emph{false negatives} distort the estimation of allele age as the \gls{ccf}
 computed for false discordant pairs could bias the resulting composite posterior distribution.
 % In such cases, the estimated age is expected to be approximately equal to or smaller than $t_c$, such that $\hat{t}$ is likely to be underestimated.
 
 It is important to note that the problem of finding false negatives in the data cannot be avoided if discordant pairs are formed by a random sampling process, but the chance of including false negatives is reduced if $n_d$ is small in comparison to the (haploid) sample size.
-Hence, the $n_d$ threshold defines a balance between accuracy and expected bias.
+Hence, the random sampling would strike a balance between accuracy and expected bias.
 
 % In the following, analyses were conducted using a threshold equal to the diploid sample size, $N$; that is ${n_d = \num{1000}}$ in analyses using $\mathcal{D}_A$, and ${n_d = \num{2500}}$ using $\mathcal{D}_B$ or $\mathcal{D}_B^{\ast}$.
 % Since the results presented in this section were obtained on true IBD information, they serve as a benchmark against which different IBD detection methods are compared in the section below.
@@ -804,16 +797,16 @@ Hence, the $n_d$ threshold defines a balance between accuracy and expected bias.
 
 
 The \texttt{tidy} algorithm for targeted IBD detection (see Chapters~3 and 4) was fully integrated in \texttt{rvage}, such that several methods for IBD detection were available to inform allele age estimation;
-namely the \gls{fgt}, \gls{dgt}, and the \Correct{genotype-based} \gls{hmm}.
+namely the \gls{fgt}, \gls{dgt}, and the genotype-based \gls{hmm}.
 
 In this section, \n{2} main analyses were conducted.
 First (\cref{sec:compare_ibd_methods}), dataset $\mathcal{D}_A$ was analysed to provide a comparison to \cpref{sec:age_validation_analysis}, where true shared haplotype information was used to validate the age estimation method.
 Second (\cref{sec:age_generror}), an extensive analysis was performed on datasets $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$ to assess the impact of data error on age estimation.
-\Addition{Note that the impact of phasing error was also evaluated in the latter, but which affected only the \gls{fgt}.}
+Note that the impact of phasing error was also evaluated in the latter, but which affected only the \gls{fgt}.
 
 The IBD detection methods used here were originally designed to infer shared haplotype segments in individuals sharing a focal allele.
-While this condition is fulfilled when considering concordant pairs, the IBD detection in discordant pairs is problematic.
-\Correct{In the section below, I describe the modifications made to infer shared haplotypes in discordant pairs.}
+While this condition is fulfilled when considering concordant pairs, IBD detection in discordant pairs is problematic.
+In the section below, I describe the modifications made to infer shared haplotypes in discordant pairs.
 
 
 %
@@ -832,10 +825,10 @@ But because the \n{2} individuals considered in a discordant pair do not share t
 \input{chapter5/fig/info_fgt_discord}
 %
 
-\Correct{However, breakpoints in discordant pairs can be detected as based on the allele frequencies observed in the sample.}
+However, breakpoints in discordant pairs can be detected as based on the allele frequencies observed in the sample.
 Let \fk{} denote the number of allele copies at focal site $b_i$.
-At a distal site, $b_j$, let \fk{c} denote the number of allele copies observed only within the subsample $X_c$ \Correct{(who carry the focal allele at the focal position)}.
-Also, let \fk{s} be the number of allele copies \Correct{at $b_j$} in the whole sample.
+At a distal site, $b_j$, let \fk{c} denote the number of allele copies observed only within the subsample $X_c$ (who carry the focal allele at the focal position).
+Also, let \fk{s} be the number of allele copies at $b_j$ in the whole sample.
 A recombination breakpoint is indicated at $b_j$ if the \n{2} haplotypes carry different alleles and if ${\fk{c} < \fk{}}$ and ${\fk{c} < \fk{s}}$; additionally ${\fk{s} > 1}$ to exclude singletons and ${(\fk{s} - \fk{c}) > (2N - \fk{})}$ to exclude sites that are monomorphic within $X_d$, where $2N$ refers to the number of haplotypes in the sample.
 The condition implies the existence of the \n{4} allelic configurations at any of the haplotypes in the sample but is not bound by haplotype occurrence in \n{2} diploid individuals.
 The \gls{fgt} thereby still holds but is practically inverted.
@@ -858,8 +851,8 @@ The \gls{hmm} includes a probabilistic model for observing each possible genotyp
 Both the emission and initial probabilities were determined empirically, from data before and after the inclusion of realistic genotype error rates.
 
 The initial state probability corresponds to the probability of correctly observing a concordant pair through allele sharing, \ie the true positive rate of observing heterozygous genotypes at a given target site where both individuals share the focal allele, which was determined per focal allele frequency (\fk{}).
-The \Correct{empirical model was extended such that there was an additional initial state probability available and applied to} discordant pairs.
-\Correct{By comparing the data before and after error ($\mathcal{D}_B$~and~${\mathcal{D}_B}^{\ast}$), the initial state probability was determined as follows.}
+The empirical model was extended such that there was an additional initial state probability available and applied to discordant pairs.
+By comparing the data before and after error ($\mathcal{D}_B$~and~${\mathcal{D}_B}^{\ast}$), the initial state probability was determined as follows.
 For each \fk{}~category, I randomly selected \n{1000} target sites in the dataset ``before error'' for which I randomly selected \n{1000} discordant pairs per target site.
 I then compared these genotypes to the corresponding genotypes in the dataset ``after error'' to determine the true positive rate.
 The mean per \fk{} was taken as the empirical initial state probability.
@@ -867,16 +860,16 @@ The resulting distribution is shown in \cpref{fig:info_hmm_discord}; the initial
 However, the initial state probability for the discordant case is similar to the concordant one.
 A possible explanation is that this is particularly driven by the heterozygous status being false.
 
-\Addition{The same empirical emission model was applied to discordant pairs as it follows from the coalescent (under the assumption of the infinite sites model) that the relationship at any site in the genome can be traced back to a common ancestor if looking back far enough.
+The same empirical emission model was applied to discordant pairs as it follows from the coalescent (under the assumption of the infinite sites model) that the relationship at any site in the genome can be traced back to a common ancestor if looking back far enough.
 However, it must be noted that the current model was constructed to consider recent IBD.
-It can be expected that inference at discordant pairs is therefore less accurate.}
+It can be expected that inference at discordant pairs is therefore less accurate.
 
 
 Note that both the \gls{dgt} and the \gls{hmm}-based approach may operate on genotype data alone.
 Importantly, if haplotype information is not available, the sets $X_c$ and $X_d$ are formed by assigning all individuals that are heterozygous to $X_c$ while all others are assigned to $X_d$, but excluding individuals that are homozygous for the focal allele.
 % This may reduce the information available from the sample, but the effect is expected to be negligible if the focal allele is rare.
 Since haplotype data are required to determine pairwise differences along haplotype sequences, \ClockM and \ClockC cannot be used with genotype data.
-\Correct{Here, analyses using the \gls{dgt} and the \gls{hmm}-based approach were performed on haplotypes although genotype data alone would suffice.}
+Here, analyses using the \gls{dgt} and the \gls{hmm}-based approach were performed on haplotypes although genotype data alone would suffice.
 
 
 
@@ -940,7 +933,8 @@ Throughout, the \gls{fgt} showed a higher accuracy compared to the other IBD det
 % In comparison to the other detection methods, the \gls{fgt} outperformed both the \gls{dgt} and \gls{hmm} with regard to each time measure.
 % The \gls{hmm} showed slightly higher levels of accuracy than the \gls{dgt} in \ClockR, where $r_S$ was higher and \gls{rmsle} lower in terms of each time measure for the \gls{hmm}.
 % Similarly, in both \ClockM and \ClockC, \gls{rmsle} scores were lower for the \gls{hmm} compared to the \gls{dgt}, whereas $r_S$ measures were similar.
-Relative age estimates are shown for distinct \fk{}~ranges in \cpref{fig:vanilla_hist}, where the relative age for corresponding results obtained by using true IBD information is given for comparison per clock model; see \cpref{fig:discords_hist}.
+Relative age estimates are shown for distinct \fk{}~ranges in \cpref{fig:vanilla_hist}
+%, where the relative age for corresponding results obtained by using true IBD information is given for comparison per clock model; see \cpref{fig:discords_hist}.
 Analyses under \ClockM and \ClockC showed a substantial difference between alleles at lower and higher frequencies; \eg overall accuracy of \fk{[2,5]} variants was increased compared to \fk{}~variants at higher frequencies in each method.
 This difference was reduced under \ClockR, but the \gls{dgt} showed an accuracy decrease for \fk{[2,5]} variants.
 
@@ -961,13 +955,14 @@ This difference was reduced under \ClockR, but the \gls{dgt} showed an accuracy 
 
 
 These results suggested that the accuracy of estimated allele age is crucially dependent on correct inference of the underlying IBD structure.
-\Correct{The clock models behave differently when the length of an IBD segment is over or underestimated.}
+The clock models behave differently when the length of an IBD segment is over or underestimated.
 It can be expected that \ClockM may indicate an older allele age if IBD length is overestimated, due to potentially including a larger number of mutational differences which suggests an older \gls{tmrca}.
 Conversely, \ClockR may indicate a younger age, because a more recent \gls{tmrca} is suggested when IBD length is relatively long.
 
 % The overestimation of IBD lengths, which is generally expected for each method, affected each clock model differently.
 % While \ClockM overall resulted in an overestimation of allele age when IBD is overestimated, this pattern was reversed in \ClockR.
 % Although both models are combined in \ClockC, the impact of mutational differences, seen at the overestimated regions of detected IBD segments, was substantial and could not be mitigated by considering recombinational length.
+
 
 I found that the \gls{fgt} was the best performing method for the targeted detection of IBD segments, as the accuracy of estimated age was similar to the expectations defined by true IBD information in \cref{sec:age_validation_analysis}.
 However, the estimation was more accurate for target sites at lower allele frequencies.
@@ -985,13 +980,13 @@ This was explored in the section below.
 %
 
 Allele age was estimated using datasets $\mathcal{D}_B$~and~$\mathcal{D}_B^{\ast}$, to compare the accuracy of the estimation method before and after error.
-\Addition{Shared haplotype inference was performed using the \gls{fgt}, \gls{dgt}, and the genotype-based \gls{hmm}.
-In addition, age was estimated using true IBD information as determined from simulation records.}
+Shared haplotype inference was performed using the \gls{fgt}, \gls{dgt}, and the genotype-based \gls{hmm}.
+In addition, age was estimated using true IBD information as determined from simulation records.
 
 In total, \n{5000} target sites were randomly selected at allele frequency ${\leq 0.5\%}$ (\fk{[2,25]}).
 Note that these were sampled from the subset of variants unaffected by error in $\mathcal{D}_B^{\ast}$, to ensure that alleles correctly identified haplotype sharing.
 A threshold of ${n_d = \num{2500}}$ was applied to randomly select concordant pairs at a given target site.
-\Correct{Note that statistically phased data was available for both $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$, which were included here to assess the impact of phasing error, but which can only affect the \gls{fgt}.}
+Note that statistically phased data was available for both $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$, which were included here to assess the impact of phasing error, but which can only affect the \gls{fgt}.
 
 % The allele age estimation method was evaluated under each clock model and each method for IBD detection, on data before and after the inclusion of genotype error; \ie using datasets ${\mathcal{D}_B}$ and ${\mathcal{D}_B^{\ast}}$, respectively.
 % A set of \n{10000} target sites selected at \fk{[2,25]} in a sample of ${N = \num{2500}}$ diploid individuals, using a threshold of ${n_d = \num{2500}}$, which amounted to \dec{25.281233}~million pairwise analyses per comparison.
@@ -1019,11 +1014,11 @@ A threshold of ${n_d = \num{2500}}$ was applied to randomly select concordant pa
 %
 
 First, estimation based on the true IBD structure of the sample is compared before and after error.
-\Correct{Results are shown} in \cref{fig:generror_scat_tru}{a} (\pref{fig:generror_scat_tru}).
+Results are shown in \cref{fig:generror_scat_tru}{a} (\pref{fig:generror_scat_tru}).
 The most striking discovery is the extent of overestimation after error under the mutation clock model, \ClockM, which was similarly high in the combined clock, \ClockC.
-\Correct{It is suggested that} age was overestimated due to misclassified alleles which may have substantially increased the number of observed mutational differences observed within the shared haplotype interval.
+It is suggested that age was overestimated due to misclassified alleles which may have substantially increased the number of observed mutational differences observed within the shared haplotype interval.
 
-\Correct{Rank correlation} decreased in \ClockM from ${r_S = \dec{0.869553}}$ to ${r_S = \dec{0.517705}}$ with regard to $t_c$, before and after error.
+Rank correlation decreased in \ClockM from ${r_S = \dec{0.869553}}$ to ${r_S = \dec{0.517705}}$ with regard to $t_c$, before and after error.
 This was similar in \ClockC, where $r_S$ at $t_c$ decreased from \dec{0.884482} to \dec{0.592839}, respectively.
 The proportion of correctly estimated alleles (${t_c < \hat{t} < t_d}$) in \ClockM was \Percent{75.39382} before and
 \Percent{24.06780} after error, which was similar in \ClockC, where
@@ -1064,16 +1059,16 @@ Results based on the \gls{fgt} are shown in
 Before error, \SIlist{53.02094;50.84745;60.03988}{\percent} of alleles were correctly inferred from true haplotype data in \ClockM, \ClockR, and \ClockC, respectively.
 When phased data were used, this changed only slightly; \SIlist{50.82752;51.365902;59.18245}{\percent} in \ClockM, \ClockR, and \ClockC, respectively.
 Notably, the proportion of correctly inferred alleles increased in \ClockR due to phasing error.
-\Correct{It is suggested that} the tendency for underestimation that was generally seen in \ClockR may have been mitigated by further reduction of IBD segment lengths resulting from phasing error.
+It is suggested that the tendency for underestimation that was generally seen in \ClockR may have been mitigated by further reduction of IBD segment lengths resulting from phasing error.
 The small difference between true and phased data was further reflected in $r_S$, which changed from \numrange{0.679635}{0.660366} in \ClockM, \numrange{0.779995}{0.764215} in \ClockR, and \numrange{0.741871}{0.731383} in \ClockC, with regards to $t_d$.
 
-\Correct{After error}, the overall proportion of correct alleles was reduced, but again the differences between true and phased data were small.
+After error, the overall proportion of correct alleles was reduced, but again the differences between true and phased data were small.
 On true haplotypes, the proportion of correct alleles was \SIlist{44.26720;45.024925;42.03390}{\percent} in \ClockM, \ClockR, and \ClockC, respectively, whereas \SIlist{43.54935;46.001994;41.63509}{\percent} of alleles were correct using phased haplotypes.
 Likewise, $r_S$ and \gls{rmsle} scores did not suggest notable differences between estimation results from true and phased haplotypes; see \cpref{tab:stats_generror}.
 
-\Correct{In the previous analysis using true IBD, it was suggested} that genotype error may induce an overestimation of allele age in \ClockM and \ClockC.
+In the previous analysis using true IBD, it was suggested that genotype error may induce an overestimation of allele age in \ClockM and \ClockC.
 However, this was reduced here,
-\Correct{possibly because phasing error may result in truncated shared haplotype intervals, such that shorter intervals may mitigate the effects of data error on observed pairwise differences in a pair haplotypes.}
+possibly because phasing error may result in truncated shared haplotype intervals, such that shorter intervals may mitigate the effects of data error on observed pairwise differences in a pair haplotypes.
 
 %
 \input{chapter5/fig/generror_scat_dgt}
@@ -1085,7 +1080,7 @@ For \ClockM and \ClockC, the estimation resulted in \SIlist{26.34098;36.94915}{\
 % While the majority of alleles in \ClockM and \ClockC were overestimated, \SIlist{70.04985;57.84646}{\percent} respectively, \SI{97.58724}{\percent} were underestimated in \ClockR (none were overestimated).
 The tendency to overestimate allele age was increased after error.
 % The proportions of alleles overestimated were \SIlist{77.30808;67.85643}{\percent} in \ClockM and \ClockC, respectively.
-This was also seen for \ClockR, where the proportion of correctly inferred alleles increased to \SI{15.692921}{\percent}, \Correct{but at a loss of accuracy.}
+This was also seen for \ClockR, where the proportion of correctly inferred alleles increased to \SI{15.692921}{\percent}, but at a loss of accuracy.
 Rank correlation, $r_S$, was \numlist{0.746385;0.627943;0.406151} at $t_c$, $t_m$, and $t_d$ before error, and \numlist{0.588234;0.504469;0.328094} after error; see \cpref{tab:stats_generror}.
 % Note that rank correlation at $t_m$ and $t_d$ was higher in \ClockM and \ClockC, both before and after error.
 % However, the same measures taken after error actually suggested that the accuracy increased in \ClockM and \ClockC; see .
@@ -1095,15 +1090,15 @@ Rank correlation, $r_S$, was \numlist{0.746385;0.627943;0.406151} at $t_c$, $t_m
 \input{chapter5/fig/generror_scat_hmm}
 %
 
-The accuracy of age estimation using the \Correct{genotype-based} \gls{hmm} was relatively high before error; that is, more accurate in comparison to the \gls{fgt} in \ClockM, similar in accuracy to the \gls{dgt} in \ClockR, and similar to the \gls{fgt} in \ClockC.
+The accuracy of age estimation using the genotype-based \gls{hmm} was relatively high before error; that is, more accurate in comparison to the \gls{fgt} in \ClockM, similar in accuracy to the \gls{dgt} in \ClockR, and similar to the \gls{fgt} in \ClockC.
 The density of inferred allele age based on the \gls{hmm} is given in \cref{fig:generror_scat_hmm}{e} (\pref{fig:generror_scat_hmm}).
 
 Before error, the proportion of correct alleles was \SI{47.53739}{\percent} in \ClockM, \SI{3.629113}{\percent} in \ClockR, and \SI{57.82652}{\percent} in \ClockC.
 Allele age was generally underestimated in \ClockR (\SI{96.35095}{\percent}).
 This was increased after error, resulting in an underestimated proportion of \SI{98.30508}{\percent} in \ClockR, as the proportion of correct alleles was overall reduced; \SIlist{16.65005;27.65703}{\percent} in \ClockM and \ClockC, respectively.
 Also, \gls{rmsle} scores were lowest for the \gls{hmm} under each clock model after error; see \cpref{tab:stats_generror}.
-\Correct{Rank correlation} before and after error, for $r_S$ at $t_c$, decreased from \dec{0.702418} to \dec{0.534920} in \ClockM, and from \dec{0.733298} to \dec{0.569244} in \ClockC.
-Although rank correlation for the \gls{hmm} was high in \ClockR, \eg $r_S$ at $t_c$ was \dec{0.751100} before and \dec{0.737036} after error, \Correct{estimation bias was substantial both before and after error.}
+Rank correlation before and after error, for $r_S$ at $t_c$, decreased from \dec{0.702418} to \dec{0.534920} in \ClockM, and from \dec{0.733298} to \dec{0.569244} in \ClockC.
+Although rank correlation for the \gls{hmm} was high in \ClockR, \eg $r_S$ at $t_c$ was \dec{0.751100} before and \dec{0.737036} after error, estimation bias was substantial both before and after error.
 % Although allele age was vastly underestimated, deviations appeared to be consistent.
 
 % %
@@ -1132,12 +1127,12 @@ Although rank correlation for the \gls{hmm} was high in \ClockR, \eg $r_S$ at $t
 
 I demonstrated the validity of the age estimation framework using simulated data where I showed that age can be estimated with very high accuracy.
 However, certain problems may arise when working with real data.
-Notably, ihe impact of phasing error is small in comparison to genotypic (or allelic) misclassification, which is likely to bias the estimation process.
+Notably, the impact of phasing error is small in comparison to genotypic (or allelic) misclassification, which is likely to bias the estimation process.
 
 Generally, imperfect data may affect the estimation of allele age in \n{2} ways.
 First, the method was shown to be highly susceptible to inaccurate IBD inference, where each clock model behaves differently to the over or underestimation of IBD length.
 % In this regard, the \gls{hmm}-based approach for IBD inference was shown to maintain consistency even if genotype error is present.
-However, second, \Correct{even for a method that can infer shared haplotype segments} with high accuracy, the alleles observed at a focal site in the sample may wrongly identify haplotype sharing.
+However, second, even for a method that can infer shared haplotype segments with high accuracy, the alleles observed at a focal site in the sample may wrongly identify haplotype sharing.
 To account for the possibility that some concordant pairs may actually be discordant pairs (or \emph{vice versa}), for example, a separate filtering method would be needed to exclude pairs based on patterns of the inferred haplotype structure.
 But because such a method would effectively predict falsely called or typed alleles in the data, a solution to this problem may not be straightforward.
 % Yet it would be possible, for example, to exclude pairs on basis of patterns of allele sharing or consistency of the inferred IBD structure.
@@ -1148,18 +1143,9 @@ But because such a method would effectively predict falsely called or typed alle
 % A possible solution is presented in Chapter~3, where haplotype phase was determined from genotype pairs in detected IBD segments, based on the genealogical constrains that arise under haplotype sharing by descent.
 % Yet, further work is needed to determine the feasibility of such an approach.
 
-\Addition{In conclusion, a substantial amount of estimation bias was seen for any of the evaluated methods for shared haplotype inference.
+In conclusion, a substantial amount of estimation bias was seen for any of the evaluated methods for shared haplotype inference.
 Due to the dependency on finding genuine haplotype intervals, the allele age estimation method may therefore not be regarded as being reliable in applications to real data.
-However, a solution is attempted in the following section, where I present a novel haplotype-based \gls{hmm} as an advancement over of the current genotype-based method.}
-
-
-\DeleteNote{Section ``Generation of error correction models''}
-
-
-\DeleteNote{Section ``Age of alleles with predicted effects in 1000 Genomes data''}
-
-
-
+However, a solution is attempted in the following section, where I present a novel haplotype-based \gls{hmm} as an advancement over of the current genotype-based method.
 
 
 
@@ -1365,7 +1351,6 @@ However, a solution is attempted in the following section, where I present a nov
 %
 
 
-\AdditionNote{All sections below were added to include new results as presented in the viva}
 
 
 %
@@ -1410,7 +1395,7 @@ The probability of transition from \emph{ibd} to \emph{non} is modelled as
 	1 - \euler{-2\Ne r_j \frac{\xi_k}{2}}
 \end{equation}
 where $j$ indicates the position at the current site in the sequence and $k$ indicates the the focal position.
-The value of $r_j$ is the genetic distance between the current and the Immediately previous site observed in the sequence.
+The value of $r_j$ is the genetic distance between the current and the immediately previous site observed in the sequence.
 The value of $\xi_k$ is the expectation of the age of the focal allele after \citet{Kimura:1973ug}, calculated using \ctref{eq:intro_kimura_ohta}.
 The probability of remaining in \emph{ibd} is ${1-\varphi}$.
 The model employs a ``left-to-right'' architecture, where transition from \emph{non} to \emph{ibd} have zero probability; \ie once \emph{ibd} has been left the sequence stays in \emph{non} with probability equal to one.
@@ -1444,14 +1429,14 @@ The resulting model is illustrated in \cpref{fig:hhmm_emission_model}.
 %
 
 One caveat of applying such a cutoff is that the model is implicitly conditioned on observations deriving from relatively recent coalescent events.
-But, notably, when comparing cutoffs at \n{100} and \n{1000} generations, differences between averaged distributions were relatively small; as shown in \cref{fig:hhmm_emission_model}.
+But, notably, when comparing cutoffs at \n{100} and \n{1000} generations, differences between averaged distributions were relatively small; as shown in \cpref{fig:hhmm_emission_model}.
 In the following, the emission models generated from dataset $\mathcal{D}_B$ were used in all analyses of error-free data; otherwise, the model generated from $\mathcal{D}_B^{\ast}$ was used.
 
 
 
 \paragraph{Initial state probabilities.}
 The estimated true positive rate of observing allelic pairs in data before and after error was taken as an empirical model of the initial state probabilities.
-Note that for error-free data implies the initial probability of being in \emph{ibd} is equal to one, as it is certain that a focal haplotype pair shares an allele by descent at a given target site; given the assumptions of the infinite sites model.
+Note that for simulated, error-free data the initial probability of being in \emph{ibd} is equal to one, as it is certain that a focal haplotype pair shares an allele by descent at a given target site.
 Again, datasets $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$ were used.
 
 %
@@ -1460,7 +1445,7 @@ Again, datasets $\mathcal{D}_B$ and $\mathcal{D}_B^{\ast}$ were used.
 
 Empirical rates were estimated as follows.
 At a given site, the sample was distinguished into carrier and non-carrier haplotypes for the allele at that site to form all possible concordant and discordant pairs.
-Each pair was analysed in turn where allele combinations were compared before and after error to establish the rate at which alleles were observed correctly at that site and that pair.
+Each pair was analysed in turn where allele combinations were compared before and after error to establish the rate at which alleles were correctly observed at that site and that pair.
 That is, allelic combinations $(1,1)$ in concordant pairs and $(0,1)$ or $(1,0)$ in discordant pairs.
 This was done at each value of the allele count in the simulated dataset ($N=\n{5000}$ haplotypes), but where a maximum of \n{1000} randomly selected sites was analysed from the sites found at the same allele count.
 Measured rates were then averaged per bin; the result is shown in \cpref{fig:hhmm_initial_model}.
@@ -1517,7 +1502,7 @@ Thereby, allelic differences are restricted to the mutations that have occurred 
 This assumes the infinite sites model; \ie excluding back-mutations or recurrent mutations.
 
 The implementation of this rule substantially improved estimation accuracy in presence of data error, and did not affect accuracy when data was error-free (simulated haplotypes); note that these results are not shown for brevity.
-The restriction rule was used in the analysed presented below.
+The restriction rule was used to produce the results presented below.
 
 A similar rule could be implemented for discordant pairs.
 However, the length of share haplotype segments is expected to be shorter, reducing the possibility to encounter misclassified alleles.
@@ -1561,17 +1546,17 @@ The summary statistics used to measure accuracy are also given in \cref{fig:hhmm
 %
 
 The accuracy to infer shared haplotype lengths in concordant pairs was high overall.
-The impact of phasing error were seen when intervals were relatively long; \eg at \fk{\leq 10}.
+The impact of phasing error was seen when intervals were relatively long; \eg at \fk{\leq 10}.
 At higher frequencies, differences between simulated and phased haplotypes became negligible.
 However, intervals showed a tendency to be overestimated towards higher frequency, which was pronounced after error.
 
-In comparison, accuracy of intervals inferred in discordant pairs was low.
+In comparison, accuracy was low for intervals inferred in discordant pairs.
 While the majority of segments were shorter than those found around concordant pairs, which is expected, inferred lengths were generally underestimated before error.
 Notably, median genetic length was longer after error, but at a loss of accuracy; \eg measured using Spearman's rank correlation coefficient ($r_S$) and \glsentryfull{rmsle}.
 Also, these metrics did not suggest a notable difference between results obtained on simulated or phased data.
 
 When using the relaxed nearest neighbour approach, median genetic length inferred around selected discordant pairs was longer compared to randomly selected pairs, which suggested that the approach was useful to prioritise the nearest genealogical neighbours in the sample.
-However, $r_S$ was reduced when compared to the random selection approach, while lower values of \gls{rmsle} indicated a smaller magnitude of error.
+However, $r_S$ was reduced compared to the random selection approach (lower values of \gls{rmsle} indicate a smaller magnitude of error).
 
 
 
@@ -1589,7 +1574,7 @@ Note that ``true'' age was set at $t_m$; \ie the geometric mean between the time
 \input{chapter5/fig/hhmm_age}
 %
 
-Each clock model was measured at overall high accuracy, both before and after error, but where \ClockC was found to outperform other models throughout.
+Each clock model was overall high in accuracy, both before and after error, but where \ClockC was found to outperform other models throughout.
 For example, the proportion of alleles ``correctly'' estimated (such that estimated age was within the interval between $t_c$~and~$t_d$) was highest for \ClockC when the nearest neighbour approach was used, consistently yielding $>50\%$.
 The only exception was seen when discordant pairs were selected randomly, where the proportion of correct alleles was higher for \ClockR.
 Accuracy was overall lower for \ClockM in each comparison.
@@ -1681,7 +1666,7 @@ While it would be possible to increase the number of hidden states to include in
 An additional analysis was conducted using the results obtained above by sorting pairs by their true \gls{tmrca} into broader time intervals at which accuracy was measured ($r_S$~and~\gls{rmsle}).
 The results are given in \cpref{tab:stats_psmc_tmrca}.
 The PSMC-HMM was notably more accurate compared to each clock model when discordant pairs where considered.
-But for concordant pairs, \ClockC outperformed \gls{psmc} when the true coalescent time was more recent that \n{10000} generations.
+But for concordant pairs, \ClockC outperformed \gls{psmc} when true coalescent time was more recent that \n{10000} generations.
 
 
 
@@ -1725,7 +1710,7 @@ In particular, the current procedure considered 64 coalescent time intervals, wh
 Nonetheless, the results presented in this section suggested that the haplotype-based \gls{hmm} used for targeted shared haplotype inference achieved comparable estimates of \gls{tmrca}, despite incorporating a (biased) empirical emission model.
 I further showed that the haplotype-based \gls{hmm} was able to estimate age of alleles that occurred at relatively high frequencies in the data.
 Also, note that the decreased accuracy in inferences at discordant pairs had only minor effects on subsequent estimation of allele age.
-Thus, I used the haplotype-based \gls{hmm} in the following section to estimate allele age in real data.
+% Thus, I used the haplotype-based \gls{hmm} in the following section to estimate allele age in real data.
 
 
 
@@ -1736,7 +1721,7 @@ Thus, I used the haplotype-based \gls{hmm} in the following section to estimate 
 %
 
 The haplotype-based \gls{hmm} was used for allele age estimation in an extensive analysis of data from the \glsentryfull{1kg} Phase~\rom{3}.
-I selected \n{50000} sites at random in chromosomes~1-22, but only at positions within high confidence regions as defined in the strict accessibility mask available for the Phase~\rom{3} dataset.
+I selected \n{50000} sites at random in chromosomes~20, but only at positions within high confidence regions as defined in the strict accessibility mask available for the Phase~\rom{3} dataset.
 The diploid sample size was ${N=\num{2504}}$.
 Note that all sites at \fk{\geq 2} were considered.
 Model parameters in \texttt{rvage} were ${\Ne=\n{10000}}$, ${\mu=\num[round-precision=1]{1.2e-8}}$, and recombination rates according to genetic maps available from \gls{hapmap} Phase~\rom{2}, Build~37.\footnote{HapMap recombination map: \url{ftp://ftp.ncbi.nlm.nih.gov//hapmap/recombination/2011-01_phaseII_B37/genetic_map_HapMapII_GRCh37.tar.gz} \accessed{2016}{11}{12}}
@@ -1750,8 +1735,8 @@ I conclude this section with selected examples where allele age was estimated at
 \subsubsection{Shared haplotypes inferred by population}
 %
 
-The set of pairs was divided into pairs at which the focal allele was shared among the individuals within the same population and those at which it was shared between different groups.
-This implied that only concordant pairs were considered, of which \dec{2.357372}~million were retained after removing boundary cases.
+In this section, I focused on concordant pairs of which \dec{2.357372}~million were retained after removing boundary cases.
+Specifically, I compared haplotype length distributions for pairs at which the focal allele was shared among the individuals within the same population and those at which it was shared between different groups.
 Median physical and genetic lengths are shown in \cpref{fig:1KG20_pop_len_hhmm}; the proportion of pairs at which alleles were shared within and between populations is indicated.
 
 %
@@ -1805,7 +1790,7 @@ Estimated allele age is shown in between the sorted concordant and discordant pa
 
 The example shown in \cref{fig:1KG20_age_example}{a} is an intron variant the the MCM6 locus on chromosome~2, which sits approximately \SI{22}{\kilo\basepair} upstream of the LCT gene (encoding the lactase enzyme) and has been associated with lactase persistence in Europeans.
 For example, \citet{enattah2002identification} found that the variant occurs in distantly related populations and therefore concluded that it is relatively old.
-Research on the LCT gene has indicated signatures of recent positive selection around years ago ${\n{5000}-\n{10000}}$ \citep{bersaglieri2004genetic}.
+Research on the LCT gene has indicated signatures of recent positive selection around ${\n{5000}-\n{10000}}$ years ago \citep{bersaglieri2004genetic}.
 Here, age estimation suggested that the variant originated at around \n{800} generations ago (according to \ClockC).
 
 A missense variant at the PRDM9 locus in chromosome~5 is shown in \cref{fig:1KG20_age_example}{b}.
@@ -1826,7 +1811,7 @@ However, here, I only attempted to demonstrate one possible application of the m
 %
 
 The results in this section provided a general overview of the haplotype structure and allele age distributions that can be expected when the methodology is applied to larger, diverse sample data.
-In must be noted that the methods were previously tested on target sites at which no data error was present, but it should be expected that the inclusion of false positive or false negative sites may substantially bias the results.
+It must be noted that the methods were previously tested on target sites at which no data error was present, but it should be expected that the inclusion of false positive or false negative sites may substantially bias the results.
 Although, here, I included sites that were called with high confidence in \gls{1kg}, it was nonetheless possible that allele sharing was flawed at a considerable fraction of sites.
 
 An overview such as presented here can only be limited, because the most interesting observations would arise from looking at particular variant sites; \eg due to effects such as selection, migration, or population stratification.

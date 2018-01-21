@@ -281,10 +281,6 @@ list-final-separator={, and }%
 \setstcolor{red}
 \setul{0.5ex}{0.3ex}
 
-% final version change
-\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
-\DeclareRobustCommand{\Changed}[1]{{\sethlcolor{babyblueeyes}\hl{#1}}}
-
 % correction
 \newcommand{\Correct}[1]{\hl{#1}}
 \newcommand{\CorrectNote}[1]{%
