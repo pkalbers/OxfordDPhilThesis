@@ -507,7 +507,7 @@ Since the innermost breakpoint interval delimits the inferred IBD segment, it ca
 
 % \CorrectNote{Section re-written to follow the changes made in \cpref{sec:ibd_beagle_tru}}
 
-The probabilistic \texttt{Refined\,IBD} method implemented in \texttt{Beagle} version~4.1 \citep{Browning:2013eh}\footnote{Beagle 4.1: \url{https://faculty.washington.edu/browning/beagle/beagle.html} \accessed{2016}{11}{22}} was used for IBD detection in data after the inclusion of error.
+The probabilistic \texttt{Refined\,IBD} method implemented in \texttt{Beagle} version~4.1 \citep{Browning:2013eh} was used for IBD detection in data after the inclusion of error.\footnote{Beagle 4.1: \url{https://faculty.washington.edu/browning/beagle/beagle.html} \accessed{2016}{11}{22}}
 Because the method requires haplotype data, the analysis was performed on the generated (``true'') haplotypes and the set of phased haplotypes; in the following referred to as \cref{A4:fgt_h,,A4:fgt_p}.
 The purpose of this analysis was to determine the impact of genotype error on the detection of contiguous shared haplotype intervals.
 Because \texttt{Refined\,IBD} attempts to infer IBD for any haplotype pair without reference to a specific target allele, it was necessary to match the set of reported IBD segments to the true shared haplotype intervals that were previously determined from simulation records (\ie all segments around shared \fk{[2,25]} alleles).
@@ -603,7 +603,7 @@ The distribution of segment length inferred in \cref{A4:fgt_h,,A4:fgt_p} is show
 Two conclusions can be drawn from the analysis of simulated data after the integration of (realistic) error rates.
 First, the distribution of shared alleles is altered in presence of error such that a given shared allele may not correctly identify genomic regions of recent shared ancestry between pairs of haplotypes.
 In cased where a rare allele was missed (or removed through quality control), the underlying shared haplotype segment may still be retrieved from other, nearby rare variants that identify the same shared haplotype in a given haplotype pair.
-Conversely, in cases where a rare allele was falsely called or typed, it can be expected the the actual relationship between the haplotypes at that position is relatively old, such that the interval detected is likely to be relatively short.
+Conversely, in cases where a rare allele was falsely called or typed, it can be expected that the actual relationship between the haplotypes at that position is relatively old, such that the interval detected is likely to be relatively short.
 
 Second, the main insight gained from the analyses using the \gls{fgt}, \gls{dgt}, and \texttt{Refined\,IBD} is that the impact of error on the detection of shared haplotype segments is dramatic.
 As highlighted by the example shown in \cpref{fig:full_ibd_error}, neither method was able to infer contiguous intervals that accurately reflect the actual shared haplotype segment.
@@ -819,7 +819,7 @@ It follows that the expected frequency of a genotype pair is the joint probabili
 %
 
 Here, independence of genotype frequencies is assumed for the \emph{non} state, but which does not apply if the \n{2} individuals share a haplotype identical by descent as considered in the \emph{ibd} state.
-For example, under the the infinite sites model, it is expected that genotypes $g_{0,2}$ and $g_{2,0}$ cannot be observed if they share a haplotype by descent.
+For example, under the infinite sites model, it is expected that genotypes $g_{0,2}$ and $g_{2,0}$ cannot be observed if they share a haplotype by descent.
 For simplicity, \cpref{tab:genpairprop} provides a convenient representation of the composition of haplotypes per genotype pair in \emph{non} and \emph{ibd}, from which the expected genotype pair frequency can be derived.
 
 The probability of observing genotype pair ${g_{k_1,k_2}}$ is equal to its frequency in the sample.
@@ -1041,7 +1041,7 @@ The aim of the presented IBD-model is to find the most likely position along the
 Recall that the IBD segment around the focal variant is defined by the interval ${[b_L, b_R]}$, where $b_L$ and $b_R$ denote the breakpoints which delimit the region in which at least \n{1} recombination event is likely to have occurred to the left and right-hand side of the focal variant site at position $b_i$.
 To infer this interval, the most likely hidden state which generated the observed genotype pair is inferred at each site along the sequence.
 In general, given ${H}$ hidden states and an observation sequence of length~$m$, there are $H^m$ possible state sequences.
-For example, given this \n{2}-state \gls{hmm} and a short region of only \n{100} genotype pairs, the number of possible state sequences already exceeds the number of seconds the universe has existed\footnote{Current age of the universe: \num{42e16} seconds \accessed{2017}{02}{18}}.
+For example, given this \n{2}-state \gls{hmm} and a short region of only \n{100} genotype pairs, the number of possible state sequences already exceeds the number of seconds the universe has existed.\footnote{Current age of the universe: \num{42e16} seconds \accessed{2017}{02}{18}}
 To circumvent this problem, \citet{Rabiner:1989hs} formally advised the use of the \emph{Viterbi~algorithm} for sequence classification in \glspl{hmm}, which scales quadratically with the number of hidden states and has a time complexity of ${O(H^2 m)}$.
 
 %

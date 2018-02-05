@@ -1,29 +1,34 @@
 %!TEX root = ./main.tex
 
-%\smaller
-%\singlespacing
-%\setstretch{1.05}
 
 
 
-Recent advances in high-throughput genomic technologies have enabled the collection of DNA information for thousands of individuals, providing unprecedented opportunities to learn about the genetic architecture of complex disease.
+
+Advances in high-throughput genomic technologies have facilitated the collection of DNA information for thousands of individuals, providing unprecedented opportunities to explore the genetic architecture of complex disease.
 One important finding has been that the majority of variants in the human genome are low in frequency or rare.
-It has been hypothesised that the recent explosive growth of the human population afforded unexpectedly large amounts of rare variants with small but deleterious effects, suggesting that rare variants may play a significant role in the predisposition to complex disease.
-Moreover, properties specific to rare variants embody a rich source of information relating to their evolutionary history.
+It has been hypothesised that recent explosive growth of the human population afforded unexpectedly large amounts of rare variants with potentially deleterious effects, suggesting that rare variants may play a role in disease predisposition.
+But, importantly, rare variants embody a source of information through which we may learn more about our recent evolutionary history.
+In this thesis, I developed several statistical and computational methods to address problems associated with the analysis of rare variants and, foremost, to leverage the genealogical information they encode.
 
-In this thesis, I develop several statistical methods to address problems associated with the analysis of rare variants in the context of large cohorts linked to biomedical phenotype data, and to leverage the information they encode.
-Firstly, one constraint in genome-wide association studies is that lower-frequency variants are not captured by genotyping methods, but instead must be predicted through imputation from a reference panel.
-I develop a method to improve imputation accuracy by integrating genotype data from multiple reference datasets, which outperformed imputations from separate references in almost all comparisons (mean correlation with masked genotypes ${r^2 > 0.9}$).
-In a series of simulated case-control experiments, I demonstrate that this approach (meta-imputation) increases power to identify low-frequency variants of intermediate or high penetrance, improving power by 2.2--3.6\%.
-Secondly, I utilise rare variants as identifiers for recently co-inherited shared haplotypes, as rare variants are likely to have originated recently through mutation, making them highly population-specific.
-I develop a non-probabilistic method to detect shared haplotype segments that are identical by descent (IBD) from patterns of allele sharing and the detection of recombination breakpoints.
-I show that the latter can be inferred with higher accuracy at very low allele frequencies (${\leq 0.05\%}$, ${r^2 > 0.99}$) using either haplotype or genotype data.
-Thirdly, I show that genotype error poses a major problem in the analysis of empirical data, for example as obtained through whole genome sequencing or SNP genotyping, in particular towards lower allele frequencies (false positive rate, ${\text{FPR}=0.1}$, at frequency ${\leq 0.05\%}$).
-I therefore subsequently propose a novel approach to infer IBD from genotype data using a Hidden Markov Model (HMM) under an empirical error model, which I construct by identifying misclassified genotypes in existing datasets, showing that the HMM is robust in presence of error (${\leq 0.05\%}$, ${r^2 > 0.98}$) while previous methods fail (${r^2 < 0.02}$).
-Finally, the age of a rare allele (time since its creation through mutation) may provide evidence about the selective forces that resulted in its observed frequency, and its impact on fitness.
-I further develop a novel method to estimate rare allele age, based on the inferred IBD structure of a sample.
-I demonstrate that allele age can be estimated with high accuracy using the HMM-based approach for IBD detection, even in presence of genotype error (Spearman correlation coefficient ${r_S = 0.74}$, compared to ${r_S = 0.82}$ when true IBD data is available).
-I apply this method to data from the 1000 Genomes Project, showing that there are notable age differences between rare alleles of varying predicted phenotypic consequences.
+First, one constraint in genome-wide association studies is that lower-frequency variants are not well captured by genotyping methods, but instead are predicted through imputation from a reference dataset.
+I developed the \emph{meta-imputation} method to improve imputation accuracy by integrating genotype data from multiple, independent reference panels, which outperformed imputations from separate references in almost all comparisons (mean correlation with masked genotypes ${r^2 > 0.9}$).
+I further demonstrated in simulated case-control studies that meta-imputation increased the statistical power to identify low-frequency variants of intermediate or high penetrance by 2.2--3.6\%.
+
+Second, rare variants are likely to have originated recently through mutation and thereby sit on relatively long haplotype regions identical by descent (IBD).
+I developed a method that exploits rare variants as identifiers for shared haplotype segments around which the breakpoints of recombination are detected using non-probabilistic approaches.
+In coalescent simulations, I show that such breakpoints can be inferred with high accuracy (${r^2 > 0.99}$) around rare variants at frequencies ${\leq 0.05\%}$, using either haplotype or genotype data.
+
+Third, I show that technical error poses a major problem for the analysis of whole-genome sequencing or genotyping data, particularly for alleles below 0.05\% frequency (false positive rate, ${\text{FPR}=0.1}$).
+I therefore propose a novel approach to infer IBD segments using a Hidden Markov Model (HMM) which operates on genotype data alone.
+I incorporated an empirical error model constructed from error rates I estimated in publicly available sequencing and genotyping datasets.
+The HMM was robust in presence of error in simulated data (${r^2>0.98}$) while non-probabilistic methods failed (${r^2<0.02}$).
+
+Lastly, the age of an allele (the time since its creation through mutation) may provide clues about demographic processes that resulted in its observed frequency.
+I present a novel method to estimate (rare) allele age based on the inferred shared haplotype structure of the sample.
+The method operates in a Bayesian framework to infer pairwise coalescent times from which the age is estimated using a composite posterior approach.
+I show in simulated data that coalescent time can be inferred with high accuracy (rank correlation ${>0.91}$) which resulted in a likewise high accuracy for estimated age (${>0.94}$).
+When applied to data from the 1000 Genomes Project, I show that estimated age distributions were overall conform with frequency-dependent expectations under neutrality, but where patterns of low frequency and old age may hint at signatures of selection at certain sites.
+Thus, this method may prove useful in the analysis of large cohorts when linked to biomedical phenotype data.
 
 
 

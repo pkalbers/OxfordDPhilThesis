@@ -113,8 +113,8 @@ obs/.style={diamond,draw=black,fill=white,fill opacity=0.5,text opacity=1,thick,
 Transitions from each state into any state are indicated by \emph{solid} lines.
 The probability of transition from \emph{ibd} to \emph{non} is denoted by $\varphi$, and from \emph{non} to \emph{ibd} is set to zero; hence, once the chain proceeds into the \emph{non} state it cannot go back into \emph{ibd}.
 This is because the process is modelled such that only the innermost segment is inferred, relative to the focal position which sits at the start of the sequence.
-The input sequence consists of sequence data from a pair of haplotypes, resulting in \n{3} possible observation states; denoted by $h_{h_A h_B}$, where ${h_A,h_B \in \lbrace 0,1 \rbrace}$.
-The probabilities of emitting each possible haplotype pair given each hidden state are denoted by $\delta_{h_A h_B}$ and $\delta_{h_A h_B}$ for \emph{ibd} and \emph{non}, respectively; indicated by the \emph{dotted} lines.
+The input sequence consists of sequence data from a pair of haplotypes, resulting in \n{3} possible observation states; denoted by $h_{ab}$, where ${a,b \in \lbrace 0,1 \rbrace}$.
+The probabilities of emitting each possible haplotype pair given each hidden state are denoted by $\delta_{ab}$ and $\eta_{ab}$ for \emph{ibd} and \emph{non}, respectively; indicated by the \emph{dotted} lines.
 The direction of arrows indicates conditional dependence; \ie the transition from one hidden state into another state, or emission of a genotype pair while being in \emph{ibd} or \emph{non}.}%
 {fig:info_hmm_hap}
 \end{figure}

@@ -391,13 +391,16 @@ list-final-separator={, and }%
 
 
 % Always single column for front matter
-\newenvironment{alwayssingle}{
-       \@restonecolfalse
-       \if@twocolumn\@restonecoltrue\onecolumn
-       \else\if@openright\cleardoublepage\else\clearpage\fi
-       \fi}
-       {\if@restonecol\twocolumn
-       \else\newpage\thispagestyle{empty}\fi}
+\newenvironment{alwayssingle}
+{%
+\@restonecolfalse
+\if@twocolumn\@restonecoltrue\onecolumn
+\else\if@openright\cleardoublepage\else\clearpage\fi
+\fi%
+}{%
+\if@restonecol\twocolumn
+\else\newpage\thispagestyle{plain}\fi%
+}
 
 
 % Define title page
@@ -428,7 +431,8 @@ list-final-separator={, and }%
 		}
 	\end{center}
 	\vfill\null
-\end{alwayssingle}%
+	\end{alwayssingle}%
+	\thispagestyle{empty}
 }
 
 
@@ -623,6 +627,8 @@ urlcolor=marine,
 linktoc=all
 }
 
+\newcommand{\Link}[2]{\href{#2}{\color{black}{#1}}}%
+
 
 
 % Referencing
@@ -630,7 +636,7 @@ linktoc=all
 
 
 % List of abbreviations
-\usepackage[acronym,nopostdot,nonumberlist]{glossaries}
+\usepackage[acronym,nopostdot,nonumberlist,toc]{glossaries}
 \glstoctrue
 \glsnogroupskiptrue
 

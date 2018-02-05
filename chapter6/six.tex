@@ -18,9 +18,6 @@ Write a wise saying and your name will live forever.
 }
 
 
-\CorrectNote{Discussion re-written to reflect new results in Chapter~5}
-
-
 This thesis had the aim of developing novel strategies for the statistical analysis of rare genetic variants in context of complex disease research.
 In the time since I began working towards this broadly defined goal, many major milestones have been achieved in human genetic research, in particular due to (still ongoing) advancements in high-throughput sequencing technologies.
 This facilitated research on a previously unseen scale and offered a wide range of opportunities to be explored.
@@ -64,7 +61,7 @@ I thereby attempted to capture variants at lower frequencies or those specific t
 The method produces a single, canonical genotype dataset that can be used in subsequent association analyses.
 
 The method was evaluated, first, in terms of the achieved genotype accuracy, which was compared to each of the separately imputed datasets that were previously combined through meta-imputation.
-An second evaluation was performed through a series of simulated \gls{gwa} studies.
+A second evaluation was performed through a series of simulated \gls{gwa} studies.
 This, however, turned out to be particularly challenging due to substantial computational demands.
 Thousands of simulated datasets had to be generated, which were used as sample for imputations from multiple reference panels, such that each dataset was treated as an independent \gls{gwa} study.
 The main findings are summarised as follows.
@@ -84,7 +81,7 @@ Shortly after my work on this project was completed, \gls{1kg} Phase~\rom{3} was
 I decided not to repeat the analysis conducted for the evaluation of meta-imputation with the newly released dataset, because the larger sample size and higher marker density would entail that the time and computational load needed to repeat the analysis would be too prohibitive.
 
 In light of the imputation reference panel that became available through the \gls{hrc}, see \citet{McCarthy:2016gs}, potential applications of the meta-imputation method may be limited to specific niche problems.
-For example, for populations that are currently underrepresented in the \gls{hrc} panel, or when novel datasets become available that are more suited for imputations into a given study cohort than the \gls{hrc} alone.
+For example, for populations that are currently underrepresented in the \gls{hrc} panel, or when novel datasets become available that are more suited for imputations into a given study cohort than \gls{hrc} alone.
 
 
 
@@ -92,7 +89,7 @@ For example, for populations that are currently underrepresented in the \gls{hrc
 \subsection{Shared haplotype inference around rare variants}
 
 
-Recent advancements in high-throughput sequencing technologies have enabled the study of the rare variation present in the human genome.
+Recent advancements in high-throughput sequencing technologies have enabled the study of rare variation present in the human genome.
 It is assumed that frequency is indicative for the time since an allele was created through a mutation event.
 Rare alleles are therefore likely to indicate recent relationships among haplotypes, which is informative about recent demographic history and population structure, within and among populations.
 Given deeper insight into the sharing structure of alleles, it would be possible, for example, to infer the timing of demographic events.
@@ -106,7 +103,7 @@ The resulting interval is assumed to indicate the underlying shared haplotype se
 
 In Chapter~4, this idea was extended using a \gls{hmm} that operates on genotype data; referred to as $\operatorname{HMM}_g$ below.
 I determined genotype error rates in different sequencing and genotyping datasets, which I used to modify simulated data to perform subsequent evaluations of the developed detection methods in realistic settings.
-Error rates were also used to construct an empirical emission model to make the \gls{hmm} robust towards error in applications to real data.
+Empirically measured error rates were also used to construct an emission model to make the \gls{hmm} robust towards error in applications to real data.
 I employed a similar approach in a novel haplotype-based \gls{hmm}, presented in Chapter~5 and referred to as $\operatorname{HMM}_h$ below.
 
 I assessed the performance of the detection methodology developed in this chapter in comparison to an existing, probabilistic method for IBD detection (\emph{Refined\,IBD}), in simulated data with and without empirically measured distributions of data error, as well as in real data.

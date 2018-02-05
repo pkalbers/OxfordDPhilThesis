@@ -518,7 +518,7 @@ This approach has been found to achieve greater accuracy than \texttt{GERMLINE} 
 
 The method requires haplotype data and cannot be executed with genotype information alone.
 In the following, \cref{app:fgt_h} refers to the analysis conducted on true haplotypes and \cref{app:fgt_p} on phased haplotypes.
-The analysis was performed using default parameters in \texttt{Refined\,IBD} (retaining candidate segments at ${\mbox{LOD}>3.0}$) and after conversion of simulated data into \gls{vcf}\footnote{Variant Call Format: \url{http://vcftools.sourceforge.net/VCF-poster.pdf} \accessed{2016}{11}{22}}.
+The analysis was performed using default parameters in \texttt{Refined\,IBD} (retaining candidate segments at ${\mbox{LOD}>3.0}$) and after conversion of simulated data into \gls{vcf}.\footnote{Variant Call Format: \url{http://vcftools.sourceforge.net/VCF-poster.pdf} \accessed{2016}{11}{22}}
 
 
 The purpose of the following analysis was to evaluate whether \texttt{Refined\,IBD} could be used as a method to detect recombination breakpoints and thereby the length of the underlying shared haplotype.
@@ -721,7 +721,7 @@ These results are shown in \cpref{fig:1kg20_lengths}.
 Median physical length (and median genetic length) over the whole set of retained IBD segments was
 \SI{0.101027}{\mega\basepair} (\SI{0.1878143}{\centi\morgan}) using the \gls{fgt} and
 \SI{0.179916}{\mega\basepair} (\SI{0.3393392}{\centi\morgan}) using the \gls{dgt}.
-As was seen in the analysis of simulated data, the \gls{dgt} generally is more likely to overestimate breakpoint distance, leading the the discovery of longer intervals.
+As was seen in the analysis of simulated data, the \gls{dgt} generally is more likely to overestimate breakpoint distance, leading to the discovery of longer intervals.
 This discrepancy in length was more pronounced for \fk{2}~variants, for which median length was
 \SI{0.1236930}{\mega\basepair} (\SI{0.1947293}{\centi\morgan}) using the \gls{fgt} and
 \SI{0.2528860}{\mega\basepair} (\SI{0.4284813}{\centi\morgan}) using the \gls{dgt}.

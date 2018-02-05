@@ -13,7 +13,7 @@ Besides, it sounds really cool.
 %\chapter{A method to combine imputed genotypes from multiple reference panels}
 {
 \singlespacing
-\chapter{Meta-imputation of reference data to increase accuracy and power in association analysis}
+\chapter{Meta-imputation of multiple reference datasets for genome-wide association studies}
 \label{ch:metaimpute}
 \minitoc
 }
@@ -53,7 +53,7 @@ Conversely, retaining the intersection of variants that are present in all panel
 One solution would be to re-process raw sequence or genotype data from multiple studies together, where variants are jointly called and phased over a combined set of samples.
 For example, in a large-scale collaborative effort, the \gls{hrc} has recently created a reference panel from study data of \n{20} participating cohorts, which included a total of \n{64976} human haplotypes in its first release \citep{McCarthy:2016gs}.
 This dataset currently represents the largest single resource of human genetic variation, but currently only includes samples of European ancestry.
-Although data are not accessible publicly, an online service has been provided for imputation and phasing from the internally stored reference dataset\footnote{HRC: \url{http://www.haplotype-reference-consortium.org} \accessed{2017}{02}{05}}.
+Although data are not accessible publicly, an online service has been provided for imputation and phasing from the internally stored reference dataset.\footnote{HRC: \url{http://www.haplotype-reference-consortium.org} \accessed{2017}{02}{05}}
 
 Here, I propose an alternate solution in which multiple reference panels are separately imputed into a given study sample after which the genotype datasets produced are merged.
 Because imputed data may only differ in variant coverage, while the sample set is identical, it is feasible to merge data and integrate genotype information at overlapping sites.

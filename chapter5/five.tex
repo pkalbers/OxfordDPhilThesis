@@ -1379,7 +1379,8 @@ The general algorithm and model specifications of the \gls{hmm} presented here f
 Briefly, at a given target position in the genome, the allelic sequence of \n{2} selected haplotypes is independently traversed to the left and right-hand side from that position, until the end of the chromosome is reached.
 As before, \n{2} hidden states are assumed; \emph{ibd} and \emph{non}.
 The observation states are defined as the possible allelic pairs $(0,0)$, $(0,1)$, and $(1,1)$, where the order of alleles is not relevant; \ie observing $(0,1)$ in haplotypes $A$ and $B$ is equivalent to observing $(1,0)$.
-The model is illustrated in \cpref{fig:info_hmm_hap}, where $\varphi$ denotes a transition parameter and the probabilities of emission from \emph{ibd} are denoted by $\delta_{h_A h_B}$ and from \emph{non} by $\eta_{h_A h_B}$.
+The model is illustrated in \cpref{fig:info_hmm_hap}, where $\varphi$ denotes a transition parameter.
+The probabilities of emission from \emph{ibd} are denoted by $\delta_{ab}$ and from \emph{non} by $\eta_{ab}$, where ${a,b \in \{0,1\}}$ refer to the allelic states.
 Model transitions, emissions, and initial state probabilities are described below.
 
 
@@ -1390,11 +1391,11 @@ Model transitions, emissions, and initial state probabilities are described belo
 \paragraph{Transition probabilities.}
 The genetic distance to a recombination event follows the Exponential distribution when measured in population-scaled time units.
 The probability of transition from \emph{ibd} to \emph{non} is modelled as
-\begin{equation}\label{eq:hmm_trans_prob}
+\begin{equation}
 	\varphi ~=~
-	1 - \euler{-2\Ne r_j \frac{\xi_k}{2}}
+	1 - \euler{-2\Ne r_j \xi_k}
 \end{equation}
-where $j$ indicates the position at the current site in the sequence and $k$ indicates the the focal position.
+where $j$ indicates the position at the current site in the sequence and $k$ indicates the focal position.
 The value of $r_j$ is the genetic distance between the current and the immediately previous site observed in the sequence.
 The value of $\xi_k$ is the expectation of the age of the focal allele after \citet{Kimura:1973ug}, calculated using \ctref{eq:intro_kimura_ohta}.
 The probability of remaining in \emph{ibd} is ${1-\varphi}$.
@@ -1788,7 +1789,7 @@ However, given the amount of work that went into the characterisation of the und
 Pairs were sorted by \gls{tmrca} to indicate the shape of the underlying genealogy around a given focal site.
 Estimated allele age is shown in between the sorted concordant and discordant pairs.
 
-The example shown in \cref{fig:1KG20_age_example}{a} is an intron variant the the MCM6 locus on chromosome~2, which sits approximately \SI{22}{\kilo\basepair} upstream of the LCT gene (encoding the lactase enzyme) and has been associated with lactase persistence in Europeans.
+The example shown in \cref{fig:1KG20_age_example}{a} is an intron variant the MCM6 locus on chromosome~2, which sits approximately \SI{22}{\kilo\basepair} upstream of the LCT gene (encoding the lactase enzyme) and has been associated with lactase persistence in Europeans.
 For example, \citet{enattah2002identification} found that the variant occurs in distantly related populations and therefore concluded that it is relatively old.
 Research on the LCT gene has indicated signatures of recent positive selection around ${\n{5000}-\n{10000}}$ years ago \citep{bersaglieri2004genetic}.
 Here, age estimation suggested that the variant originated at around \n{800} generations ago (according to \ClockC).
