@@ -399,7 +399,7 @@ list-final-separator={, and }%
 \fi%
 }{%
 \if@restonecol\twocolumn
-\else\newpage\thispagestyle{plain}\fi%
+\else\newpage\thispagestyle{empty}\fi%
 }
 
 
@@ -459,7 +459,7 @@ list-final-separator={, and }%
 	\chapter*{Acknowledgements}
 	% \thispagestyle{front}
 	% \pagestyle{front}
-	% \thispagestyle{empty}
+	\thispagestyle{empty}
 	\setlength{\baselineskip}{\frontmatterbaselineskip}
 }
 {
@@ -474,7 +474,7 @@ list-final-separator={, and }%
 	\chapter*{Abstract}
 	% \thispagestyle{front}
 	% \pagestyle{front}
-	%\thispagestyle{empty}
+	\thispagestyle{empty}
 	\setlength{\baselineskip}{\frontmatterbaselineskip}
 }
 {
