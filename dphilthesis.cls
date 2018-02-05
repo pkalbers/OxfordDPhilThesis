@@ -488,7 +488,9 @@ list-final-separator={, and }%
 	% \newgeometry{margin=3cm,top=2.5cm,bottom=2cm}
 	\thispagestyle{empty}
 	\begin{alwayssingle}
+	\thispagestyle{empty}
 	{\centering %\begin{center}
+		\vspace*{-15mm}
     {\large \bfseries \@title \par}
 	{{\large \vspace*{1.5ex} \@author} \par}
 	{
