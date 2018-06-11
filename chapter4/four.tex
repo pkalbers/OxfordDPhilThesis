@@ -369,7 +369,7 @@ The process of error integration in simulated data is described below.
 
 The dataset simulated in Chapter~3 was re-used for integration of genotype error, so as to enable a direct comparison to previously obtained results after applying the same methodology for IBD detection; see \ctref{sec:msprime} for a description of the simulation process.
 Briefly, data were simulated using \texttt{msprime\,0.4.0} \citep{Kelleher:2016fn}, with a sample size of ${N=\num{2500}}$ individuals (\ie \n{5000} haplotypes), resulting in \dec{0.672847}~million variant sites over a length of \SI{62.949301}{\mega\basepair} (\SI{108.26675653}{\centi\morgan}).
-Diploid individuals wee formed by pairing haplotypes.
+Diploid individuals were formed by pairing haplotypes.
 From those, data were converted into genotypes, which were then phased, such that \n{3} datasets were generated (true haplotypes, phased haplotypes, and genotype data).
 The same process was followed here; however, genotype error was evoked on haplotype level before haplotype sequences were combined to form genotypes.
 By doing so, identically distributed proportions of error were present in both the haplotype and genotype datasets, after conversion of the former into the latter, as well as subsequent phasing.
