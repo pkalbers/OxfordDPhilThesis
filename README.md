@@ -4,6 +4,8 @@ Rare and Low-frequency Variants and Predisposition to Complex Disease
 
 *Patrick K. Albers*
 
+###### Download [[PDF](https://github.com/pkalbers/OxfordDPhilThesis/blob/final/pkalbers_oxford_phd_thesis.pdf)]
+
 ---
 
 ### Citation
