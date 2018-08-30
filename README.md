@@ -6,14 +6,13 @@ Rare and Low-frequency Variants and Predisposition to Complex Disease
 
 ###### Download [[PDF](https://github.com/pkalbers/OxfordDPhilThesis/blob/final/pkalbers_oxford_phd_thesis.pdf)]
 
+###### Find @ Oxford Bodleian Libraries [[LINK](http://solo.bodleian.ox.ac.uk/primo-explore/fulldisplay?docid=ORA2d569297-5d2a-49c8-a1ca-32a978aec49d&context=L&vid=SOLO&search_scope=LSCOP_OX&tab=local&lang=en_US)]
+
 ---
 
 ### Citation
 
 Patrick K. Albers (2018) **Rare and Low-frequency Variants and Predisposition to Complex Disease**. PhD thesis, *University of Oxford*
-
-
-###### Find @ Oxford Bodleian Libraries [[LINK](http://solo.bodleian.ox.ac.uk/primo-explore/fulldisplay?docid=ORA2d569297-5d2a-49c8-a1ca-32a978aec49d&context=L&vid=SOLO&search_scope=LSCOP_OX&tab=local&lang=en_US)]
 
 
 ### Abstract
